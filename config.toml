@@ -2,6 +2,7 @@ baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "Jian Liew"
 theme = "hugo-theme-learn"
+publishDir = "docs"
 
 [params]
     themeVariant = "blue"
