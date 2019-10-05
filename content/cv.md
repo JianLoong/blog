@@ -1,5 +1,6 @@
 +++
 title = "Curriculum Vitae"
+disableNextPrev = "true"
 +++
 
 ## Summary

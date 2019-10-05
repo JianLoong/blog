@@ -10,17 +10,25 @@ publishDir = "docs"
 [outputs]
     home = [ "HTML", "RSS", "JSON"]
 
-[[menu.shortcuts]] 
-    name = "<i class='fab fa-github'></i> GitHub Repo"
-    identifier = "ds"
-    url = "https://github.com/JianLoong"
-    weight = 10
+
 
 [[menu.shortcuts]]
-    name = "<i class='fas fa-bookmark'></i> Curriculum Vitae"
+    name = "<i class='far fa-file fa-fw'></i> Curriculum Vitae"
     identifier = "cv"
-    url = "/about/cv"
+    url = "/cv"
     weight = 20
+
+[[menu.shortcuts]]
+    name = "<i class='fas fa-exclamation-triangle fa-fw'></i> Disclaimer"
+    identifier = "disclaimer"
+    url = "/disclaimer"
+    weight = 20
+
+[[menu.shortcuts]] 
+    name = "<i class='fab fa-github fa-fw'></i> GitHub Repo"
+    identifier = "ds"
+    url = "https://github.com/JianLoong"
+    weight = 25
 
 
 [privacy]
