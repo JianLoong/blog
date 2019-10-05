@@ -2,7 +2,7 @@
 title = "About"
 +++
 
-![Monash University](/images/monash-university.jpg?width=50pc)
+![Monash University](/blog/images/monash-university.jpg?width=50pc)
 
 For the past 2.5 years, I have been working as a Teaching Associate with Monash University. I have taught both at the undergraduate level as well as postgraduate level. Overall, I have assisted over 100 students every semester to understand the course material and taught them how to apply critical thinking to every aspect of their studies.
 
