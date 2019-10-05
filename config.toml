@@ -1,0 +1,46 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Jian Liew"
+theme = "hugo-theme-learn"
+
+[params]
+    themeVariant = "blue"
+
+[outputs]
+    home = [ "HTML", "RSS", "JSON"]
+
+[[menu.shortcuts]] 
+    name = "<i class='fab fa-github'></i> GitHub Repo"
+    identifier = "ds"
+    url = "https://github.com/JianLoong"
+    weight = 10
+
+[[menu.shortcuts]]
+    name = "<i class='fas fa-bookmark'></i> Curriculum Vitae"
+    identifier = "cv"
+    url = "/about/_cv"
+    weight = 20
+
+
+[privacy]
+
+    [privacy.disqus]
+        disable = false
+    [privacy.googleAnalytics]
+        anonymizeIP = false
+        disable = false
+        respectDoNotTrack = false
+        useSessionStorage = false
+    [privacy.instagram]
+        disable = false
+        simple = false
+    [privacy.twitter]
+        disable = false
+        enableDNT = false
+        simple = false
+    [privacy.vimeo]
+        disable = false
+        simple = false
+    [privacy.youtube]
+        disable = false
+        privacyEnhanced = false
