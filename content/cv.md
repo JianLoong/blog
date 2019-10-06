@@ -13,14 +13,17 @@ with the innate ability to stay on the task.
 Sessional Lecturer & Teaching Associate (Sessional)
 
 Subjects previously taught includes:
-- FIT1010 - Introduction to Software Engineering
-- FIT5032 - Internet Applications Development
-- FIT5042 - Enterprise Web Applications
-- FIT5120 - Industry Experience Project
-- FIT5136 - Software Engineering
-- FIT9131 - Programming Foundations in Java
-- FIT9134 - Computer Architecture and Operating Systems
-- FIT9135 - Data Communications
+
+| Unit Code   | Name          |
+|-----------|--------------|
+| FIT1010 | Introduction to Software Engineering |
+| FIT5032 | Internet Applications Development |
+| FIT5042 | Enterprise Web Applications |
+| FIT5120 | Industry Experience Project |
+| FIT5136 | Software Engineering |
+| FIT9131 | Programming Foundations in Java |
+| FIT9134 | Computer Architecture and Operating Systems |
+| FIT9135 | Data Communications |
 
 #### Key responsibilities
 - Confidently assist students to become	independent	and	collaborative learners during each studio session by encouraging participation as well as the motivation to	learn from each	other.

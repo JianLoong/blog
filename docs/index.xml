@@ -1,3 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Profile on Jian Liew</title><link>https://jianliew.me/blog/</link><description>Recent content in Profile on Jian Liew</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://jianliew.me/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Curriculum Vitae</title><link>https://jianliew.me/blog/cv/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jianliew.me/blog/cv/</guid><description>Summary A passionate educator and technology lover with excellent programming and communication skills. Organized and driven with the innate ability to stay on the task.
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Profile on Jian Liew</title>
+    <link>https://jianliew.me/blog/</link>
+    <description>Recent content in Profile on Jian Liew</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://jianliew.me/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Curriculum Vitae</title>
+      <link>https://jianliew.me/blog/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/cv/</guid>
+      <description>Summary A passionate educator and technology lover with excellent programming and communication skills. Organized and driven with the innate ability to stay on the task.
 Teaching Experience Monash University, Melbourne (April 2015 - Current) Sessional Lecturer &amp;amp; Teaching Associate (Sessional)
-Subjects previously taught includes: - FIT1010 - Introduction to Software Engineering - FIT5032 - Internet Applications Development - FIT5042 - Enterprise Web Applications - FIT5120 - Industry Experience Project - FIT5136 - Software Engineering - FIT9131 - Programming Foundations in Java - FIT9134 - Computer Architecture and Operating Systems - FIT9135 - Data Communications</description></item><item><title>Disclaimer</title><link>https://jianliew.me/blog/disclaimer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jianliew.me/blog/disclaimer/</guid><description>This web site is not authorised by Monash University and that any opinions expressed on the pages are those of the author and not those of the University.</description></item></channel></rss>
+Subjects previously taught includes:
+   Unit Code Name     FIT1010 Introduction to Software Engineering   FIT5032 Internet Applications Development   FIT5042 Enterprise Web Applications   FIT5120 Industry Experience Project   FIT5136 Software Engineering   FIT9131 Programming Foundations in Java   FIT9134 Computer Architecture and Operating Systems   FIT9135 Data Communications    Key responsibilities  Confidently assist students to become independent and collaborative learners during each studio session by encouraging participation as well as the motivation to learn from each other.</description>
+    </item>
+    
+    <item>
+      <title>Disclaimer</title>
+      <link>https://jianliew.me/blog/disclaimer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/disclaimer/</guid>
+      <description>This web site is not authorised by Monash University and that any opinions expressed on the pages are those of the author and not those of the University.</description>
+    </item>
+    
+  </channel>
+</rss>
