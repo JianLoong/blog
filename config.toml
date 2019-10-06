@@ -3,14 +3,13 @@ languageCode = "en-us"
 title = "Jian Liew"
 theme = "hugo-theme-learn"
 publishDir = "docs"
+googleAnalytics = "UA-55422968-1"
 
 [params]
     themeVariant = "blue"
 
 [outputs]
     home = [ "HTML", "RSS", "JSON"]
-
-
 
 [[menu.shortcuts]]
     name = "<i class='far fa-file fa-fw'></i> Curriculum Vitae"
@@ -30,9 +29,7 @@ publishDir = "docs"
     url = "https://github.com/JianLoong"
     weight = 25
 
-
 [privacy]
-
     [privacy.disqus]
         disable = false
     [privacy.googleAnalytics]
