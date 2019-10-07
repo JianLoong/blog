@@ -25,20 +25,20 @@ if (!doNotTrack) {
 </script>
 
     
-    <link href="/blog/css/nucleus.css?1570426838" rel="stylesheet">
-    <link href="/blog/css/fontawesome-all.min.css?1570426838" rel="stylesheet">
-    <link href="/blog/css/hybrid.css?1570426838" rel="stylesheet">
-    <link href="/blog/css/featherlight.min.css?1570426838" rel="stylesheet">
-    <link href="/blog/css/perfect-scrollbar.min.css?1570426838" rel="stylesheet">
-    <link href="/blog/css/auto-complete.css?1570426838" rel="stylesheet">
-    <link href="/blog/css/atom-one-dark-reasonable.css?1570426838" rel="stylesheet">
-    <link href="/blog/css/theme.css?1570426838" rel="stylesheet">
-    <link href="/blog/css/hugo-theme.css?1570426838" rel="stylesheet">
+    <link href="/blog/css/nucleus.css?1570429284" rel="stylesheet">
+    <link href="/blog/css/fontawesome-all.min.css?1570429284" rel="stylesheet">
+    <link href="/blog/css/hybrid.css?1570429284" rel="stylesheet">
+    <link href="/blog/css/featherlight.min.css?1570429284" rel="stylesheet">
+    <link href="/blog/css/perfect-scrollbar.min.css?1570429284" rel="stylesheet">
+    <link href="/blog/css/auto-complete.css?1570429284" rel="stylesheet">
+    <link href="/blog/css/atom-one-dark-reasonable.css?1570429284" rel="stylesheet">
+    <link href="/blog/css/theme.css?1570429284" rel="stylesheet">
+    <link href="/blog/css/hugo-theme.css?1570429284" rel="stylesheet">
     
-      <link href="/blog/css/theme-blue.css?1570426838" rel="stylesheet">
+      <link href="/blog/css/theme-blue.css?1570429284" rel="stylesheet">
     
 
-    <script src="/blog/js/jquery-3.3.1.min.js?1570426838"></script>
+    <script src="/blog/js/jquery-3.3.1.min.js?1570429284"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -67,14 +67,14 @@ if (!doNotTrack) {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/blog/js/lunr.min.js?1570426838"></script>
-<script type="text/javascript" src="/blog/js/auto-complete.js?1570426838"></script>
+<script type="text/javascript" src="/blog/js/lunr.min.js?1570429284"></script>
+<script type="text/javascript" src="/blog/js/auto-complete.js?1570429284"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/jianliew.me\/blog";
     
 </script>
-<script type="text/javascript" src="/blog/js/search.js?1570426838"></script>
+<script type="text/javascript" src="/blog/js/search.js?1570429284"></script>
 
     
   </div>
@@ -118,6 +118,25 @@ if (!doNotTrack) {
       <li data-nav-id="/blog/uml/introduction/" title="What are State Machine Diagrams?" class="dd-item active">
         <a href="/blog/uml/introduction/">
         <b>1. </b>What are State Machine Diagrams?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/uml/classdiagram/" title="What are Class Diagrams?" class="dd-item ">
+        <a href="/blog/uml/classdiagram/">
+        <b>2. </b>What are Class Diagrams?
         
         </a>
     </li>
@@ -281,7 +300,7 @@ if (!doNotTrack) {
 
 <h4 id="introduction">Introduction</h4>
 
-<p>This article is written based on my teaching experiencing in Monash University Australia for the unit Software Engineering.</p>
+<p>This article is written based on my teaching experiencing in Monash University Australia (Faculty of Information Technology) for the unit Software Engineering.</p>
 
 <p>Often times, one of the most <strong>misunderstood</strong> diagram in UML is the <strong>state machine</strong>. These are also called state charts at times, as we often use terms interchangeably. The semantical difference between two of these diagrams are miniscule at best.</p>
 
@@ -300,8 +319,8 @@ if (!doNotTrack) {
 
 graph LR
 S(( ))
-A((Open))
-B((Close))
+A(Open)
+B(Close)
 E(( ))
 S-->A
 A-->B
@@ -385,13 +404,13 @@ A --> B
 
 <p>However, if you continue the thought process, there are probably more states which can only be derived by understanding the requirements further.</p>
 
-<p>For example, if we apply the concept of 4W1H, we will be apply to understanding more regarding the requirements itself.</p>
+<p>For example, if we apply the concept of <strong>4W1H</strong>, we will attempt to understand more regarding the requirements itself.</p>
 
 <table>
 <thead>
 <tr>
+<th>Category</th>
 <th>Question</th>
-<th>Answer</th>
 </tr>
 </thead>
 
@@ -429,16 +448,16 @@ A --> B
 
 <div class="mermaid" align="center">
 
-graph LR
-S(( ))
-A((Open))
-B((Close))
-E(( ))
-S-->A
-A-->B
-B-->E
-style S fill:#000000
-class E cssClass
+    graph LR
+    S(( ))
+    A(Open)
+    B(Close)
+    E(( ))
+    S-->A
+    A-->B
+    B-->E
+    style S fill:#000000
+    class E cssClass
 
 </div>
 
@@ -514,6 +533,25 @@ class E cssClass
             
         
                     
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -529,6 +567,8 @@ class E cssClass
 			<a class="nav nav-prev" href="/blog/uml/" title="UML"> <i class="fa fa-chevron-left"></i></a>
 		
 		
+			<a class="nav nav-next" href="/blog/uml/classdiagram/" title="What are Class Diagrams?" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
 	
     </div>
 
@@ -537,19 +577,19 @@ class E cssClass
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/blog/js/clipboard.min.js?1570426838"></script>
-    <script src="/blog/js/perfect-scrollbar.min.js?1570426838"></script>
-    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1570426838"></script>
-    <script src="/blog/js/jquery.sticky.js?1570426838"></script>
-    <script src="/blog/js/featherlight.min.js?1570426838"></script>
-    <script src="/blog/js/highlight.pack.js?1570426838"></script>
+    <script src="/blog/js/clipboard.min.js?1570429284"></script>
+    <script src="/blog/js/perfect-scrollbar.min.js?1570429284"></script>
+    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1570429284"></script>
+    <script src="/blog/js/jquery.sticky.js?1570429284"></script>
+    <script src="/blog/js/featherlight.min.js?1570429284"></script>
+    <script src="/blog/js/highlight.pack.js?1570429284"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/blog/js/modernizr.custom-3.6.0.js?1570426838"></script>
-    <script src="/blog/js/learn.js?1570426838"></script>
-    <script src="/blog/js/hugo-learn.js?1570426838"></script>
+    <script src="/blog/js/modernizr.custom-3.6.0.js?1570429284"></script>
+    <script src="/blog/js/learn.js?1570429284"></script>
+    <script src="/blog/js/hugo-learn.js?1570429284"></script>
 
-    <link href="/blog/mermaid/mermaid.css?1570426838" rel="stylesheet" />
-    <script src="/blog/mermaid/mermaid.js?1570426838"></script>
+    <link href="/blog/mermaid/mermaid.css?1570429284" rel="stylesheet" />
+    <script src="/blog/mermaid/mermaid.js?1570429284"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

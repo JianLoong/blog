@@ -18,8 +18,17 @@
       <guid>https://jianliew.me/blog/uml/introduction/</guid>
       <description>This blog post is incomplete.
  This blog entry assumes that the reader has a basic understanding of UML diagrams and would wish to understand more regarding state machine diagrams.
- Introduction This article is written based on my teaching experiencing in Monash University Australia for the unit Software Engineering.
+ Introduction This article is written based on my teaching experiencing in Monash University Australia (Faculty of Information Technology) for the unit Software Engineering.
 Often times, one of the most misunderstood diagram in UML is the state machine. These are also called state charts at times, as we often use terms interchangeably.</description>
+    </item>
+    
+    <item>
+      <title>What are Class Diagrams?</title>
+      <link>https://jianliew.me/blog/uml/classdiagram/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/uml/classdiagram/</guid>
+      <description></description>
     </item>
     
     <item>
