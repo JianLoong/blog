@@ -2,6 +2,7 @@
 title = "UML"
 chapter = true
 weight = 5
+date = "{{ .Date }}"
 pre = "<b></b>"
 +++
 
