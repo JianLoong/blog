@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>State Chart on Jian Liew</title>
+    <link>https://jianliew.me/blog/tags/state-chart/</link>
+    <description>Recent content in State Chart on Jian Liew</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://jianliew.me/blog/tags/state-chart/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What are State Machine Diagrams?</title>
+      <link>https://jianliew.me/blog/uml/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/uml/introduction/</guid>
+      <description>This blog post is incomplete.
+ This blog entry assumes that the reader has a basic understanding of UML diagrams and would wish to understand more regarding state machine diagrams.
+ Introduction This article is written based on my teaching experiencing in Monash University Australia for the unit Software Engineering.
+Often times, one of the most misunderstood diagram in UML is the state machine. These are also called state charts at times, as we often use terms interchangeably.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/blog/images/favicon.ico" type="image/ico">
 
-    <title>Disclaimer :: Jian Liew</title>
+    <title>What are State Machine Diagrams? :: Jian Liew</title>
     
 <script type="application/javascript">
 var doNotTrack = false;
@@ -48,7 +48,7 @@ if (!doNotTrack) {
     </style>
     
   </head>
-  <body class="" data-url="/blog/disclaimer/">
+  <body class="" data-url="/blog/uml/introduction/">
     <nav id="sidebar" class="">
 
 
@@ -91,7 +91,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/uml/" title="UML" class="dd-item 
-        
+        parent
         
         
         ">
@@ -115,7 +115,7 @@ if (!doNotTrack) {
  
   
     
-      <li data-nav-id="/blog/uml/introduction/" title="What are State Machine Diagrams?" class="dd-item ">
+      <li data-nav-id="/blog/uml/introduction/" title="What are State Machine Diagrams?" class="dd-item active">
         <a href="/blog/uml/introduction/">
         <b>1. </b>What are State Machine Diagrams?
         
@@ -199,7 +199,13 @@ if (!doNotTrack) {
             
           
           
-            <a href='/blog/'>Contents</a> > Disclaimer
+            
+            
+          
+          
+            <a href='/blog/'>Contents</a> > <a href='/blog/uml/'>UML</a> > What are State Machine Diagrams?
+          
+        
           
         
           
@@ -210,7 +216,24 @@ if (!doNotTrack) {
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#a-single-class">A single class</a></li>
+<li><a href="#dynamic">Dynamic</a></li>
+<li><a href="#diagrams">Diagrams</a></li>
+<li><a href="#references">References</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -220,13 +243,23 @@ if (!doNotTrack) {
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/blog/tags/uml">UML</a>
+
+  <a class="tag-link" href="/blog/tags/state-machine">State Machine</a>
+
+  <a class="tag-link" href="/blog/tags/state-chart">State Chart</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              Disclaimer
+              What are State Machine Diagrams?
             </h1>
           
 
@@ -234,7 +267,189 @@ if (!doNotTrack) {
 
 
 
-<p>This web site is not authorised by Monash University and that any opinions expressed on the pages are those of the author and not those of the University.</p>
+
+
+
+<div class="notices warning" ><p>This blog post is incomplete.</p>
+</div>
+
+
+
+<div class="notices note" ><p>This blog entry assumes that the reader has a basic understanding of UML diagrams and would wish to understand more regarding state machine diagrams.</p>
+</div>
+
+
+<h4 id="introduction">Introduction</h4>
+
+<p>This article is written based on my teaching experiencing in Monash University Australia for the unit Software Engineering.</p>
+
+<p>Often times, one of the most <strong>misunderstood</strong> diagram in UML is the <strong>state machine</strong>. These are also called state charts at times, as we often use terms interchangeably. The semantical difference between two of these diagrams are miniscule at best.</p>
+
+<!-- https://stackoverflow.com/questions/8193675/draw-a-hollow-circle-in-svg -->
+
+<style>
+    .cssClass > circle {
+        fill:black !important;
+        stroke:gray !important;
+        stroke-width:3 !important;
+     }    
+</style>
+
+
+<div class="mermaid" align="center">
+
+graph LR
+S(( ))
+A((Open))
+B((Close))
+E(( ))
+S-->A
+A-->B
+B-->E
+style S fill:#000000
+class E cssClass
+
+</div>
+
+
+<p>In fact, for most people, UML is perceived to be something that is not very useful in the development world. The main reason, is because the lack of understanding how the diagrams would relate to a real world application. When I first learn about UML state machines, I often confuse it with other diagrams like the <strong>flow chart</strong> as well as the <strong>activity diagram</strong>. I would also question its usefulness. Over time, I realised that it is one of the most useful diagrams in UML.</p>
+
+<p><strong>I will attempt to explain why in this blog post.</strong></p>
+
+<p>Remember that at the end of the day, diagrams are very useful to gain a better understanding of the system.</p>
+
+<p>The very first thing to understand is that a state chart is a <strong>dynamic</strong> modelling technique. It focuses on identifying the behavior of your system, specific to instances of <strong>a single class</strong>. <sup><a href="#1">1</a></sup></p>
+
+<p>The main keywords here are</p>
+
+<ul>
+<li>A Single Class</li>
+<li>Dynamic</li>
+</ul>
+
+<p><strong>Let&rsquo;s try to understand these keywords in more details.</strong></p>
+
+<h4 id="a-single-class">A single class</h4>
+
+<p>One of the key features of a state machine, is that it used to model a specific instance of a <strong>single class</strong>. This concept is at utmost importance when dealing with state diagrams. Not <strong>two</strong> classes, not <strong>three</strong> classes but a <strong>single</strong> class. Before we move on, lets see an example of a class diagram for now. Remember that normally the construction of a state diagram happens after the class diagram.</p>
+
+
+<div class="mermaid" align="center">
+
+graph LR
+A[Student]
+B[Unit]
+A --> B
+</div>
+
+
+<p align="center">A simple class diagram. (Initial level)</p>
+
+<p>The example above is a simplification of what a class diagram is at its very basic nature. Two classes, Student and Unit and the Student class using the Unit class.</p>
+
+<pre><code>public class Student {
+    private String firstName;
+    private String lastName;
+    private Unit unit;
+
+    // Other methods omitted..
+}
+</code></pre>
+
+<pre><code>public class Unit {
+    private String name;
+    private String description;
+
+
+    // Other methods omitted..
+}
+</code></pre>
+
+<p>So, where does the state machine come into the picture in this situation? Since the state machine diagram aims to model a single class. Which class would we model here? Do we model both of them or just one of them? The answer is pretty simple, we actually attempt to do a state chart of <strong>all of the classes.</strong></p>
+
+<p>Since based on the diagram, the Student class is using the Unit class, we should start modelling the state chart from the Unit class. One of the very first steps when drawing the state machine diagram would be to list out all the possible states.</p>
+
+
+<div class="notices tip" ><p>Remember that the object of modelling is always to understand the system in more detailed view. We would also like to understand requirements better.</p>
+</div>
+
+
+<p><strong>One of the more intellectually stimulating steps is probably where you list out the possible states in a state chart</strong></p>
+
+<p>So, lets say the possible states of a Unit are</p>
+
+<ul>
+<li>Offered</li>
+<li>Not offered</li>
+</ul>
+
+<p>However, if you continue the thought process, there are probably more states which can only be derived by understanding the requirements further.</p>
+
+<p>For example, if we apply the concept of 4W1H, we will be apply to understanding more regarding the requirements itself.</p>
+
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Who</td>
+<td>?</td>
+</tr>
+
+<tr>
+<td>Where</td>
+<td>?</td>
+</tr>
+
+<tr>
+<td>When</td>
+<td>?</td>
+</tr>
+
+<tr>
+<td>How</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="dynamic">Dynamic</h4>
+
+<p>One of the biggest difference regarding state diagrams in comparison to the other diagrams in UML is that it attempts to model the <strong>dynamic nature of a system</strong>. In comparison to the other diagrams, state machine diagrams can model something which is not captured by the <strong>class diagram</strong>, as well as the <strong>use case diagram</strong>.</p>
+
+<p>It is very important to understand that over time, the state of a class changes. In the semantical sense, <strong>dynamic</strong> conveys the meaning of <em>(of a process or system) characterised by constant change, activity, or progress</em>.</p>
+
+<p>Let&rsquo;s have a look at our state chart that will be the study of this blog entry.</p>
+
+
+<div class="mermaid" align="center">
+
+graph LR
+S(( ))
+A((Open))
+B((Close))
+E(( ))
+S-->A
+A-->B
+B-->E
+style S fill:#000000
+class E cssClass
+
+</div>
+
+
+<h4 id="diagrams">Diagrams</h4>
+
+<p>P.S. - The real reason I wanted to make to blog post, is actually just to use mermaid diagrams.</p>
+
+<h4 id="references">References</h4>
+
+<p><a name="1">1</a>. <a href="http://www.agilemodeling.com/artifacts/stateMachineDiagram.htm">UML 2 State Machine Diagrams: An Agile Introduction</a></p>
 
 
 <footer class=" footline" >
@@ -273,8 +488,6 @@ if (!doNotTrack) {
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -288,6 +501,7 @@ if (!doNotTrack) {
             
             
                 
+                    
                     
                 
                 
@@ -311,6 +525,11 @@ if (!doNotTrack) {
 
 	 
 	 
+		
+			<a class="nav nav-prev" href="/blog/uml/" title="UML"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+	
     </div>
 
     </section>
