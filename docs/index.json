@@ -1,7 +1,14 @@
 [
 {
+	"uri": "https://jianliew.me/blog/blog/",
+	"title": "Blog",
+	"tags": [],
+	"description": "",
+	"content": " Blog This blog post is under construction.\n "
+},
+{
 	"uri": "https://jianliew.me/blog/uml/",
-	"title": "UML",
+	"title": "Teaching",
 	"tags": [],
 	"description": "",
 	"content": " Unified Modelling Language State Machines What are state machines?\ngraph LR A(Open) B(Close) A--B  "

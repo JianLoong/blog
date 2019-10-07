@@ -37,6 +37,18 @@ googleAnalytics = "UA-55422968-1"
     weight = 25
 
 
+[[menu.shortcuts]] 
+    name = "<i class='fab fa-linkedin-in fa-fw'></i> Linkedin"
+    identifier = "linkedin"
+    url = "https://au.linkedin.com/in/jian-loong-liew-0433ab39"   
+    weight = 30  
+
+[[menu.shortcuts]] 
+    name = "<i class='fas fa-envelope-square fa-fw'></i> Email"
+    identifier = "email"
+    url = "mailto:jianloongliew@gmail.com"   
+    weight = 35 
+
 [privacy]
     [privacy.disqus]
         disable = false

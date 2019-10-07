@@ -1,5 +1,5 @@
 +++
-title = "UML"
+title = "Teaching"
 chapter = true
 weight = 5
 date = "{{ .Date }}"
