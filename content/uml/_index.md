@@ -13,7 +13,7 @@ What are state machines?
 
 <div class="mermaid" align="center">
   graph LR
-      A((Open))
-      B((Close))
+      A(Open)
+      B(Close)
       A-->B
 </div>

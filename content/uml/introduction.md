@@ -11,8 +11,6 @@ This blog post is incomplete.
 
 {{% /notice %}}
 
-
-
 {{% notice note %}}
 
 This blog entry assumes that the reader has a basic understanding of UML diagrams and would wish to understand more regarding state machine diagrams.
@@ -21,7 +19,7 @@ This blog entry assumes that the reader has a basic understanding of UML diagram
 
 #### Introduction
 
-This article is written based on my teaching experiencing in Monash University Australia for the unit Software Engineering.
+This article is written based on my teaching experiencing in Monash University Australia (Faculty of Information Technology) for the unit Software Engineering.
 
 Often times, one of the most **misunderstood** diagram in UML is the **state machine**. These are also called state charts at times, as we often use terms interchangeably. The semantical difference between two of these diagrams are miniscule at best.
 
@@ -38,8 +36,8 @@ Often times, one of the most **misunderstood** diagram in UML is the **state mac
 
 graph LR
 S(( ))
-A((Open))
-B((Close))
+A(Open)
+B(Close)
 E(( ))
 S-->A
 A-->B
@@ -119,9 +117,9 @@ So, lets say the possible states of a Unit are
 
 However, if you continue the thought process, there are probably more states which can only be derived by understanding the requirements further.
 
-For example, if we apply the concept of 4W1H, we will be apply to understanding more regarding the requirements itself.
+For example, if we apply the concept of **4W1H**, we will attempt to understand more regarding the requirements itself.
 
-| Question | Answer |
+| Category | Question |
 | -------- | ------ |
 | Who      | ?      |
 | Where    | ?      |
@@ -138,18 +136,19 @@ Let's have a look at our state chart that will be the study of this blog entry.
 
 {{<mermaid align="center">}}
 
-graph LR
-S(( ))
-A((Open))
-B((Close))
-E(( ))
-S-->A
-A-->B
-B-->E
-style S fill:#000000
-class E cssClass
+    graph LR
+    S(( ))
+    A(Open)
+    B(Close)
+    E(( ))
+    S-->A
+    A-->B
+    B-->E
+    style S fill:#000000
+    class E cssClass
 
 {{< /mermaid >}}
+
 
 #### Diagrams
 
