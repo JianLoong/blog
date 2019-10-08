@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/blog/images/favicon.ico" type="image/ico">
 
-    <title>Bash :: Jian Liew</title>
+    <title>The File System :: Jian Liew</title>
     
 <script type="application/javascript">
 var doNotTrack = false;
@@ -48,7 +48,7 @@ if (!doNotTrack) {
     </style>
     
   </head>
-  <body class="" data-url="/blog/tags/bash/">
+  <body class="" data-url="/blog/teaching/ubuntu/ls/">
     <nav id="sidebar" class="">
 
 
@@ -113,7 +113,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/teaching/" title="Teaching" class="dd-item 
-        
+        parent
         
         
         ">
@@ -140,7 +140,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/teaching/ubuntu/" title="Ubuntu" class="dd-item 
-        
+        parent
         
         
         ">
@@ -164,7 +164,7 @@ if (!doNotTrack) {
  
   
     
-      <li data-nav-id="/blog/teaching/ubuntu/ls/" title="The File System" class="dd-item ">
+      <li data-nav-id="/blog/teaching/ubuntu/ls/" title="The File System" class="dd-item active">
         <a href="/blog/teaching/ubuntu/ls/">
         <b>1. </b>The File System
         
@@ -345,7 +345,13 @@ if (!doNotTrack) {
             
           
           
-            <a href='/blog/'>Contents</a> > <a href='/blog/tags/'>Tags</a> > Bash
+            
+            
+          
+          
+            <a href='/blog/'>Contents</a> > <a href='/blog/teaching/'>Teaching</a> > <a href='/blog/teaching/ubuntu/'>Ubuntu</a> > The File System
+          
+        
           
         
           
@@ -358,7 +364,22 @@ if (!doNotTrack) {
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#the-linux-file-system-directory-architecture">The Linux File System Directory Architecture.</a></li>
+<li><a href="#the-man-pages">The <code>man</code> pages</a></li>
+<li><a href="#the-ls-command">The <code>ls</code> command</a>
+<ul>
+<li><a href="#references">References</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -368,15 +389,23 @@ if (!doNotTrack) {
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/blog/tags/shell">Shell</a>
+
+  <a class="tag-link" href="/blog/tags/bash">Bash</a>
+
+  <a class="tag-link" href="/blog/tags/command-line">Command Line</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-                taxonomy ::
-              
-              Bash
+              The File System
             </h1>
           
 
@@ -387,16 +416,213 @@ if (!doNotTrack) {
 
 
 
-<ul>
-	
-		<li><a href="/blog/teaching/ubuntu/ls/">The File System</a></li>
-	
-</ul>
+<div class="notices warning" ><p>This blog post is under construction.</p>
+</div>
+
+
+
+<div class="notices note" ><p>This blog entry assumes that the reader has a basic understanding of using the command line and would like to know more. (More specifically using the Bash shell on Ubuntu)</p>
+</div>
+
+
+<h3 id="the-linux-file-system-directory-architecture">The Linux File System Directory Architecture.</h3>
+
+<p>In Linux distributions, the directory structure is defined by the <strong>Filesystem hierarchy Standard</strong>.<sup><a href="#1">1</a></sup></p>
+
+<style>
+    .secondLevel > rect {
+        fill:lightblue !important;
+     }    
+</style>
+
+
+<div class="mermaid" align="center">
+
+graph TD
+R( / )
+L1A( /bin )
+L1AA( /etc )
+L1B( /proc )
+L1C[ /boot ]
+L1D[ /root ]
+L1E[ /dev ]
+L1F( /home )
+L1G( /usr )
+
+    L2A( /jian )
+    L2B( /tim )
+    L2C( /kevin )
+    L2D( /bin )
+
+    R --> L1A
+    R --> L1AA
+    R --> L1B
+    R --> L1C
+    R --> L1D
+    R --> L1E
+    R --> L1F
+    R --> L1G
+
+    L1F --> L2A
+    L1F --> L2B
+    L1F --> L2C
+
+    L1G --> L2D
+
+
+    style R fill:#FFFFFF
+    class L1A,L1AA,L1B,L1C,L1D,L1E,L1F,L1G secondLevel;
+
+</div>
+
+
+<p align="center">This diagram shows how the file system looks like on an Ubuntu machine. </p>
+
+<p>The first and top most directory is called the <strong>root directory</strong>. This directory is denoted as the <code>/</code> (forward slash) symbol. The reason for this is because it can be thought off as the trunk of a tree.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Directory</th>
+<th>Purpose</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">/</td>
+<td>- First directory and the root of the entire file system hierarchy <br />- Contains all other directories</td>
+</tr>
+
+<tr>
+<td align="center">/bin</td>
+<td>- Contains commands that may be used by both the system administrators and by users <br /> - There must be no subdirectories in here.</td>
+</tr>
+
+<tr>
+<td align="center">/boot</td>
+<td>- The operating system kernel is located here.</td>
+</tr>
+
+<tr>
+<td align="center">/etc</td>
+<td>- Contains configuration files. <strong>Configuration file</strong> is a local file that is used to control the operation of a program. It must be static and cannot be an executable binary.</td>
+</tr>
+
+<tr>
+<td align="center">/home</td>
+<td>- This directory contains user&rsquo;s home directories. Generally, each user would have a separate directory with their username under this directory.</td>
+</tr>
+</tbody>
+</table>
+
+
+<div class="notices tip" ><p>Even though <code>/home</code> is a standard concept, the setup will differ from host to host. Therefore it is important that no program should assume any specific location for a home directory, rather it should query for it.</p>
+</div>
+
+
+
+<div class="notices warning" ><p>On Ubuntu, you will notice another directory called <code>/root</code>, however, this is not the root directory. It is actually the home directory of the superuser.</p>
+</div>
+
+
+<h3 id="the-man-pages">The <code>man</code> pages</h3>
+
+<p>There are several ways in which users obtain help. One of the most well known way would be to use the man pages. However, these days most people do not use the man pages anymore.</p>
+
+<pre><code>$ man
+</code></pre>
+
+<p>For example, if you want to take a look at the <code>man</code> pages for the <code>ls</code> command, you will just need to do</p>
+
+<pre><code class="language-shell">$ man ls
+</code></pre>
+
+<h3 id="the-ls-command">The <code>ls</code> command</h3>
+
+<p>List in <strong>long format</strong> all the files and directories in your home directory.</p>
+
+<p>Answer</p>
+
+<pre><code>$ ls -l
+</code></pre>
+
+<p>The main challenge of this question is so that students understand how to use the <code>ls</code> command.</p>
+
+<p>There are several points to take note in this question. For example, what is the meaning of <strong>long</strong> format? What does it mean by <strong>all</strong> files and directories?</p>
+
+<p>One interesting thing is that most people do not know that the <code>ls</code> command can actually be given a file.</p>
+
+<p>So, the various accepted answers for this question are</p>
+
+<pre><code class="language-shell">$ ls -l
+$ ls --all -l
+$ ls -al
+</code></pre>
+
+<p>List in <strong>long format</strong> all the files and directories (top-level only) in the <strong>/usr/local</strong> directory, sorted by the time of last modification.</p>
+
+<pre><code class="language-shell">$ ls -lt
+</code></pre>
+
+<p>One interesting thing about Ubuntu is the way it manages time. For example, if you use the command <code>stat</code> on a file.if</p>
+
+<p><img src="/blog/images/ubuntu/stat.png?featherlight=false&amp;classes=border,shadow" alt="Stat command on file" /></p>
+
+<hr />
+
+<p>Challenge 3</p>
+
+<p>Create the following <strong>directory</strong> structure.</p>
+
+
+<div class="mermaid" align="center">
+
+graph TD
+S( Your Home Directory )
+A( monash )
+B( personal )
+C( documents )
+D( data )
+E( temp )
+F( documents )
+S --> A
+S --> B
+A --> C
+A --> D
+A --> E
+B --> F
+</div>
+
+
+<p>In order to create the directory structure, there are several ways. One way to do is would be to use several <code>mkdir</code> commands.</p>
+
+<pre><code class="language-shell">$ mkdir monash
+$ mkdir personal
+$ mkdir monash/documents
+$ mkdir monash/data
+$ mkdir monash/temp
+$ mkdir personal/documents
+</code></pre>
+
+<p>However, you can achieve the same result by using a single <code>mkdir</code> command. At the end of the day if you look at the manual for <code>mkdir</code>, it does mention that it can be used to create directories.</p>
+
+<pre><code class="language-shell">$ mkdir -p monash personal monash/documents monash/data monash/temp personal/documents
+</code></pre>
+
+<p>Change into the <strong>~/monash/temp</strong> directory. The special character ~ means &ldquo;a shortcut to your home directory&rdquo;</p>
+
+<p>Change into your home directory. How many ways can you do this?</p>
+
+<h4 id="references">References</h4>
+
+<p><a name="1">1</a>. <a href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">Wikipedia Filesystem Hierarchy Standard</a></p>
 
 
 <footer class=" footline" >
 	
 </footer>
+
 
         
         </div> 
@@ -448,6 +674,7 @@ if (!doNotTrack) {
             
                 
                     
+                    
                 
                 
 
@@ -463,6 +690,7 @@ if (!doNotTrack) {
             
                 
                     
+                    
                 
                 
 
@@ -475,6 +703,7 @@ if (!doNotTrack) {
             
             
                 
+                    
                     
                 
                 
@@ -494,6 +723,9 @@ if (!doNotTrack) {
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -550,8 +782,10 @@ if (!doNotTrack) {
 	 
 	 
 		
+			<a class="nav nav-prev" href="/blog/teaching/ubuntu/" title="Ubuntu"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/blog/blog/" title="Blog" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/blog/teaching/uml/" title="UML" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -581,3 +815,4 @@ if (!doNotTrack) {
 
   </body>
 </html>
+

@@ -3,19 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://jianliew.me/blog/teaching/bashcommands/</loc>
-  </url>
-  
-  <url>
-    <loc>https://jianliew.me/blog/teaching/bashcommands/ls/</loc>
-  </url>
-  
-  <url>
     <loc>https://jianliew.me/blog/blog/</loc>
   </url>
   
   <url>
     <loc>https://jianliew.me/blog/teaching/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/teaching/ubuntu/ls/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/teaching/ubuntu/</loc>
   </url>
   
   <url>

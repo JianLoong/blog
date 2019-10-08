@@ -1,5 +1,5 @@
 +++
-title = "Bash"
+title = "Ubuntu"
 chapter = true
 weight = 5
 date = "{{ .Date }}"

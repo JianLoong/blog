@@ -11,14 +11,15 @@
     
     
     <item>
-      <title>Basic commands</title>
-      <link>https://jianliew.me/blog/teaching/bashcommands/ls/</link>
+      <title>The File System</title>
+      <link>https://jianliew.me/blog/teaching/ubuntu/ls/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jianliew.me/blog/teaching/bashcommands/ls/</guid>
+      <guid>https://jianliew.me/blog/teaching/ubuntu/ls/</guid>
       <description>This blog post is under construction.
  This blog entry assumes that the reader has a basic understanding of using the command line and would like to know more. (More specifically using the Bash shell on Ubuntu)
- The man pages There are several ways in which users obtain help. One of the most well known way would be to use the man pages. However, these days most people do not use the man pages anymore.</description>
+ The Linux File System Directory Architecture. In Linux distributions, the directory structure is defined by the Filesystem hierarchy Standard.1
+ .secondLevel  rect { fill:lightblue !important; }  graph TD R( / ) L1A( /bin ) L1AA( /etc ) L1B( /proc ) L1C[ /boot ] L1D[ /root ] L1E[ /dev ] L1F( /home ) L1G( /usr ) L2A( /jian ) L2B( /tim ) L2C( /kevin ) L2D( /bin ) R -- L1A R -- L1AA R -- L1B R -- L1C R -- L1D R -- L1E R -- L1F R -- L1G L1F -- L2A L1F -- L2B L1F -- L2C L1G -- L2D style R fill:#FFFFFF class L1A,L1AA,L1B,L1C,L1D,L1E,L1F,L1G secondLevel;  This diagram shows how the file system looks like on an Ubuntu machine.</description>
     </item>
     
   </channel>
