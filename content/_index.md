@@ -11,11 +11,9 @@ disableNextPrev = "true"
 <p align="center"><strong>I am Jian.</strong></p> 
 <p align="center">Welcome to my blog!</p>
 
-![Profile](/blog/images/profile.jpg?width=15rem&featherlight=false&classes=border,shadow)
-
 For the past 2.5 years, I have been working as a Teaching Associate with Monash University. I have taught both at the undergraduate level as well as postgraduate level. Overall, I have assisted over 100 students every semester to understand the course material and taught them how to apply critical thinking to every aspect of their studies.
 
-
+![Profile](/blog/images/profile.jpg?width=15rem&featherlight=false&classes=border,shadow)
 
 
 It is my personal belief that, it is more important for a student to understand the underlying concepts before approaching a problem. Understanding how to solve a problem takes precedence over making the same mistakes over and over again just to see what will work.
