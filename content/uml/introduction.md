@@ -1,11 +1,11 @@
 +++
 title = "What are State Machine Diagrams?"
 weight = 10
-date = ""
+date =  "Tue  8 Oct 07:49:09 AEDT 2019"
 pre = "<b>1. </b>"
 tags = ["UML", "State Machine", "State Chart"]
 +++
-
+Posted - Tue  8 Oct 07:49:09 AEDT 2019
 
 {{% notice warning %}}
 
