@@ -4,6 +4,7 @@ weight = 10
 date =  "Tue  8 Oct 07:49:09 AEDT 2019"
 pre = "<b>1. </b>"
 tags = ["UML", "State Machine", "State Chart"]
+commentoEnable = true
 +++
 Posted - Tue  8 Oct 07:49:09 AEDT 2019
 

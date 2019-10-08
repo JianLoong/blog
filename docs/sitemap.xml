@@ -3,23 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jianliew.me/blog/teaching/bashcommands/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/teaching/bashcommands/ls/</loc>
+  </url>
+  
+  <url>
     <loc>https://jianliew.me/blog/blog/</loc>
   </url>
   
   <url>
-    <loc>https://jianliew.me/blog/uml/</loc>
+    <loc>https://jianliew.me/blog/teaching/</loc>
   </url>
   
   <url>
-    <loc>https://jianliew.me/blog/uml/introduction/</loc>
+    <loc>https://jianliew.me/blog/teaching/uml/</loc>
   </url>
   
   <url>
-    <loc>https://jianliew.me/blog/uml/classdiagram/</loc>
+    <loc>https://jianliew.me/blog/teaching/uml/introduction/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/teaching/uml/classdiagram/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/bash/</loc>
   </url>
   
   <url>
     <loc>https://jianliew.me/blog/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/command-line/</loc>
   </url>
   
   <url>
@@ -32,6 +52,10 @@
   
   <url>
     <loc>https://jianliew.me/blog/disclaimer/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/shell/</loc>
   </url>
   
   <url>

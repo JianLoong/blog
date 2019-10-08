@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>State Chart on Jian Liew</title>
-    <link>https://jianliew.me/blog/tags/state-chart/</link>
-    <description>Recent content in State Chart on Jian Liew</description>
+    <title>UML on Jian Liew</title>
+    <link>https://jianliew.me/blog/teaching/uml/</link>
+    <description>Recent content in UML on Jian Liew</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://jianliew.me/blog/tags/state-chart/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jianliew.me/blog/teaching/uml/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

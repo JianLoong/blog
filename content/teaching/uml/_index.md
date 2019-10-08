@@ -1,9 +1,10 @@
 +++
-title = "Teaching"
+title = "UML"
 chapter = true
-weight = 5
+weight = 10
 date = "{{ .Date }}"
 pre = "<b></b>"
+commentoEnable = false
 +++
 
 ### Unified Modelling Language

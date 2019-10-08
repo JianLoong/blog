@@ -11,11 +11,22 @@
     
     
     <item>
-      <title>What are State Machine Diagrams?</title>
-      <link>https://jianliew.me/blog/uml/introduction/</link>
+      <title>Basic commands</title>
+      <link>https://jianliew.me/blog/teaching/bashcommands/ls/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jianliew.me/blog/uml/introduction/</guid>
+      <guid>https://jianliew.me/blog/teaching/bashcommands/ls/</guid>
+      <description>This blog post is under construction.
+ This blog entry assumes that the reader has a basic understanding of using the command line and would like to know more. (More specifically using the Bash shell on Ubuntu)
+ The man pages There are several ways in which users obtain help. One of the most well known way would be to use the man pages. However, these days most people do not use the man pages anymore.</description>
+    </item>
+    
+    <item>
+      <title>What are State Machine Diagrams?</title>
+      <link>https://jianliew.me/blog/teaching/uml/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/teaching/uml/introduction/</guid>
       <description>Posted - Tue 8 Oct 07:49:09 AEDT 2019
 This blog post is incomplete.
  This blog entry assumes that the reader has a basic understanding of UML diagrams and would wish to understand more regarding state machine diagrams.
@@ -25,10 +36,10 @@ Often times, one of the most misunderstood diagram in UML is the state machine.<
     
     <item>
       <title>What are Class Diagrams?</title>
-      <link>https://jianliew.me/blog/uml/classdiagram/</link>
+      <link>https://jianliew.me/blog/teaching/uml/classdiagram/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://jianliew.me/blog/uml/classdiagram/</guid>
+      <guid>https://jianliew.me/blog/teaching/uml/classdiagram/</guid>
       <description> This blog post is under construction.
  </description>
     </item>

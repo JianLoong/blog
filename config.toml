@@ -4,6 +4,7 @@ title = "Jian Liew"
 theme = "hugo-theme-learn"
 publishDir = "docs"
 googleAnalytics = "UA-55422968-1"
+disqusShortname = "jianloonggithubio"
 
 [params]
     themeVariant = "blue"
