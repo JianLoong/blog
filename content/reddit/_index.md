@@ -27,13 +27,13 @@ The charts here are visualisation of the *AmItheasshole* subreddit which can be 
 let summary = [];
 
 function parseResult(link){
-    let endPoint = "https://reddit.com" + link + ".json";
+    console.log(link);
+    let endPoint = "https://reddit.com" + link + ".json?limit=50&jsonp=?";
     let replies = "";
 
     $.getJSON(endPoint, function(data){
         //console.log(data);
         let title = (data[0].data.children[0].data["title"]);
-
 
         replies = data[1]["data"].children;
         //console.log(replies);
@@ -70,17 +70,11 @@ function parseResult(link){
 }
 
 function showResult(jsonResult) {
-
     let output = "<strong>" + jsonResult["title"] + "</strong>";
-
     $(".result").append(output);
-    
-
     $(".result").append("<div id=" + jsonResult["id"] + "></div>");
-    
 
     let id = "#" + jsonResult["id"];
-
     const data = {
                 labels: ["NTA","YTA","ESH"],
                 datasets: [
@@ -92,12 +86,10 @@ function showResult(jsonResult) {
                 ]
             }
 
-
     const chart = new frappe.Chart(id, {
         title: jsonResult[""],
         data: data,
         type: 'percentage',
-        
         colors: ['blue', 'red', 'yellow']
     })
 }
@@ -105,7 +97,7 @@ function showResult(jsonResult) {
 function getPost(){
     let result = "";
     let entries = [];
-    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=50"
+    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=50&jsonp=?"
     $.getJSON(endPoint, function(data){
         //console.log(data);
         result = data;
@@ -115,12 +107,8 @@ function getPost(){
             let link = (entries[i]["data"]["permalink"]);
             console.log(link);
             let text = "<p>" + entries[i]["data"]["title"] + "</p>";
-            //$(".result").append(text);
-            //console.log(en)
             parseResult(link)
         }
-
-
     });
 
 }

@@ -25,20 +25,20 @@ if (!doNotTrack) {
 </script>
 
     
-    <link href="/blog/css/nucleus.css?1570659564" rel="stylesheet">
-    <link href="/blog/css/fontawesome-all.min.css?1570659564" rel="stylesheet">
-    <link href="/blog/css/hybrid.css?1570659564" rel="stylesheet">
-    <link href="/blog/css/featherlight.min.css?1570659564" rel="stylesheet">
-    <link href="/blog/css/perfect-scrollbar.min.css?1570659564" rel="stylesheet">
-    <link href="/blog/css/auto-complete.css?1570659564" rel="stylesheet">
-    <link href="/blog/css/atom-one-dark-reasonable.css?1570659564" rel="stylesheet">
-    <link href="/blog/css/theme.css?1570659564" rel="stylesheet">
-    <link href="/blog/css/hugo-theme.css?1570659564" rel="stylesheet">
+    <link href="/blog/css/nucleus.css?1570660891" rel="stylesheet">
+    <link href="/blog/css/fontawesome-all.min.css?1570660891" rel="stylesheet">
+    <link href="/blog/css/hybrid.css?1570660891" rel="stylesheet">
+    <link href="/blog/css/featherlight.min.css?1570660891" rel="stylesheet">
+    <link href="/blog/css/perfect-scrollbar.min.css?1570660891" rel="stylesheet">
+    <link href="/blog/css/auto-complete.css?1570660891" rel="stylesheet">
+    <link href="/blog/css/atom-one-dark-reasonable.css?1570660891" rel="stylesheet">
+    <link href="/blog/css/theme.css?1570660891" rel="stylesheet">
+    <link href="/blog/css/hugo-theme.css?1570660891" rel="stylesheet">
     
-      <link href="/blog/css/theme-blue.css?1570659564" rel="stylesheet">
+      <link href="/blog/css/theme-blue.css?1570660891" rel="stylesheet">
     
 
-    <script src="/blog/js/jquery-3.3.1.min.js?1570659564"></script>
+    <script src="/blog/js/jquery-3.3.1.min.js?1570660891"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -67,14 +67,14 @@ if (!doNotTrack) {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/blog/js/lunr.min.js?1570659564"></script>
-<script type="text/javascript" src="/blog/js/auto-complete.js?1570659564"></script>
+<script type="text/javascript" src="/blog/js/lunr.min.js?1570660891"></script>
+<script type="text/javascript" src="/blog/js/auto-complete.js?1570660891"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/jianliew.me\/blog";
     
 </script>
-<script type="text/javascript" src="/blog/js/search.js?1570659564"></script>
+<script type="text/javascript" src="/blog/js/search.js?1570660891"></script>
 
     
   </div>
@@ -548,13 +548,13 @@ if (!doNotTrack) {
 let summary = [];
 
 function parseResult(link){
-    let endPoint = "https://reddit.com" + link + ".json";
+    console.log(link);
+    let endPoint = "https://reddit.com" + link + ".json?limit=50&jsonp=?";
     let replies = "";
 
     $.getJSON(endPoint, function(data){
         //console.log(data);
         let title = (data[0].data.children[0].data["title"]);
-
 
         replies = data[1]["data"].children;
         //console.log(replies);
@@ -591,17 +591,11 @@ function parseResult(link){
 }
 
 function showResult(jsonResult) {
-
     let output = "<strong>" + jsonResult["title"] + "</strong>";
-
     $(".result").append(output);
-    
-
     $(".result").append("<div id=" + jsonResult["id"] + "></div>");
-    
 
     let id = "#" + jsonResult["id"];
-
     const data = {
                 labels: ["NTA","YTA","ESH"],
                 datasets: [
@@ -613,12 +607,10 @@ function showResult(jsonResult) {
                 ]
             }
 
-
     const chart = new frappe.Chart(id, {
         title: jsonResult[""],
         data: data,
         type: 'percentage',
-        
         colors: ['blue', 'red', 'yellow']
     })
 }
@@ -626,7 +618,7 @@ function showResult(jsonResult) {
 function getPost(){
     let result = "";
     let entries = [];
-    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=50"
+    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=50&jsonp=?"
     $.getJSON(endPoint, function(data){
         //console.log(data);
         result = data;
@@ -636,12 +628,8 @@ function getPost(){
             let link = (entries[i]["data"]["permalink"]);
             console.log(link);
             let text = "<p>" + entries[i]["data"]["title"] + "</p>";
-            //$(".result").append(text);
-            //console.log(en)
             parseResult(link)
         }
-
-
     });
 
 }
@@ -923,19 +911,19 @@ getPost();
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/blog/js/clipboard.min.js?1570659564"></script>
-    <script src="/blog/js/perfect-scrollbar.min.js?1570659564"></script>
-    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1570659564"></script>
-    <script src="/blog/js/jquery.sticky.js?1570659564"></script>
-    <script src="/blog/js/featherlight.min.js?1570659564"></script>
-    <script src="/blog/js/highlight.pack.js?1570659564"></script>
+    <script src="/blog/js/clipboard.min.js?1570660891"></script>
+    <script src="/blog/js/perfect-scrollbar.min.js?1570660891"></script>
+    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1570660891"></script>
+    <script src="/blog/js/jquery.sticky.js?1570660891"></script>
+    <script src="/blog/js/featherlight.min.js?1570660891"></script>
+    <script src="/blog/js/highlight.pack.js?1570660891"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/blog/js/modernizr.custom-3.6.0.js?1570659564"></script>
-    <script src="/blog/js/learn.js?1570659564"></script>
-    <script src="/blog/js/hugo-learn.js?1570659564"></script>
+    <script src="/blog/js/modernizr.custom-3.6.0.js?1570660891"></script>
+    <script src="/blog/js/learn.js?1570660891"></script>
+    <script src="/blog/js/hugo-learn.js?1570660891"></script>
 
-    <link href="/blog/mermaid/mermaid.css?1570659564" rel="stylesheet" />
-    <script src="/blog/mermaid/mermaid.js?1570659564"></script>
+    <link href="/blog/mermaid/mermaid.css?1570660891" rel="stylesheet" />
+    <script src="/blog/mermaid/mermaid.js?1570660891"></script>
     <script>
         mermaid.initialize({
           startOnLoad: true,
