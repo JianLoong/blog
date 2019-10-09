@@ -14,7 +14,7 @@ Under construction.
 
 {{% /notice %}}
 
-The charts here are visualisation of the *AmItheasshole* subreddit which can be found [here](https://www.reddit.com/r/AmItheAsshole/)
+The charts here are visualisation of the _AmItheasshole_ subreddit which can be found [here](https://www.reddit.com/r/AmItheAsshole/)
 
 <div class="result">
 </div>
@@ -27,44 +27,42 @@ The charts here are visualisation of the *AmItheasshole* subreddit which can be 
 let summary = [];
 
 function parseResult(link){
-    console.log(link);
     let endPoint = "https://reddit.com" + link + ".json?limit=50&jsonp=?";
     let replies = "";
 
     $.getJSON(endPoint, function(data){
-        //console.log(data);
         let title = (data[0].data.children[0].data["title"]);
-
         replies = data[1]["data"].children;
-        //console.log(replies);
+        let url = "https://reddit.com" + link;
         let noOfReplies = replies.length;
         let countNTAAppearance = 0;
         let nta = "NTA";
         let countYTAAppearance = 0;
         let countESHAppearance = 0;
+        let countNAHAppearance = 0;
+        let countINFOAppearance = 0;
         for (let i = 0; i < noOfReplies; i++) {
-            //console.log(replies[i]["data"].body);
             let reply = replies[i]["data"].body;
             if (reply == undefined)
                 return;
             countNTAAppearance += (reply.match(/NTA/g) || []).length;
             countYTAAppearance += (reply.match(/YTA/g) || []).length;
             countESHAppearance += (reply.match(/ESH/g) || []).length;
+            countNAHAppearance += (reply.match(/NAH/g) || []).length;
+            countINFOAppearance += (reply.match(/INFO/g) || []).length;
         }
 
         let jsonResult = {
             "id" : data[0].data.children[0].data["id"],
+            "url": url,
             "title": title,
             "countNTAAppearance": countNTAAppearance,
             "countYTAAppearance": countYTAAppearance,
-            "countESHAppearance" : countESHAppearance
+            "countESHAppearance" : countESHAppearance,
+            "countNAHAppearance" : countNAHAppearance,
+            "countINFOAppearance" : countINFOAppearance,
         }
-
-       //console.log(jsonResult);
        summary.push(jsonResult);
-
-       //console.log(data[0].data.children[0].data["id"]);
-
        showResult(jsonResult);
     });
 }
@@ -72,25 +70,34 @@ function parseResult(link){
 function showResult(jsonResult) {
     let output = "<strong>" + jsonResult["title"] + "</strong>";
     $(".result").append(output);
+    
+    $(".result").attr("href", jsonResult["url"]);
+    // $(".result").attr("href", jsonResult["url"] + "> Here</a>");
     $(".result").append("<div id=" + jsonResult["id"] + "></div>");
+    
 
     let id = "#" + jsonResult["id"];
     const data = {
-                labels: ["NTA","YTA","ESH"],
+                labels: ["NTA","YTA","ESH","NAH","INFO"],
                 datasets: [
                     {
                         name: "data",
                         charType: 'bar',
-                        values: [jsonResult["countNTAAppearance"], jsonResult["countYTAAppearance"], jsonResult["countESHAppearance"]]
+                        values: [
+                            jsonResult["countNTAAppearance"], 
+                            jsonResult["countYTAAppearance"], 
+                            jsonResult["countESHAppearance"],
+                            jsonResult["countNAHAppearance"],
+                            jsonResult["countINFOAppearance"],
+                        ]
                     }
                 ]
             }
 
     const chart = new frappe.Chart(id, {
-        title: jsonResult[""],
         data: data,
         type: 'percentage',
-        colors: ['blue', 'red', 'yellow']
+        colors: ['blue', 'red', 'yellow','green','black']
     })
 }
 
@@ -99,18 +106,14 @@ function getPost(){
     let entries = [];
     let endPoint = "https://reddit.com/r/amitheasshole.json?limit=50&jsonp=?"
     $.getJSON(endPoint, function(data){
-        //console.log(data);
         result = data;
         entries = result["data"].children;
-        //console.log(entries[0]["data"]["permalink"]);
         for(let i = 0; i < entries.length; i++){
             let link = (entries[i]["data"]["permalink"]);
-            console.log(link);
             let text = "<p>" + entries[i]["data"]["title"] + "</p>";
             parseResult(link)
         }
     });
-
 }
 
 getPost();

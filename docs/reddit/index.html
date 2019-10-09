@@ -25,20 +25,20 @@ if (!doNotTrack) {
 </script>
 
     
-    <link href="/blog/css/nucleus.css?1570660891" rel="stylesheet">
-    <link href="/blog/css/fontawesome-all.min.css?1570660891" rel="stylesheet">
-    <link href="/blog/css/hybrid.css?1570660891" rel="stylesheet">
-    <link href="/blog/css/featherlight.min.css?1570660891" rel="stylesheet">
-    <link href="/blog/css/perfect-scrollbar.min.css?1570660891" rel="stylesheet">
-    <link href="/blog/css/auto-complete.css?1570660891" rel="stylesheet">
-    <link href="/blog/css/atom-one-dark-reasonable.css?1570660891" rel="stylesheet">
-    <link href="/blog/css/theme.css?1570660891" rel="stylesheet">
-    <link href="/blog/css/hugo-theme.css?1570660891" rel="stylesheet">
+    <link href="/blog/css/nucleus.css?1570664464" rel="stylesheet">
+    <link href="/blog/css/fontawesome-all.min.css?1570664464" rel="stylesheet">
+    <link href="/blog/css/hybrid.css?1570664464" rel="stylesheet">
+    <link href="/blog/css/featherlight.min.css?1570664464" rel="stylesheet">
+    <link href="/blog/css/perfect-scrollbar.min.css?1570664464" rel="stylesheet">
+    <link href="/blog/css/auto-complete.css?1570664464" rel="stylesheet">
+    <link href="/blog/css/atom-one-dark-reasonable.css?1570664464" rel="stylesheet">
+    <link href="/blog/css/theme.css?1570664464" rel="stylesheet">
+    <link href="/blog/css/hugo-theme.css?1570664464" rel="stylesheet">
     
-      <link href="/blog/css/theme-blue.css?1570660891" rel="stylesheet">
+      <link href="/blog/css/theme-blue.css?1570664464" rel="stylesheet">
     
 
-    <script src="/blog/js/jquery-3.3.1.min.js?1570660891"></script>
+    <script src="/blog/js/jquery-3.3.1.min.js?1570664464"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -67,14 +67,14 @@ if (!doNotTrack) {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/blog/js/lunr.min.js?1570660891"></script>
-<script type="text/javascript" src="/blog/js/auto-complete.js?1570660891"></script>
+<script type="text/javascript" src="/blog/js/lunr.min.js?1570664464"></script>
+<script type="text/javascript" src="/blog/js/auto-complete.js?1570664464"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/jianliew.me\/blog";
     
 </script>
-<script type="text/javascript" src="/blog/js/search.js?1570660891"></script>
+<script type="text/javascript" src="/blog/js/search.js?1570664464"></script>
 
     
   </div>
@@ -548,44 +548,42 @@ if (!doNotTrack) {
 let summary = [];
 
 function parseResult(link){
-    console.log(link);
     let endPoint = "https://reddit.com" + link + ".json?limit=50&jsonp=?";
     let replies = "";
 
     $.getJSON(endPoint, function(data){
-        //console.log(data);
         let title = (data[0].data.children[0].data["title"]);
-
         replies = data[1]["data"].children;
-        //console.log(replies);
+        let url = "https://reddit.com" + link;
         let noOfReplies = replies.length;
         let countNTAAppearance = 0;
         let nta = "NTA";
         let countYTAAppearance = 0;
         let countESHAppearance = 0;
+        let countNAHAppearance = 0;
+        let countINFOAppearance = 0;
         for (let i = 0; i < noOfReplies; i++) {
-            //console.log(replies[i]["data"].body);
             let reply = replies[i]["data"].body;
             if (reply == undefined)
                 return;
             countNTAAppearance += (reply.match(/NTA/g) || []).length;
             countYTAAppearance += (reply.match(/YTA/g) || []).length;
             countESHAppearance += (reply.match(/ESH/g) || []).length;
+            countNAHAppearance += (reply.match(/NAH/g) || []).length;
+            countINFOAppearance += (reply.match(/INFO/g) || []).length;
         }
 
         let jsonResult = {
             "id" : data[0].data.children[0].data["id"],
+            "url": url,
             "title": title,
             "countNTAAppearance": countNTAAppearance,
             "countYTAAppearance": countYTAAppearance,
-            "countESHAppearance" : countESHAppearance
+            "countESHAppearance" : countESHAppearance,
+            "countNAHAppearance" : countNAHAppearance,
+            "countINFOAppearance" : countINFOAppearance,
         }
-
-       //console.log(jsonResult);
        summary.push(jsonResult);
-
-       //console.log(data[0].data.children[0].data["id"]);
-
        showResult(jsonResult);
     });
 }
@@ -593,25 +591,34 @@ function parseResult(link){
 function showResult(jsonResult) {
     let output = "<strong>" + jsonResult["title"] + "</strong>";
     $(".result").append(output);
+    
+    $(".result").attr("href", jsonResult["url"]);
+    // $(".result").attr("href", jsonResult["url"] + "> Here</a>");
     $(".result").append("<div id=" + jsonResult["id"] + "></div>");
+    
 
     let id = "#" + jsonResult["id"];
     const data = {
-                labels: ["NTA","YTA","ESH"],
+                labels: ["NTA","YTA","ESH","NAH","INFO"],
                 datasets: [
                     {
                         name: "data",
                         charType: 'bar',
-                        values: [jsonResult["countNTAAppearance"], jsonResult["countYTAAppearance"], jsonResult["countESHAppearance"]]
+                        values: [
+                            jsonResult["countNTAAppearance"], 
+                            jsonResult["countYTAAppearance"], 
+                            jsonResult["countESHAppearance"],
+                            jsonResult["countNAHAppearance"],
+                            jsonResult["countINFOAppearance"],
+                        ]
                     }
                 ]
             }
 
     const chart = new frappe.Chart(id, {
-        title: jsonResult[""],
         data: data,
         type: 'percentage',
-        colors: ['blue', 'red', 'yellow']
+        colors: ['blue', 'red', 'yellow','green','black']
     })
 }
 
@@ -620,18 +627,14 @@ function getPost(){
     let entries = [];
     let endPoint = "https://reddit.com/r/amitheasshole.json?limit=50&jsonp=?"
     $.getJSON(endPoint, function(data){
-        //console.log(data);
         result = data;
         entries = result["data"].children;
-        //console.log(entries[0]["data"]["permalink"]);
         for(let i = 0; i < entries.length; i++){
             let link = (entries[i]["data"]["permalink"]);
-            console.log(link);
             let text = "<p>" + entries[i]["data"]["title"] + "</p>";
             parseResult(link)
         }
     });
-
 }
 
 getPost();
@@ -911,19 +914,19 @@ getPost();
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/blog/js/clipboard.min.js?1570660891"></script>
-    <script src="/blog/js/perfect-scrollbar.min.js?1570660891"></script>
-    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1570660891"></script>
-    <script src="/blog/js/jquery.sticky.js?1570660891"></script>
-    <script src="/blog/js/featherlight.min.js?1570660891"></script>
-    <script src="/blog/js/highlight.pack.js?1570660891"></script>
+    <script src="/blog/js/clipboard.min.js?1570664464"></script>
+    <script src="/blog/js/perfect-scrollbar.min.js?1570664464"></script>
+    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1570664464"></script>
+    <script src="/blog/js/jquery.sticky.js?1570664464"></script>
+    <script src="/blog/js/featherlight.min.js?1570664464"></script>
+    <script src="/blog/js/highlight.pack.js?1570664464"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/blog/js/modernizr.custom-3.6.0.js?1570660891"></script>
-    <script src="/blog/js/learn.js?1570660891"></script>
-    <script src="/blog/js/hugo-learn.js?1570660891"></script>
+    <script src="/blog/js/modernizr.custom-3.6.0.js?1570664464"></script>
+    <script src="/blog/js/learn.js?1570664464"></script>
+    <script src="/blog/js/hugo-learn.js?1570664464"></script>
 
-    <link href="/blog/mermaid/mermaid.css?1570660891" rel="stylesheet" />
-    <script src="/blog/mermaid/mermaid.js?1570660891"></script>
+    <link href="/blog/mermaid/mermaid.css?1570664464" rel="stylesheet" />
+    <script src="/blog/mermaid/mermaid.js?1570664464"></script>
     <script>
         mermaid.initialize({
           startOnLoad: true,
