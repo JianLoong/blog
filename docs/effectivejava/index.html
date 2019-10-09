@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/blog/images/favicon.ico" type="image/ico">
 
-    <title>What are Class Diagrams? :: Jian Liew</title>
+    <title>Effective Java :: Jian Liew</title>
     
 <script type="application/javascript">
 var doNotTrack = false;
@@ -48,7 +48,7 @@ if (!doNotTrack) {
     </style>
     
   </head>
-  <body class="" data-url="/blog/teaching/uml/classdiagram/">
+  <body class="" data-url="/blog/effectivejava/">
     <nav id="sidebar" class="">
 
 
@@ -113,8 +113,8 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/effectivejava/" title="Effective Java" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/blog/effectivejava/">
@@ -234,7 +234,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/teaching/" title="Teaching" class="dd-item 
-        parent
+        
         
         
         ">
@@ -314,7 +314,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/teaching/uml/" title="UML" class="dd-item 
-        parent
+        
         
         
         ">
@@ -357,7 +357,7 @@ if (!doNotTrack) {
  
   
     
-      <li data-nav-id="/blog/teaching/uml/classdiagram/" title="What are Class Diagrams?" class="dd-item active">
+      <li data-nav-id="/blog/teaching/uml/classdiagram/" title="What are Class Diagrams?" class="dd-item ">
         <a href="/blog/teaching/uml/classdiagram/">
         <b>2. </b>What are Class Diagrams?
         
@@ -462,19 +462,7 @@ if (!doNotTrack) {
             
           
           
-            
-            
-          
-          
-            
-            
-          
-          
-            <a href='/blog/'>Contents</a> > <a href='/blog/teaching/'>Teaching</a> > <a href='/blog/teaching/uml/'>UML</a> > What are Class Diagrams?
-          
-        
-          
-        
+            <a href='/blog/'>Contents</a> > Effective Java
           
         
           
@@ -485,7 +473,14 @@ if (!doNotTrack) {
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#generics-classes">Generics classes</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -497,9 +492,9 @@ if (!doNotTrack) {
         
 <div class="tags">
 
-  <a class="tag-link" href="/blog/tags/uml">UML</a>
+  <a class="tag-link" href="/blog/tags/java">Java</a>
 
-  <a class="tag-link" href="/blog/tags/class-diagram">Class Diagram</a>
+  <a class="tag-link" href="/blog/tags/effective-java">Effective Java</a>
 
 </div>
 
@@ -509,7 +504,7 @@ if (!doNotTrack) {
           
             <h1>
               
-              What are Class Diagrams?
+              Effective Java
             </h1>
           
 
@@ -518,8 +513,27 @@ if (!doNotTrack) {
 
 
 
-<div class="notices warning" ><p>This blog post is under construction.</p>
+	
+
+
+<div class="notices warning" ><p>Under construction.</p>
 </div>
+
+
+<h2 id="generics-classes">Generics classes</h2>
+
+<p>A class or interface whose declaration has one or more <strong>type parameters</strong> is a generic class or interface. Generic classes and interfaces are collectively known as <em>generic types.</em></p>
+
+<p>One of the best examples would be the list class.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">interface</span> <span style="color:#000">List</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">E</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">extends</span> <span style="color:#000">Collection</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">E</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#8f5902;font-style:italic">// methods omitted
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span></code></pre></div>
+
+<div class="notices warning" ><p>You should not do something like this&hellip;</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#204a87;font-weight:bold">private</span> <span style="color:#000">final</span> <span style="color:#000">Collection</span> <span style="color:#000">stamps</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">...</span> <span style="color:#000;font-weight:bold">;</span></code></pre></div></div>
+
+
+
 
 
 
@@ -527,33 +541,9 @@ if (!doNotTrack) {
 	
 </footer>
 
-
         
         </div>
         
-
-
-<div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "jianloonggithubio" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
 
       </div>
 
@@ -601,6 +591,105 @@ if (!doNotTrack) {
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                 
                 
 
@@ -661,110 +750,6 @@ if (!doNotTrack) {
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -792,10 +777,10 @@ if (!doNotTrack) {
 	 
 	 
 		
-			<a class="nav nav-prev" href="/blog/teaching/uml/introduction/" title="What are State Machine Diagrams?"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/blog/blog/" title="Blog"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/blog/teaching/uml/introduction/" title="What are State Machine Diagrams?" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/blog/effectivejava/forloops/" title="Prefer for loops" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -830,4 +815,3 @@ if (!doNotTrack) {
 
   </body>
 </html>
-

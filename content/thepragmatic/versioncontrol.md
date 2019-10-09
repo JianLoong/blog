@@ -1,5 +1,5 @@
 +++
-title = "Pragmatic Programmer"
+title = "Version Control"
 weight = 20
 date = "{{ .Date }}"
 pre = "<b></b>"

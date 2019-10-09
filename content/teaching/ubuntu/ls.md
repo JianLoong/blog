@@ -69,7 +69,7 @@ L1G( /usr )
 
 <p align="center">This diagram shows how the file system looks like on an Ubuntu machine. </p>
 
-The first and top most directory is called the **root directory**. This directory is denoted as the `/` (forward slash) symbol. The reason for this is because it can be thought off as the trunk of a tree. The directory entry itself has no name. The name of it its the empty part before the initial directory separator.
+The first and top most directory is called the **root directory**. This directory is denoted as the `/` (forward slash) symbol. The reason for this is because it can be thought off as the trunk of a tree. The directory entry itself has **no name**. The name of it is the empty part before the initial directory separator.
 
 
 | Directory | Purpose                                                                                                                                                                      |

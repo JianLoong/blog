@@ -7,11 +7,18 @@
 	"content": " Blog This blog post is under construction.\n "
 },
 {
-	"uri": "https://jianliew.me/blog/teaching/effectivejava/",
+	"uri": "https://jianliew.me/blog/effectivejava/",
 	"title": "Effective Java",
 	"tags": ["Java", "Effective Java"],
 	"description": "",
 	"content": " Under construction.\n Generics classes A class or interface whose declaration has one or more type parameters is a generic class or interface. Generic classes and interfaces are collectively known as generic types.\nOne of the best examples would be the list class.\npublic interface List\u0026lt;E\u0026gt; extends Collection\u0026lt;E\u0026gt; { // methods omitted } You should not do something like this\u0026hellip;\nprivate final Collection stamps = ... ; "
+},
+{
+	"uri": "https://jianliew.me/blog/thepragmatic/",
+	"title": "Pragmatic Programmer",
+	"tags": [],
+	"description": "",
+	"content": " Programming Under construction.\n  Programming is a craft.\n As a programmer, you are part listener, part advisor, part listener, part advisor, part interpreter, and part dictator.1\nWe try to capture requirements and express them so that a machine can do it justice.\n1. The Pragmatic Programmer\n"
 },
 {
 	"uri": "https://jianliew.me/blog/teaching/",
@@ -25,7 +32,7 @@
 	"title": "The File System",
 	"tags": ["Shell", "Bash", "Command Line"],
 	"description": "",
-	"content": " This blog post is under construction.\n This blog entry assumes that the reader has a basic understanding of using the command line and would like to know more. (More specifically using the Bash shell on Ubuntu)\n The Linux File System Directory Architecture. In Linux distributions, the directory structure is defined by the Filesystem hierarchy Standard.1\n .secondLevel  rect { fill:lightblue !important; }  graph TD R( / ) L1A( /bin ) L1AA( /etc ) L1B( /proc ) L1C[ /boot ] L1D[ /root ] L1E[ /dev ] L1F( /home ) L1G( /usr ) L2A( /jian ) L2B( /tim ) L2C( /kevin ) L2D( /bin ) R -- L1A R -- L1AA R -- L1B R -- L1C R -- L1D R -- L1E R -- L1F R -- L1G L1F -- L2A L1F -- L2B L1F -- L2C L1G -- L2D style R fill:#FFFFFF class L1A,L1AA,L1B,L1C,L1D,L1E,L1F,L1G secondLevel;  This diagram shows how the file system looks like on an Ubuntu machine. The first and top most directory is called the root directory. This directory is denoted as the / (forward slash) symbol. The reason for this is because it can be thought off as the trunk of a tree. The directory entry itself has no name. The name of it its the empty part before the initial directory separator.\n   Directory Purpose     / - First directory and the root of the entire file system hierarchy - Contains all other directories   /bin - Contains commands that may be used by both the system administrators and by users - There must be no subdirectories in here.   /boot - The operating system kernel is located here.   /etc - Contains configuration files. Configuration file is a local file that is used to control the operation of a program. It must be static and cannot be an executable binary.   /home - This directory contains user\u0026rsquo;s home directories. Generally, each user would have a separate directory with their username under this directory.    Even though /home is a standard concept, the setup will differ from host to host. Therefore it is important that no program should assume any specific location for a home directory, rather it should query for it.\n On Ubuntu, you will notice another directory called /root, however, this is not the root directory. It is actually the home directory of the superuser.\n Your home directory. What is a pathname? There are two types of path names.\ngraph TD linkStyle default interpolate linear R(Pathname) P1(Absolute Path) P2(Relative Path) R -- P1 R -- P2 style P1 fill:skyblue; style P2 fill:skyblue;  The man pages There are several ways in which users obtain help. One of the most well known way would be to use the man pages. However, these days most people do not use the man pages anymore.\n$ man For example, if you want to take a look at the man pages for the ls command, you will just need to do\n$ man ls The ls command List in long format all the files and directories in your home directory.\nAnswer\n$ ls -l The main challenge of this question is so that students understand how to use the ls command.\nThere are several points to take note in this question. For example, what is the meaning of long format? What does it mean by all files and directories?\nOne interesting thing is that most people do not know that the ls command can actually be given a file.\nSo, the various accepted answers for this question are\n$ ls -l $ ls --all -l $ ls -al List in long format all the files and directories (top-level only) in the /usr/local directory, sorted by the time of last modification.\n$ ls -lt One interesting thing about Ubuntu is the way it manages time. For example, if you use the command stat on a file.if\nChallenge 3\nCreate the following directory structure.\ngraph TD S( Your Home Directory ) A( monash ) B( personal ) C( documents ) D( data ) E( temp ) F( documents ) S -- A S -- B A -- C A -- D A -- E B -- F  In order to create the directory structure, there are several ways. One way to do is would be to use several mkdir commands.\n$ mkdir monash $ mkdir personal $ mkdir monash/documents $ mkdir monash/data $ mkdir monash/temp $ mkdir personal/documents However, you can achieve the same result by using a single mkdir command. At the end of the day if you look at the manual for mkdir, it does mention that it can be used to create directories.\n$ mkdir -p monash personal monash/documents monash/data monash/temp personal/documents Change into the ~/monash/temp directory. The special character ~ means \u0026ldquo;a shortcut to your home directory\u0026rdquo;\nChange into your home directory. How many ways can you do this?\nReferences 1. Wikipedia Filesystem Hierarchy Standard\n"
+	"content": " This blog post is under construction.\n This blog entry assumes that the reader has a basic understanding of using the command line and would like to know more. (More specifically using the Bash shell on Ubuntu)\n The Linux File System Directory Architecture. In Linux distributions, the directory structure is defined by the Filesystem hierarchy Standard.1\n .secondLevel  rect { fill:lightblue !important; }  graph TD R( / ) L1A( /bin ) L1AA( /etc ) L1B( /proc ) L1C[ /boot ] L1D[ /root ] L1E[ /dev ] L1F( /home ) L1G( /usr ) L2A( /jian ) L2B( /tim ) L2C( /kevin ) L2D( /bin ) R -- L1A R -- L1AA R -- L1B R -- L1C R -- L1D R -- L1E R -- L1F R -- L1G L1F -- L2A L1F -- L2B L1F -- L2C L1G -- L2D style R fill:#FFFFFF class L1A,L1AA,L1B,L1C,L1D,L1E,L1F,L1G secondLevel;  This diagram shows how the file system looks like on an Ubuntu machine. The first and top most directory is called the root directory. This directory is denoted as the / (forward slash) symbol. The reason for this is because it can be thought off as the trunk of a tree. The directory entry itself has no name. The name of it is the empty part before the initial directory separator.\n   Directory Purpose     / - First directory and the root of the entire file system hierarchy - Contains all other directories   /bin - Contains commands that may be used by both the system administrators and by users - There must be no subdirectories in here.   /boot - The operating system kernel is located here.   /etc - Contains configuration files. Configuration file is a local file that is used to control the operation of a program. It must be static and cannot be an executable binary.   /home - This directory contains user\u0026rsquo;s home directories. Generally, each user would have a separate directory with their username under this directory.    Even though /home is a standard concept, the setup will differ from host to host. Therefore it is important that no program should assume any specific location for a home directory, rather it should query for it.\n On Ubuntu, you will notice another directory called /root, however, this is not the root directory. It is actually the home directory of the superuser.\n Your home directory. What is a pathname? There are two types of path names.\ngraph TD linkStyle default interpolate linear R(Pathname) P1(Absolute Path) P2(Relative Path) R -- P1 R -- P2 style P1 fill:skyblue; style P2 fill:skyblue;  The man pages There are several ways in which users obtain help. One of the most well known way would be to use the man pages. However, these days most people do not use the man pages anymore.\n$ man For example, if you want to take a look at the man pages for the ls command, you will just need to do\n$ man ls The ls command List in long format all the files and directories in your home directory.\nAnswer\n$ ls -l The main challenge of this question is so that students understand how to use the ls command.\nThere are several points to take note in this question. For example, what is the meaning of long format? What does it mean by all files and directories?\nOne interesting thing is that most people do not know that the ls command can actually be given a file.\nSo, the various accepted answers for this question are\n$ ls -l $ ls --all -l $ ls -al List in long format all the files and directories (top-level only) in the /usr/local directory, sorted by the time of last modification.\n$ ls -lt One interesting thing about Ubuntu is the way it manages time. For example, if you use the command stat on a file.if\nChallenge 3\nCreate the following directory structure.\ngraph TD S( Your Home Directory ) A( monash ) B( personal ) C( documents ) D( data ) E( temp ) F( documents ) S -- A S -- B A -- C A -- D A -- E B -- F  In order to create the directory structure, there are several ways. One way to do is would be to use several mkdir commands.\n$ mkdir monash $ mkdir personal $ mkdir monash/documents $ mkdir monash/data $ mkdir monash/temp $ mkdir personal/documents However, you can achieve the same result by using a single mkdir command. At the end of the day if you look at the manual for mkdir, it does mention that it can be used to create directories.\n$ mkdir -p monash personal monash/documents monash/data monash/temp personal/documents Change into the ~/monash/temp directory. The special character ~ means \u0026ldquo;a shortcut to your home directory\u0026rdquo;\nChange into your home directory. How many ways can you do this?\nReferences 1. Wikipedia Filesystem Hierarchy Standard\n"
 },
 {
 	"uri": "https://jianliew.me/blog/teaching/ubuntu/",
@@ -35,14 +42,7 @@
 	"content": " Command Line This blog post is under construction.\n The entries in this blog are based on materials for the Computer Architecture \u0026amp; Operating Systems Unit done at the Masters level.\nThis unit is not done in the traditional manner but it focuses heavily on understanding and using the command line.\nSince this unit will no longer be offered, this blog post will serve as a reminder what the basic commands taught in this unit.\n"
 },
 {
-	"uri": "https://jianliew.me/blog/thepragmatic/",
-	"title": "What is Programming?",
-	"tags": [],
-	"description": "",
-	"content": " Programming Under construction.\n  Programming is a craft.\n As a programmer, you are part listener, part advisor, part listener, part advisor,part interpreter, and part dictator.1\nWe try to capture requirements and express them so that a machine can do it justice.\n1. The Pragmatic Programmer\n"
-},
-{
-	"uri": "https://jianliew.me/blog/teaching/effectivejava/forloops/",
+	"uri": "https://jianliew.me/blog/effectivejava/forloops/",
 	"title": "Prefer for loops",
 	"tags": [],
 	"description": "",
@@ -71,10 +71,17 @@
 },
 {
 	"uri": "https://jianliew.me/blog/thepragmatic/versioncontrol/",
-	"title": "Pragmatic Programmer",
+	"title": "Version Control",
 	"tags": [],
 	"description": "",
 	"content": "Before we start, there is a need to know that \u0026hellip;.\nShared Directories are NOT Version Control\n It is common to store source codes using Google Drive, DropBox or OneDrive. However, this is actually not a good practice at all.\nWhenever we are programming, one of the most common feature that we often look out for would be the undo key. The problem with the undo key that it is not a time machine.\nIt will not allow you to undo a mistake that was done weeks ago.\n"
+},
+{
+	"uri": "https://jianliew.me/blog/thepragmatic/rubberduck/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "https://jianliew.me/blog/tags/bash/",
