@@ -6,6 +6,11 @@ publishDir = "docs"
 googleAnalytics = "UA-55422968-1"
 disqusShortname = "jianloonggithubio"
 
+pygmentsUseClasses = false
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsStyle = "tango"
+
 [params]
     themeVariant = "blue"
 

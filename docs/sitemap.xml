@@ -7,6 +7,10 @@
   </url>
   
   <url>
+    <loc>https://jianliew.me/blog/teaching/effectivejava/</loc>
+  </url>
+  
+  <url>
     <loc>https://jianliew.me/blog/teaching/</loc>
   </url>
   
@@ -16,6 +20,14 @@
   
   <url>
     <loc>https://jianliew.me/blog/teaching/ubuntu/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/thepragmatic/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/teaching/effectivejava/forloops/</loc>
   </url>
   
   <url>
@@ -31,11 +43,19 @@
   </url>
   
   <url>
+    <loc>https://jianliew.me/blog/thepragmatic/versioncontrol/</loc>
+  </url>
+  
+  <url>
     <loc>https://jianliew.me/blog/tags/bash/</loc>
   </url>
   
   <url>
     <loc>https://jianliew.me/blog/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/class-diagram/</loc>
   </url>
   
   <url>

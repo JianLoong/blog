@@ -23,6 +23,16 @@
     </item>
     
     <item>
+      <title>Prefer for loops</title>
+      <link>https://jianliew.me/blog/teaching/effectivejava/forloops/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/teaching/effectivejava/forloops/</guid>
+      <description>Programmers tend to write loops in many different ways. If you first language is C, one of the more interesting things was with the way you would have to declare local variables at the head of the block.
+for (Element e : c) { ... // Omitted }</description>
+    </item>
+    
+    <item>
       <title>What are State Machine Diagrams?</title>
       <link>https://jianliew.me/blog/teaching/uml/introduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -43,6 +53,18 @@ Often times, one of the most misunderstood diagram in UML is the state machine.<
       <guid>https://jianliew.me/blog/teaching/uml/classdiagram/</guid>
       <description> This blog post is under construction.
  </description>
+    </item>
+    
+    <item>
+      <title>Pragmatic Programmer</title>
+      <link>https://jianliew.me/blog/thepragmatic/versioncontrol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/thepragmatic/versioncontrol/</guid>
+      <description>Before we start, there is a need to know that &amp;hellip;.
+Shared Directories are NOT Version Control
+ It is common to store source codes using Google Drive, DropBox or OneDrive. However, this is actually not a good practice at all.
+Whenever we are programming, one of the most common feature that we often look out for would be the undo key. The problem with the undo key that it is not a time machine.</description>
     </item>
     
     <item>

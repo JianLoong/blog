@@ -82,7 +82,7 @@ A --> B
 
 The example above is a simplification of what a class diagram is at its very basic nature. Two classes, Student and Unit and the Student class using the Unit class.
 
-```
+```java
 public class Student {
     private String firstName;
     private String lastName;
@@ -92,7 +92,7 @@ public class Student {
 }
 ```
 
-```
+```java
 public class Unit {
     private String name;
     private String description;

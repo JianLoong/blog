@@ -25,20 +25,20 @@ if (!doNotTrack) {
 </script>
 
     
-    <link href="/blog/css/nucleus.css?1570571314" rel="stylesheet">
-    <link href="/blog/css/fontawesome-all.min.css?1570571314" rel="stylesheet">
-    <link href="/blog/css/hybrid.css?1570571314" rel="stylesheet">
-    <link href="/blog/css/featherlight.min.css?1570571314" rel="stylesheet">
-    <link href="/blog/css/perfect-scrollbar.min.css?1570571314" rel="stylesheet">
-    <link href="/blog/css/auto-complete.css?1570571314" rel="stylesheet">
-    <link href="/blog/css/atom-one-dark-reasonable.css?1570571314" rel="stylesheet">
-    <link href="/blog/css/theme.css?1570571314" rel="stylesheet">
-    <link href="/blog/css/hugo-theme.css?1570571314" rel="stylesheet">
+    <link href="/blog/css/nucleus.css?1570618744" rel="stylesheet">
+    <link href="/blog/css/fontawesome-all.min.css?1570618744" rel="stylesheet">
+    <link href="/blog/css/hybrid.css?1570618744" rel="stylesheet">
+    <link href="/blog/css/featherlight.min.css?1570618744" rel="stylesheet">
+    <link href="/blog/css/perfect-scrollbar.min.css?1570618744" rel="stylesheet">
+    <link href="/blog/css/auto-complete.css?1570618744" rel="stylesheet">
+    <link href="/blog/css/atom-one-dark-reasonable.css?1570618744" rel="stylesheet">
+    <link href="/blog/css/theme.css?1570618744" rel="stylesheet">
+    <link href="/blog/css/hugo-theme.css?1570618744" rel="stylesheet">
     
-      <link href="/blog/css/theme-blue.css?1570571314" rel="stylesheet">
+      <link href="/blog/css/theme-blue.css?1570618744" rel="stylesheet">
     
 
-    <script src="/blog/js/jquery-3.3.1.min.js?1570571314"></script>
+    <script src="/blog/js/jquery-3.3.1.min.js?1570618744"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -67,14 +67,14 @@ if (!doNotTrack) {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/blog/js/lunr.min.js?1570571314"></script>
-<script type="text/javascript" src="/blog/js/auto-complete.js?1570571314"></script>
+<script type="text/javascript" src="/blog/js/lunr.min.js?1570618744"></script>
+<script type="text/javascript" src="/blog/js/auto-complete.js?1570618744"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/jianliew.me\/blog";
     
 </script>
-<script type="text/javascript" src="/blog/js/search.js?1570571314"></script>
+<script type="text/javascript" src="/blog/js/search.js?1570618744"></script>
 
     
   </div>
@@ -131,6 +131,59 @@ if (!doNotTrack) {
           
           
         
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/blog/teaching/effectivejava/" title="Effective Java" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/blog/teaching/effectivejava/">
+          <b></b>Effective Java
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/teaching/effectivejava/forloops/" title="Prefer for loops" class="dd-item ">
+        <a href="/blog/teaching/effectivejava/forloops/">
+        <b>1. </b>Prefer for loops
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
           
             
             
@@ -252,6 +305,57 @@ if (!doNotTrack) {
         </ul>
               
     </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/blog/thepragmatic/" title="What is Programming?" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/blog/thepragmatic/">
+          <b></b>What is Programming?
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/thepragmatic/versioncontrol/" title="Pragmatic Programmer" class="dd-item ">
+        <a href="/blog/thepragmatic/versioncontrol/">
+        <b></b>Pragmatic Programmer
+        
+        </a>
+    </li>
+     
   
  
 
@@ -496,25 +600,19 @@ A --> B
 <p align="center">A simple class diagram. (Initial level)</p>
 
 <p>The example above is a simplification of what a class diagram is at its very basic nature. Two classes, Student and Unit and the Student class using the Unit class.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">class</span> <span style="color:#000">Student</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">private</span> <span style="color:#000">String</span> <span style="color:#000">firstName</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">private</span> <span style="color:#000">String</span> <span style="color:#000">lastName</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">private</span> <span style="color:#000">Unit</span> <span style="color:#000">unit</span><span style="color:#000;font-weight:bold">;</span>
 
-<pre><code>public class Student {
-    private String firstName;
-    private String lastName;
-    private Unit unit;
-
-    // Other methods omitted..
-}
-</code></pre>
-
-<pre><code>public class Unit {
-    private String name;
-    private String description;
+    <span style="color:#8f5902;font-style:italic">// Other methods omitted..
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span></code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">class</span> <span style="color:#000">Unit</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">private</span> <span style="color:#000">String</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">private</span> <span style="color:#000">String</span> <span style="color:#000">description</span><span style="color:#000;font-weight:bold">;</span>
 
 
-    // Other methods omitted..
-}
-</code></pre>
-
+    <span style="color:#8f5902;font-style:italic">// Other methods omitted..
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span></code></pre></div>
 <p>So, where does the state machine come into the picture in this situation? Since the state machine diagram aims to model a single class. Which class would we model here? Do we model both of them or just one? The answer is pretty simple, we actually attempt to do a state chart of <strong>all of the classes.</strong></p>
 
 <p>Since based on the diagram, the Student class is using the Unit class, we should start modelling the state chart from the Unit class. The very first steps when drawing the state machine diagram would be to list out all the possible states.</p>
@@ -625,7 +723,7 @@ A --> B
 
 
         
-        </div> 
+        </div>
         
 
 
@@ -656,8 +754,8 @@ A --> B
     <div id="navigation">
         
         
+
         
-        
             
             
                 
@@ -672,107 +770,6 @@ A --> B
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -793,15 +790,180 @@ A --> B
             
         
                     
+                        
             
-        
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
                     
             
         
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
         
 
 
@@ -817,25 +979,30 @@ A --> B
     </div>
 
     </section>
-    
+
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/blog/js/clipboard.min.js?1570571314"></script>
-    <script src="/blog/js/perfect-scrollbar.min.js?1570571314"></script>
-    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1570571314"></script>
-    <script src="/blog/js/jquery.sticky.js?1570571314"></script>
-    <script src="/blog/js/featherlight.min.js?1570571314"></script>
-    <script src="/blog/js/highlight.pack.js?1570571314"></script>
+    <script src="/blog/js/clipboard.min.js?1570618744"></script>
+    <script src="/blog/js/perfect-scrollbar.min.js?1570618744"></script>
+    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1570618744"></script>
+    <script src="/blog/js/jquery.sticky.js?1570618744"></script>
+    <script src="/blog/js/featherlight.min.js?1570618744"></script>
+    <script src="/blog/js/highlight.pack.js?1570618744"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/blog/js/modernizr.custom-3.6.0.js?1570571314"></script>
-    <script src="/blog/js/learn.js?1570571314"></script>
-    <script src="/blog/js/hugo-learn.js?1570571314"></script>
+    <script src="/blog/js/modernizr.custom-3.6.0.js?1570618744"></script>
+    <script src="/blog/js/learn.js?1570618744"></script>
+    <script src="/blog/js/hugo-learn.js?1570618744"></script>
 
-    <link href="/blog/mermaid/mermaid.css?1570571314" rel="stylesheet" />
-    <script src="/blog/mermaid/mermaid.js?1570571314"></script>
+    <link href="/blog/mermaid/mermaid.css?1570618744" rel="stylesheet" />
+    <script src="/blog/mermaid/mermaid.js?1570618744"></script>
     <script>
-        mermaid.initialize({ startOnLoad: true });
+        mermaid.initialize({
+          startOnLoad: true,
+          flowchart : {
+            curve: 'basis'
+          }
+        });
     </script>
     
 

@@ -69,7 +69,8 @@ L1G( /usr )
 
 <p align="center">This diagram shows how the file system looks like on an Ubuntu machine. </p>
 
-The first and top most directory is called the **root directory**. This directory is denoted as the `/` (forward slash) symbol. The reason for this is because it can be thought off as the trunk of a tree.
+The first and top most directory is called the **root directory**. This directory is denoted as the `/` (forward slash) symbol. The reason for this is because it can be thought off as the trunk of a tree. The directory entry itself has no name. The name of it its the empty part before the initial directory separator.
+
 
 | Directory | Purpose                                                                                                                                                                      |
 | :-------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -88,6 +89,30 @@ Even though `/home` is a standard concept, the setup will differ from host to ho
 On Ubuntu, you will notice another directory called `/root`, however, this is not the root directory. It is actually the home directory of the superuser.
 
 {{% /notice %}}
+
+
+### Your `home` directory.
+
+### What is a pathname?
+
+There are two types of path names.
+
+{{<mermaid align="center">}}
+
+graph TD
+    linkStyle default interpolate linear
+    R(Pathname)
+    P1(Absolute Path)
+    P2(Relative Path)
+
+    R --> P1 
+    R --> P2
+
+    style P1 fill:skyblue;
+    style P2 fill:skyblue;
+{{< /mermaid >}}
+
+
 
 
 ### The `man` pages
@@ -176,7 +201,7 @@ $ mkdir personal/documents
 
 However, you can achieve the same result by using a single `mkdir` command. At the end of the day if you look at the manual for `mkdir`, it does mention that it can be used to create directories.
 
-```shell
+```Bash
 $ mkdir -p monash personal monash/documents monash/data monash/temp personal/documents
 ```
 

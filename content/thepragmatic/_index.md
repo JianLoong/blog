@@ -1,0 +1,24 @@
++++
+title = "What is Programming?"
+chapter = true
+weight = 5
+date = "{{ .Date }}"
+pre = "<b></b>"
++++
+
+### Programming
+
+
+{{% notice warning %}}
+
+Under construction.
+
+{{% /notice %}}
+
+> Programming is a craft.
+
+As a programmer, you are part listener, part advisor, part listener, part advisor,part interpreter, and part dictator.<sup>[1](#1)</sup>
+
+We try to capture requirements and express them so that a machine can do it justice. 
+
+<a name="1">1</a>. [The Pragmatic Programmer](http://www.agilemodeling.com/artifacts/stateMachineDiagram.htm)
