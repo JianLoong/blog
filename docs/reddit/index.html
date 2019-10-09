@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/blog/images/favicon.ico" type="image/ico">
 
-    <title>What are State Machine Diagrams? :: Jian Liew</title>
+    <title>Reddit Chart :: Jian Liew</title>
     
 <script type="application/javascript">
 var doNotTrack = false;
@@ -48,7 +48,7 @@ if (!doNotTrack) {
     </style>
     
   </head>
-  <body class="" data-url="/blog/teaching/uml/introduction/">
+  <body class="" data-url="/blog/reddit/">
     <nav id="sidebar" class="">
 
 
@@ -234,8 +234,8 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/reddit/" title="Reddit Chart" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/blog/reddit/">
@@ -256,7 +256,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/teaching/" title="Teaching" class="dd-item 
-        parent
+        
         
         
         ">
@@ -336,7 +336,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/teaching/uml/" title="UML" class="dd-item 
-        parent
+        
         
         
         ">
@@ -360,7 +360,7 @@ if (!doNotTrack) {
  
   
     
-      <li data-nav-id="/blog/teaching/uml/introduction/" title="What are State Machine Diagrams?" class="dd-item active">
+      <li data-nav-id="/blog/teaching/uml/introduction/" title="What are State Machine Diagrams?" class="dd-item ">
         <a href="/blog/teaching/uml/introduction/">
         <b>1. </b>What are State Machine Diagrams?
         
@@ -484,19 +484,7 @@ if (!doNotTrack) {
             
           
           
-            
-            
-          
-          
-            
-            
-          
-          
-            <a href='/blog/'>Contents</a> > <a href='/blog/teaching/'>Teaching</a> > <a href='/blog/teaching/uml/'>UML</a> > What are State Machine Diagrams?
-          
-        
-          
-        
+            <a href='/blog/'>Contents</a> > Reddit Chart
           
         
           
@@ -507,24 +495,7 @@ if (!doNotTrack) {
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#a-single-class">A single class</a></li>
-<li><a href="#dynamic">Dynamic</a></li>
-<li><a href="#diagrams">Diagrams</a></li>
-<li><a href="#references">References</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
+
     </div>
 </div>
 
@@ -536,11 +507,9 @@ if (!doNotTrack) {
         
 <div class="tags">
 
-  <a class="tag-link" href="/blog/tags/uml">UML</a>
+  <a class="tag-link" href="/blog/tags/java">Java</a>
 
-  <a class="tag-link" href="/blog/tags/state-machine">State Machine</a>
-
-  <a class="tag-link" href="/blog/tags/state-chart">State Chart</a>
+  <a class="tag-link" href="/blog/tags/effective-java">Effective Java</a>
 
 </div>
 
@@ -550,7 +519,7 @@ if (!doNotTrack) {
           
             <h1>
               
-              What are State Machine Diagrams?
+              Reddit Chart
             </h1>
           
 
@@ -559,234 +528,139 @@ if (!doNotTrack) {
 
 
 
+	<script src="https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script>
 
-<p>Posted - Tue  8 Oct 07:49:09 AEDT 2019</p>
 
-
-<div class="notices warning" ><p>This blog post is incomplete.</p>
+<div class="notices warning" ><p>Under construction.</p>
 </div>
 
 
+<p>The charts here are visualisation of the <em>AmItheasshole</em> subreddit which can be found <a href="https://www.reddit.com/r/AmItheAsshole/">here</a></p>
 
-<div class="notices note" ><p>This blog entry assumes that the reader has a basic understanding of UML diagrams and would wish to understand more regarding state machine diagrams.</p>
+<div class="result">
 </div>
 
-
-<h4 id="introduction">Introduction</h4>
-
-<p>This article is written based on my teaching experiencing in Monash University Australia (Faculty of Information Technology) for the unit Software Engineering.</p>
-
-<p>Often times, one of the most <strong>misunderstood</strong> diagram in UML is the <strong>state machine</strong>. These are also called state charts at times, as we often use terms interchangeably. The semantical difference between two of these diagrams are miniscule at best.</p>
-
-<!-- https://stackoverflow.com/questions/8193675/draw-a-hollow-circle-in-svg -->
-
-<style>
-    .cssClass > circle {
-        fill:black !important;
-        stroke:gray !important;
-        stroke-width:3 !important;
-     }    
-</style>
-
-
-<div class="mermaid" align="center">
-
-graph LR
-S(( ))
-A(Open)
-B(Close)
-E(( ))
-S-->A
-A-->B
-B-->E
-style S fill:#000000
-class E cssClass
-
+<div class="chart">
 </div>
 
+<script>
 
-<p align="center">A simple initial state chart for the state of a door.</p>
+let summary = [];
 
-<p>In fact, for most people, UML is perceived to be something that is not very useful in the development world. The main reason, is because the lack of understanding how the diagrams would relate to a real world application. When I first learn about UML state machines, I often confuse it with other diagrams like the <strong>flow chart</strong> as well as the <strong>activity diagram</strong>. I would also question its usefulness. Over time, I realised that it is the most useful diagrams in UML. I would rank it second in terms of importance, the first spot being the class diagram itself.</p>
+function parseResult(link){
+    let endPoint = "https://reddit.com" + link + ".json";
+    let replies = "";
 
-<p><strong>I will attempt to explain why in this blog post.</strong></p>
-
-<p>Remember that at the end of the day, diagrams are very useful to gain a better understanding of the system. As the saying goes, a picture tells a thousand words. The very first thing to understand is that a state chart is a <strong>dynamic</strong> modelling technique. It focuses on identifying the behavior of your system, specific to instances of <strong>a single class</strong>. <sup><a href="#1">1</a></sup></p>
-
-<p>The main keywords here are</p>
-
-<ul>
-<li>A Single Class</li>
-<li>Dynamic</li>
-</ul>
-
-<p><strong>Let&rsquo;s try to understand these keywords in more details.</strong></p>
-
-<h4 id="a-single-class">A single class</h4>
-
-<p>The key features of a state machine, is that it used to model a specific instance of a <strong>single class</strong>. This concept is at utmost importance when dealing with state diagrams. Not <strong>two</strong> classes, not <strong>three</strong> classes but a <strong>single</strong> class. Before we move on, lets see an example of a class diagram for now. Remember that normally the construction of a state diagram happens after the class diagram.</p>
+    $.getJSON(endPoint, function(data){
+        //console.log(data);
+        let title = (data[0].data.children[0].data["title"]);
 
 
-<div class="mermaid" align="center">
+        replies = data[1]["data"].children;
+        //console.log(replies);
+        let noOfReplies = replies.length;
+        let countNTAAppearance = 0;
+        let nta = "NTA";
+        let countYTAAppearance = 0;
+        let countESHAppearance = 0;
+        for (let i = 0; i < noOfReplies; i++) {
+            //console.log(replies[i]["data"].body);
+            let reply = replies[i]["data"].body;
+            if (reply == undefined)
+                return;
+            countNTAAppearance += (reply.match(/NTA/g) || []).length;
+            countYTAAppearance += (reply.match(/YTA/g) || []).length;
+            countESHAppearance += (reply.match(/ESH/g) || []).length;
+        }
 
-graph LR
-A[Student]
-B[Unit]
-A --> B
-</div>
+        let jsonResult = {
+            "id" : data[0].data.children[0].data["id"],
+            "title": title,
+            "countNTAAppearance": countNTAAppearance,
+            "countYTAAppearance": countYTAAppearance,
+            "countESHAppearance" : countESHAppearance
+        }
 
+       //console.log(jsonResult);
+       summary.push(jsonResult);
 
-<p align="center">A simple class diagram. (Initial level)</p>
+       //console.log(data[0].data.children[0].data["id"]);
 
-<p>The example above is a simplification of what a class diagram is at its very basic nature. Two classes, Student and Unit and the Student class using the Unit class.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">class</span> <span style="color:#000">Student</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#204a87;font-weight:bold">private</span> <span style="color:#000">String</span> <span style="color:#000">firstName</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#204a87;font-weight:bold">private</span> <span style="color:#000">String</span> <span style="color:#000">lastName</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#204a87;font-weight:bold">private</span> <span style="color:#000">Unit</span> <span style="color:#000">unit</span><span style="color:#000;font-weight:bold">;</span>
+       showResult(jsonResult);
+    });
+}
 
-    <span style="color:#8f5902;font-style:italic">// Other methods omitted..
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span></code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">class</span> <span style="color:#000">Unit</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#204a87;font-weight:bold">private</span> <span style="color:#000">String</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#204a87;font-weight:bold">private</span> <span style="color:#000">String</span> <span style="color:#000">description</span><span style="color:#000;font-weight:bold">;</span>
+function showResult(jsonResult) {
 
+    let output = "<strong>" + jsonResult["title"] + "</strong>";
 
-    <span style="color:#8f5902;font-style:italic">// Other methods omitted..
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span></code></pre></div>
-<p>So, where does the state machine come into the picture in this situation? Since the state machine diagram aims to model a single class. Which class would we model here? Do we model both of them or just one? The answer is pretty simple, we actually attempt to do a state chart of <strong>all of the classes.</strong></p>
+    $(".result").append(output);
+    
 
-<p>Since based on the diagram, the Student class is using the Unit class, we should start modelling the state chart from the Unit class. The very first steps when drawing the state machine diagram would be to list out all the possible states.</p>
+    $(".result").append("<div id=" + jsonResult["id"] + "></div>");
+    
 
+    let id = "#" + jsonResult["id"];
 
-<div class="notices tip" ><p>Remember that the objective of modelling is always to understand the system in more detailed view. We would also like to understand requirements better. This can be achieved in real life by talking to the real clients and users. If it is a fictional scenario, assumptions would then be made.</p>
-</div>
-
-
-<p><strong>The more intellectually stimulating steps is probably where you list out the possible states in a state chart.</strong></p>
-
-<p>So, lets say the possible states of a Unit are</p>
-
-<ul>
-<li>Offered</li>
-<li>Not offered</li>
-</ul>
-
-
-<div class="mermaid" align="center">
-
-    graph LR
-    S(( ))
-    A(Offered)
-    B(Not Offered)
-    E(( ))
-    S-->A
-    A-->B
-    B-->E
-    style S fill:#000000
-    class E cssClass
-
-</div>
+    const data = {
+                labels: ["NTA","YTA","ESH"],
+                datasets: [
+                    {
+                        name: "data",
+                        charType: 'bar',
+                        values: [jsonResult["countNTAAppearance"], jsonResult["countYTAAppearance"], jsonResult["countESHAppearance"]]
+                    }
+                ]
+            }
 
 
-<p>However, if you continue the thought process, there are probably more states which can only be derived by understanding the requirements further.</p>
+    const chart = new frappe.Chart(id, {
+        title: jsonResult[""],
+        data: data,
+        type: 'percentage',
+        
+        colors: ['blue', 'red', 'yellow']
+    })
+}
 
-<p>For example, if we apply the concept of <strong>4W1H</strong>, we will attempt to understand more regarding the requirements itself.</p>
-
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>Question</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>Who</td>
-<td>?</td>
-</tr>
-
-<tr>
-<td>Where</td>
-<td>?</td>
-</tr>
-
-<tr>
-<td>When</td>
-<td>?</td>
-</tr>
-
-<tr>
-<td>How</td>
-<td>?</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="dynamic">Dynamic</h4>
-
-<p>One of the biggest difference regarding state diagrams in comparison to the other diagrams in UML is that it attempts to model the <strong>dynamic nature of a system</strong>. In comparison to the other diagrams, state machine diagrams can model something which is not captured by the <strong>class diagram</strong>, as well as the <strong>use case diagram</strong>.</p>
-
-<p>It is very important to understand that over time, the state of a class changes. In the semantical sense, <strong>dynamic</strong> conveys the meaning of <em>(of a process or system) characterised by constant change, activity, or progress</em>.</p>
+function getPost(){
+    let result = "";
+    let entries = [];
+    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=50"
+    $.getJSON(endPoint, function(data){
+        //console.log(data);
+        result = data;
+        entries = result["data"].children;
+        //console.log(entries[0]["data"]["permalink"]);
+        for(let i = 0; i < entries.length; i++){
+            let link = (entries[i]["data"]["permalink"]);
+            console.log(link);
+            let text = "<p>" + entries[i]["data"]["title"] + "</p>";
+            //$(".result").append(text);
+            //console.log(en)
+            parseResult(link)
+        }
 
 
-<div class="mermaid" align="center">
+    });
 
-    graph LR
-    S(( ))
-    A(Offered)
-    B(Not Offered)
-    E(( ))
-    S-->A
-    A-->B
-    B-->E
-    style S fill:#000000
-    class E cssClass
+}
 
-</div>
+getPost();
+    
+</script>
 
 
-<p>So, if we take a look at our current state chart, what we would like to know is, how does it shift from one state into another state.</p>
 
-<h4 id="diagrams">Diagrams</h4>
-
-<p>P.S. - The real reason I wanted to make to blog post, is actually just to use mermaid diagrams.</p>
-
-<h4 id="references">References</h4>
-
-<p><a name="1">1</a>. <a href="http://www.agilemodeling.com/artifacts/stateMachineDiagram.htm">UML 2 State Machine Diagrams: An Agile Introduction</a></p>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-
         
         </div>
         
-
-
-<div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "jianloonggithubio" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
 
       </div>
 
@@ -914,87 +788,6 @@ A --> B
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -1014,6 +807,82 @@ A --> B
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1041,10 +910,10 @@ A --> B
 	 
 	 
 		
-			<a class="nav nav-prev" href="/blog/teaching/uml/" title="UML"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/blog/thepragmatic/rubberduck/" title=""> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/blog/teaching/uml/classdiagram/" title="What are Class Diagrams?" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/blog/teaching/" title="Teaching" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1079,4 +948,3 @@ A --> B
 
   </body>
 </html>
-

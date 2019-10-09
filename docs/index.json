@@ -21,6 +21,13 @@
 	"content": " Programming Under construction.\n  Programming is a craft.\n As a programmer, you are part listener, part advisor, part listener, part advisor, part interpreter, and part dictator.1\nWe try to capture requirements and express them so that a machine can do it justice.\n1. The Pragmatic Programmer\n"
 },
 {
+	"uri": "https://jianliew.me/blog/reddit/",
+	"title": "Reddit Chart",
+	"tags": ["Java", "Effective Java"],
+	"description": "",
+	"content": " Under construction.\n The charts here are visualisation of the AmItheasshole subreddit which can be found here\n   let summary = []; function parseResult(link){ let endPoint = \"https://reddit.com\" + link + \".json\"; let replies = \"\"; $.getJSON(endPoint, function(data){ //console.log(data); let title = (data[0].data.children[0].data[\"title\"]); replies = data[1][\"data\"].children; //console.log(replies); let noOfReplies = replies.length; let countNTAAppearance = 0; let nta = \"NTA\"; let countYTAAppearance = 0; let countESHAppearance = 0; for (let i = 0; i \" + jsonResult[\"title\"] + \"\"; $(\".result\").append(output); $(\".result\").append(\"\"); let id = \"#\" + jsonResult[\"id\"]; const data = { labels: [\"NTA\",\"YTA\",\"ESH\"], datasets: [ { name: \"data\", charType: 'bar', values: [jsonResult[\"countNTAAppearance\"], jsonResult[\"countYTAAppearance\"], jsonResult[\"countESHAppearance\"]] } ] } const chart = new frappe.Chart(id, { title: jsonResult[\"\"], data: data, type: 'percentage', colors: ['blue', 'red', 'yellow'] }) } function getPost(){ let result = \"\"; let entries = []; let endPoint = \"https://reddit.com/r/amitheasshole.json?limit=50\" $.getJSON(endPoint, function(data){ //console.log(data); result = data; entries = result[\"data\"].children; //console.log(entries[0][\"data\"][\"permalink\"]); for(let i = 0; i \" + entries[i][\"data\"][\"title\"] + \"\n\"; //$(\".result\").append(text); //console.log(en) parseResult(link) } }); } getPost();  "
+},
+{
 	"uri": "https://jianliew.me/blog/teaching/",
 	"title": "Teaching",
 	"tags": [],
