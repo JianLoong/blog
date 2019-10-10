@@ -12,14 +12,13 @@ The charts here are visualisation of the _AmIthea-hole_ subreddit which can be f
 
 The reason this post is made, is so that it would easier to see the percentage of votes of a certain type.
 
-|Abbreviation|Meaning|
-|------------|------|
-|YTA|You're the A-hole|
-|NTA|Not the A-hole|
-|ESH|Everyone sucks here|
-|NAH|No A-holes here|
-|INFO|Not Enough Info|
-
+| Abbreviation | Meaning             |
+| ------------ | ------------------- |
+| YTA          | You're the A-hole   |
+| NTA          | Not the A-hole      |
+| ESH          | Everyone sucks here |
+| NAH          | No A-holes here     |
+| INFO         | Not Enough Info     |
 
 ### Posts
 
@@ -34,7 +33,7 @@ The reason this post is made, is so that it would easier to see the percentage o
 let summary = [];
 
 function parseResult(link){
-    let endPoint = "https://reddit.com" + link + ".json?limit=100&jsonp=?";
+    let endPoint = "https://reddit.com" + link + ".json?limit=80&jsonp=?";
     let replies = "";
 
     $.getJSON(endPoint, function(data){
@@ -110,7 +109,7 @@ function showResult(jsonResult) {
 function getPost(){
     let result = "";
     let entries = [];
-    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=10b0&jsonp=?"
+    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=100&jsonp=?"
     $.getJSON(endPoint, function(data){
         result = data;
         entries = result["data"].children;
