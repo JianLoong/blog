@@ -25,20 +25,20 @@ if (!doNotTrack) {
 </script>
 
     
-    <link href="/blog/css/nucleus.css?1570682130" rel="stylesheet">
-    <link href="/blog/css/fontawesome-all.min.css?1570682130" rel="stylesheet">
-    <link href="/blog/css/hybrid.css?1570682130" rel="stylesheet">
-    <link href="/blog/css/featherlight.min.css?1570682130" rel="stylesheet">
-    <link href="/blog/css/perfect-scrollbar.min.css?1570682130" rel="stylesheet">
-    <link href="/blog/css/auto-complete.css?1570682130" rel="stylesheet">
-    <link href="/blog/css/atom-one-dark-reasonable.css?1570682130" rel="stylesheet">
-    <link href="/blog/css/theme.css?1570682130" rel="stylesheet">
-    <link href="/blog/css/hugo-theme.css?1570682130" rel="stylesheet">
+    <link href="/blog/css/nucleus.css?1570682737" rel="stylesheet">
+    <link href="/blog/css/fontawesome-all.min.css?1570682737" rel="stylesheet">
+    <link href="/blog/css/hybrid.css?1570682737" rel="stylesheet">
+    <link href="/blog/css/featherlight.min.css?1570682737" rel="stylesheet">
+    <link href="/blog/css/perfect-scrollbar.min.css?1570682737" rel="stylesheet">
+    <link href="/blog/css/auto-complete.css?1570682737" rel="stylesheet">
+    <link href="/blog/css/atom-one-dark-reasonable.css?1570682737" rel="stylesheet">
+    <link href="/blog/css/theme.css?1570682737" rel="stylesheet">
+    <link href="/blog/css/hugo-theme.css?1570682737" rel="stylesheet">
     
-      <link href="/blog/css/theme-blue.css?1570682130" rel="stylesheet">
+      <link href="/blog/css/theme-blue.css?1570682737" rel="stylesheet">
     
 
-    <script src="/blog/js/jquery-3.3.1.min.js?1570682130"></script>
+    <script src="/blog/js/jquery-3.3.1.min.js?1570682737"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -67,14 +67,14 @@ if (!doNotTrack) {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/blog/js/lunr.min.js?1570682130"></script>
-<script type="text/javascript" src="/blog/js/auto-complete.js?1570682130"></script>
+<script type="text/javascript" src="/blog/js/lunr.min.js?1570682737"></script>
+<script type="text/javascript" src="/blog/js/auto-complete.js?1570682737"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/jianliew.me\/blog";
     
 </script>
-<script type="text/javascript" src="/blog/js/search.js?1570682130"></script>
+<script type="text/javascript" src="/blog/js/search.js?1570682737"></script>
 
     
   </div>
@@ -495,7 +495,17 @@ if (!doNotTrack) {
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#posts">Posts</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -507,9 +517,11 @@ if (!doNotTrack) {
         
 <div class="tags">
 
-  <a class="tag-link" href="/blog/tags/java">Java</a>
+  <a class="tag-link" href="/blog/tags/reddit">Reddit</a>
 
-  <a class="tag-link" href="/blog/tags/effective-java">Effective Java</a>
+  <a class="tag-link" href="/blog/tags/chart">Chart</a>
+
+  <a class="tag-link" href="/blog/tags/visualisation">Visualisation</a>
 
 </div>
 
@@ -528,14 +540,51 @@ if (!doNotTrack) {
 
 
 
-	<script src="https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script>
+	
 
+<script src="https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script>
 
-<div class="notices warning" ><p>Under construction.</p>
-</div>
+<p>The charts here are visualisation of the <em>AmIthea-hole</em> subreddit which can be found <a href="https://www.reddit.com/r/AmItheAsshole/">here</a></p>
 
+<p>The reason this post is made, is so that it would easier to see the percentage of votes of a certain type.</p>
 
-<p>The charts here are visualisation of the <em>AmItheasshole</em> subreddit which can be found <a href="https://www.reddit.com/r/AmItheAsshole/">here</a></p>
+<table>
+<thead>
+<tr>
+<th>Abbreviation</th>
+<th>Meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>YTA</td>
+<td>You&rsquo;re the A-hole</td>
+</tr>
+
+<tr>
+<td>NTA</td>
+<td>Not the A-hole</td>
+</tr>
+
+<tr>
+<td>ESH</td>
+<td>Everyone sucks here</td>
+</tr>
+
+<tr>
+<td>NAH</td>
+<td>No A-holes here</td>
+</tr>
+
+<tr>
+<td>INFO</td>
+<td>Not Enough Info</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="posts">Posts</h3>
 
 <div class="result">
 </div>
@@ -548,7 +597,7 @@ if (!doNotTrack) {
 let summary = [];
 
 function parseResult(link){
-    let endPoint = "https://reddit.com" + link + ".json?limit=50&jsonp=?";
+    let endPoint = "https://reddit.com" + link + ".json?limit=100&jsonp=?";
     let replies = "";
 
     $.getJSON(endPoint, function(data){
@@ -617,14 +666,14 @@ function showResult(jsonResult) {
     const chart = new frappe.Chart(id, {
         data: data,
         type: 'percentage',
-        colors: ['blue', 'red', 'yellow','green','black']
+        colors: ['#5300e8', '#61d800', '#ef0078','#004D40','black']
     })
 }
 
 function getPost(){
     let result = "";
     let entries = [];
-    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=100&jsonp=?"
+    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=10b0&jsonp=?"
     $.getJSON(endPoint, function(data){
         result = data;
         entries = result["data"].children;
@@ -912,19 +961,19 @@ getPost();
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/blog/js/clipboard.min.js?1570682130"></script>
-    <script src="/blog/js/perfect-scrollbar.min.js?1570682130"></script>
-    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1570682130"></script>
-    <script src="/blog/js/jquery.sticky.js?1570682130"></script>
-    <script src="/blog/js/featherlight.min.js?1570682130"></script>
-    <script src="/blog/js/highlight.pack.js?1570682130"></script>
+    <script src="/blog/js/clipboard.min.js?1570682737"></script>
+    <script src="/blog/js/perfect-scrollbar.min.js?1570682737"></script>
+    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1570682737"></script>
+    <script src="/blog/js/jquery.sticky.js?1570682737"></script>
+    <script src="/blog/js/featherlight.min.js?1570682737"></script>
+    <script src="/blog/js/highlight.pack.js?1570682737"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/blog/js/modernizr.custom-3.6.0.js?1570682130"></script>
-    <script src="/blog/js/learn.js?1570682130"></script>
-    <script src="/blog/js/hugo-learn.js?1570682130"></script>
+    <script src="/blog/js/modernizr.custom-3.6.0.js?1570682737"></script>
+    <script src="/blog/js/learn.js?1570682737"></script>
+    <script src="/blog/js/hugo-learn.js?1570682737"></script>
 
-    <link href="/blog/mermaid/mermaid.css?1570682130" rel="stylesheet" />
-    <script src="/blog/mermaid/mermaid.js?1570682130"></script>
+    <link href="/blog/mermaid/mermaid.css?1570682737" rel="stylesheet" />
+    <script src="/blog/mermaid/mermaid.js?1570682737"></script>
     <script>
         mermaid.initialize({
           startOnLoad: true,

@@ -3,18 +3,25 @@ title = "Reddit Chart"
 weight = 5
 date = "{{ .Date }}"
 pre = "<b></b>"
-tags = ["Java", "Effective Java"]
+tags = ["Reddit", "Chart", "Visualisation"]
 +++
 
 <script src="https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script>
 
-{{% notice warning %}}
+The charts here are visualisation of the _AmIthea-hole_ subreddit which can be found [here](https://www.reddit.com/r/AmItheAsshole/)
 
-Under construction.
+The reason this post is made, is so that it would easier to see the percentage of votes of a certain type.
 
-{{% /notice %}}
+|Abbreviation|Meaning|
+|------------|------|
+|YTA|You're the A-hole|
+|NTA|Not the A-hole|
+|ESH|Everyone sucks here|
+|NAH|No A-holes here|
+|INFO|Not Enough Info|
 
-The charts here are visualisation of the _AmItheasshole_ subreddit which can be found [here](https://www.reddit.com/r/AmItheAsshole/)
+
+### Posts
 
 <div class="result">
 </div>
@@ -27,7 +34,7 @@ The charts here are visualisation of the _AmItheasshole_ subreddit which can be 
 let summary = [];
 
 function parseResult(link){
-    let endPoint = "https://reddit.com" + link + ".json?limit=50&jsonp=?";
+    let endPoint = "https://reddit.com" + link + ".json?limit=100&jsonp=?";
     let replies = "";
 
     $.getJSON(endPoint, function(data){
@@ -96,14 +103,14 @@ function showResult(jsonResult) {
     const chart = new frappe.Chart(id, {
         data: data,
         type: 'percentage',
-        colors: ['blue', 'red', 'yellow','green','black']
+        colors: ['#5300e8', '#61d800', '#ef0078','#004D40','black']
     })
 }
 
 function getPost(){
     let result = "";
     let entries = [];
-    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=100&jsonp=?"
+    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=10b0&jsonp=?"
     $.getJSON(endPoint, function(data){
         result = data;
         entries = result["data"].children;
