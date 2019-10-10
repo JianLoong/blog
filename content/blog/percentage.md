@@ -25,8 +25,6 @@ The reason this post is made, is so that it would easier to see the percentage o
 <div class="result">
 </div>
 
-<div class="chart">
-</div>
 
 <script>
 
@@ -74,20 +72,23 @@ function parseResult(link){
 }
 
 function showResult(jsonResult) {
-    let output = "<strong>" + jsonResult["title"] + "</strong>";
-    
+    let output = "<strong>" + jsonResult["title"] + "</strong>";    
     $(".result").append(output);
     $(".result").append("<p><a id=" + jsonResult["id"] + "_link> Click here</a> to view post in context.</p>");
-    $(".result").append("<div class='shadow' id=" + jsonResult["id"] + "></div>");
+
+    //let html = "<strong>" + jsonResult["title"] + "</strong>";
+    //html += "<p><a id=" + jsonResult["id"] + "_link> Click here</a> to view post in context.</p>";
+
+    $(".result").append("<div class='' id=" + jsonResult["id"] + "></div>");
     $("#" + jsonResult["id"] + "_link").prop("href", jsonResult["url"]);
-    
+
     let id = "#" + jsonResult["id"];
     const data = {
                 labels: ["NTA","YTA","ESH","NAH","INFO"],
                 datasets: [
                     {
                         name: "data",
-                        charType: 'bar',
+                        charType: 'percentage',
                         values: [
                             jsonResult["countNTAAppearance"], 
                             jsonResult["countYTAAppearance"], 
@@ -123,3 +124,9 @@ function getPost(){
 getPost();
     
 </script>
+
+<style>
+.shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+</style>

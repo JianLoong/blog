@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on Jian Liew</title>
+    <link>https://jianliew.me/blog/tags/java/</link>
+    <description>Recent content in Java on Jian Liew</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://jianliew.me/blog/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Effective Java</title>
+      <link>https://jianliew.me/blog/blog/generics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/blog/generics/</guid>
+      <description> Under construction.
+ Generics classes A class or interface whose declaration has one or more type parameters is a generic class or interface. Generic classes and interfaces are collectively known as generic types.
+One of the best examples would be the list class.
+public interface List&amp;lt;E&amp;gt; extends Collection&amp;lt;E&amp;gt; { // methods omitted } You should not do something like this&amp;hellip;
+private final Collection stamps = ... ; </description>
+    </item>
+    
+  </channel>
+</rss>

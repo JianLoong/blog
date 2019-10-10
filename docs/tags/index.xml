@@ -20,6 +20,15 @@
     </item>
     
     <item>
+      <title>Chart</title>
+      <link>https://jianliew.me/blog/tags/chart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/tags/chart/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Class Diagram</title>
       <link>https://jianliew.me/blog/tags/class-diagram/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -34,6 +43,33 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jianliew.me/blog/tags/command-line/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Effective Java</title>
+      <link>https://jianliew.me/blog/tags/effective-java/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/tags/effective-java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://jianliew.me/blog/tags/java/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reddit</title>
+      <link>https://jianliew.me/blog/tags/reddit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/tags/reddit/</guid>
       <description></description>
     </item>
     
@@ -70,6 +106,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jianliew.me/blog/tags/uml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visualisation</title>
+      <link>https://jianliew.me/blog/tags/visualisation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/tags/visualisation/</guid>
       <description></description>
     </item>
     

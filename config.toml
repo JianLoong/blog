@@ -11,6 +11,10 @@ pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsStyle = "tango"
 
+[taxonomies]
+    tatgs = "tags"
+
+
 [params]
     themeVariant = "blue"
 

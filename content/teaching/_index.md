@@ -6,7 +6,7 @@ date = "{{ .Date }}"
 pre = "<b></b>"
 +++
 
-### Blog
+### Teaching
 
 {{% notice warning %}}
 

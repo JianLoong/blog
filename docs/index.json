@@ -7,7 +7,7 @@
 	"content": " Blog This blog post is under construction.\n "
 },
 {
-	"uri": "https://jianliew.me/blog/effectivejava/",
+	"uri": "https://jianliew.me/blog/blog/generics/",
 	"title": "Effective Java",
 	"tags": ["Java", "Effective Java"],
 	"description": "",
@@ -21,11 +21,11 @@
 	"content": " Programming Under construction.\n  Programming is a craft.\n As a programmer, you are part listener, part advisor, part listener, part advisor, part interpreter, and part dictator.1\nWe try to capture requirements and express them so that a machine can do it justice.\n1. The Pragmatic Programmer\n"
 },
 {
-	"uri": "https://jianliew.me/blog/reddit/",
+	"uri": "https://jianliew.me/blog/blog/percentage/",
 	"title": "Reddit Chart",
 	"tags": ["Reddit", "Chart", "Visualisation"],
 	"description": "",
-	"content": "  The charts here are visualisation of the AmIthea-hole subreddit which can be found here\nThe reason this post is made, is so that it would easier to see the percentage of votes of a certain type.\n   Abbreviation Meaning     YTA You\u0026rsquo;re the A-hole   NTA Not the A-hole   ESH Everyone sucks here   NAH No A-holes here   INFO Not Enough Info    Posts    let summary = []; function parseResult(link){ let endPoint = \"https://reddit.com\" + link + \".json?limit=80\u0026jsonp=?\"; let replies = \"\"; $.getJSON(endPoint, function(data){ let title = (data[0].data.children[0].data[\"title\"]); replies = data[1][\"data\"].children; let url = \"https://reddit.com\" + link; let noOfReplies = replies.length; let countNTAAppearance = 0; let nta = \"NTA\"; let countYTAAppearance = 0; let countESHAppearance = 0; let countNAHAppearance = 0; let countINFOAppearance = 0; for (let i = 0; i \" + jsonResult[\"title\"] + \"\"; $(\".result\").append(output); $(\".result\").append(\"Click here to view post in context.\n\"); $(\".result\").append(\"\"); $(\"#\" + jsonResult[\"id\"] + \"_link\").prop(\"href\", jsonResult[\"url\"]); let id = \"#\" + jsonResult[\"id\"]; const data = { labels: [\"NTA\",\"YTA\",\"ESH\",\"NAH\",\"INFO\"], datasets: [ { name: \"data\", charType: 'bar', values: [ jsonResult[\"countNTAAppearance\"], jsonResult[\"countYTAAppearance\"], jsonResult[\"countESHAppearance\"], jsonResult[\"countNAHAppearance\"], jsonResult[\"countINFOAppearance\"], ] } ] } const chart = new frappe.Chart(id, { data: data, type: 'percentage', colors: ['#5300e8', '#61d800', '#ef0078','#004D40','black'] }) } function getPost(){ let result = \"\"; let entries = []; let endPoint = \"https://reddit.com/r/amitheasshole.json?limit=100\u0026jsonp=?\" $.getJSON(endPoint, function(data){ result = data; entries = result[\"data\"].children; for(let i = 0; i "
+	"content": "  The charts here are visualisation of the AmIthea-hole subreddit which can be found here\nThe reason this post is made, is so that it would easier to see the percentage of votes of a certain type.\n   Abbreviation Meaning     YTA You\u0026rsquo;re the A-hole   NTA Not the A-hole   ESH Everyone sucks here   NAH No A-holes here   INFO Not Enough Info    Posts   let summary = []; function parseResult(link){ let endPoint = \"https://reddit.com\" + link + \".json?limit=80\u0026jsonp=?\"; let replies = \"\"; $.getJSON(endPoint, function(data){ let title = (data[0].data.children[0].data[\"title\"]); replies = data[1][\"data\"].children; let url = \"https://reddit.com\" + link; let noOfReplies = replies.length; let countNTAAppearance = 0; let nta = \"NTA\"; let countYTAAppearance = 0; let countESHAppearance = 0; let countNAHAppearance = 0; let countINFOAppearance = 0; for (let i = 0; i \" + jsonResult[\"title\"] + \"\"; $(\".result\").append(output); $(\".result\").append(\"Click here to view post in context.\n\"); //let html = \"\" + jsonResult[\"title\"] + \"\"; //html += \"Click here to view post in context.\n\"; $(\".result\").append(\"\"); $(\"#\" + jsonResult[\"id\"] + \"_link\").prop(\"href\", jsonResult[\"url\"]); let id = \"#\" + jsonResult[\"id\"]; const data = { labels: [\"NTA\",\"YTA\",\"ESH\",\"NAH\",\"INFO\"], datasets: [ { name: \"data\", charType: 'percentage', values: [ jsonResult[\"countNTAAppearance\"], jsonResult[\"countYTAAppearance\"], jsonResult[\"countESHAppearance\"], jsonResult[\"countNAHAppearance\"], jsonResult[\"countINFOAppearance\"], ] } ] } const chart = new frappe.Chart(id, { data: data, type: 'percentage', colors: ['#5300e8', '#61d800', '#ef0078','#004D40','black'] }) } function getPost(){ let result = \"\"; let entries = []; let endPoint = \"https://reddit.com/r/amitheasshole.json?limit=100\u0026jsonp=?\" $.getJSON(endPoint, function(data){ result = data; entries = result[\"data\"].children; for(let i = 0; i  .shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }  "
 },
 {
 	"uri": "https://jianliew.me/blog/thepragmatic/rubberduck/",
@@ -39,7 +39,7 @@
 	"title": "Teaching",
 	"tags": [],
 	"description": "",
-	"content": " Blog This blog post is under construction.\n "
+	"content": " Teaching This blog post is under construction.\n "
 },
 {
 	"uri": "https://jianliew.me/blog/teaching/ubuntu/ls/",
@@ -56,7 +56,7 @@
 	"content": " Command Line This blog post is under construction.\n The entries in this blog are based on materials for the Computer Architecture \u0026amp; Operating Systems Unit done at the Masters level.\nThis unit is not done in the traditional manner but it focuses heavily on understanding and using the command line.\nSince this unit will no longer be offered, this blog post will serve as a reminder what the basic commands taught in this unit.\n"
 },
 {
-	"uri": "https://jianliew.me/blog/effectivejava/forloops/",
+	"uri": "https://jianliew.me/blog/blog/forloops/",
 	"title": "Prefer for loops",
 	"tags": [],
 	"description": "",
@@ -98,8 +98,8 @@
 	"content": ""
 },
 {
-	"uri": "https://jianliew.me/blog/categories/",
-	"title": "Categories",
+	"uri": "https://jianliew.me/blog/tags/chart/",
+	"title": "Chart",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -140,6 +140,27 @@
 	"content": "This web site is not authorised by Monash University and that any opinions expressed on the pages are those of the author and not those of the University.\n"
 },
 {
+	"uri": "https://jianliew.me/blog/tags/effective-java/",
+	"title": "Effective Java",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://jianliew.me/blog/tags/java/",
+	"title": "Java",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://jianliew.me/blog/tags/reddit/",
+	"title": "Reddit",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://jianliew.me/blog/tags/shell/",
 	"title": "Shell",
 	"tags": [],
@@ -170,6 +191,13 @@
 {
 	"uri": "https://jianliew.me/blog/tags/uml/",
 	"title": "UML",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://jianliew.me/blog/tags/visualisation/",
+	"title": "Visualisation",
 	"tags": [],
 	"description": "",
 	"content": ""

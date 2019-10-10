@@ -10,5 +10,39 @@
 	<atom:link href="https://jianliew.me/blog/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Effective Java</title>
+      <link>https://jianliew.me/blog/blog/generics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/blog/generics/</guid>
+      <description> Under construction.
+ Generics classes A class or interface whose declaration has one or more type parameters is a generic class or interface. Generic classes and interfaces are collectively known as generic types.
+One of the best examples would be the list class.
+public interface List&amp;lt;E&amp;gt; extends Collection&amp;lt;E&amp;gt; { // methods omitted } You should not do something like this&amp;hellip;
+private final Collection stamps = ... ; </description>
+    </item>
+    
+    <item>
+      <title>Reddit Chart</title>
+      <link>https://jianliew.me/blog/blog/percentage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/blog/percentage/</guid>
+      <description>The charts here are visualisation of the AmIthea-hole subreddit which can be found here
+The reason this post is made, is so that it would easier to see the percentage of votes of a certain type.
+   Abbreviation Meaning     YTA You&amp;rsquo;re the A-hole   NTA Not the A-hole   ESH Everyone sucks here   NAH No A-holes here   INFO Not Enough Info    Posts   let summary = []; function parseResult(link){ let endPoint = &#34;</description>
+    </item>
+    
+    <item>
+      <title>Prefer for loops</title>
+      <link>https://jianliew.me/blog/blog/forloops/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/blog/forloops/</guid>
+      <description>Programmers tend to write loops in many different ways. If you first language is C, one of the more interesting things was with the way you would have to declare local variables at the head of the block.
+for (Element e : c) { ... // Omitted }</description>
+    </item>
+    
   </channel>
 </rss>

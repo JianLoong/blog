@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Visualisation on Jian Liew</title>
+    <link>https://jianliew.me/blog/tags/visualisation/</link>
+    <description>Recent content in Visualisation on Jian Liew</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://jianliew.me/blog/tags/visualisation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reddit Chart</title>
+      <link>https://jianliew.me/blog/blog/percentage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/blog/percentage/</guid>
+      <description>The charts here are visualisation of the AmIthea-hole subreddit which can be found here
+The reason this post is made, is so that it would easier to see the percentage of votes of a certain type.
+   Abbreviation Meaning     YTA You&amp;rsquo;re the A-hole   NTA Not the A-hole   ESH Everyone sucks here   NAH No A-holes here   INFO Not Enough Info    Posts   let summary = []; function parseResult(link){ let endPoint = &#34;</description>
+    </item>
+    
+  </channel>
+</rss>

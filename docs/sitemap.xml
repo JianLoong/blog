@@ -7,7 +7,7 @@
   </url>
   
   <url>
-    <loc>https://jianliew.me/blog/effectivejava/</loc>
+    <loc>https://jianliew.me/blog/blog/generics/</loc>
   </url>
   
   <url>
@@ -15,7 +15,7 @@
   </url>
   
   <url>
-    <loc>https://jianliew.me/blog/reddit/</loc>
+    <loc>https://jianliew.me/blog/blog/percentage/</loc>
   </url>
   
   <url>
@@ -35,7 +35,7 @@
   </url>
   
   <url>
-    <loc>https://jianliew.me/blog/effectivejava/forloops/</loc>
+    <loc>https://jianliew.me/blog/blog/forloops/</loc>
   </url>
   
   <url>
@@ -59,7 +59,7 @@
   </url>
   
   <url>
-    <loc>https://jianliew.me/blog/categories/</loc>
+    <loc>https://jianliew.me/blog/tags/chart/</loc>
   </url>
   
   <url>
@@ -83,6 +83,18 @@
   </url>
   
   <url>
+    <loc>https://jianliew.me/blog/tags/effective-java/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/java/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/reddit/</loc>
+  </url>
+  
+  <url>
     <loc>https://jianliew.me/blog/tags/shell/</loc>
   </url>
   
@@ -100,6 +112,10 @@
   
   <url>
     <loc>https://jianliew.me/blog/tags/uml/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/visualisation/</loc>
   </url>
   
 </urlset>
