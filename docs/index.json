@@ -25,7 +25,14 @@
 	"title": "Reddit Chart",
 	"tags": ["Java", "Effective Java"],
 	"description": "",
-	"content": " Under construction.\n The charts here are visualisation of the AmItheasshole subreddit which can be found here\n   let summary = []; function parseResult(link){ let endPoint = \"https://reddit.com\" + link + \".json?limit=50\u0026jsonp=?\"; let replies = \"\"; $.getJSON(endPoint, function(data){ let title = (data[0].data.children[0].data[\"title\"]); replies = data[1][\"data\"].children; let url = \"https://reddit.com\" + link; let noOfReplies = replies.length; let countNTAAppearance = 0; let nta = \"NTA\"; let countYTAAppearance = 0; let countESHAppearance = 0; let countNAHAppearance = 0; let countINFOAppearance = 0; for (let i = 0; i \" + jsonResult[\"title\"] + \"\"; $(\".result\").append(output); $(\".result\").append(\"Click here to view post in context.\n\"); $(\".result\").append(\"\"); $(\"#\" + jsonResult[\"id\"] + \"_link\").prop(\"href\", jsonResult[\"url\"]); let id = \"#\" + jsonResult[\"id\"]; const data = { labels: [\"NTA\",\"YTA\",\"ESH\",\"NAH\",\"INFO\"], datasets: [ { name: \"data\", charType: 'bar', values: [ jsonResult[\"countNTAAppearance\"], jsonResult[\"countYTAAppearance\"], jsonResult[\"countESHAppearance\"], jsonResult[\"countNAHAppearance\"], jsonResult[\"countINFOAppearance\"], ] } ] } const chart = new frappe.Chart(id, { data: data, type: 'percentage', colors: ['blue', 'red', 'yellow','green','black'] }) } function getPost(){ let result = \"\"; let entries = []; let endPoint = \"https://reddit.com/r/amitheasshole.json?limit=50\u0026jsonp=?\" $.getJSON(endPoint, function(data){ result = data; entries = result[\"data\"].children; for(let i = 0; i "
+	"content": " Under construction.\n The charts here are visualisation of the AmItheasshole subreddit which can be found here\n   let summary = []; function parseResult(link){ let endPoint = \"https://reddit.com\" + link + \".json?limit=50\u0026jsonp=?\"; let replies = \"\"; $.getJSON(endPoint, function(data){ let title = (data[0].data.children[0].data[\"title\"]); replies = data[1][\"data\"].children; let url = \"https://reddit.com\" + link; let noOfReplies = replies.length; let countNTAAppearance = 0; let nta = \"NTA\"; let countYTAAppearance = 0; let countESHAppearance = 0; let countNAHAppearance = 0; let countINFOAppearance = 0; for (let i = 0; i \" + jsonResult[\"title\"] + \"\"; $(\".result\").append(output); $(\".result\").append(\"Click here to view post in context.\n\"); $(\".result\").append(\"\"); $(\"#\" + jsonResult[\"id\"] + \"_link\").prop(\"href\", jsonResult[\"url\"]); let id = \"#\" + jsonResult[\"id\"]; const data = { labels: [\"NTA\",\"YTA\",\"ESH\",\"NAH\",\"INFO\"], datasets: [ { name: \"data\", charType: 'bar', values: [ jsonResult[\"countNTAAppearance\"], jsonResult[\"countYTAAppearance\"], jsonResult[\"countESHAppearance\"], jsonResult[\"countNAHAppearance\"], jsonResult[\"countINFOAppearance\"], ] } ] } const chart = new frappe.Chart(id, { data: data, type: 'percentage', colors: ['blue', 'red', 'yellow','green','black'] }) } function getPost(){ let result = \"\"; let entries = []; let endPoint = \"https://reddit.com/r/amitheasshole.json?limit=100\u0026jsonp=?\" $.getJSON(endPoint, function(data){ result = data; entries = result[\"data\"].children; for(let i = 0; i "
+},
+{
+	"uri": "https://jianliew.me/blog/thepragmatic/rubberduck/",
+	"title": "Rubber Duck",
+	"tags": [],
+	"description": "",
+	"content": " Programming Under construction.\n "
 },
 {
 	"uri": "https://jianliew.me/blog/teaching/",
@@ -82,13 +89,6 @@
 	"tags": [],
 	"description": "",
 	"content": "Before we start, there is a need to know that \u0026hellip;.\nShared Directories are NOT Version Control\n It is common to store source codes using Google Drive, DropBox or OneDrive. However, this is actually not a good practice at all.\nWhenever we are programming, one of the most common feature that we often look out for would be the undo key. The problem with the undo key that it is not a time machine.\nIt will not allow you to undo a mistake that was done weeks ago.\n"
-},
-{
-	"uri": "https://jianliew.me/blog/thepragmatic/rubberduck/",
-	"title": "",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "https://jianliew.me/blog/tags/bash/",

@@ -72,7 +72,7 @@ function showResult(jsonResult) {
     
     $(".result").append(output);
     $(".result").append("<p><a id=" + jsonResult["id"] + "_link> Click here</a> to view post in context.</p>");
-    $(".result").append("<div id=" + jsonResult["id"] + "></div>");
+    $(".result").append("<div class='shadow' id=" + jsonResult["id"] + "></div>");
     $("#" + jsonResult["id"] + "_link").prop("href", jsonResult["url"]);
     
     let id = "#" + jsonResult["id"];
@@ -103,7 +103,7 @@ function showResult(jsonResult) {
 function getPost(){
     let result = "";
     let entries = [];
-    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=50&jsonp=?"
+    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=100&jsonp=?"
     $.getJSON(endPoint, function(data){
         result = data;
         entries = result["data"].children;
