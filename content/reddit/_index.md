@@ -69,13 +69,12 @@ function parseResult(link){
 
 function showResult(jsonResult) {
     let output = "<strong>" + jsonResult["title"] + "</strong>";
+    
     $(".result").append(output);
-    
-    $(".result").attr("href", jsonResult["url"]);
-    // $(".result").attr("href", jsonResult["url"] + "> Here</a>");
+    $(".result").append("<p><a id=" + jsonResult["id"] + "_link> Click here</a> to view post in context.</p>");
     $(".result").append("<div id=" + jsonResult["id"] + "></div>");
+    $("#" + jsonResult["id"] + "_link").prop("href", jsonResult["url"]);
     
-
     let id = "#" + jsonResult["id"];
     const data = {
                 labels: ["NTA","YTA","ESH","NAH","INFO"],
@@ -110,7 +109,6 @@ function getPost(){
         entries = result["data"].children;
         for(let i = 0; i < entries.length; i++){
             let link = (entries[i]["data"]["permalink"]);
-            let text = "<p>" + entries[i]["data"]["title"] + "</p>";
             parseResult(link)
         }
     });
