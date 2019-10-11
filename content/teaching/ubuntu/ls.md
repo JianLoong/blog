@@ -75,7 +75,7 @@ The first and top most directory is called the **root directory**. This director
 | Directory | Purpose                                                                                                                                                                      |
 | :-------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |     /     | - First directory and the root of the entire file system hierarchy <br />- Contains all other directories                                                                    |
-|   /bin    | - Contains commands that may be used by both the system administrators and by users <br /> - There must be no subdirectories in here.                                        |
+|   /bin    | - Contains commands that may be used by **both** the system administrators and by users <br /> - There must be no subdirectories in here.                                        |
 |   /boot   | - The operating system kernel is located here.                                                                                                                               |
 |   /etc    | - Contains configuration files. **Configuration file** is a local file that is used to control the operation of a program. It must be static and cannot be an executable binary. |
 |   /home   | - This directory contains user's home directories. Generally, each user would have a separate directory with their username under this directory.                            |
@@ -119,13 +119,13 @@ graph TD
 
 There are several ways in which users obtain help. One of the most well known way would be to use the man pages. However, these days most people do not use the man pages anymore.
 
-```
+```console
 $ man
 ```
 
 For example, if you want to take a look at the `man` pages for the `ls` command, you will just need to do
 
-```shell
+```console
 $ man ls
 ```
 
@@ -135,7 +135,7 @@ List in **long format** all the files and directories in your home directory.
 
 Answer
 
-```
+```bash
 $ ls -l
 ```
 
@@ -147,7 +147,7 @@ One interesting thing is that most people do not know that the `ls` command can 
 
 So, the various accepted answers for this question are
 
-```shell
+```bash
 $ ls -l
 $ ls --all -l
 $ ls -al
@@ -155,14 +155,25 @@ $ ls -al
 
 List in **long format** all the files and directories (top-level only) in the **/usr/local** directory, sorted by the time of last modification.
 
-```shell
-$ ls -lt
+```bash
+$ ls -lt /usr/local
 ```
 
-One interesting thing about Ubuntu is the way it manages time. For example, if you use the command `stat` on a file.if
+One interesting thing about Ubuntu is the way it manages time. For example, if you use the command `stat` on a file.
+
+<pre>  
+  File: examples.desktop
+  Size: 8980      	Blocks: 24         IO Block: 4096   regular file
+Device: 10306h/66310d	Inode: 3145732     Links: 1
+Access: (0644/-rw-r--r--)  Uid: ( 1000/    jian)   Gid: ( 1000/    jian)
+Access: 2019-10-09 08:43:17.558138350 +1100
+Modify: 2018-10-29 21:38:37.957796856 +1100
+Change: 2018-10-29 21:38:37.957796856 +1100
+ Birth: -
+</pre>
 
 
-![Stat command on file](/blog/images/ubuntu/stat.png?featherlight=false&classes=border,shadow)
+<!-- ![Stat command on file](/blog/images/ubuntu/stat.png?featherlight=false&classes=border,shadow) -->
 
 ---
 
@@ -190,7 +201,7 @@ B --> F
 
 In order to create the directory structure, there are several ways. One way to do is would be to use several `mkdir` commands.
 
-```shell
+```bash
 $ mkdir monash
 $ mkdir personal
 $ mkdir monash/documents
@@ -201,7 +212,7 @@ $ mkdir personal/documents
 
 However, you can achieve the same result by using a single `mkdir` command. At the end of the day if you look at the manual for `mkdir`, it does mention that it can be used to create directories.
 
-```Bash
+```bash
 $ mkdir -p monash personal monash/documents monash/data monash/temp personal/documents
 ```
 
@@ -209,6 +220,12 @@ Change into the **~/monash/temp** directory. The special character ~ means "a sh
 
 
 Change into your home directory. How many ways can you do this?
+
+```bash
+$ cd ~
+$ cd 
+$ cd $HOME
+```
 
 #### References
 

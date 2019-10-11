@@ -6,11 +6,19 @@ pre = "<b></b>"
 tags = ["Reddit", "Chart", "Visualisation"]
 +++
 
+Posted on - Fri 11 Oct 00:02:42 AEDT 2019
+
 <script src="https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script>
 
 The charts here are visualisation of the _AmIthea-hole_ subreddit which can be found [here](https://www.reddit.com/r/AmItheAsshole/)
 
 The reason this post is made, is so that it would easier to see the percentage of votes of a certain type.
+
+{{% notice info %}}
+
+Please note that the posts here are generated based on the Reddit website by doing `GET` requests. So, it is based on their current entries.
+
+{{% /notice %}}
 
 | Abbreviation | Meaning             |
 | ------------ | ------------------- |
@@ -26,12 +34,13 @@ The reason this post is made, is so that it would easier to see the percentage o
 </div>
 
 
+
 <script>
 
 let summary = [];
 
-function parseResult(link){
-    let endPoint = "https://reddit.com" + link + ".json?limit=80&jsonp=?";
+let parseResult = (link) => {
+    const endPoint = "https://reddit.com" + link + ".json?limit=80&jsonp=?";
     let replies = "";
 
     $.getJSON(endPoint, function(data){
@@ -71,15 +80,14 @@ function parseResult(link){
     });
 }
 
-function showResult(jsonResult) {
+let showResult = (jsonResult) => {
     let output = "<strong>" + jsonResult["title"] + "</strong>";    
-    $(".result").append(output);
-    $(".result").append("<p><a id=" + jsonResult["id"] + "_link> Click here</a> to view post in context.</p>");
+    //$(".result").append(output);
+    //$(".result").append("<p><a id=" + jsonResult["id"] + "_link> Click here</a> to view post in context.</p>");
 
-    //let html = "<strong>" + jsonResult["title"] + "</strong>";
-    //html += "<p><a id=" + jsonResult["id"] + "_link> Click here</a> to view post in context.</p>";
+    let out = output + "<p><a id=" + jsonResult["id"] + "_link> Click here</a> to view post in context.</p>";
 
-    $(".result").append("<div class='' id=" + jsonResult["id"] + "></div>");
+    $(".result").append("<div class = 'shadow'>" + out +"<div class='' id=" + jsonResult["id"] + "></div></div>");
     $("#" + jsonResult["id"] + "_link").prop("href", jsonResult["url"]);
 
     let id = "#" + jsonResult["id"];
@@ -103,11 +111,11 @@ function showResult(jsonResult) {
     const chart = new frappe.Chart(id, {
         data: data,
         type: 'percentage',
-        colors: ['#5300e8', '#61d800', '#ef0078','#004D40','black']
+        colors: ['#33691e', '#b71c1c', '#f47e17','#1a237e','#e8eaf6']
     })
 }
 
-function getPost(){
+let getPost = () => {
     let result = "";
     let entries = [];
     let endPoint = "https://reddit.com/r/amitheasshole.json?limit=100&jsonp=?"
@@ -128,5 +136,9 @@ getPost();
 <style>
 .shadow {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-top: 1em;
 }
 </style>
+

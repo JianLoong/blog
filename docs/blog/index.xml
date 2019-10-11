@@ -29,9 +29,10 @@ private final Collection stamps = ... ; </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jianliew.me/blog/blog/percentage/</guid>
-      <description>The charts here are visualisation of the AmIthea-hole subreddit which can be found here
+      <description>Posted on - Fri 11 Oct 00:02:42 AEDT 2019
+ The charts here are visualisation of the AmIthea-hole subreddit which can be found here
 The reason this post is made, is so that it would easier to see the percentage of votes of a certain type.
-   Abbreviation Meaning     YTA You&amp;rsquo;re the A-hole   NTA Not the A-hole   ESH Everyone sucks here   NAH No A-holes here   INFO Not Enough Info    Posts   let summary = []; function parseResult(link){ let endPoint = &#34;</description>
+Please note that the posts here are generated based on the Reddit website by doing GET requests. So, it is based on their current entries.</description>
     </item>
     
     <item>
