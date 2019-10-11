@@ -89,6 +89,7 @@ let showResult = (jsonResult) => {
 
     $(".result").append("<div class = 'shadow'>" + out +"<div class='' id=" + jsonResult["id"] + "></div></div>");
     $("#" + jsonResult["id"] + "_link").prop("href", jsonResult["url"]);
+    $(".result").append("<p></p>");
 
     let id = "#" + jsonResult["id"];
     const data = {
