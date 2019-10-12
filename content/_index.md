@@ -5,7 +5,7 @@ disableNextPrev = "true"
 
 # Hello!
 
-<div class="shadow">
+<div class="">
     <div id="quote"></div>
 </div>
 
@@ -53,7 +53,7 @@ This is the list of the subjects that I have been involved in to date.
     let endPoint = "https://programming-quotes-api.herokuapp.com/quotes/random"
         $.getJSON(endPoint, function(data){
             result = data;
-            let text = "\"" + result["en"] + "\"" + "<p class='pull-right'><strong>- " + result["author"] + "</strong></p>";
+            let text = "<div class='shadow'>\"" + result["en"] + "\"" + "<p class='pull-right'><strong>- " + result["author"] + "</strong></p></div>";
             $("#quote").html(text);
         });    
 </script>
