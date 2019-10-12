@@ -5,12 +5,29 @@ date = "{{ .Date }}"
 pre = "<b></b>"
 tags = ["Reddit", "Chart", "Visualisation"]
 +++
-Posted on - Fri 11 Oct 00:02:42 AEDT 2019
+Posted on - Sat 12 Oct 15:31:05 AEDT 2019
+
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
+
+The word cloud generated here is based on the **/r/programming** subreddit for reddit.com
+
+The reason this post is made, is so that it would easier to see the word that appeared the most for the day.
+
+Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.
+
+{{% notice info %}}
+
+Please note that the posts here are generated based on the Reddit website by doing `GET` requests. So, it is based on their current entries. So, it will be **refreshed** when the page is reloaded.
+
+
+{{% /notice %}}
+
 <div id="cloud"></div>
 
 <script>
+
+// Based on http://bl.ocks.org/joews/9697914 with modifications.
 
 let words = "";
 let freq = "";
