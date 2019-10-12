@@ -11,19 +11,6 @@
     
     
     <item>
-      <title>Programming Mentions </title>
-      <link>https://jianliew.me/blog/blog/programmming/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jianliew.me/blog/blog/programmming/</guid>
-      <description>Posted on - Sat 12 Oct 15:31:05 AEDT 2019
-  The word cloud generated here is based on the /r/programming subreddit for reddit.com
-The reason this post is made, is so that it would easier to see the word that appeared the most for the day.
-Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.
-Please note that the posts here are generated based on the Reddit website by doing GET requests.</description>
-    </item>
-    
-    <item>
       <title>Reddit Chart</title>
       <link>https://jianliew.me/blog/blog/percentage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -33,6 +20,19 @@ Please note that the posts here are generated based on the Reddit website by doi
  The charts here are visualisation of the AmIthea-hole subreddit which can be found here
 The reason this post is made, is so that it would easier to see the percentage of votes of a certain type.
 Please note that the posts here are generated based on the Reddit website by doing GET requests. So, it is based on their current entries.</description>
+    </item>
+    
+    <item>
+      <title>Reddit Word Cloud </title>
+      <link>https://jianliew.me/blog/blog/programmming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/blog/programmming/</guid>
+      <description>Posted on - Sat 12 Oct 15:31:05 AEDT 2019
+  The word cloud generated here is based on the /r/programming subreddit for reddit.com
+The reason this post is made, is so that it would easier to see the word that appeared the most for the day.
+Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.
+Please note that the posts here are generated based on the Reddit website by doing GET requests.</description>
     </item>
     
   </channel>

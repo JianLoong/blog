@@ -1,5 +1,5 @@
 +++
-title = "Programming Mentions "
+title = "Reddit Word Cloud "
 weight = 5
 date = "{{ .Date }}"
 pre = "<b></b>"
