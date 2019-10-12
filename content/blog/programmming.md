@@ -5,10 +5,12 @@ date = "{{ .Date }}"
 pre = "<b></b>"
 tags = ["Reddit", "Chart", "Visualisation"]
 +++
+
 Posted on - Sat 12 Oct 15:31:05 AEDT 2019
 
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
+
 
 The word cloud generated here is based on the **/r/programming** subreddit for reddit.com
 
@@ -20,15 +22,12 @@ Even though the use of a word cloud is not exactly a good representation of occu
 
 Please note that the posts here are generated based on the Reddit website by doing `GET` requests. So, it is based on their current entries. So, it will be **refreshed** when the page is reloaded.
 
-
 {{% /notice %}}
-
 <div id="cloud"></div>
 
 <script>
 
 // Based on http://bl.ocks.org/joews/9697914 with modifications.
-
 let words = "";
 let freq = "";
 let arr = "";
@@ -43,7 +42,7 @@ var stopWords = [
   'said', 'same', 'see', 'should', 'since', 'some', 'still', 'such', 'take', 'than',
   'that', 'the', 'their', 'them', 'then', 'there', 'these', 'they', 'this', 'those',
   'through', 'to', 'too', 'under', 'up', 'very', 'was', 'way', 'we', 'well', 'were',
-  'what', 'where', 'which', 'while', 'who', 'with', 'would', 'you', 'your', 'a', 'i', 'its'
+  'what', 'where', 'which', 'while', 'who', 'with', 'would', 'you', 'your', 'a', 'i', 'its', 'why'
 ];
 
 // https://stackoverflow.com/questions/5631422/stop-word-removal-in-javascript
@@ -117,7 +116,9 @@ function wordCloud(selector) {
         // asycnhronously call draw when the layout has been computed.
         //The outside world will need to call this function, so make it part
         // of the wordCloud return value.
+
         update: function(words) {
+
             d3.layout.cloud().size([800, 800])
                 .words(words)
                 .padding(5)
@@ -139,6 +140,7 @@ function getWords(i) {
     let freq = foo(arr);
         
     return buildResult(arr);
+
 }
 
 //This method tells the word cloud to redraw with a new set of words.
@@ -147,19 +149,14 @@ function getWords(i) {
 function showNewWords(vis, i) {
     i = i || 0;
 
-    vis.update(getWords(i ++ % words.length))
-
+    vis.update(getWords(i ++ % words.length))    
 }
 
 //Create a new instance of the word cloud visualisation.
 var myWordCloud = wordCloud('#cloud');
 
-//Start cycling through the demo data
-//showNewWords(myWordCloud);
-
 function foo(arr) {
     var a = [], b = [], prev;
-
     arr.sort();
     for ( var i = 0; i < arr.length; i++ ) {
         if ( arr[i] !== prev ) {
@@ -170,7 +167,6 @@ function foo(arr) {
         }
         prev = arr[i];
     }
-
     return [a,b];
 }
 
@@ -185,32 +181,25 @@ function buildResult(arr){
             size: freq[1][i] 
         });
 
-
     let sorted = resultArr.sort( (a,b) => b.size - a.size);
-
-   
     sorted = sorted.slice(0, 50);
-
     for(let i = 0; i < sorted.length; i++)
         sum += sorted[i].size;
 
     resultArr = [];
-
     for(let i = 0; i < sorted.length; i++)
         resultArr.push({
             text: sorted[i]["text"],
             size: (sorted[i]["size"] / sum) * 60 + 50
         });
-       
     return resultArr;
 }
 
 
 let getPost = () => {
-    let result = "";
-    //let words = "";
-    //let arr = [];
-    let endPoint = "https://reddit.com/r/programming.json?limit=500&jsonp=?"
+    let result = ""; 
+    let endPoint = "https://reddit.com/r/programming.json?limit=1000&jsonp=?"
+
     $.getJSON(endPoint, function(data){
         result = data;
         let entries = result["data"].children;
@@ -225,11 +214,8 @@ let getPost = () => {
 
         arr = words.split(" ");
         freq = foo(arr);
-      
         showNewWords(myWordCloud);
     });
-
-
 }
 
 getPost();

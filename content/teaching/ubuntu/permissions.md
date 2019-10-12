@@ -30,3 +30,5 @@ One of the most important thing to remember, is how permissions work on **direct
 References
 
 http://www.linfo.org/root.html
+
+https://unix.stackexchange.com/questions/21251/execute-vs-read-bit-how-do-directory-permissions-in-linux-work

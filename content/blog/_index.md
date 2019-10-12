@@ -6,10 +6,6 @@ date = "{{ .Date }}"
 pre = "<b></b>"
 +++
 
-### Blog
+# This blog is mainly about programming.
 
-{{% notice warning %}}
-
-This blog post is under construction.
-
-{{% /notice %}}
+It will also attempt document various thought process to achieve the desired outcome.

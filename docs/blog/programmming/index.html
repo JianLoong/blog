@@ -25,20 +25,20 @@ if (!doNotTrack) {
 </script>
 
     
-    <link href="/blog/css/nucleus.css?1570855001" rel="stylesheet">
-    <link href="/blog/css/fontawesome-all.min.css?1570855001" rel="stylesheet">
-    <link href="/blog/css/hybrid.css?1570855001" rel="stylesheet">
-    <link href="/blog/css/featherlight.min.css?1570855001" rel="stylesheet">
-    <link href="/blog/css/perfect-scrollbar.min.css?1570855001" rel="stylesheet">
-    <link href="/blog/css/auto-complete.css?1570855001" rel="stylesheet">
-    <link href="/blog/css/atom-one-dark-reasonable.css?1570855001" rel="stylesheet">
-    <link href="/blog/css/theme.css?1570855001" rel="stylesheet">
-    <link href="/blog/css/hugo-theme.css?1570855001" rel="stylesheet">
+    <link href="/blog/css/nucleus.css?1570869832" rel="stylesheet">
+    <link href="/blog/css/fontawesome-all.min.css?1570869832" rel="stylesheet">
+    <link href="/blog/css/hybrid.css?1570869832" rel="stylesheet">
+    <link href="/blog/css/featherlight.min.css?1570869832" rel="stylesheet">
+    <link href="/blog/css/perfect-scrollbar.min.css?1570869832" rel="stylesheet">
+    <link href="/blog/css/auto-complete.css?1570869832" rel="stylesheet">
+    <link href="/blog/css/atom-one-dark-reasonable.css?1570869832" rel="stylesheet">
+    <link href="/blog/css/theme.css?1570869832" rel="stylesheet">
+    <link href="/blog/css/hugo-theme.css?1570869832" rel="stylesheet">
     
-      <link href="/blog/css/theme-blue.css?1570855001" rel="stylesheet">
+      <link href="/blog/css/theme-blue.css?1570869832" rel="stylesheet">
     
 
-    <script src="/blog/js/jquery-3.3.1.min.js?1570855001"></script>
+    <script src="/blog/js/jquery-3.3.1.min.js?1570869832"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -67,14 +67,14 @@ if (!doNotTrack) {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/blog/js/lunr.min.js?1570855001"></script>
-<script type="text/javascript" src="/blog/js/auto-complete.js?1570855001"></script>
+<script type="text/javascript" src="/blog/js/lunr.min.js?1570869832"></script>
+<script type="text/javascript" src="/blog/js/auto-complete.js?1570869832"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/jianliew.me\/blog";
     
 </script>
-<script type="text/javascript" src="/blog/js/search.js?1570855001"></script>
+<script type="text/javascript" src="/blog/js/search.js?1570869832"></script>
 
     
   </div>
@@ -544,17 +544,15 @@ if (!doNotTrack) {
 
 <p>Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.</p>
 
-
+<p>
 <div class="notices info" ><p>Please note that the posts here are generated based on the Reddit website by doing <code>GET</code> requests. So, it is based on their current entries. So, it will be <strong>refreshed</strong> when the page is reloaded.</p>
 </div>
 
-
-<div id="cloud"></div>
+<div id="cloud"></div></p>
 
 <script>
 
 // Based on http://bl.ocks.org/joews/9697914 with modifications.
-
 let words = "";
 let freq = "";
 let arr = "";
@@ -569,7 +567,7 @@ var stopWords = [
   'said', 'same', 'see', 'should', 'since', 'some', 'still', 'such', 'take', 'than',
   'that', 'the', 'their', 'them', 'then', 'there', 'these', 'they', 'this', 'those',
   'through', 'to', 'too', 'under', 'up', 'very', 'was', 'way', 'we', 'well', 'were',
-  'what', 'where', 'which', 'while', 'who', 'with', 'would', 'you', 'your', 'a', 'i', 'its'
+  'what', 'where', 'which', 'while', 'who', 'with', 'would', 'you', 'your', 'a', 'i', 'its', 'why'
 ];
 
 // https://stackoverflow.com/questions/5631422/stop-word-removal-in-javascript
@@ -643,7 +641,9 @@ function wordCloud(selector) {
         // asycnhronously call draw when the layout has been computed.
         //The outside world will need to call this function, so make it part
         // of the wordCloud return value.
+
         update: function(words) {
+
             d3.layout.cloud().size([800, 800])
                 .words(words)
                 .padding(5)
@@ -665,6 +665,7 @@ function getWords(i) {
     let freq = foo(arr);
         
     return buildResult(arr);
+
 }
 
 //This method tells the word cloud to redraw with a new set of words.
@@ -673,19 +674,14 @@ function getWords(i) {
 function showNewWords(vis, i) {
     i = i || 0;
 
-    vis.update(getWords(i ++ % words.length))
-
+    vis.update(getWords(i ++ % words.length))    
 }
 
 //Create a new instance of the word cloud visualisation.
 var myWordCloud = wordCloud('#cloud');
 
-//Start cycling through the demo data
-//showNewWords(myWordCloud);
-
 function foo(arr) {
     var a = [], b = [], prev;
-
     arr.sort();
     for ( var i = 0; i < arr.length; i++ ) {
         if ( arr[i] !== prev ) {
@@ -696,7 +692,6 @@ function foo(arr) {
         }
         prev = arr[i];
     }
-
     return [a,b];
 }
 
@@ -711,32 +706,25 @@ function buildResult(arr){
             size: freq[1][i] 
         });
 
-
     let sorted = resultArr.sort( (a,b) => b.size - a.size);
-
-   
     sorted = sorted.slice(0, 50);
-
     for(let i = 0; i < sorted.length; i++)
         sum += sorted[i].size;
 
     resultArr = [];
-
     for(let i = 0; i < sorted.length; i++)
         resultArr.push({
             text: sorted[i]["text"],
             size: (sorted[i]["size"] / sum) * 60 + 50
         });
-       
     return resultArr;
 }
 
 
 let getPost = () => {
-    let result = "";
-    //let words = "";
-    //let arr = [];
-    let endPoint = "https://reddit.com/r/programming.json?limit=500&jsonp=?"
+    let result = ""; 
+    let endPoint = "https://reddit.com/r/programming.json?limit=1000&jsonp=?"
+
     $.getJSON(endPoint, function(data){
         result = data;
         let entries = result["data"].children;
@@ -751,11 +739,8 @@ let getPost = () => {
 
         arr = words.split(" ");
         freq = foo(arr);
-      
         showNewWords(myWordCloud);
     });
-
-
 }
 
 getPost();
@@ -1034,19 +1019,19 @@ getPost();
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/blog/js/clipboard.min.js?1570855001"></script>
-    <script src="/blog/js/perfect-scrollbar.min.js?1570855001"></script>
-    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1570855001"></script>
-    <script src="/blog/js/jquery.sticky.js?1570855001"></script>
-    <script src="/blog/js/featherlight.min.js?1570855001"></script>
-    <script src="/blog/js/highlight.pack.js?1570855001"></script>
+    <script src="/blog/js/clipboard.min.js?1570869832"></script>
+    <script src="/blog/js/perfect-scrollbar.min.js?1570869832"></script>
+    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1570869832"></script>
+    <script src="/blog/js/jquery.sticky.js?1570869832"></script>
+    <script src="/blog/js/featherlight.min.js?1570869832"></script>
+    <script src="/blog/js/highlight.pack.js?1570869832"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/blog/js/modernizr.custom-3.6.0.js?1570855001"></script>
-    <script src="/blog/js/learn.js?1570855001"></script>
-    <script src="/blog/js/hugo-learn.js?1570855001"></script>
+    <script src="/blog/js/modernizr.custom-3.6.0.js?1570869832"></script>
+    <script src="/blog/js/learn.js?1570869832"></script>
+    <script src="/blog/js/hugo-learn.js?1570869832"></script>
 
-    <link href="/blog/mermaid/mermaid.css?1570855001" rel="stylesheet" />
-    <script src="/blog/mermaid/mermaid.js?1570855001"></script>
+    <link href="/blog/mermaid/mermaid.css?1570869832" rel="stylesheet" />
+    <script src="/blog/mermaid/mermaid.js?1570869832"></script>
     <script>
         mermaid.initialize({
           startOnLoad: true,

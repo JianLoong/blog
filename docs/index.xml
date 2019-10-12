@@ -32,7 +32,7 @@ Please note that the posts here are generated based on the Reddit website by doi
   The word cloud generated here is based on the /r/programming subreddit for reddit.com
 The reason this post is made, is so that it would easier to see the word that appeared the most for the day.
 Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.
-Please note that the posts here are generated based on the Reddit website by doing GET requests.</description>
+ Please note that the posts here are generated based on the Reddit website by doing GET requests.</description>
     </item>
     
     <item>
@@ -66,7 +66,8 @@ Please note that the posts here are generated based on the Reddit website by doi
       <description>Permissions One important principle of Unix-like operating systems, is the provision of maximum flexibility to configure the system, thus the root user is fully empowered.
  The most important thing One of the most important thing to remember, is how permissions work on directories.
  References
-http://www.linfo.org/root.html</description>
+http://www.linfo.org/root.html
+https://unix.stackexchange.com/questions/21251/execute-vs-read-bit-how-do-directory-permissions-in-linux-work</description>
     </item>
     
     <item>

@@ -19,7 +19,8 @@
       <description>Permissions One important principle of Unix-like operating systems, is the provision of maximum flexibility to configure the system, thus the root user is fully empowered.
  The most important thing One of the most important thing to remember, is how permissions work on directories.
  References
-http://www.linfo.org/root.html</description>
+http://www.linfo.org/root.html
+https://unix.stackexchange.com/questions/21251/execute-vs-read-bit-how-do-directory-permissions-in-linux-work</description>
     </item>
     
   </channel>
