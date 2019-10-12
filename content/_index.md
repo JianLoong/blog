@@ -5,6 +5,10 @@ disableNextPrev = "true"
 
 # Hello!
 
+<div class="shadow">
+    <div id="quote"></div>
+</div>
+
 ![Monash University](/blog/images/monash-university.jpg?width=30pc&featherlight=false&classes=border,shadow)
 
 
@@ -41,3 +45,29 @@ This is the list of the subjects that I have been involved in to date.
 
 - Studio Mentor for FIT5120 Industry Experience Project. Worked closely with four teams of students to develop applications based on the suggestion of MYOB mentors.
 - Teaching Excellence Nominee for multiple subjects. 
+
+
+<script>
+    let result = "";
+
+    let endPoint = "https://programming-quotes-api.herokuapp.com/quotes/random"
+        $.getJSON(endPoint, function(data){
+            result = data;
+            let text = "\"" + result["en"] + "\"" + "<p class='pull-right'><strong>- " + result["author"] + "</strong></p>";
+            $("#quote").html(text);
+        });    
+</script>
+
+<style>
+.shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+}
+
+.pull-right {
+    text-align:right;
+}
+</style>

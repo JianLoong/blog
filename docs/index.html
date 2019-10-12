@@ -25,20 +25,20 @@ if (!doNotTrack) {
 </script>
 
     
-    <link href="/blog/css/nucleus.css?1570869832" rel="stylesheet">
-    <link href="/blog/css/fontawesome-all.min.css?1570869832" rel="stylesheet">
-    <link href="/blog/css/hybrid.css?1570869832" rel="stylesheet">
-    <link href="/blog/css/featherlight.min.css?1570869832" rel="stylesheet">
-    <link href="/blog/css/perfect-scrollbar.min.css?1570869832" rel="stylesheet">
-    <link href="/blog/css/auto-complete.css?1570869832" rel="stylesheet">
-    <link href="/blog/css/atom-one-dark-reasonable.css?1570869832" rel="stylesheet">
-    <link href="/blog/css/theme.css?1570869832" rel="stylesheet">
-    <link href="/blog/css/hugo-theme.css?1570869832" rel="stylesheet">
+    <link href="/blog/css/nucleus.css?1570881591" rel="stylesheet">
+    <link href="/blog/css/fontawesome-all.min.css?1570881591" rel="stylesheet">
+    <link href="/blog/css/hybrid.css?1570881591" rel="stylesheet">
+    <link href="/blog/css/featherlight.min.css?1570881591" rel="stylesheet">
+    <link href="/blog/css/perfect-scrollbar.min.css?1570881591" rel="stylesheet">
+    <link href="/blog/css/auto-complete.css?1570881591" rel="stylesheet">
+    <link href="/blog/css/atom-one-dark-reasonable.css?1570881591" rel="stylesheet">
+    <link href="/blog/css/theme.css?1570881591" rel="stylesheet">
+    <link href="/blog/css/hugo-theme.css?1570881591" rel="stylesheet">
     
-      <link href="/blog/css/theme-blue.css?1570869832" rel="stylesheet">
+      <link href="/blog/css/theme-blue.css?1570881591" rel="stylesheet">
     
 
-    <script src="/blog/js/jquery-3.3.1.min.js?1570869832"></script>
+    <script src="/blog/js/jquery-3.3.1.min.js?1570881591"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -67,14 +67,14 @@ if (!doNotTrack) {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/blog/js/lunr.min.js?1570869832"></script>
-<script type="text/javascript" src="/blog/js/auto-complete.js?1570869832"></script>
+<script type="text/javascript" src="/blog/js/lunr.min.js?1570881591"></script>
+<script type="text/javascript" src="/blog/js/auto-complete.js?1570881591"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/jianliew.me\/blog";
     
 </script>
-<script type="text/javascript" src="/blog/js/search.js?1570869832"></script>
+<script type="text/javascript" src="/blog/js/search.js?1570881591"></script>
 
     
   </div>
@@ -478,6 +478,10 @@ if (!doNotTrack) {
 
 <h1 id="hello">Hello!</h1>
 
+<div class="shadow">
+    <div id="quote"></div>
+</div>
+
 <p><img src="/blog/images/monash-university.jpg?width=30pc&amp;featherlight=false&amp;classes=border,shadow" alt="Monash University" /></p>
 
 <p align="center"><strong>I am Jian.</strong></p> 
@@ -565,6 +569,31 @@ if (!doNotTrack) {
 <li>Studio Mentor for FIT5120 Industry Experience Project. Worked closely with four teams of students to develop applications based on the suggestion of MYOB mentors.</li>
 <li>Teaching Excellence Nominee for multiple subjects.</li>
 </ul>
+
+<script>
+    let result = "";
+
+    let endPoint = "https://programming-quotes-api.herokuapp.com/quotes/random"
+        $.getJSON(endPoint, function(data){
+            result = data;
+            let text = "\"" + result["en"] + "\"" + "<p class='pull-right'><strong>- " + result["author"] + "</strong></p>";
+            $("#quote").html(text);
+        });    
+</script>
+
+<style>
+.shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+}
+
+.pull-right {
+    text-align:right;
+}
+</style>
 	
   
         
@@ -821,19 +850,19 @@ if (!doNotTrack) {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/blog/js/clipboard.min.js?1570869832"></script>
-    <script src="/blog/js/perfect-scrollbar.min.js?1570869832"></script>
-    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1570869832"></script>
-    <script src="/blog/js/jquery.sticky.js?1570869832"></script>
-    <script src="/blog/js/featherlight.min.js?1570869832"></script>
-    <script src="/blog/js/highlight.pack.js?1570869832"></script>
+    <script src="/blog/js/clipboard.min.js?1570881591"></script>
+    <script src="/blog/js/perfect-scrollbar.min.js?1570881591"></script>
+    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1570881591"></script>
+    <script src="/blog/js/jquery.sticky.js?1570881591"></script>
+    <script src="/blog/js/featherlight.min.js?1570881591"></script>
+    <script src="/blog/js/highlight.pack.js?1570881591"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/blog/js/modernizr.custom-3.6.0.js?1570869832"></script>
-    <script src="/blog/js/learn.js?1570869832"></script>
-    <script src="/blog/js/hugo-learn.js?1570869832"></script>
+    <script src="/blog/js/modernizr.custom-3.6.0.js?1570881591"></script>
+    <script src="/blog/js/learn.js?1570881591"></script>
+    <script src="/blog/js/hugo-learn.js?1570881591"></script>
 
-    <link href="/blog/mermaid/mermaid.css?1570869832" rel="stylesheet" />
-    <script src="/blog/mermaid/mermaid.js?1570869832"></script>
+    <link href="/blog/mermaid/mermaid.css?1570881591" rel="stylesheet" />
+    <script src="/blog/mermaid/mermaid.js?1570881591"></script>
     <script>
         mermaid.initialize({
           startOnLoad: true,

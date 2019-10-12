@@ -116,7 +116,7 @@ let showResult = (jsonResult) => {
 let getPost = () => {
     let result = "";
     let entries = [];
-    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=100&jsonp=?"
+    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=50&jsonp=?"
     $.getJSON(endPoint, function(data){
         result = data;
         entries = result["data"].children;
