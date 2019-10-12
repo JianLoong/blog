@@ -5,21 +5,11 @@ date = "{{ .Date }}"
 pre = "<b></b>"
 tags = ["Reddit", "Chart", "Visualisation"]
 +++
-
 Posted on - Fri 11 Oct 00:02:42 AEDT 2019
-
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
-<img>
 <div id="cloud"></div>
-</img>
 
-
-<style>
-.svg-container{
-    width: 80rem;
-}
-</style>
 <script>
 
 let words = "";
@@ -63,9 +53,9 @@ function wordCloud(selector) {
     //Construct the word cloud's SVG element
     var svg = d3.select(selector).append("svg")
         
-        .attr("viewBox", `0 0 1000 1000`)
+        .attr("viewBox", `0 0 800 800`)
         .append("g")
-        .attr("transform", "translate(500,500)");
+        .attr("transform", "translate(400,400)");
 
 
     //Draw the word cloud
@@ -111,7 +101,7 @@ function wordCloud(selector) {
         //The outside world will need to call this function, so make it part
         // of the wordCloud return value.
         update: function(words) {
-            d3.layout.cloud().size([1000, 1000])
+            d3.layout.cloud().size([800, 800])
                 .words(words)
                 .padding(5)
                 .rotate(function() { return ~~(Math.random() * 2) * 90; })
