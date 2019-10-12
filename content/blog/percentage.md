@@ -82,9 +82,6 @@ let parseResult = (link) => {
 
 let showResult = (jsonResult) => {
     let output = "<strong>" + jsonResult["title"] + "</strong>";    
-    //$(".result").append(output);
-    //$(".result").append("<p><a id=" + jsonResult["id"] + "_link> Click here</a> to view post in context.</p>");
-
     let out = output + "<p><a id=" + jsonResult["id"] + "_link> Click here</a> to view post in context.</p>";
 
     $(".result").append("<div class = 'shadow'>" + out +"<div class='' id=" + jsonResult["id"] + "></div></div>");
