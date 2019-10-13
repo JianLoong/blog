@@ -35,5 +35,16 @@ Even though the use of a word cloud is not exactly a good representation of occu
  Please note that the posts here are generated based on the Reddit website by doing GET requests.</description>
     </item>
     
+    <item>
+      <title>Sentiment Analysis</title>
+      <link>https://jianliew.me/blog/blog/hk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/blog/hk/</guid>
+      <description>Sentiment Analysis for the Sub-Reddit &amp;ldquo;HongKong&amp;rdquo; Posted on - Sun 13 Oct 12:31:05 AEDT 2019
+This post will perform sentiment analysis using AFINN. AFINN is a list of words rated for valence rated with an integer between minus five(negative) and plus five (positive). This implementation uses AFINN-en-165. 1
+This approach however is a very naive approach as it does not build any models to determine the context of the usage of the word itself.</description>
+    </item>
+    
   </channel>
 </rss>
