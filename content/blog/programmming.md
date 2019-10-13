@@ -1,8 +1,8 @@
 +++
 title = "Reddit Word Cloud "
-weight = 5
+weight = 10
 date = "{{ .Date }}"
-pre = "<b></b>"
+pre = "<b>2. </b>"
 tags = ["Reddit", "Chart", "Visualisation"]
 +++
 

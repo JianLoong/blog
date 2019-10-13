@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debugging on Jian Liew</title>
+    <link>https://jianliew.me/blog/tags/debugging/</link>
+    <description>Recent content in Debugging on Jian Liew</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://jianliew.me/blog/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rubber Duck</title>
+      <link>https://jianliew.me/blog/thepragmatic/rubberduck/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/thepragmatic/rubberduck/</guid>
+      <description>This post is under construction.
+ Introduction One of the most frustrating thing about teaching programming these days, is that we do not often teach the process of debugging.
+Students often approach me when they are having an issue in their codes and most often times, I do not directly tell them the answer, but I will spend my time using a process known as rubber ducking while attempting to solve their issue.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,7 +2,7 @@
 title = "Reddit Chart"
 weight = 5
 date = "{{ .Date }}"
-pre = "<b></b>"
+pre = "<b>1. </b>"
 tags = ["Reddit", "Chart", "Visualisation"]
 +++
 

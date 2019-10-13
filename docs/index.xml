@@ -23,37 +23,14 @@ Please note that the posts here are generated based on the Reddit website by doi
     </item>
     
     <item>
-      <title>Reddit Word Cloud </title>
-      <link>https://jianliew.me/blog/blog/programmming/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jianliew.me/blog/blog/programmming/</guid>
-      <description>Posted on - Sat 12 Oct 15:31:05 AEDT 2019
-  The word cloud generated here is based on the /r/programming subreddit for reddit.com
-The reason this post is made, is so that it would easier to see the word that appeared the most for the day.
-Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.
- Please note that the posts here are generated based on the Reddit website by doing GET requests.</description>
-    </item>
-    
-    <item>
       <title>Rubber Duck</title>
       <link>https://jianliew.me/blog/thepragmatic/rubberduck/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jianliew.me/blog/thepragmatic/rubberduck/</guid>
-      <description> Programming Under construction.
- </description>
-    </item>
-    
-    <item>
-      <title>Sentiment Analysis</title>
-      <link>https://jianliew.me/blog/blog/hk/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jianliew.me/blog/blog/hk/</guid>
-      <description>Sentiment Analysis for the Sub-Reddit &amp;ldquo;HongKong&amp;rdquo; Posted on - Sun 13 Oct 12:31:05 AEDT 2019
-This post will perform sentiment analysis using AFINN. AFINN is a list of words rated for valence rated with an integer between minus five(negative) and plus five (positive). This implementation uses AFINN-en-165. 1
-This approach however is a very naive approach as it does not build any models to determine the context of the usage of the word itself.</description>
+      <description>This post is under construction.
+ Introduction One of the most frustrating thing about teaching programming these days, is that we do not often teach the process of debugging.
+Students often approach me when they are having an issue in their codes and most often times, I do not directly tell them the answer, but I will spend my time using a process known as rubber ducking while attempting to solve their issue.</description>
     </item>
     
     <item>
@@ -82,6 +59,19 @@ https://unix.stackexchange.com/questions/21251/execute-vs-read-bit-how-do-direct
     </item>
     
     <item>
+      <title>Reddit Word Cloud </title>
+      <link>https://jianliew.me/blog/blog/programmming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/blog/programmming/</guid>
+      <description>Posted on - Sat 12 Oct 15:31:05 AEDT 2019
+  The word cloud generated here is based on the /r/programming subreddit for reddit.com
+The reason this post is made, is so that it would easier to see the word that appeared the most for the day.
+Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.
+ Please note that the posts here are generated based on the Reddit website by doing GET requests.</description>
+    </item>
+    
+    <item>
       <title>What are State Machine Diagrams?</title>
       <link>https://jianliew.me/blog/teaching/uml/introduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -92,6 +82,17 @@ This blog post is incomplete.
  This blog entry assumes that the reader has a basic understanding of UML diagrams and would wish to understand more regarding state machine diagrams.
  Introduction This article is written based on my teaching experiencing in Monash University Australia (Faculty of Information Technology) for the unit Software Engineering.
 Often times, one of the most misunderstood diagram in UML is the state machine.</description>
+    </item>
+    
+    <item>
+      <title>Sentiment Analysis</title>
+      <link>https://jianliew.me/blog/blog/hk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jianliew.me/blog/blog/hk/</guid>
+      <description>Sentiment Analysis for the Sub-Reddit &amp;ldquo;HongKong&amp;rdquo; Posted on - Sun 13 Oct 12:31:05 AEDT 2019
+This post will perform sentiment analysis using AFINN. AFINN is a list of words rated for valence rated with an integer between minus five(negative) and plus five (positive). This implementation uses AFINN-en-165. 1
+This approach however is a very naive approach as it does not build any models to determine the context of the usage of the word itself.</description>
     </item>
     
     <item>

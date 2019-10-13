@@ -2,7 +2,7 @@
 title = "Version Control"
 weight = 20
 date = "{{ .Date }}"
-pre = "<b></b>"
+pre = "<b>2. </b>"
 commentoEnable = false
 +++
 

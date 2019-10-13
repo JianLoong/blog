@@ -6,16 +6,8 @@ date = "{{ .Date }}"
 pre = "<b></b>"
 +++
 
-### Programming
-
-
-{{% notice warning %}}
-
-Under construction.
-
-{{% /notice %}}
-
-> Programming is a craft.
+### Programming is a Craft
+---
 
 **As a programmer, you are part listener, part advisor, part listener, part advisor, part interpreter, and part dictator.<sup>[1](#1)</sup>**
 

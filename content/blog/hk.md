@@ -1,8 +1,8 @@
 +++
 title = "Sentiment Analysis"
-weight = 5
+weight = 15
 date = "{{ .Date }}"
-pre = "<b></b>"
+pre = "<b>3. </b>"
 tags = ["Reddit", "Chart", "Visualisation", "Hong Kong", "Percentage"]
 +++
 

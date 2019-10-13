@@ -15,15 +15,7 @@
   </url>
   
   <url>
-    <loc>https://jianliew.me/blog/blog/programmming/</loc>
-  </url>
-  
-  <url>
     <loc>https://jianliew.me/blog/thepragmatic/rubberduck/</loc>
-  </url>
-  
-  <url>
-    <loc>https://jianliew.me/blog/blog/hk/</loc>
   </url>
   
   <url>
@@ -43,11 +35,19 @@
   </url>
   
   <url>
+    <loc>https://jianliew.me/blog/blog/programmming/</loc>
+  </url>
+  
+  <url>
     <loc>https://jianliew.me/blog/teaching/uml/</loc>
   </url>
   
   <url>
     <loc>https://jianliew.me/blog/teaching/uml/introduction/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/blog/hk/</loc>
   </url>
   
   <url>
@@ -83,6 +83,10 @@
   </url>
   
   <url>
+    <loc>https://jianliew.me/blog/tags/debugging/</loc>
+  </url>
+  
+  <url>
     <loc>https://jianliew.me/blog/disclaimer/</loc>
   </url>
   
@@ -100,6 +104,10 @@
   
   <url>
     <loc>https://jianliew.me/blog/tags/reddit/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/rubber-duck/</loc>
   </url>
   
   <url>
