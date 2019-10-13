@@ -1,12 +1,10 @@
 +++
 title = "Reddit Chart"
 weight = 5
-date = "{{ .Date }}"
+date = 2019-10-09T20:56:02+11:00
 pre = "<b>1. </b>"
 tags = ["Reddit", "Chart", "Visualisation"]
 +++
-
-Posted on - Fri 11 Oct 00:02:42 AEDT 2019
 
 <script src="https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script>
 

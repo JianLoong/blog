@@ -1,18 +1,14 @@
 +++
 title = "Sentiment Analysis"
 weight = 15
-date = "{{ .Date }}"
+date = 2019-10-13T20:56:02+11:00
 pre = "<b>3. </b>"
 tags = ["Reddit", "Chart", "Visualisation", "Hong Kong", "Percentage"]
 +++
 
-
 <script src="https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script>
 
 ### Sentiment Analysis for the Sub-Reddit "HongKong"
-
-Posted on - Sun 13 Oct 12:31:05 AEDT 2019
-
 
 This post will perform **sentiment analysis** using AFINN. AFINN is a list of words rated for valence rated with an integer between minus five(negative) and plus five (positive). This implementation uses ***AFINN-en-165***. <sup>[1](#1)</sup>
 

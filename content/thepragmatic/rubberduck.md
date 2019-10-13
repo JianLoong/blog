@@ -39,7 +39,7 @@ Of course, I would save a lot of time by just giving out the solution, but will 
 
 Most students generally have more time at hand than the teaching staff, however most of the times, teaching associates (TA)s find it frustrating when handling and teaching students how to solve a problem due to their own schedules as well. It is my belief that, it is very important to teach students the correct process of debugging and problem solving in this scenario.
 
-**I totally disagree with my co-worker that I should outright give them the solution for their programming issue.** However, I think it would also depends on the personality and the method of teaching each individual would have. I think the depth of understanding plays a very important role when attempting to do rubber duck debugging.
+**I totally disagree with my co-worker that I should outright give them the solution for their programming issue.** However, I think it would also depends on the personality and the method of teaching each individual would have. I think the depth of understanding plays a very important role when attempting to do rubber duck debugging. That very individual does not have much of a programming background but more towards a business background thus the mind set is completely different.
 
 ### What is Rubber Duck Debugging?
 ---
@@ -49,11 +49,20 @@ Most students generally have more time at hand than the teaching staff, however 
 
 {{<mermaid align="center">}}
 graph TD
-A(Problem)
-B[Solution]
-C[How?]
-A --> B
-C --- B
+    A(Issue/Problem)
+    B[Why?]
+    C[Who?]
+    D[When?]
+    E[What?]
+    F[Solution]
+    A --> B
+    A --> C
+    A --> D
+    A --> E
+    B --> F
+    C --> F
+    D --> F
+    E --> F
 {{< /mermaid >}}
 
 

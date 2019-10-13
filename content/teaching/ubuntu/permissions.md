@@ -4,6 +4,7 @@ weight = 10
 date = "{{ .Date }}"
 pre = "<b>2. </b>"
 tags = ["Shell", "Bash", "Command Line", "Permissions"]
+draft = true
 +++
 
 ## Permissions

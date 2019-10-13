@@ -1,16 +1,12 @@
 +++
 title = "Reddit Word Cloud "
 weight = 10
-date = "{{ .Date }}"
+date = 2019-10-12T20:56:02+11:00
 pre = "<b>2. </b>"
 tags = ["Reddit", "Chart", "Visualisation"]
 +++
-
-Posted on - Sat 12 Oct 15:31:05 AEDT 2019
-
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
-
 
 The word cloud generated here is based on the **/r/programming** subreddit for reddit.com
 

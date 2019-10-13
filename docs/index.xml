@@ -6,6 +6,7 @@
     <description>Recent content in Contents on Jian Liew</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Sun, 13 Oct 2019 20:56:02 +1100</lastBuildDate>
     
 	<atom:link href="https://jianliew.me/blog/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,13 +14,13 @@
     <item>
       <title>Reddit Chart</title>
       <link>https://jianliew.me/blog/blog/percentage/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 09 Oct 2019 20:56:02 +1100</pubDate>
       
       <guid>https://jianliew.me/blog/blog/percentage/</guid>
-      <description>Posted on - Fri 11 Oct 00:02:42 AEDT 2019
- The charts here are visualisation of the AmIthea-hole subreddit which can be found here
+      <description>The charts here are visualisation of the AmIthea-hole subreddit which can be found here
 The reason this post is made, is so that it would easier to see the percentage of votes of a certain type.
-Please note that the posts here are generated based on the Reddit website by doing GET requests. So, it is based on their current entries.</description>
+Please note that the posts here are generated based on the Reddit website by doing GET requests. So, it is based on their current entries.
+    Abbreviation Meaning     YTA You&amp;rsquo;re the A-hole   NTA Not the A-hole   ESH Everyone sucks here   NAH No A-holes here   INFO Not Enough Info    Posts   let summary = []; let parseResult = (link) = { const endPoint = &#34;</description>
     </item>
     
     <item>
@@ -46,26 +47,12 @@ Students often approach me when they are having an issue in their codes and most
     </item>
     
     <item>
-      <title>Permissions</title>
-      <link>https://jianliew.me/blog/teaching/ubuntu/permissions/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jianliew.me/blog/teaching/ubuntu/permissions/</guid>
-      <description>Permissions One important principle of Unix-like operating systems, is the provision of maximum flexibility to configure the system, thus the root user is fully empowered.
- The most important thing One of the most important thing to remember, is how permissions work on directories.
- References
-http://www.linfo.org/root.html
-https://unix.stackexchange.com/questions/21251/execute-vs-read-bit-how-do-directory-permissions-in-linux-work</description>
-    </item>
-    
-    <item>
       <title>Reddit Word Cloud </title>
       <link>https://jianliew.me/blog/blog/programmming/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 12 Oct 2019 20:56:02 +1100</pubDate>
       
       <guid>https://jianliew.me/blog/blog/programmming/</guid>
-      <description>Posted on - Sat 12 Oct 15:31:05 AEDT 2019
-  The word cloud generated here is based on the /r/programming subreddit for reddit.com
+      <description>The word cloud generated here is based on the /r/programming subreddit for reddit.com
 The reason this post is made, is so that it would easier to see the word that appeared the most for the day.
 Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.
  Please note that the posts here are generated based on the Reddit website by doing GET requests.</description>
@@ -87,34 +74,12 @@ Often times, one of the most misunderstood diagram in UML is the state machine.<
     <item>
       <title>Sentiment Analysis</title>
       <link>https://jianliew.me/blog/blog/hk/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 13 Oct 2019 20:56:02 +1100</pubDate>
       
       <guid>https://jianliew.me/blog/blog/hk/</guid>
-      <description>Sentiment Analysis for the Sub-Reddit &amp;ldquo;HongKong&amp;rdquo; Posted on - Sun 13 Oct 12:31:05 AEDT 2019
-This post will perform sentiment analysis using AFINN. AFINN is a list of words rated for valence rated with an integer between minus five(negative) and plus five (positive). This implementation uses AFINN-en-165. 1
-This approach however is a very naive approach as it does not build any models to determine the context of the usage of the word itself.</description>
-    </item>
-    
-    <item>
-      <title>What are Class Diagrams?</title>
-      <link>https://jianliew.me/blog/teaching/uml/classdiagram/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jianliew.me/blog/teaching/uml/classdiagram/</guid>
-      <description> This blog post is under construction.
- </description>
-    </item>
-    
-    <item>
-      <title>Version Control</title>
-      <link>https://jianliew.me/blog/thepragmatic/versioncontrol/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jianliew.me/blog/thepragmatic/versioncontrol/</guid>
-      <description>Before we start, there is a need to know that &amp;hellip;.
-Shared Directories are NOT Version Control
- It is common to store source codes using Google Drive, DropBox or OneDrive. However, this is actually not a good practice at all.
-Whenever we are programming, one of the most common feature that we often look out for would be the undo key. The problem with the undo key that it is not a time machine.</description>
+      <description>Sentiment Analysis for the Sub-Reddit &amp;ldquo;HongKong&amp;rdquo; This post will perform sentiment analysis using AFINN. AFINN is a list of words rated for valence rated with an integer between minus five(negative) and plus five (positive). This implementation uses AFINN-en-165. 1
+This approach however is a very naive approach as it does not build any models to determine the context of the usage of the word itself.
+Please note that the posts here are generated based on the Reddit website by doing GET requests.</description>
     </item>
     
     <item>

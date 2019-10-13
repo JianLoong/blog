@@ -4,6 +4,7 @@ weight = 20
 date = "{{ .Date }}"
 pre = "<b>2. </b>"
 commentoEnable = false
+draft = true
 +++
 
 Before we start, there is a need to know that ....
