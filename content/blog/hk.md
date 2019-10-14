@@ -4,6 +4,7 @@ weight = 15
 date = 2019-10-13T20:56:02+11:00
 pre = "<b>3. </b>"
 tags = ["Reddit", "Chart", "Visualisation", "Hong Kong", "Percentage"]
+commentoEnable = true
 +++
 
 <script src="https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script>

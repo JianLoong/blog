@@ -25,20 +25,20 @@ if (!doNotTrack) {
 </script>
 
     
-    <link href="/blog/css/nucleus.css?1570982191" rel="stylesheet">
-    <link href="/blog/css/fontawesome-all.min.css?1570982191" rel="stylesheet">
-    <link href="/blog/css/hybrid.css?1570982191" rel="stylesheet">
-    <link href="/blog/css/featherlight.min.css?1570982191" rel="stylesheet">
-    <link href="/blog/css/perfect-scrollbar.min.css?1570982191" rel="stylesheet">
-    <link href="/blog/css/auto-complete.css?1570982191" rel="stylesheet">
-    <link href="/blog/css/atom-one-dark-reasonable.css?1570982191" rel="stylesheet">
-    <link href="/blog/css/theme.css?1570982191" rel="stylesheet">
-    <link href="/blog/css/hugo-theme.css?1570982191" rel="stylesheet">
+    <link href="/blog/css/nucleus.css?1571023429" rel="stylesheet">
+    <link href="/blog/css/fontawesome-all.min.css?1571023429" rel="stylesheet">
+    <link href="/blog/css/hybrid.css?1571023429" rel="stylesheet">
+    <link href="/blog/css/featherlight.min.css?1571023429" rel="stylesheet">
+    <link href="/blog/css/perfect-scrollbar.min.css?1571023429" rel="stylesheet">
+    <link href="/blog/css/auto-complete.css?1571023429" rel="stylesheet">
+    <link href="/blog/css/atom-one-dark-reasonable.css?1571023429" rel="stylesheet">
+    <link href="/blog/css/theme.css?1571023429" rel="stylesheet">
+    <link href="/blog/css/hugo-theme.css?1571023429" rel="stylesheet">
     
-      <link href="/blog/css/theme-blue.css?1570982191" rel="stylesheet">
+      <link href="/blog/css/theme-blue.css?1571023429" rel="stylesheet">
     
 
-    <script src="/blog/js/jquery-3.3.1.min.js?1570982191"></script>
+    <script src="/blog/js/jquery-3.3.1.min.js?1571023429"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -67,14 +67,14 @@ if (!doNotTrack) {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/blog/js/lunr.min.js?1570982191"></script>
-<script type="text/javascript" src="/blog/js/auto-complete.js?1570982191"></script>
+<script type="text/javascript" src="/blog/js/lunr.min.js?1571023429"></script>
+<script type="text/javascript" src="/blog/js/auto-complete.js?1571023429"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/jianliew.me\/blog";
     
 </script>
-<script type="text/javascript" src="/blog/js/search.js?1570982191"></script>
+<script type="text/javascript" src="/blog/js/search.js?1571023429"></script>
 
     
   </div>
@@ -469,6 +469,7 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#what-is-rubber-duck-debugging">What is Rubber Duck Debugging?</a></li>
+<li><a href="#rubber-duck-advantage">Rubber Duck Advantage</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -545,13 +546,31 @@ Give a man a fish, and you'll feed him for a day. Teach a man to fish, and you'v
 
 <p>Most students generally have more time at hand than the teaching staff, however most of the times, teaching associates (TA)s find it frustrating when handling and teaching students how to solve a problem due to their own schedules as well. It is my belief that, it is very important to teach students the correct process of debugging and problem solving in this scenario.</p>
 
-<p><strong>I totally disagree with my co-worker that I should outright give them the solution for their programming issue.</strong> However, I think it would also depends on the personality and the method of teaching each individual would have. I think the depth of understanding plays a very important role when attempting to do rubber duck debugging. That very individual does not have much of a programming background but more towards a business background thus the mind set is completely different.</p>
+<p><strong>I totally disagree with my co-worker that I should outright give them the solution for their programming issue.</strong> However, I think it would also depends on the personality and the method of teaching each individual would have. I think the depth of understanding plays a very important role when attempting to do rubber duck debugging. That very individual does not have much of a programming background but more towards a business background thus the mind set is completely different. <em>I am not trying to victimise</em> that person, however it is merely different point of views.</p>
 
 <h3 id="what-is-rubber-duck-debugging">What is Rubber Duck Debugging?</h3>
 
 <hr />
 
 <p><strong>Rubber ducking</strong> is a very useful technique for finding the cause of a problem by explaining it someone else. This is one of the techniques I often use when another programmer comes to me and asks for help.</p>
+
+<style>
+    .firstLevel > rect {
+        fill: pink !important;
+    }
+    .secondLevel > rect {
+        fill:lightblue !important;
+     }    
+</style>
+
+<p>The name origins of the name of the rubber duck is where a programmer would carry around a rubber duck and debug their code by forcing themselves to explain it, <strong>line-by-line</strong> to the duck.</p>
+
+<div class="shadow">
+Insights are often found by simply describing the problem aloud.
+<div class="pull-right">- <strong>Duck, Quack Overflow</strong></div>
+</div>
+
+<p></p>
 
 
 <div class="mermaid" align="center">
@@ -570,8 +589,14 @@ graph TD
     C --> F
     D --> F
     E --> F
+
+    class A firstLevel;
+    class B,C,D,E secondLevel;
+
 </div>
 
+
+<h3 id="rubber-duck-advantage">Rubber Duck Advantage</h3>
 
 <p>One of the more interesting about rubber duck technique, is that it will allow you to tell another programmer why something should not be done.</p>
 
@@ -829,19 +854,19 @@ graph TD
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/blog/js/clipboard.min.js?1570982191"></script>
-    <script src="/blog/js/perfect-scrollbar.min.js?1570982191"></script>
-    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1570982191"></script>
-    <script src="/blog/js/jquery.sticky.js?1570982191"></script>
-    <script src="/blog/js/featherlight.min.js?1570982191"></script>
-    <script src="/blog/js/highlight.pack.js?1570982191"></script>
+    <script src="/blog/js/clipboard.min.js?1571023429"></script>
+    <script src="/blog/js/perfect-scrollbar.min.js?1571023429"></script>
+    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1571023429"></script>
+    <script src="/blog/js/jquery.sticky.js?1571023429"></script>
+    <script src="/blog/js/featherlight.min.js?1571023429"></script>
+    <script src="/blog/js/highlight.pack.js?1571023429"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/blog/js/modernizr.custom-3.6.0.js?1570982191"></script>
-    <script src="/blog/js/learn.js?1570982191"></script>
-    <script src="/blog/js/hugo-learn.js?1570982191"></script>
+    <script src="/blog/js/modernizr.custom-3.6.0.js?1571023429"></script>
+    <script src="/blog/js/learn.js?1571023429"></script>
+    <script src="/blog/js/hugo-learn.js?1571023429"></script>
 
-    <link href="/blog/mermaid/mermaid.css?1570982191" rel="stylesheet" />
-    <script src="/blog/mermaid/mermaid.js?1570982191"></script>
+    <link href="/blog/mermaid/mermaid.css?1571023429" rel="stylesheet" />
+    <script src="/blog/mermaid/mermaid.js?1571023429"></script>
     <script>
         mermaid.initialize({
           startOnLoad: true,

@@ -17,6 +17,7 @@ This post is under construction.
 ### Introduction
 ----
 
+
 ![Monash University](/blog/images/rubberduck.jpg?width=30pc&featherlight=true&classes=border,shadow)
 
 
@@ -39,13 +40,30 @@ Of course, I would save a lot of time by just giving out the solution, but will 
 
 Most students generally have more time at hand than the teaching staff, however most of the times, teaching associates (TA)s find it frustrating when handling and teaching students how to solve a problem due to their own schedules as well. It is my belief that, it is very important to teach students the correct process of debugging and problem solving in this scenario.
 
-**I totally disagree with my co-worker that I should outright give them the solution for their programming issue.** However, I think it would also depends on the personality and the method of teaching each individual would have. I think the depth of understanding plays a very important role when attempting to do rubber duck debugging. That very individual does not have much of a programming background but more towards a business background thus the mind set is completely different.
+**I totally disagree with my co-worker that I should outright give them the solution for their programming issue.** However, I think it would also depends on the personality and the method of teaching each individual would have. I think the depth of understanding plays a very important role when attempting to do rubber duck debugging. That very individual does not have much of a programming background but more towards a business background thus the mind set is completely different. *I am not trying to victimise* that person, however it is merely different point of views.
 
 ### What is Rubber Duck Debugging?
 ---
 
 **Rubber ducking** is a very useful technique for finding the cause of a problem by explaining it someone else. This is one of the techniques I often use when another programmer comes to me and asks for help.
 
+<style>
+    .firstLevel > rect {
+        fill: pink !important;
+    }
+    .secondLevel > rect {
+        fill:lightblue !important;
+     }    
+</style>
+
+The name origins of the name of the rubber duck is where a programmer would carry around a rubber duck and debug their code by forcing themselves to explain it, **line-by-line** to the duck.
+
+<div class="shadow">
+Insights are often found by simply describing the problem aloud.
+<div class="pull-right">- <strong>Duck, Quack Overflow</strong></div>
+</div>
+
+<p></p>
 
 {{<mermaid align="center">}}
 graph TD
@@ -63,10 +81,17 @@ graph TD
     C --> F
     D --> F
     E --> F
+
+    class A firstLevel;
+    class B,C,D,E secondLevel;
+
 {{< /mermaid >}}
+
+### Rubber Duck Advantage
 
 
 One of the more interesting about rubber duck technique, is that it will allow you to tell another programmer why something should not be done.
+
 
 
 
@@ -83,3 +108,4 @@ One of the more interesting about rubber duck technique, is that it will allow y
     text-align:right;
 }
 </style>
+

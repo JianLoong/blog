@@ -9,3 +9,4 @@ In this blog post, I will attempt to over-engineer a very basic assignment by in
 
 - Observables
 - Design Patterns (Builder & Factory)
+

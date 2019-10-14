@@ -133,7 +133,7 @@ function wordCloud(selector) {
 // creating an array of words and computing a random size attribute.
 function getWords(i) {
     arr = words.split(" ");
-    let freq = foo(arr);
+    let freq = calculateFrequency(arr);
         
     return buildResult(arr);
 
@@ -151,7 +151,7 @@ function showNewWords(vis, i) {
 //Create a new instance of the word cloud visualisation.
 var myWordCloud = wordCloud('#cloud');
 
-function foo(arr) {
+function calculateFrequency(arr) {
     var a = [], b = [], prev;
     arr.sort();
     for ( var i = 0; i < arr.length; i++ ) {
@@ -209,7 +209,7 @@ let getPost = () => {
         words = remove_stopwords(words.toLowerCase());
 
         arr = words.split(" ");
-        freq = foo(arr);
+        freq = calculateFrequency(arr);
         showNewWords(myWordCloud);
     });
 }
