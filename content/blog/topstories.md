@@ -1,7 +1,7 @@
 +++
 title = "Hacker News Word Cloud "
 weight = 30
-date = 2019-10-14
+date = 2019-10-14T20:56:02+11:00
 pre = "<b>4. </b>"
 draft = false
 tags = ["Hacker News", "Chart", "Visualisation"]
@@ -46,7 +46,7 @@ var stopWords = [
 
 // https://stackoverflow.com/questions/5631422/stop-word-removal-in-javascript
 
-function remove_stopwords(str) {
+function removeStopWords(str) {
     res = []
     words = str.split(' ')
     for(i=0;i<words.length;i++) {
@@ -185,7 +185,6 @@ function buildResult(arr) {
     });
 
   let sorted = resultArr.sort((a, b) => b.size - a.size);
-  console.log(sorted);
   sorted = sorted.slice(0, 50);
   for (let i = 0; i < sorted.length; i++) sum += sorted[i].size;
 
@@ -199,50 +198,44 @@ function buildResult(arr) {
   return resultArr;
 }
 
-// Refactor getStudents and getScores to return  Promise for their response bodies
-function getStudents(pageNumber){
+function getPage(pageNumber){
   let endPoint = "https://api.hnpwa.com/v0/news/" + pageNumber + ".json";
   return fetch(endPoint, {
     mode: "cors"
   }).then((response) => response.json())
 };
 
-// Request both students and scores in parallel and return a Promise for both values.
-// `Promise.all` returns a new Promise that resolves when all of its arguments resolve.
-function getStudentsAndScores(){
 
-  // Create array of promises.
+function getPages(noOfPages){
   let promiseArray = [];
-  for(let i = 1; i < 10; i++){
-      promiseArray.push(getStudents(i));
+  for(let i = 1; i < noOfPages; i++){
+      promiseArray.push(getPage(i));
   }
-  //return Promise.all([getStudents(), getScores()])
   return Promise.all(promiseArray);
 }
 
-// When this Promise resolves, both values will be available.
-getStudentsAndScores()
-  .then((result) => {
-    // both have loaded!
-    //console.log(result);
-    // Now we can process it.
-    let titles = [];
-    for(let i = 0; i < result.length; i++) {
-        //console.log(result);
-        for(let a =0; a < result[i].length; a++) {
-            words += (result[i][a].title);
-        }
-    }
+function process(noOfPages){
+  getPages(noOfPages)
+    .then((result) => {
+      let titles = [];
+      for(let i = 0; i < result.length; i++) {
+          //console.log(result);
+          for(let a =0; a < result[i].length; a++) {
+              words += " " + (result[i][a].title);
+          }
+      }
 
-    console.log(words);
-    words = words.replace(/[^\w\s]/gi, '');
-    words = words.replace(/\d/g, '');
-    words = remove_stopwords(words.toLowerCase());
+      words = words.replace(/[^\w\s]/gi, '');
+      words = words.replace(/\d/g, '');
+      words = removeStopWords(words.toLowerCase());
+      arr = words.split(" ");
+      freq = calculateFrequency(arr);
+      showNewWords(myWordCloud);
+    })
+}
 
-    arr = words.split(" ");
-    freq = calculateFrequency(arr);
-    showNewWords(myWordCloud);
+const noOfPages = 20;
 
-  })
+process(noOfPages);
 
 </script>

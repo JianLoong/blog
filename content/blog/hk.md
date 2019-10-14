@@ -89,21 +89,6 @@ let parseResult = (link) => {
 
         }
 
-        // Parse results into percentage
-        //result["neutral"] = result["neutral"] / noOfReplies;
-        //result["positive"] = result["positive"] / noOfReplies;
-        //result["negative"] = result["negative"] / noOfReplies;
-        // if (result["negative"] == 0) {
-        //     delete result["negative"];
-        // }
-
-        // if (result["positive"] == 0) {
-        //     delete result["positive"];
-        // }
-
-        // if (result["neutral"] == 0) {
-        //     delete result["neutral"];
-        // }
         if (result["negative"] == 0 && result["positive"] == 0 && result["neutral"] == 0)
             return;
         showResult(result);

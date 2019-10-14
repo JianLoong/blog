@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Jian Liew</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Oct 2019 00:00:00 +1100</lastBuildDate>
+    <lastBuildDate>Mon, 14 Oct 2019 20:56:02 +1100</lastBuildDate>
     
 	<atom:link href="https://jianliew.me/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,27 @@
     <item>
       <title>Chart</title>
       <link>https://jianliew.me/blog/tags/chart/</link>
-      <pubDate>Mon, 14 Oct 2019 00:00:00 +1100</pubDate>
+      <pubDate>Mon, 14 Oct 2019 20:56:02 +1100</pubDate>
       
       <guid>https://jianliew.me/blog/tags/chart/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hacker News</title>
+      <link>https://jianliew.me/blog/tags/hacker-news/</link>
+      <pubDate>Mon, 14 Oct 2019 20:56:02 +1100</pubDate>
+      
+      <guid>https://jianliew.me/blog/tags/hacker-news/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visualisation</title>
+      <link>https://jianliew.me/blog/tags/visualisation/</link>
+      <pubDate>Mon, 14 Oct 2019 20:56:02 +1100</pubDate>
+      
+      <guid>https://jianliew.me/blog/tags/visualisation/</guid>
       <description></description>
     </item>
     
@@ -30,29 +48,11 @@
     </item>
     
     <item>
-      <title>Hacker News</title>
-      <link>https://jianliew.me/blog/tags/hacker-news/</link>
-      <pubDate>Mon, 14 Oct 2019 00:00:00 +1100</pubDate>
-      
-      <guid>https://jianliew.me/blog/tags/hacker-news/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Rubber Duck</title>
       <link>https://jianliew.me/blog/tags/rubber-duck/</link>
       <pubDate>Mon, 14 Oct 2019 00:00:00 +1100</pubDate>
       
       <guid>https://jianliew.me/blog/tags/rubber-duck/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Visualisation</title>
-      <link>https://jianliew.me/blog/tags/visualisation/</link>
-      <pubDate>Mon, 14 Oct 2019 00:00:00 +1100</pubDate>
-      
-      <guid>https://jianliew.me/blog/tags/visualisation/</guid>
       <description></description>
     </item>
     
