@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jianliew.me/blog/thepragmatic/rubberduck/</loc>
+    <lastmod>2019-10-14T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jianliew.me/blog/blog/</loc>
     <lastmod>2019-10-13T20:56:02+11:00</lastmod>
   </url>
@@ -13,28 +18,21 @@
   </url>
   
   <url>
-    <loc>https://jianliew.me/blog/thepragmatic/</loc>
-  </url>
-  
-  <url>
-    <loc>https://jianliew.me/blog/thepragmatic/rubberduck/</loc>
-  </url>
-  
-  <url>
-    <loc>https://jianliew.me/blog/teaching/</loc>
-  </url>
-  
-  <url>
     <loc>https://jianliew.me/blog/teaching/ubuntu/ls/</loc>
   </url>
   
   <url>
-    <loc>https://jianliew.me/blog/teaching/ubuntu/</loc>
+    <loc>https://jianliew.me/blog/thepragmatic/</loc>
+    <lastmod>2019-10-14T00:00:00+11:00</lastmod>
   </url>
   
   <url>
     <loc>https://jianliew.me/blog/blog/programmming/</loc>
     <lastmod>2019-10-12T20:56:02+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/teaching/ubuntu/</loc>
   </url>
   
   <url>
@@ -51,12 +49,31 @@
   </url>
   
   <url>
-    <loc>https://jianliew.me/blog/tags/chart/</loc>
-    <lastmod>2019-10-13T20:56:02+11:00</lastmod>
+    <loc>https://jianliew.me/blog/teaching/</loc>
   </url>
   
   <url>
     <loc>https://jianliew.me/blog/</loc>
+    <lastmod>2019-10-14T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/debugging/</loc>
+    <lastmod>2019-10-14T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/rubber-duck/</loc>
+    <lastmod>2019-10-14T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/</loc>
+    <lastmod>2019-10-14T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/chart/</loc>
     <lastmod>2019-10-13T20:56:02+11:00</lastmod>
   </url>
   
@@ -72,11 +89,6 @@
   
   <url>
     <loc>https://jianliew.me/blog/tags/reddit/</loc>
-    <lastmod>2019-10-13T20:56:02+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jianliew.me/blog/tags/</loc>
     <lastmod>2019-10-13T20:56:02+11:00</lastmod>
   </url>
   
@@ -98,15 +110,7 @@
   </url>
   
   <url>
-    <loc>https://jianliew.me/blog/tags/debugging/</loc>
-  </url>
-  
-  <url>
     <loc>https://jianliew.me/blog/disclaimer/</loc>
-  </url>
-  
-  <url>
-    <loc>https://jianliew.me/blog/tags/rubber-duck/</loc>
   </url>
   
   <url>

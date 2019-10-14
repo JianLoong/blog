@@ -1,7 +1,7 @@
 +++
 title = "Rubber Duck"
 weight = 5
-date = "{{ .Date }}"
+date = 2019-10-14
 pre = "<b>1. </b>"
 tags = ["Debugging", "Rubber Duck"]
 +++

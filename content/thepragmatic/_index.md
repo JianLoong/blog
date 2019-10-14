@@ -1,7 +1,7 @@
 +++
 title = "Pragmatic Programmer"
 chapter = true
-weight = 5
+weight = 10
 date = "{{ .Date }}"
 pre = "<b></b>"
 +++

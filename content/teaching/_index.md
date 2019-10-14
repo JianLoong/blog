@@ -1,7 +1,7 @@
 +++
 title = "Teaching"
 chapter = true
-weight = 5
+weight = 15
 date = "{{ .Date }}"
 pre = "<b></b>"
 +++
