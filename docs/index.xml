@@ -83,6 +83,18 @@ Please note that the posts here are generated based on the Reddit website by doi
     </item>
     
     <item>
+      <title>Hacker News Word Cloud </title>
+      <link>https://jianliew.me/blog/blog/topstories/</link>
+      <pubDate>Mon, 14 Oct 2019 00:00:00 +1100</pubDate>
+      
+      <guid>https://jianliew.me/blog/blog/topstories/</guid>
+      <description>The word cloud generated here is based on the website hacker news.
+The reason this post is made, is so that it would easier to see the word that appeared the most for the day.
+Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.
+Please note that the posts here are generated based on the Hacker News API by doing GET requests.</description>
+    </item>
+    
+    <item>
       <title>Curriculum Vitae</title>
       <link>https://jianliew.me/blog/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

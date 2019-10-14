@@ -1,17 +1,17 @@
 [
 {
-	"uri": "https://jianliew.me/blog/thepragmatic/rubberduck/",
-	"title": "Rubber Duck",
-	"tags": ["Debugging", "Rubber Duck"],
-	"description": "",
-	"content": " This post is under construction.\n Introduction One of the most frustrating thing about teaching programming these days, is that we do not often teach the process of debugging.\nStudents often approach me when they are having an issue in their codes and most often times, I do not directly tell them the answer, but I will spend my time using a process known as rubber ducking while attempting to solve their issue.\n One of my co-workers asked why do I not just tell them the answer? \n My reply to him was, if I was just telling them the answer right away, it is actually pointless because I would be solving the problem for them. I do not want to solve the problem for them. In actual fact, I want to teach them a useful skill where they could arrive to the solution by understanding the problem, thus they would be able to solve the problem with my help but not with me outright giving the answer.\nThere\u0026rsquo;s an old saying\u0026hellip;.\nGive a man a fish, and you'll feed him for a day. Teach a man to fish, and you've fed him for a ife time. - Confucius  Of course, I would save a lot of time by just giving out the solution, but will that be useful for the student in the long term?\nMost students generally have more time at hand than the teaching staff, however most of the times, teaching associates (TA)s find it frustrating when handling and teaching students how to solve a problem due to their own schedules as well. It is my belief that, it is very important to teach students the correct process of debugging and problem solving in this scenario.\nI totally disagree with my co-worker that I should outright give them the solution for their programming issue. However, I think it would also depends on the personality and the method of teaching each individual would have. I think the depth of understanding plays a very important role when attempting to do rubber duck debugging. That very individual does not have much of a programming background but more towards a business background thus the mind set is completely different. I am not trying to victimise that person, however it is merely different point of views.\nWhat is Rubber Duck Debugging? Rubber ducking is a very useful technique for finding the cause of a problem by explaining it someone else. This is one of the techniques I often use when another programmer comes to me and asks for help.\n .firstLevel  rect { fill: pink !important; } .secondLevel  rect { fill:lightblue !important; }  The name origins of the name of the rubber duck is where a programmer would carry around a rubber duck and debug their code by forcing themselves to explain it, line-by-line to the duck.\nInsights are often found by simply describing the problem aloud. - Duck, Quack Overflow  \ngraph TD A(Issue/Problem) B[Why?] C[Who?] D[When?] E[What?] F[Solution] A -- B A -- C A -- D A -- E B -- F C -- F D -- F E -- F class A firstLevel; class B,C,D,E secondLevel;  Rubber Duck Advantage One of the more interesting about rubber duck technique, is that it will allow you to tell another programmer why something should not be done.\n .shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); padding-right: 1em; padding-left: 1em; padding-top: 1em; padding-bottom: 0.5em; } .pull-right { text-align:right; }  "
-},
-{
 	"uri": "https://jianliew.me/blog/blog/",
 	"title": "Blog",
 	"tags": [],
 	"description": "",
 	"content": " This blog is mainly about programming. It will also attempt document various thought process to achieve the desired outcome.\n"
+},
+{
+	"uri": "https://jianliew.me/blog/thepragmatic/rubberduck/",
+	"title": "Rubber Duck",
+	"tags": ["Debugging", "Rubber Duck"],
+	"description": "",
+	"content": " This post is under construction.\n Introduction One of the most frustrating thing about teaching programming these days, is that we do not often teach the process of debugging.\nStudents often approach me when they are having an issue in their codes and most often times, I do not directly tell them the answer, but I will spend my time using a process known as rubber ducking while attempting to solve their issue.\n One of my co-workers asked why do I not just tell them the answer? \n My reply to him was, if I was just telling them the answer right away, it is actually pointless because I would be solving the problem for them. I do not want to solve the problem for them. In actual fact, I want to teach them a useful skill where they could arrive to the solution by understanding the problem, thus they would be able to solve the problem with my help but not with me outright giving the answer.\nThere\u0026rsquo;s an old saying\u0026hellip;.\nGive a man a fish, and you'll feed him for a day. Teach a man to fish, and you've fed him for a ife time. - Confucius  Of course, I would save a lot of time by just giving out the solution, but will that be useful for the student in the long term?\nMost students generally have more time at hand than the teaching staff, however most of the times, teaching associates (TA)s find it frustrating when handling and teaching students how to solve a problem due to their own schedules as well. It is my belief that, it is very important to teach students the correct process of debugging and problem solving in this scenario.\nI totally disagree with my co-worker that I should outright give them the solution for their programming issue. However, I think it would also depends on the personality and the method of teaching each individual would have. I think the depth of understanding plays a very important role when attempting to do rubber duck debugging. That very individual does not have much of a programming background but more towards a business background thus the mind set is completely different. I am not trying to victimise that person, however it is merely different point of views.\nWhat is Rubber Duck Debugging? Rubber ducking is a very useful technique for finding the cause of a problem by explaining it someone else. This is one of the techniques I often use when another programmer comes to me and asks for help.\n .firstLevel  rect { fill: pink !important; } .secondLevel  rect { fill:lightblue !important; }  The name origins of the name of the rubber duck is where a programmer would carry around a rubber duck and debug their code by forcing themselves to explain it, line-by-line to the duck.\nInsights are often found by simply describing the problem aloud. - Duck, Quack Overflow  \ngraph TD A(Issue/Problem) B[Why?] C[Who?] D[When?] E[What?] F[Solution] A -- B A -- C A -- D A -- E B -- F C -- F D -- F E -- F class A firstLevel; class B,C,D,E secondLevel;  Rubber Duck Advantage One of the more interesting about rubber duck technique, is that it will allow you to tell another programmer why something should not be done.\n .shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); padding-right: 1em; padding-left: 1em; padding-top: 1em; padding-bottom: 0.5em; } .pull-right { text-align:right; }  "
 },
 {
 	"uri": "https://jianliew.me/blog/blog/percentage/",
@@ -77,6 +77,20 @@
 	"content": " Teaching This blog post is under construction.\n "
 },
 {
+	"uri": "https://jianliew.me/blog/blog/topstories/",
+	"title": "Hacker News Word Cloud ",
+	"tags": ["Hacker News", "Chart", "Visualisation"],
+	"description": "",
+	"content": "  The word cloud generated here is based on the website hacker news.\nThe reason this post is made, is so that it would easier to see the word that appeared the most for the day.\nEven though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.\nPlease note that the posts here are generated based on the Hacker News API by doing GET requests. So, it is based on their current entries. So, it will be refreshed when the page is reloaded.\n   // Based on http://bl.ocks.org/joews/9697914 with modifications. let words = \"\"; let freq = [\"\"]; let arr = \"\"; var stopWords = [ 'about', 'after', 'all', 'also', 'am', 'an', 'and', 'another', 'any', 'are', 'as', 'at', 'be', 'because', 'been', 'before', 'being', 'between', 'both', 'but', 'by', 'came', 'can', 'come', 'could', 'did', 'do', 'each', 'for', 'from', 'get', 'got', 'has', 'had', 'he', 'have', 'her', 'here', 'him', 'himself', 'his', 'how', 'if', 'in', 'into', 'is', 'it', 'like', 'make', 'many', 'me', 'might', 'more', 'most', 'much', 'must', 'my', 'never', 'now', 'of', 'on', 'only', 'or', 'other', 'our', 'out', 'over', 'said', 'same', 'see', 'should', 'since', 'some', 'still', 'such', 'take', 'than', 'that', 'the', 'their', 'them', 'then', 'there', 'these', 'they', 'this', 'those', 'through', 'to', 'too', 'under', 'up', 'very', 'was', 'way', 'we', 'well', 'were', 'what', 'where', 'which', 'while', 'who', 'with', 'would', 'you', 'your', 'a', 'i', 'its', 'why', '', 'ask','hn','s' ]; // https://stackoverflow.com/questions/5631422/stop-word-removal-in-javascript function remove_stopwords(str) { res = [] words = str.split(' ') for(i=0;ib.size - a.size); console.log(sorted); sorted = sorted.slice(0, 50); for (let i = 0; i response.json()) }; // Request both students and scores in parallel and return a Promise for both values. // `Promise.all` returns a new Promise that resolves when all of its arguments resolve. function getStudentsAndScores(){ // Create array of promises. let promiseArray = []; for(let i = 1; i { // both have loaded! //console.log(result); // Now we can process it. let titles = []; for(let i = 0; i "
+},
+{
+	"uri": "https://jianliew.me/blog/tags/chart/",
+	"title": "Chart",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://jianliew.me/blog/",
 	"title": "Contents",
 	"tags": [],
@@ -86,6 +100,13 @@
 {
 	"uri": "https://jianliew.me/blog/tags/debugging/",
 	"title": "Debugging",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://jianliew.me/blog/tags/hacker-news/",
+	"title": "Hacker News",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -105,8 +126,8 @@
 	"content": ""
 },
 {
-	"uri": "https://jianliew.me/blog/tags/chart/",
-	"title": "Chart",
+	"uri": "https://jianliew.me/blog/tags/visualisation/",
+	"title": "Visualisation",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -128,13 +149,6 @@
 {
 	"uri": "https://jianliew.me/blog/tags/reddit/",
 	"title": "Reddit",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://jianliew.me/blog/tags/visualisation/",
-	"title": "Visualisation",
 	"tags": [],
 	"description": "",
 	"content": ""

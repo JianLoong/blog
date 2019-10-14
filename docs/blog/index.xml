@@ -6,7 +6,7 @@
     <description>Recent content in Blog on Jian Liew</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Oct 2019 20:56:02 +1100</lastBuildDate>
+    <lastBuildDate>Mon, 14 Oct 2019 00:00:00 +1100</lastBuildDate>
     
 	<atom:link href="https://jianliew.me/blog/blog/index.xml" rel="self" type="application/rss+xml" />
     
@@ -44,6 +44,18 @@ Even though the use of a word cloud is not exactly a good representation of occu
       <description>Sentiment Analysis for the Sub-Reddit &amp;ldquo;HongKong&amp;rdquo; This post will perform sentiment analysis using AFINN. AFINN is a list of words rated for valence rated with an integer between minus five(negative) and plus five (positive). This implementation uses AFINN-en-165. 1
 This approach however is a very naive approach as it does not build any models to determine the context of the usage of the word itself.
 Please note that the posts here are generated based on the Reddit website by doing GET requests.</description>
+    </item>
+    
+    <item>
+      <title>Hacker News Word Cloud </title>
+      <link>https://jianliew.me/blog/blog/topstories/</link>
+      <pubDate>Mon, 14 Oct 2019 00:00:00 +1100</pubDate>
+      
+      <guid>https://jianliew.me/blog/blog/topstories/</guid>
+      <description>The word cloud generated here is based on the website hacker news.
+The reason this post is made, is so that it would easier to see the word that appeared the most for the day.
+Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.
+Please note that the posts here are generated based on the Hacker News API by doing GET requests.</description>
     </item>
     
   </channel>
