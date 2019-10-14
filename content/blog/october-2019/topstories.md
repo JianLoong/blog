@@ -1,8 +1,8 @@
 +++
 title = "Hacker News Word Cloud "
-weight = 30
+weight = 14
 date = 2019-10-14T20:56:02+11:00
-pre = "<b>4. </b>"
+pre = "<b>14th. </b>"
 draft = false
 tags = ["Hacker News", "Chart", "Visualisation"]
 +++
@@ -67,7 +67,6 @@ function wordCloud(selector) {
 
     //Construct the word cloud's SVG element
     var svg = d3.select(selector).append("svg")
-        
         .attr("viewBox", `0 0 800 800`)
         .append("g")
         .attr("transform", "translate(400,400)");
@@ -106,15 +105,8 @@ function wordCloud(selector) {
                 .remove();
     }
 
-
-    //Use the module pattern to encapsulate the visualisation code. We'll
-    // expose only the parts that need to be public.
     return {
 
-        //Recompute the word cloud for a new set of words. This method will
-        // asycnhronously call draw when the layout has been computed.
-        //The outside world will need to call this function, so make it part
-        // of the wordCloud return value.
 
         update: function(words) {
 
@@ -131,9 +123,6 @@ function wordCloud(selector) {
 
 }
 
-
-//Prepare one of the sample sentences by removing punctuation,
-// creating an array of words and computing a random size attribute.
 function getWords(i) {
     arr = words.split(" ");
     let freq = calculateFrequency(arr);
@@ -141,10 +130,6 @@ function getWords(i) {
     return buildResult(arr);
 
 }
-
-//This method tells the word cloud to redraw with a new set of words.
-//In reality the new words would probably come from a server request,
-// user input or some other source.
 function showNewWords(vis, i) {
     i = i || 0;
 
@@ -234,8 +219,8 @@ function process(noOfPages){
     })
 }
 
-const noOfPages = 20;
+  const noOfPages = 20;
 
-process(noOfPages);
+  process(noOfPages);
 
 </script>

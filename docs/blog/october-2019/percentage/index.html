@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/blog/images/favicon.ico" type="image/ico">
 
-    <title>UML :: Jian Liew</title>
+    <title>Reddit Chart :: Jian Liew</title>
     
 <script type="application/javascript">
 var doNotTrack = false;
@@ -48,7 +48,7 @@ if (!doNotTrack) {
     </style>
     
   </head>
-  <body class="" data-url="/blog/teaching/uml/">
+  <body class="" data-url="/blog/blog/october-2019/percentage/">
     <nav id="sidebar" class="">
 
 
@@ -91,7 +91,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/blog/" title="Blog" class="dd-item 
-        
+        parent
         
         
         ">
@@ -118,7 +118,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/blog/october-2019/" title="October 2019" class="dd-item 
-        
+        parent
         
         
         ">
@@ -142,7 +142,7 @@ if (!doNotTrack) {
  
   
     
-      <li data-nav-id="/blog/blog/october-2019/percentage/" title="Reddit Chart" class="dd-item ">
+      <li data-nav-id="/blog/blog/october-2019/percentage/" title="Reddit Chart" class="dd-item active">
         <a href="/blog/blog/october-2019/percentage/">
         <b>9th. </b>Reddit Chart
         
@@ -286,7 +286,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/teaching/" title="Teaching" class="dd-item 
-        parent
+        
         
         
         ">
@@ -366,8 +366,8 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/teaching/uml/" title="UML" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/blog/teaching/uml/">
@@ -487,6 +487,8 @@ if (!doNotTrack) {
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -501,7 +503,13 @@ if (!doNotTrack) {
             
           
           
-            <a href='/blog/'>Contents</a> > <a href='/blog/teaching/'>Teaching</a> > UML
+            
+            
+          
+          
+            <a href='/blog/'>Contents</a> > <a href='/blog/blog/'>Blog</a> > <a href='/blog/blog/october-2019/'>October 2019</a> > Reddit Chart
+          
+        
           
         
           
@@ -512,16 +520,46 @@ if (!doNotTrack) {
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#posts">Posts</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
               </div>
             </div>
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/blog/tags/reddit">Reddit</a>
+
+  <a class="tag-link" href="/blog/tags/chart">Chart</a>
+
+  <a class="tag-link" href="/blog/tags/visualisation">Visualisation</a>
+
+</div>
+
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              Reddit Chart
+            </h1>
           
 
         
@@ -529,31 +567,183 @@ if (!doNotTrack) {
 
 
 
-	
 
-<h3 id="unified-modelling-language">Unified Modelling Language</h3>
 
-<h1 id="state-machines">State Machines</h1>
 
-<p>What are state machines?</p>
 
-<div class="mermaid" align="center">
-  graph LR
-      A(Open)
-      B(Close)
-      A-->B
+
+  <p>Posted on: <strong> Wednesday, October 9, 2019</strong></p>
+
+<p>Reading time: <strong>1 minutes and
+    17 seconds.</strong></p>
+<hr />
+
+
+
+
+<script src="https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script>
+
+<p>The charts here are visualisation of the <em>AmIthea-hole</em> subreddit which can be found <a href="https://www.reddit.com/r/AmItheAsshole/">here</a></p>
+
+<p>The reason this post is made, is so that it would easier to see the percentage of votes of a certain type.</p>
+
+
+<div class="notices info" ><p>Please note that the posts here are generated based on the Reddit website by doing <code>GET</code> requests. So, it is based on their current entries.</p>
 </div>
 
 
+<table>
+<thead>
+<tr>
+<th>Abbreviation</th>
+<th>Meaning</th>
+</tr>
+</thead>
 
+<tbody>
+<tr>
+<td>YTA</td>
+<td>You&rsquo;re the A-hole</td>
+</tr>
+
+<tr>
+<td>NTA</td>
+<td>Not the A-hole</td>
+</tr>
+
+<tr>
+<td>ESH</td>
+<td>Everyone sucks here</td>
+</tr>
+
+<tr>
+<td>NAH</td>
+<td>No A-holes here</td>
+</tr>
+
+<tr>
+<td>INFO</td>
+<td>Not Enough Info</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="posts">Posts</h3>
+
+<div class="result">
+</div>
+
+<script>
+
+let summary = [];
+
+let parseResult = (link) => {
+    const endPoint = "https://reddit.com" + link + ".json?limit=80&jsonp=?";
+    let replies = "";
+
+    $.getJSON(endPoint, function(data){
+        let title = (data[0].data.children[0].data["title"]);
+        replies = data[1]["data"].children;
+        let url = "https://reddit.com" + link;
+        let noOfReplies = replies.length;
+        let countNTAAppearance = 0;
+        let nta = "NTA";
+        let countYTAAppearance = 0;
+        let countESHAppearance = 0;
+        let countNAHAppearance = 0;
+        let countINFOAppearance = 0;
+        for (let i = 0; i < noOfReplies; i++) {
+            let reply = replies[i]["data"].body;
+            if (reply == undefined)
+                return;
+            countNTAAppearance += (reply.match(/NTA/g) || []).length;
+            countYTAAppearance += (reply.match(/YTA/g) || []).length;
+            countESHAppearance += (reply.match(/ESH/g) || []).length;
+            countNAHAppearance += (reply.match(/NAH/g) || []).length;
+            countINFOAppearance += (reply.match(/INFO/g) || []).length;
+        }
+
+        let jsonResult = {
+            "id" : data[0].data.children[0].data["id"],
+            "url": url,
+            "title": title,
+            "countNTAAppearance": countNTAAppearance,
+            "countYTAAppearance": countYTAAppearance,
+            "countESHAppearance" : countESHAppearance,
+            "countNAHAppearance" : countNAHAppearance,
+            "countINFOAppearance" : countINFOAppearance,
+        }
+       summary.push(jsonResult);
+       showResult(jsonResult);
+    });
+}
+
+let showResult = (jsonResult) => {
+    let output = "<strong>" + jsonResult["title"] + "</strong>";    
+    let out = output + "<p><a id=" + jsonResult["id"] + "_link> Click here</a> to view post in context.</p>";
+
+    $(".result").append("<div class = 'shadow'>" + out +"<div class='' id=" + jsonResult["id"] + "></div></div>");
+    $("#" + jsonResult["id"] + "_link").prop("href", jsonResult["url"]);
+    $(".result").append("<p></p>");
+
+    let id = "#" + jsonResult["id"];
+    const data = {
+                labels: ["NTA","YTA","ESH","NAH","INFO"],
+                datasets: [
+                    {
+                        name: "data",
+                        charType: 'percentage',
+                        values: [
+                            jsonResult["countNTAAppearance"], 
+                            jsonResult["countYTAAppearance"], 
+                            jsonResult["countESHAppearance"],
+                            jsonResult["countNAHAppearance"],
+                            jsonResult["countINFOAppearance"],
+                        ]
+                    }
+                ]
+            }
+
+    const chart = new frappe.Chart(id, {
+        data: data,
+        type: 'percentage',
+        colors: ['#33691e', '#b71c1c', '#f47e17','#1a237e','#e8eaf6']
+    })
+}
+
+let getPost = () => {
+    let result = "";
+    let entries = [];
+    let endPoint = "https://reddit.com/r/amitheasshole.json?limit=50&jsonp=?"
+    $.getJSON(endPoint, function(data){
+        result = data;
+        entries = result["data"].children;
+        for(let i = 0; i < entries.length; i++){
+            let link = (entries[i]["data"]["permalink"]);
+            parseResult(link)
+        }
+    });
+}
+
+getPost();
+    
+</script>
+
+<style>
+.shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-top: 1em;
+}
+</style>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-        
-            </div> 
+
         
         </div>
         
@@ -585,8 +775,6 @@ if (!doNotTrack) {
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -603,6 +791,7 @@ if (!doNotTrack) {
             
                 
                     
+                    
                 
                 
 
@@ -615,6 +804,26 @@ if (!doNotTrack) {
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -659,22 +868,6 @@ if (!doNotTrack) {
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -718,7 +911,6 @@ if (!doNotTrack) {
             
                 
                     
-                    
                 
                 
 
@@ -733,9 +925,6 @@ if (!doNotTrack) {
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -769,7 +958,6 @@ if (!doNotTrack) {
             
                 
                     
-                    
                 
                 
 
@@ -782,9 +970,6 @@ if (!doNotTrack) {
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -812,10 +997,10 @@ if (!doNotTrack) {
 	 
 	 
 		
-			<a class="nav nav-prev" href="/blog/teaching/ubuntu/ls/" title="The File System"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/blog/blog/october-2019/" title="October 2019"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/blog/teaching/uml/introduction/" title="What are State Machine Diagrams?" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/blog/blog/october-2019/programmming/" title="Reddit Word Cloud " style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -850,3 +1035,4 @@ if (!doNotTrack) {
 
   </body>
 </html>
+

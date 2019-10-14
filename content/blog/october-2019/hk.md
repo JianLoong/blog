@@ -1,8 +1,8 @@
 +++
 title = "Sentiment Analysis"
-weight = 15
+weight = 13
 date = 2019-10-13T20:56:02+11:00
-pre = "<b>3. </b>"
+pre = "<b>13th. </b>"
 tags = ["Reddit", "Chart", "Visualisation", "Hong Kong", "Percentage"]
 commentoEnable = true
 +++

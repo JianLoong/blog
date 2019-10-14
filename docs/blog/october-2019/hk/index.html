@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/blog/images/favicon.ico" type="image/ico">
 
-    <title>UML :: Jian Liew</title>
+    <title>Sentiment Analysis :: Jian Liew</title>
     
 <script type="application/javascript">
 var doNotTrack = false;
@@ -48,7 +48,7 @@ if (!doNotTrack) {
     </style>
     
   </head>
-  <body class="" data-url="/blog/teaching/uml/">
+  <body class="" data-url="/blog/blog/october-2019/hk/">
     <nav id="sidebar" class="">
 
 
@@ -91,7 +91,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/blog/" title="Blog" class="dd-item 
-        
+        parent
         
         
         ">
@@ -118,7 +118,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/blog/october-2019/" title="October 2019" class="dd-item 
-        
+        parent
         
         
         ">
@@ -180,7 +180,7 @@ if (!doNotTrack) {
  
   
     
-      <li data-nav-id="/blog/blog/october-2019/hk/" title="Sentiment Analysis" class="dd-item ">
+      <li data-nav-id="/blog/blog/october-2019/hk/" title="Sentiment Analysis" class="dd-item active">
         <a href="/blog/blog/october-2019/hk/">
         <b>13th. </b>Sentiment Analysis
         
@@ -286,7 +286,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/teaching/" title="Teaching" class="dd-item 
-        parent
+        
         
         
         ">
@@ -366,8 +366,8 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/teaching/uml/" title="UML" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/blog/teaching/uml/">
@@ -487,6 +487,8 @@ if (!doNotTrack) {
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -501,7 +503,13 @@ if (!doNotTrack) {
             
           
           
-            <a href='/blog/'>Contents</a> > <a href='/blog/teaching/'>Teaching</a> > UML
+            
+            
+          
+          
+            <a href='/blog/'>Contents</a> > <a href='/blog/blog/'>Blog</a> > <a href='/blog/blog/october-2019/'>October 2019</a> > Sentiment Analysis
+          
+        
           
         
           
@@ -512,16 +520,53 @@ if (!doNotTrack) {
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#sentiment-analysis-for-the-sub-reddit-hongkong">Sentiment Analysis for the Sub-Reddit &ldquo;HongKong&rdquo;</a>
+<ul>
+<li><a href="#references">References</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
               </div>
             </div>
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/blog/tags/reddit">Reddit</a>
+
+  <a class="tag-link" href="/blog/tags/chart">Chart</a>
+
+  <a class="tag-link" href="/blog/tags/visualisation">Visualisation</a>
+
+  <a class="tag-link" href="/blog/tags/hong-kong">Hong Kong</a>
+
+  <a class="tag-link" href="/blog/tags/percentage">Percentage</a>
+
+</div>
+
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              Sentiment Analysis
+            </h1>
           
 
         
@@ -529,34 +574,210 @@ if (!doNotTrack) {
 
 
 
-	
 
-<h3 id="unified-modelling-language">Unified Modelling Language</h3>
 
-<h1 id="state-machines">State Machines</h1>
 
-<p>What are state machines?</p>
 
-<div class="mermaid" align="center">
-  graph LR
-      A(Open)
-      B(Close)
-      A-->B
+
+  <p>Posted on: <strong> Sunday, October 13, 2019</strong></p>
+
+<p>Reading time: <strong>2 minutes and
+    1 second.</strong></p>
+<hr />
+
+
+
+
+<script src="https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script>
+
+<h3 id="sentiment-analysis-for-the-sub-reddit-hongkong">Sentiment Analysis for the Sub-Reddit &ldquo;HongKong&rdquo;</h3>
+
+<p>This post will perform <strong>sentiment analysis</strong> using AFINN. AFINN is a list of words rated for valence rated with an integer between minus five(negative) and plus five (positive). This implementation uses <strong><em>AFINN-en-165</em></strong>. <sup><a href="#1">1</a></sup></p>
+
+<p>This approach however is a very naive approach as it does not build any models to determine the context of the usage of the word itself.</p>
+
+
+<div class="notices info" ><p>Please note that the posts here are generated based on the Reddit website by doing <code>GET</code> requests. So, it is based on their current entries. So, it will be <strong>refreshed</strong> when the page is reloaded.</p>
 </div>
 
 
+<h4 id="references">References</h4>
 
+<p><a name="1">1</a>. <a href="https://darenr.github.io/afinn/">AFINN Sentiment Analysis</a></p>
+
+<div class="result"></div>
+
+<script src="/blog/scripts/afinn-111.js"></script>
+
+<script>
+
+
+var stopWords = [
+  'about', 'after', 'all', 'also', 'am', 'an', 'and', 'another', 'any', 'are', 'as', 'at', 'be',
+  'because', 'been', 'before', 'being', 'between', 'both', 'but', 'by', 'came', 'can',
+  'come', 'could', 'did', 'do', 'each', 'for', 'from', 'get', 'got', 'has', 'had',
+  'he', 'have', 'her', 'here', 'him', 'himself', 'his', 'how', 'if', 'in', 'into',
+  'is', 'it', 'like', 'make', 'many', 'me', 'might', 'more', 'most', 'much', 'must',
+  'my', 'never', 'now', 'of', 'on', 'only', 'or', 'other', 'our', 'out', 'over',
+  'said', 'same', 'see', 'should', 'since', 'some', 'still', 'such', 'take', 'than',
+  'that', 'the', 'their', 'them', 'then', 'there', 'these', 'they', 'this', 'those',
+  'through', 'to', 'too', 'under', 'up', 'very', 'was', 'way', 'we', 'well', 'were',
+  'what', 'where', 'which', 'while', 'who', 'with', 'would', 'you', 'your', 'a', 'i', 'its', 'why'
+];
+
+// https://stackoverflow.com/questions/5631422/stop-word-removal-in-javascript
+
+let parseResult = (link) => {
+    const endPoint = "https://reddit.com" + link + ".json?limit=100&jsonp=?";
+    let replies = "";
+    let noOfReplies = 0;
+
+    $.getJSON(endPoint, function(data){
+        let title = (data[0].data.children[0].data["title"]);
+        replies = data[1]["data"].children;
+        let url = "https://reddit.com" + link;
+        noOfReplies = replies.length;
+        let repliesText = "";
+
+        
+        let result = {
+            "id" : data[0].data.children[0].data["id"],
+            "url": url,
+            "title": title,
+            "negative": 0,
+            "neutral": 0,
+            "positive": 0
+        }
+
+        for (let i = 0; i < noOfReplies; i++) {
+            let reply = replies[i]["data"].body;
+            let score = buildFreq(reply);
+            
+            switch (true){
+                case score == 0:
+                    result["neutral"] = result["neutral"] + 1;
+                    break;
+                case score > 0:
+                    result["positive"] = result["positive"] + 1;
+                    break;
+                case score < 0:    
+                    result["negative"] = result["negative"] + 1;
+                    break;                    
+            }
+
+        }
+
+        if (result["negative"] == 0 && result["positive"] == 0 && result["neutral"] == 0)
+            return;
+        showResult(result);
+    });
+}
+
+let showResult = (jsonResult) => {
+    let output = "<strong>" + jsonResult["title"] + "</strong>";    
+    let out = output + "<p><a id=" + jsonResult["id"] + "_link> Click here</a> to view post in context.</p>";
+
+    $(".result").append("<div class = 'shadow'>" + out +"<div class='' id=" + jsonResult["id"] + "></div></div>");
+    $("#" + jsonResult["id"] + "_link").prop("href", jsonResult["url"]);
+    $(".result").append("<p></p>");
+
+    let id = "#" + jsonResult["id"];
+    const data = {
+                labels: ["Positive","Negative","Neutral"],
+                datasets: [
+                    {
+                        name: "data",
+                        charType: "percentage",
+                        values: [
+                            jsonResult["positive"],
+                            jsonResult["negative"],
+                            jsonResult["neutral"]
+                        ]
+                    }
+                    
+                ]
+            }
+
+    const chart = new frappe.Chart(id, {
+        data: data,
+        type: 'percentage',
+        colors: ['#33691e', '#b71c1c','#e8eaf6']
+    })
+}
+
+let buildFreq = (repliesText) => {
+    if (repliesText === undefined)
+        return 0;
+    let convert = repliesText.replace(/[^\w\s]/gi, '').toLowerCase().split(" ");
+    let totalScore = 0;
+    for(let i = 0; i < convert.length; i++) {
+        let currentWord = convert[i];
+        totalScore += afinn[currentWord] || 0;
+    }
+    //console.log(totalScore);
+
+    return totalScore;
+}
+
+let getPost = () => {
+    let result = "";
+    let entries = [];
+    let endPoint = "https://reddit.com/r/hongkong.json?limit=30&jsonp=?"
+    $.getJSON(endPoint, function(data){
+        result = data;
+        entries = result["data"].children;
+        for(let i = 0; i < entries.length; i++){
+            let link = (entries[i]["data"]["permalink"]);
+            parseResult(link)
+        }
+    });
+}
+
+getPost();
+
+</script>
+
+<style>
+.shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-top: 1em;
+}
+</style>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-        
-            </div> 
+
         
         </div>
         
+
+
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jianloonggithubio" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
 
       </div>
 
@@ -585,8 +806,144 @@ if (!doNotTrack) {
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -627,57 +984,6 @@ if (!doNotTrack) {
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
             
         
                     
@@ -698,93 +1004,6 @@ if (!doNotTrack) {
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -812,10 +1031,10 @@ if (!doNotTrack) {
 	 
 	 
 		
-			<a class="nav nav-prev" href="/blog/teaching/ubuntu/ls/" title="The File System"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/blog/blog/october-2019/programmming/" title="Reddit Word Cloud "> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/blog/teaching/uml/introduction/" title="What are State Machine Diagrams?" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/blog/blog/october-2019/topstories/" title="Hacker News Word Cloud " style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -850,3 +1069,4 @@ if (!doNotTrack) {
 
   </body>
 </html>
+

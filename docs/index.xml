@@ -23,18 +23,6 @@ Students often approach me when they are having an issue in their codes and most
     </item>
     
     <item>
-      <title>Reddit Chart</title>
-      <link>https://jianliew.me/blog/blog/percentage/</link>
-      <pubDate>Wed, 09 Oct 2019 20:56:02 +1100</pubDate>
-      
-      <guid>https://jianliew.me/blog/blog/percentage/</guid>
-      <description>The charts here are visualisation of the AmIthea-hole subreddit which can be found here
-The reason this post is made, is so that it would easier to see the percentage of votes of a certain type.
-Please note that the posts here are generated based on the Reddit website by doing GET requests. So, it is based on their current entries.
-    Abbreviation Meaning     YTA You&amp;rsquo;re the A-hole   NTA Not the A-hole   ESH Everyone sucks here   NAH No A-holes here   INFO Not Enough Info    Posts   let summary = []; let parseResult = (link) = { const endPoint = &#34;</description>
-    </item>
-    
-    <item>
       <title>The File System</title>
       <link>https://jianliew.me/blog/teaching/ubuntu/ls/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -47,15 +35,15 @@ Please note that the posts here are generated based on the Reddit website by doi
     </item>
     
     <item>
-      <title>Reddit Word Cloud </title>
-      <link>https://jianliew.me/blog/blog/programmming/</link>
-      <pubDate>Sat, 12 Oct 2019 20:56:02 +1100</pubDate>
+      <title>Reddit Chart</title>
+      <link>https://jianliew.me/blog/blog/october-2019/percentage/</link>
+      <pubDate>Wed, 09 Oct 2019 20:56:02 +1100</pubDate>
       
-      <guid>https://jianliew.me/blog/blog/programmming/</guid>
-      <description>The word cloud generated here is based on the /r/programming subreddit for reddit.com
-The reason this post is made, is so that it would easier to see the word that appeared the most for the day.
-Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.
- Please note that the posts here are generated based on the Reddit website by doing GET requests.</description>
+      <guid>https://jianliew.me/blog/blog/october-2019/percentage/</guid>
+      <description>The charts here are visualisation of the AmIthea-hole subreddit which can be found here
+The reason this post is made, is so that it would easier to see the percentage of votes of a certain type.
+Please note that the posts here are generated based on the Reddit website by doing GET requests. So, it is based on their current entries.
+    Abbreviation Meaning     YTA You&amp;rsquo;re the A-hole   NTA Not the A-hole   ESH Everyone sucks here   NAH No A-holes here   INFO Not Enough Info    Posts   let summary = []; let parseResult = (link) = { const endPoint = &#34;</description>
     </item>
     
     <item>
@@ -72,11 +60,23 @@ Often times, one of the most misunderstood diagram in UML is the state machine.<
     </item>
     
     <item>
+      <title>Reddit Word Cloud </title>
+      <link>https://jianliew.me/blog/blog/october-2019/programmming/</link>
+      <pubDate>Sat, 12 Oct 2019 20:56:02 +1100</pubDate>
+      
+      <guid>https://jianliew.me/blog/blog/october-2019/programmming/</guid>
+      <description>The word cloud generated here is based on the /r/programming subreddit for reddit.com
+The reason this post is made, is so that it would easier to see the word that appeared the most for the day.
+Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.
+ Please note that the posts here are generated based on the Reddit website by doing GET requests.</description>
+    </item>
+    
+    <item>
       <title>Sentiment Analysis</title>
-      <link>https://jianliew.me/blog/blog/hk/</link>
+      <link>https://jianliew.me/blog/blog/october-2019/hk/</link>
       <pubDate>Sun, 13 Oct 2019 20:56:02 +1100</pubDate>
       
-      <guid>https://jianliew.me/blog/blog/hk/</guid>
+      <guid>https://jianliew.me/blog/blog/october-2019/hk/</guid>
       <description>Sentiment Analysis for the Sub-Reddit &amp;ldquo;HongKong&amp;rdquo; This post will perform sentiment analysis using AFINN. AFINN is a list of words rated for valence rated with an integer between minus five(negative) and plus five (positive). This implementation uses AFINN-en-165. 1
 This approach however is a very naive approach as it does not build any models to determine the context of the usage of the word itself.
 Please note that the posts here are generated based on the Reddit website by doing GET requests.</description>
@@ -84,10 +84,10 @@ Please note that the posts here are generated based on the Reddit website by doi
     
     <item>
       <title>Hacker News Word Cloud </title>
-      <link>https://jianliew.me/blog/blog/topstories/</link>
+      <link>https://jianliew.me/blog/blog/october-2019/topstories/</link>
       <pubDate>Mon, 14 Oct 2019 20:56:02 +1100</pubDate>
       
-      <guid>https://jianliew.me/blog/blog/topstories/</guid>
+      <guid>https://jianliew.me/blog/blog/october-2019/topstories/</guid>
       <description>The word cloud generated here is based on the website hacker news.
 The reason this post is made, is so that it would easier to see the word that appeared the most for the day.
 Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.

@@ -1,8 +1,8 @@
 +++
 title = "Reddit Word Cloud "
-weight = 10
+weight = 12
 date = 2019-10-12T20:56:02+11:00
-pre = "<b>2. </b>"
+pre = "<b>12th. </b>"
 tags = ["Reddit", "Chart", "Visualisation"]
 +++
 <script src="https://d3js.org/d3.v3.min.js"></script>
