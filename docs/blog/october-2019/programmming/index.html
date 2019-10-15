@@ -25,20 +25,20 @@ if (!doNotTrack) {
 </script>
 
     
-    <link href="/blog/css/nucleus.css?1571055020" rel="stylesheet">
-    <link href="/blog/css/fontawesome-all.min.css?1571055020" rel="stylesheet">
-    <link href="/blog/css/hybrid.css?1571055020" rel="stylesheet">
-    <link href="/blog/css/featherlight.min.css?1571055020" rel="stylesheet">
-    <link href="/blog/css/perfect-scrollbar.min.css?1571055020" rel="stylesheet">
-    <link href="/blog/css/auto-complete.css?1571055020" rel="stylesheet">
-    <link href="/blog/css/atom-one-dark-reasonable.css?1571055020" rel="stylesheet">
-    <link href="/blog/css/theme.css?1571055020" rel="stylesheet">
-    <link href="/blog/css/hugo-theme.css?1571055020" rel="stylesheet">
+    <link href="/blog/css/nucleus.css?1571144396" rel="stylesheet">
+    <link href="/blog/css/fontawesome-all.min.css?1571144396" rel="stylesheet">
+    <link href="/blog/css/hybrid.css?1571144396" rel="stylesheet">
+    <link href="/blog/css/featherlight.min.css?1571144396" rel="stylesheet">
+    <link href="/blog/css/perfect-scrollbar.min.css?1571144396" rel="stylesheet">
+    <link href="/blog/css/auto-complete.css?1571144396" rel="stylesheet">
+    <link href="/blog/css/atom-one-dark-reasonable.css?1571144396" rel="stylesheet">
+    <link href="/blog/css/theme.css?1571144396" rel="stylesheet">
+    <link href="/blog/css/hugo-theme.css?1571144396" rel="stylesheet">
     
-      <link href="/blog/css/theme-blue.css?1571055020" rel="stylesheet">
+      <link href="/blog/css/theme-blue.css?1571144396" rel="stylesheet">
     
 
-    <script src="/blog/js/jquery-3.3.1.min.js?1571055020"></script>
+    <script src="/blog/js/jquery-3.3.1.min.js?1571144396"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -67,14 +67,14 @@ if (!doNotTrack) {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/blog/js/lunr.min.js?1571055020"></script>
-<script type="text/javascript" src="/blog/js/auto-complete.js?1571055020"></script>
+<script type="text/javascript" src="/blog/js/lunr.min.js?1571144396"></script>
+<script type="text/javascript" src="/blog/js/auto-complete.js?1571144396"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/jianliew.me\/blog";
     
 </script>
-<script type="text/javascript" src="/blog/js/search.js?1571055020"></script>
+<script type="text/javascript" src="/blog/js/search.js?1571144396"></script>
 
     
   </div>
@@ -565,24 +565,31 @@ if (!doNotTrack) {
   <p>Posted on: <strong> Saturday, October 12, 2019</strong></p>
 
 <p>Reading time: <strong>1 minutes and
-    14 seconds.</strong></p>
+    19 seconds.</strong></p>
 <hr />
 
 
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
 
-<p>The word cloud generated here is based on the <strong>/r/programming</strong> subreddit for reddit.com</p>
+<div class="row">
+  <div class="column" id="cloud">
+  </div>
+  <div class="column">
 
-<p>The reason this post is made, is so that it would easier to see the word that appeared the most for the day.</p>
+    The word cloud generated here is based on the **/r/programming** subreddit for reddit.com
 
-<p>Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.</p>
+    The reason this post is made, is so that it would easier to see the word that appeared the most for the day.
 
-<p>
+    Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice.
+
+
 <div class="notices info" ><p>Please note that the posts here are generated based on the Reddit website by doing <code>GET</code> requests. So, it is based on their current entries. So, it will be <strong>refreshed</strong> when the page is reloaded.</p>
 </div>
 
-<div id="cloud"></div></p>
+
+  </div>
+</div>
 
 <script>
 
@@ -780,6 +787,20 @@ let getPost = () => {
 getPost();
 
 </script>
+
+<style>
+
+
+@media only screen and (min-width: 1000px)  {
+  .row {
+    display: flex !important;
+  }
+  .column {
+    flex: 50% !important;
+  }
+
+}
+</style>
 
 
 <footer class=" footline" >
@@ -1056,19 +1077,19 @@ getPost();
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/blog/js/clipboard.min.js?1571055020"></script>
-    <script src="/blog/js/perfect-scrollbar.min.js?1571055020"></script>
-    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1571055020"></script>
-    <script src="/blog/js/jquery.sticky.js?1571055020"></script>
-    <script src="/blog/js/featherlight.min.js?1571055020"></script>
-    <script src="/blog/js/highlight.pack.js?1571055020"></script>
+    <script src="/blog/js/clipboard.min.js?1571144396"></script>
+    <script src="/blog/js/perfect-scrollbar.min.js?1571144396"></script>
+    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1571144396"></script>
+    <script src="/blog/js/jquery.sticky.js?1571144396"></script>
+    <script src="/blog/js/featherlight.min.js?1571144396"></script>
+    <script src="/blog/js/highlight.pack.js?1571144396"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/blog/js/modernizr.custom-3.6.0.js?1571055020"></script>
-    <script src="/blog/js/learn.js?1571055020"></script>
-    <script src="/blog/js/hugo-learn.js?1571055020"></script>
+    <script src="/blog/js/modernizr.custom-3.6.0.js?1571144396"></script>
+    <script src="/blog/js/learn.js?1571144396"></script>
+    <script src="/blog/js/hugo-learn.js?1571144396"></script>
 
-    <link href="/blog/mermaid/mermaid.css?1571055020" rel="stylesheet" />
-    <script src="/blog/mermaid/mermaid.js?1571055020"></script>
+    <link href="/blog/mermaid/mermaid.css?1571144396" rel="stylesheet" />
+    <script src="/blog/mermaid/mermaid.js?1571144396"></script>
     <script>
         mermaid.initialize({
           startOnLoad: true,
