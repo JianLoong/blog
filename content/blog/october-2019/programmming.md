@@ -13,7 +13,7 @@ tags = ["Reddit", "Chart", "Visualisation"]
   </div>
   <div class="column">
 
-    The word cloud generated here is based on the **/r/programming** subreddit for reddit.com
+    The word cloud generated here is based on the <strong>/r/programming</strong> subreddit for reddit.com
 
     The reason this post is made, is so that it would easier to see the word that appeared the most for the day.
 
