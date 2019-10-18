@@ -41,7 +41,8 @@ const mapping = {
   "7": 35,
   "8": 36,
   "9": 37,
-  "!": 38
+  "!": 38,
+  ".": 39
 };
 
 const generateTarget = target => {
@@ -130,8 +131,8 @@ let selections = Object.freeze({
   TOURNAMENT: population => {
     let tournamentSize = Math.floor(population.length / 10);
     if (tournamentSize == 0) tournamentSize = 2;
-
     const shuffled = population.sort(() => 0.5 - Math.random());
+    //const shuffled = population.sort(() => 0.5 - Math.random());
     let fight = shuffled.slice(0, tournamentSize);
     fight = fight.sort((a, b) => b.fitness - a.fitness);
 
@@ -173,12 +174,10 @@ let wordFitness = individual => {
 };
 
 onmessage = function(e) {
+  target = generateTarget(e.data[2].toLocaleUpperCase());
 
-  this.console.log(e.data[0]);
-
-  //console.log("Worker: Message received from main script");
-  target = generateTarget(e.data[1].toLocaleUpperCase());
-  //target = generateTarget("TEST");
+  let crossOverMethod = e.data[0];
+  let selectionMethod = e.data[1];
 
   data = {
     geneSize: Object.keys(mapping).length,
@@ -187,21 +186,37 @@ onmessage = function(e) {
 
   const ga = new GeneticAlgorithm(data);
 
-  ga.setSelectionFunction(selections.TOURNAMENT);
   ga.setFitnessFunction(wordFitness);
-  if (e.data[0] == "onePoint")
-    ga.setCrossOverMethodology(crossOverMethodology.ONE_POINT);
-  else
-  {
-    if (e.data[0] == "twoPoint")
+
+  switch (crossOverMethod) {
+    case "onePoint":
+      ga.setCrossOverMethodology(crossOverMethodology.ONE_POINT);
+      break;
+    case "twoPoint":
       ga.setCrossOverMethodology(crossOverMethodology.TWO_POINT);
-    else
+      break;
+    case "uniform":
       ga.setCrossOverMethodology(crossOverMethodology.UNIFORM);
+      break;
+    default:
+      ga.setCrossOverMethodology(crossOverMethodology.ONE_POINT);
+      break;
   }
+
+  switch (selectionMethod) {
+    case "tournament":
+      ga.setSelectionFunction(selections.TOURNAMENT);
+      break;
+    case "random":
+      ga.setSelectionFunction(selections.RANDOM);
+      break;
+    default:
+      ga.setSelectionFunction(selections.TOURNAMENT);
+      break;
+  }
+
   ga.setMutationOperator(mutationOperator.ONE_MUTATION);
   ga.run();
-
-  
 };
 
 class Chromosome {
@@ -226,7 +241,7 @@ class GeneticAlgorithm {
   constructor(
     seedData,
     populationSize = 100,
-    generations = 1000,
+    generations = 2000,
     crossOverProbability = 0.8,
     mutationProbability = 0.2,
     elitism = true,
@@ -288,7 +303,6 @@ class GeneticAlgorithm {
       initialPopulation.push(individual);
     }
 
-  
     this.currentGeneration = initialPopulation;
   }
 
@@ -341,7 +355,7 @@ class GeneticAlgorithm {
       if (newPopulation.length < this.populationSize)
         newPopulation.push(childTwo);
 
-      this.calculatePopulationFitness();
+      //this.calculatePopulationFitness();
     }
 
     if (this.elitism) newPopulation[0] = elite;
@@ -376,7 +390,7 @@ class GeneticAlgorithm {
     let currentBest = "";
 
     for (let i = 0; i <= this.generations; i++) {
-      if (currentBest != this.displayBest()){
+      if (currentBest != this.displayBest()) {
         postMessage([i, this.displayBest()]);
         currentBest = this.displayBest();
       }

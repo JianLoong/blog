@@ -59,7 +59,8 @@ Please note that the posts here are generated based on the Reddit website by doi
       
       <guid>https://jianliew.me/blog/blog/october-2019/ga/</guid>
       <description>This blog post is under construction. More features and explanation will be added soon.
-  Cross Over Method One Point Two Point Uniform    Target String    const entry = document.querySelector(&#34;#targetString&#34;); const result = document.querySelector(&#34;.result&#34;); const e = document.getElementById(&#34;crossOverMethod&#34;); if (window.Worker) { const myWorker = new Worker(&#34;/blog/scripts/ga-worker.js&#34;); e.onchange = function() { result.innerHTML = &#34;&#34;; let crossOverMethod = e.options[e.selectedIndex].value; if (entry.value.length = 50 || entry.value.length == 0) return; myWorker.</description>
+  Cross Over Method One Point Two Point Uniform    Selection Method Tournament Random    Target String   Run
+ .hvr-sweep-to-right { display: inline-block; vertical-align: middle; -webkit-transform: perspective(1px) translateZ(0); transform: perspective(1px) translateZ(0); box-shadow: 0 0 1px rgba(0, 0, 0, 0); position: relative; -webkit-transition-property: color; transition-property: color; -webkit-transition-duration: 0.3s; transition-duration: 0.</description>
     </item>
     
   </channel>
