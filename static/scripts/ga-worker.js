@@ -1,22 +1,63 @@
-class Chromosome {
-  constructor(genes) {
-    this.genes = genes;
-    this.fitness = 0;
+const getRandomInt = max => {
+  return Math.floor(Math.random() * Math.floor(max));
+};
+
+const mapping = {
+  A: 0,
+  B: 1,
+  C: 2,
+  D: 3,
+  E: 4,
+  F: 5,
+  G: 6,
+  H: 7,
+  I: 8,
+  J: 9,
+  K: 10,
+  L: 11,
+  M: 12,
+  N: 13,
+  O: 14,
+  P: 15,
+  Q: 16,
+  R: 17,
+  S: 18,
+  T: 19,
+  U: 20,
+  V: 21,
+  W: 22,
+  X: 23,
+  Y: 24,
+  Z: 25,
+  " ": 26,
+  "?": 27,
+  "0": 28,
+  "1": 29,
+  "2": 30,
+  "3": 31,
+  "4": 32,
+  "5": 33,
+  "6": 34,
+  "7": 35,
+  "8": 36,
+  "9": 37,
+  "!": 38
+};
+
+const generateTarget = target => {
+  let mapped = [];
+  for (let i = 0; i < target.length; ++i) {
+    mapped.push(mapping[target[i]]);
   }
 
-  toString() {
-    return this.genes + " " + this.fitness;
-  }
+  return mapped;
+};
 
-  copy() {
-    let copy = JSON.parse(JSON.stringify(this));
-    return new Chromosome(copy.genes);
-  }
+let target = "";
 
-  crossOver(chromosome, methodology) {}
-}
+let data = {};
 
-const crossOverMethodology = Object.freeze({
+let crossOverMethodology = Object.freeze({
   ONE_POINT: (parentOne, parentTwo) => {
     if (typeof parentOne !== "object" || typeof parentTwo !== "object") return;
     let index = Math.floor(Math.random() * (parentOne.length - 1) + 1);
@@ -84,29 +125,8 @@ const crossOverMethodology = Object.freeze({
   PMX: (parentOne, parentTwo) => {}
 });
 
-let results = [];
-
-var arrayChangeHandler = {
-  get: function(target, property) {
-    console.log("getting " + property + " for " + target);
-    // property is index in this case
-    return target[property];
-  },
-  set: function(target, property, value, receiver) {
-    console.log(
-      "setting " + property + " for " + target + " with value " + value
-    );
-    target[property] = value;
-    // you have to return true to accept the changes
-    return true;
-  }
-};
-
-var originalArray = [];
-var proxyToArray = new Proxy(originalArray, arrayChangeHandler);
-
 // https://www.obitko.com/tutorials/genetic-algorithms/selection.php
-const selections = Object.freeze({
+let selections = Object.freeze({
   TOURNAMENT: population => {
     let tournamentSize = Math.floor(population.length / 10);
     if (tournamentSize == 0) tournamentSize = 2;
@@ -114,6 +134,7 @@ const selections = Object.freeze({
     const shuffled = population.sort(() => 0.5 - Math.random());
     let fight = shuffled.slice(0, tournamentSize);
     fight = fight.sort((a, b) => b.fitness - a.fitness);
+
     return fight[0];
   },
 
@@ -125,7 +146,7 @@ const selections = Object.freeze({
   BOLTZMANN_TOURNAMENT: population => {}
 });
 
-const mutationOperator = {
+let mutationOperator = {
   ONE_MUTATION: individual => {
     // Reverse the bit of a random index in an individual.
     let index = getRandomInt(individual.genes.length);
@@ -143,11 +164,69 @@ const mutationOperator = {
   }
 };
 
+let wordFitness = individual => {
+  let fitness = 0;
+  for (let i = 0; i < individual.length; ++i) {
+    fitness += Math.abs(individual[i] - target[i]);
+  }
+  return data["geneSize"] * data["length"] - fitness;
+};
+
+onmessage = function(e) {
+
+  this.console.log(e.data[0]);
+
+  //console.log("Worker: Message received from main script");
+  target = generateTarget(e.data[1].toLocaleUpperCase());
+  //target = generateTarget("TEST");
+
+  data = {
+    geneSize: Object.keys(mapping).length,
+    length: target.length
+  };
+
+  const ga = new GeneticAlgorithm(data);
+
+  ga.setSelectionFunction(selections.TOURNAMENT);
+  ga.setFitnessFunction(wordFitness);
+  if (e.data[0] == "onePoint")
+    ga.setCrossOverMethodology(crossOverMethodology.ONE_POINT);
+  else
+  {
+    if (e.data[0] == "twoPoint")
+      ga.setCrossOverMethodology(crossOverMethodology.TWO_POINT);
+    else
+      ga.setCrossOverMethodology(crossOverMethodology.UNIFORM);
+  }
+  ga.setMutationOperator(mutationOperator.ONE_MUTATION);
+  ga.run();
+
+  
+};
+
+class Chromosome {
+  constructor(genes) {
+    this.genes = genes;
+    this.fitness = 0;
+  }
+
+  toString() {
+    return this.genes + " " + this.fitness;
+  }
+
+  copy() {
+    let copy = JSON.parse(JSON.stringify(this));
+    return new Chromosome(copy.genes);
+  }
+
+  crossOver(chromosome, methodology) {}
+}
+
 class GeneticAlgorithm {
   constructor(
     seedData,
     populationSize = 100,
-    generations = 2000,
+    generations = 1000,
     crossOverProbability = 0.8,
     mutationProbability = 0.2,
     elitism = true,
@@ -209,6 +288,7 @@ class GeneticAlgorithm {
       initialPopulation.push(individual);
     }
 
+  
     this.currentGeneration = initialPopulation;
   }
 
@@ -260,9 +340,8 @@ class GeneticAlgorithm {
       newPopulation.push(childOne);
       if (newPopulation.length < this.populationSize)
         newPopulation.push(childTwo);
-      //newPopulation.push(childTwo);
 
-      //this.calculatePopulationFitness();
+      this.calculatePopulationFitness();
     }
 
     if (this.elitism) newPopulation[0] = elite;
@@ -288,20 +367,27 @@ class GeneticAlgorithm {
       output += getKeyByValue(mapping, genes[i]);
     }
 
-    console.log(output);
+    return output;
   }
 
   run() {
     this.createFirstGeneration();
 
+    let currentBest = "";
+
     for (let i = 0; i <= this.generations; i++) {
-      console.log("At generation " + i);
+      if (currentBest != this.displayBest()){
+        postMessage([i, this.displayBest()]);
+        currentBest = this.displayBest();
+      }
 
       this.createNextGeneration();
+
       if (
         wordFitness(this.bestIndividual().genes) ==
         data["geneSize"] * data["length"]
       ) {
+        postMessage([++i, this.displayBest()]);
         return;
       }
     }
@@ -313,96 +399,6 @@ class GeneticAlgorithm {
   }
 }
 
-const wordFitness = individual => {
-  let fitness = 0;
-  for (let i = 0; i < individual.length; ++i) {
-    fitness += Math.abs(individual[i] - target[i]);
-  }
-  return data["geneSize"] * data["length"] - fitness;
-};
-
-const getRandomInt = max => {
-  return Math.floor(Math.random() * Math.floor(max));
-};
-
-const mapping = {
-  A: 0,
-  B: 1,
-  C: 2,
-  D: 3,
-  E: 4,
-  F: 5,
-  G: 6,
-  H: 7,
-  I: 8,
-  J: 9,
-  K: 10,
-  L: 11,
-  M: 12,
-  N: 13,
-  O: 14,
-  P: 15,
-  Q: 16,
-  R: 17,
-  S: 18,
-  T: 19,
-  U: 20,
-  V: 21,
-  W: 22,
-  X: 23,
-  Y: 24,
-  Z: 25,
-  " ": 26,
-  "?": 27,
-  "0": 28,
-  "1": 29,
-  "2": 30,
-  "3": 31,
-  "4": 32,
-  "5": 33,
-  "6": 34,
-  "7": 35,
-  "8": 36,
-  "9": 37,
-  "!": 38
-};
-
-const generateTarget = target => {
-  let mapped = [];
-  for (let i = 0; i < target.length; ++i) {
-    mapped.push(mapping[target[i]]);
-  }
-
-  return mapped;
-};
-
-
-
 const getKeyByValue = (object, value) => {
   return Object.keys(object).find(key => object[key] === value);
-};
-
-let target = generateTarget(
-  "Test".toLocaleUpperCase()
-);
-
-let data = {
-  geneSize: Object.keys(mapping).length,
-  length: target.length
-};
-
-onmessage = function(e) {
-  console.log("Worker: Message received from main script");
- 
-
-  const ga = new GeneticAlgorithm(data);
-  ga.setSelectionFunction(selections.TOURNAMENT);
-  ga.setFitnessFunction(wordFitness);
-  ga.setCrossOverMethodology(crossOverMethodology.TWO_POINT);
-  ga.setMutationOperator(mutationOperator.ONE_MUTATION);
-  ga.run();
-  let best = ga.bestIndividual();
-
-  this.postMessage(best.genes);
-
 };

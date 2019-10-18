@@ -1,60 +1,77 @@
 +++
 title = "Genetic Algorithm"
 weight = 15
-date = 2019-10-15
-pre = "<b>15th. </b>"
-draft = true
+date = 2019-10-19
+pre = "<b>19th. </b>"
+draft = false
 tags = ["Genetic Algorithm", "Chart", "Knapsack Problem"]
 +++
 
+{{% notice warning %}}
+
+This blog post is under construction. More features and explanation will be added soon.
+
+{{% /notice %}}
 
 <div>
-    <label for="number1">Multiply number 1: </label>    
-    <input type="text" id="number1" value="0">
-</div>
-<div>
-    <label for="number2">Multiply number 2: </label>   
-    <input type="text" id="number2" value="0">
+<label for="crossOver">Cross Over Method</label> 
+<select id="crossOverMethod">
+  <option value="onePoint">One Point</option>
+  <option value="twoPoint">Two Point</option>
+  <option value="uniform">Uniform</option>
+</select>
 </div>
 
 <div>
     <label for="targetString">Target String </label>    
-    <input type="text" id="targetString">
+    <input type="text" id="targetString" autocomplete="off">
 </div>
 
-<p class="result">Result: 0</p>
 
+<p class="result"></p>
 
 <script>
 
-const first = document.querySelector("#number1");
-const second = document.querySelector("#number2");
-const third = document.querySelector("#targetString");
-
-
+const entry = document.querySelector("#targetString");
 const result = document.querySelector(".result");
+const e = document.getElementById("crossOverMethod");
 
 if (window.Worker) {
   const myWorker = new Worker("/blog/scripts/ga-worker.js");
 
-  first.onchange = function() {
-    myWorker.postMessage([first.value, second.value]);
-    console.log("Message posted to worker");
+  e.onchange = function() {
+    result.innerHTML = "";
+    let crossOverMethod = e.options[e.selectedIndex].value;
+
+    if (entry.value.length >= 50 || entry.value.length == 0)
+        return;
+
+    myWorker.postMessage([crossOverMethod, entry.value]);
+   
   };
 
-  second.onchange = function() {
-    myWorker.postMessage([first.value, second.value]);
-    console.log("Message posted to worker");
-  };
+  entry.onchange = function() {
 
-  third.onchange = function() {
-    myWorker.postMessage(third.value);
+    result.innerHTML = "";
+
+    let crossOverMethod = e.options[e.selectedIndex].value;
+
+    if (entry.value.length >= 50 || entry.value.length == 0)
+        return;
+
+    myWorker.postMessage([crossOverMethod, entry.value]);
+   
     console.log("Message posted to worker");
   };
 
   myWorker.onmessage = function(e) {
-    result.textContent = e.data;
-    console.log("Message received from worker");
+      
+    
+    let text = result.innerHTML;
+    //console.log(e);
+
+    result.innerHTML = "<p>" + "Generation " + e.data[0] + " Current - " + e.data[1] + "</p>" + text;
+    //console.log("Message received from worker");
   };
 } else {
   console.log("Your browser doesn't support web workers.");

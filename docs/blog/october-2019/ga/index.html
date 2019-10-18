@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/blog/images/favicon.ico" type="image/ico">
 
-    <title>State Machine :: Jian Liew</title>
+    <title>Genetic Algorithm :: Jian Liew</title>
     
 <script type="application/javascript">
 var doNotTrack = false;
@@ -48,7 +48,7 @@ if (!doNotTrack) {
     </style>
     
   </head>
-  <body class="" data-url="/blog/tags/state-machine/">
+  <body class="" data-url="/blog/blog/october-2019/ga/">
     <nav id="sidebar" class="">
 
 
@@ -91,7 +91,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/blog/" title="Blog" class="dd-item 
-        
+        parent
         
         
         ">
@@ -118,7 +118,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/blog/october-2019/" title="October 2019" class="dd-item 
-        
+        parent
         
         
         ">
@@ -218,7 +218,7 @@ if (!doNotTrack) {
  
   
     
-      <li data-nav-id="/blog/blog/october-2019/ga/" title="Genetic Algorithm" class="dd-item ">
+      <li data-nav-id="/blog/blog/october-2019/ga/" title="Genetic Algorithm" class="dd-item active">
         <a href="/blog/blog/october-2019/ga/">
         <b>19th. </b>Genetic Algorithm
         
@@ -522,7 +522,13 @@ if (!doNotTrack) {
             
           
           
-            <a href='/blog/'>Contents</a> > <a href='/blog/tags/'>Tags</a> > State Machine
+            
+            
+          
+          
+            <a href='/blog/'>Contents</a> > <a href='/blog/blog/'>Blog</a> > <a href='/blog/blog/october-2019/'>October 2019</a> > Genetic Algorithm
+          
+        
           
         
           
@@ -545,15 +551,23 @@ if (!doNotTrack) {
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/blog/tags/genetic-algorithm">Genetic Algorithm</a>
+
+  <a class="tag-link" href="/blog/tags/chart">Chart</a>
+
+  <a class="tag-link" href="/blog/tags/knapsack-problem">Knapsack Problem</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-                taxonomy ::
-              
-              State Machine
+              Genetic Algorithm
             </h1>
           
 
@@ -564,16 +578,91 @@ if (!doNotTrack) {
 
 
 
-<ul>
-	
-		<li><a href="/blog/teaching/uml/introduction/">What are State Machine Diagrams?</a></li>
-	
-</ul>
+
+
+
+  <p>Posted on: <strong> Saturday, October 19, 2019</strong></p>
+
+<p>Reading time: <strong>0 minutes and
+    37 seconds.</strong></p>
+<hr />
+
+
+
+<div class="notices warning" ><p>This blog post is under construction. More features and explanation will be added soon.</p>
+</div>
+
+
+<div>
+<label for="crossOver">Cross Over Method</label> 
+<select id="crossOverMethod">
+  <option value="onePoint">One Point</option>
+  <option value="twoPoint">Two Point</option>
+  <option value="uniform">Uniform</option>
+</select>
+</div>
+
+<div>
+    <label for="targetString">Target String </label>    
+    <input type="text" id="targetString" autocomplete="off">
+</div>
+
+<p class="result"></p>
+
+<script>
+
+const entry = document.querySelector("#targetString");
+const result = document.querySelector(".result");
+const e = document.getElementById("crossOverMethod");
+
+if (window.Worker) {
+  const myWorker = new Worker("/blog/scripts/ga-worker.js");
+
+  e.onchange = function() {
+    result.innerHTML = "";
+    let crossOverMethod = e.options[e.selectedIndex].value;
+
+    if (entry.value.length >= 50 || entry.value.length == 0)
+        return;
+
+    myWorker.postMessage([crossOverMethod, entry.value]);
+   
+  };
+
+  entry.onchange = function() {
+
+    result.innerHTML = "";
+
+    let crossOverMethod = e.options[e.selectedIndex].value;
+
+    if (entry.value.length >= 50 || entry.value.length == 0)
+        return;
+
+    myWorker.postMessage([crossOverMethod, entry.value]);
+   
+    console.log("Message posted to worker");
+  };
+
+  myWorker.onmessage = function(e) {
+      
+    
+    let text = result.innerHTML;
+    //console.log(e);
+
+    result.innerHTML = "<p>" + "Generation " + e.data[0] + " Current - " + e.data[1] + "</p>" + text;
+    //console.log("Message received from worker");
+  };
+} else {
+  console.log("Your browser doesn't support web workers.");
+}
+
+</script>
 
 
 <footer class=" footline" >
 	
 </footer>
+
 
         
         </div>
@@ -606,8 +695,6 @@ if (!doNotTrack) {
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -624,6 +711,7 @@ if (!doNotTrack) {
             
                 
                     
+                    
                 
                 
 
@@ -636,6 +724,9 @@ if (!doNotTrack) {
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -701,6 +792,7 @@ if (!doNotTrack) {
             
                 
                     
+                    
                 
                 
 
@@ -722,6 +814,9 @@ if (!doNotTrack) {
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -841,8 +936,10 @@ if (!doNotTrack) {
 	 
 	 
 		
+			<a class="nav nav-prev" href="/blog/blog/october-2019/topstories/" title="Hacker News Word Cloud "> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/blog/blog/" title="Blog" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/blog/thepragmatic/" title="Pragmatic Programmer" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -877,3 +974,4 @@ if (!doNotTrack) {
 
   </body>
 </html>
+

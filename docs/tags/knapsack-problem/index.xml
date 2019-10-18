@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Knapsack Problem on Jian Liew</title>
+    <link>https://jianliew.me/blog/tags/knapsack-problem/</link>
+    <description>Recent content in Knapsack Problem on Jian Liew</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +1100</lastBuildDate>
+    
+	<atom:link href="https://jianliew.me/blog/tags/knapsack-problem/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Genetic Algorithm</title>
+      <link>https://jianliew.me/blog/blog/october-2019/ga/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +1100</pubDate>
+      
+      <guid>https://jianliew.me/blog/blog/october-2019/ga/</guid>
+      <description>This blog post is under construction. More features and explanation will be added soon.
+  Cross Over Method One Point Two Point Uniform    Target String    const entry = document.querySelector(&#34;#targetString&#34;); const result = document.querySelector(&#34;.result&#34;); const e = document.getElementById(&#34;crossOverMethod&#34;); if (window.Worker) { const myWorker = new Worker(&#34;/blog/scripts/ga-worker.js&#34;); e.onchange = function() { result.innerHTML = &#34;&#34;; let crossOverMethod = e.options[e.selectedIndex].value; if (entry.value.length = 50 || entry.value.length == 0) return; myWorker.</description>
+    </item>
+    
+  </channel>
+</rss>

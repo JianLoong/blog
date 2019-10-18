@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Jian Liew</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Oct 2019 20:56:02 +1100</lastBuildDate>
+    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +1100</lastBuildDate>
     
 	<atom:link href="https://jianliew.me/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,27 @@
     <item>
       <title>Chart</title>
       <link>https://jianliew.me/blog/tags/chart/</link>
-      <pubDate>Mon, 14 Oct 2019 20:56:02 +1100</pubDate>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +1100</pubDate>
       
       <guid>https://jianliew.me/blog/tags/chart/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Genetic Algorithm</title>
+      <link>https://jianliew.me/blog/tags/genetic-algorithm/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +1100</pubDate>
+      
+      <guid>https://jianliew.me/blog/tags/genetic-algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Knapsack Problem</title>
+      <link>https://jianliew.me/blog/tags/knapsack-problem/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +1100</pubDate>
+      
+      <guid>https://jianliew.me/blog/tags/knapsack-problem/</guid>
       <description></description>
     </item>
     

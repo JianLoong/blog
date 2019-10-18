@@ -6,7 +6,7 @@
     <description>Recent content in Chart on Jian Liew</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Oct 2019 20:56:02 +1100</lastBuildDate>
+    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +1100</lastBuildDate>
     
 	<atom:link href="https://jianliew.me/blog/tags/chart/index.xml" rel="self" type="application/rss+xml" />
     
@@ -29,7 +29,7 @@ Please note that the posts here are generated based on the Reddit website by doi
       <pubDate>Sat, 12 Oct 2019 20:56:02 +1100</pubDate>
       
       <guid>https://jianliew.me/blog/blog/october-2019/programmming/</guid>
-      <description>The word cloud generated here is based on the **/r/programming** subreddit for reddit.com The reason this post is made, is so that it would easier to see the word that appeared the most for the day. Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice. Please note that the posts here are generated based on the Reddit website by doing GET requests.</description>
+      <description>The word cloud generated here is based on the /r/programming subreddit for reddit.com The reason this post is made, is so that it would easier to see the word that appeared the most for the day. Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice. Please note that the posts here are generated based on the Reddit website by doing GET requests.</description>
     </item>
     
     <item>
@@ -50,6 +50,16 @@ Please note that the posts here are generated based on the Reddit website by doi
       
       <guid>https://jianliew.me/blog/blog/october-2019/topstories/</guid>
       <description>The word cloud generated here is based on the website hacker news. The reason this post is made, is so that it would easier to see the word that appeared the most for the day. Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice. Please note that the posts here are generated based on the Hacker News API by doing GET requests.</description>
+    </item>
+    
+    <item>
+      <title>Genetic Algorithm</title>
+      <link>https://jianliew.me/blog/blog/october-2019/ga/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +1100</pubDate>
+      
+      <guid>https://jianliew.me/blog/blog/october-2019/ga/</guid>
+      <description>This blog post is under construction. More features and explanation will be added soon.
+  Cross Over Method One Point Two Point Uniform    Target String    const entry = document.querySelector(&#34;#targetString&#34;); const result = document.querySelector(&#34;.result&#34;); const e = document.getElementById(&#34;crossOverMethod&#34;); if (window.Worker) { const myWorker = new Worker(&#34;/blog/scripts/ga-worker.js&#34;); e.onchange = function() { result.innerHTML = &#34;&#34;; let crossOverMethod = e.options[e.selectedIndex].value; if (entry.value.length = 50 || entry.value.length == 0) return; myWorker.</description>
     </item>
     
   </channel>

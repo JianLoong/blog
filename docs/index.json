@@ -67,7 +67,7 @@
 	"title": "Reddit Word Cloud ",
 	"tags": ["Reddit", "Chart", "Visualisation"],
 	"description": "",
-	"content": "   The word cloud generated here is based on the **/r/programming** subreddit for reddit.com The reason this post is made, is so that it would easier to see the word that appeared the most for the day. Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice. Please note that the posts here are generated based on the Reddit website by doing GET requests. So, it is based on their current entries. So, it will be refreshed when the page is reloaded.\n    // Based on http://bl.ocks.org/joews/9697914 with modifications. let words = \"\"; let freq = \"\"; let arr = \"\"; var stopWords = [ 'about', 'after', 'all', 'also', 'am', 'an', 'and', 'another', 'any', 'are', 'as', 'at', 'be', 'because', 'been', 'before', 'being', 'between', 'both', 'but', 'by', 'came', 'can', 'come', 'could', 'did', 'do', 'each', 'for', 'from', 'get', 'got', 'has', 'had', 'he', 'have', 'her', 'here', 'him', 'himself', 'his', 'how', 'if', 'in', 'into', 'is', 'it', 'like', 'make', 'many', 'me', 'might', 'more', 'most', 'much', 'must', 'my', 'never', 'now', 'of', 'on', 'only', 'or', 'other', 'our', 'out', 'over', 'said', 'same', 'see', 'should', 'since', 'some', 'still', 'such', 'take', 'than', 'that', 'the', 'their', 'them', 'then', 'there', 'these', 'they', 'this', 'those', 'through', 'to', 'too', 'under', 'up', 'very', 'was', 'way', 'we', 'well', 'were', 'what', 'where', 'which', 'while', 'who', 'with', 'would', 'you', 'your', 'a', 'i', 'its', 'why' ]; // https://stackoverflow.com/questions/5631422/stop-word-removal-in-javascript function remove_stopwords(str) { res = [] words = str.split(' ') for(i=0;ib.size - a.size); sorted = sorted.slice(0, 50); for(let i = 0; i { let result = \"\"; let endPoint = \"https://reddit.com/r/programming.json?limit=1000\u0026jsonp=?\" $.getJSON(endPoint, function(data){ result = data; let entries = result[\"data\"].children; for(let i = 0; i  @media only screen and (min-width: 1000px) { .row { display: flex !important; } .column { flex: 50% !important; } }  "
+	"content": "   The word cloud generated here is based on the /r/programming subreddit for reddit.com The reason this post is made, is so that it would easier to see the word that appeared the most for the day. Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice. Please note that the posts here are generated based on the Reddit website by doing GET requests. So, it is based on their current entries. So, it will be refreshed when the page is reloaded.\n    // Based on http://bl.ocks.org/joews/9697914 with modifications. let words = \"\"; let freq = \"\"; let arr = \"\"; var stopWords = [ 'about', 'after', 'all', 'also', 'am', 'an', 'and', 'another', 'any', 'are', 'as', 'at', 'be', 'because', 'been', 'before', 'being', 'between', 'both', 'but', 'by', 'came', 'can', 'come', 'could', 'did', 'do', 'each', 'for', 'from', 'get', 'got', 'has', 'had', 'he', 'have', 'her', 'here', 'him', 'himself', 'his', 'how', 'if', 'in', 'into', 'is', 'it', 'like', 'make', 'many', 'me', 'might', 'more', 'most', 'much', 'must', 'my', 'never', 'now', 'of', 'on', 'only', 'or', 'other', 'our', 'out', 'over', 'said', 'same', 'see', 'should', 'since', 'some', 'still', 'such', 'take', 'than', 'that', 'the', 'their', 'them', 'then', 'there', 'these', 'they', 'this', 'those', 'through', 'to', 'too', 'under', 'up', 'very', 'was', 'way', 'we', 'well', 'were', 'what', 'where', 'which', 'while', 'who', 'with', 'would', 'you', 'your', 'a', 'i', 'its', 'why' ]; // https://stackoverflow.com/questions/5631422/stop-word-removal-in-javascript function remove_stopwords(str) { res = [] words = str.split(' ') for(i=0;ib.size - a.size); sorted = sorted.slice(0, 50); for(let i = 0; i { let result = \"\"; let endPoint = \"https://reddit.com/r/programming.json?limit=1000\u0026jsonp=?\" $.getJSON(endPoint, function(data){ result = data; let entries = result[\"data\"].children; for(let i = 0; i  @media only screen and (min-width: 1000px) { .row { display: flex !important; } .column { flex: 50% !important; } }  "
 },
 {
 	"uri": "https://jianliew.me/blog/blog/october-2019/hk/",
@@ -82,6 +82,13 @@
 	"tags": ["Hacker News", "Chart", "Visualisation"],
 	"description": "",
 	"content": "   The word cloud generated here is based on the website hacker news. The reason this post is made, is so that it would easier to see the word that appeared the most for the day. Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice. Please note that the posts here are generated based on the Hacker News API by doing GET requests. So, it is based on their current entries. So, it will be refreshed when the page is reloaded.\n    // Based on http://bl.ocks.org/joews/9697914 with modifications. let words = \"\"; let freq = [\"\"]; let arr = \"\"; var stopWords = [ 'about', 'after', 'all', 'also', 'am', 'an', 'and', 'another', 'any', 'are', 'as', 'at', 'be', 'because', 'been', 'before', 'being', 'between', 'both', 'but', 'by', 'came', 'can', 'come', 'could', 'did', 'do', 'each', 'for', 'from', 'get', 'got', 'has', 'had', 'he', 'have', 'her', 'here', 'him', 'himself', 'his', 'how', 'if', 'in', 'into', 'is', 'it', 'like', 'make', 'many', 'me', 'might', 'more', 'most', 'much', 'must', 'my', 'never', 'now', 'of', 'on', 'only', 'or', 'other', 'our', 'out', 'over', 'said', 'same', 'see', 'should', 'since', 'some', 'still', 'such', 'take', 'than', 'that', 'the', 'their', 'them', 'then', 'there', 'these', 'they', 'this', 'those', 'through', 'to', 'too', 'under', 'up', 'very', 'was', 'way', 'we', 'well', 'were', 'what', 'where', 'which', 'while', 'who', 'with', 'would', 'you', 'your', 'a', 'i', 'its', 'why', '', 'ask','hn','s' ]; // https://stackoverflow.com/questions/5631422/stop-word-removal-in-javascript function removeStopWords(str) { res = [] words = str.split(' ') for(i=0;ib.size - a.size); sorted = sorted.slice(0, 50); for (let i = 0; i response.json()) }; function getPages(noOfPages){ let promiseArray = []; for(let i = 1; i { let titles = []; for(let i = 0; i  @media only screen and (min-width: 1000px) { .row { display: flex !important; } .column { flex: 50% !important; } }  "
+},
+{
+	"uri": "https://jianliew.me/blog/blog/october-2019/ga/",
+	"title": "Genetic Algorithm",
+	"tags": ["Genetic Algorithm", "Chart", "Knapsack Problem"],
+	"description": "",
+	"content": " This blog post is under construction. More features and explanation will be added soon.\n  Cross Over Method One Point Two Point Uniform    Target String    const entry = document.querySelector(\"#targetString\"); const result = document.querySelector(\".result\"); const e = document.getElementById(\"crossOverMethod\"); if (window.Worker) { const myWorker = new Worker(\"/blog/scripts/ga-worker.js\"); e.onchange = function() { result.innerHTML = \"\"; let crossOverMethod = e.options[e.selectedIndex].value; if (entry.value.length = 50 || entry.value.length == 0) return; myWorker.postMessage([crossOverMethod, entry.value]); }; entry.onchange = function() { result.innerHTML = \"\"; let crossOverMethod = e.options[e.selectedIndex].value; if (entry.value.length = 50 || entry.value.length == 0) return; myWorker.postMessage([crossOverMethod, entry.value]); console.log(\"Message posted to worker\"); }; myWorker.onmessage = function(e) { let text = result.innerHTML; //console.log(e); result.innerHTML = \"\" + \"Generation \" + e.data[0] + \" Current - \" + e.data[1] + \"\n\" + text; //console.log(\"Message received from worker\"); }; } else { console.log(\"Your browser doesn't support web workers.\"); }  "
 },
 {
 	"uri": "https://jianliew.me/blog/teaching/",
@@ -105,8 +112,15 @@
 	"content": " Hello!   I am Jian.\nWelcome to my blog!\nFor the past 2.5 years, I have been working as a Teaching Associate with Monash University. I have taught both at the undergraduate level as well as postgraduate level. Overall, I have assisted over 100 students every semester to understand the course material and taught them how to apply critical thinking to every aspect of their studies.\nIt is my personal belief that, it is more important for a student to understand the underlying concepts before approaching a problem. Understanding how to solve a problem takes precedence over making the same mistakes over and over again just to see what will work.\nSubjects taught This is the list of the subjects that I have been involved in to date.\n   Unit Code Name Technology Stack     FIT1010 Introduction to Software Engineering Java7, Python 3, UML   FIT5032 Internet Applications Development ASP.NET MVC, C#, HTML5, JavaScript   FIT5042 Enterprise Application Development for the Web JEE, JSF, XHTML   FIT5120 Industry Experience Project Various Frameworks   FIT5136 Software Engineering Java7, UML   FIT5140 Advance Mobile Systems Swift, Python, RaspberryPi   FIT9131 Programming Foundations Java7   FIT9134 Computer Architecture and Operating Systems Shell Scripting, Bash, Ubuntu   FIT9135 Data Communications WireShark, Core Network Emulator    Nominations \u0026amp; Awards  Studio Mentor for FIT5120 Industry Experience Project. Worked closely with four teams of students to develop applications based on the suggestion of MYOB mentors. Teaching Excellence Nominee for multiple subjects.   let result = \"\"; let endPoint = \"https://programming-quotes-api.herokuapp.com/quotes/random\" $.getJSON(endPoint, function(data){ result = data; let text = \"\\\"\" + result[\"en\"] + \"\\\"\" + \"- \" + result[\"author\"] + \"\n\"; $(\"#quote\").html(text); });   .shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); padding-right: 1em; padding-left: 1em; padding-top: 1em; padding-bottom: 0.5em; } .pull-right { text-align:right; }  "
 },
 {
-	"uri": "https://jianliew.me/blog/tags/hacker-news/",
-	"title": "Hacker News",
+	"uri": "https://jianliew.me/blog/tags/genetic-algorithm/",
+	"title": "Genetic Algorithm",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://jianliew.me/blog/tags/knapsack-problem/",
+	"title": "Knapsack Problem",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -114,6 +128,13 @@
 {
 	"uri": "https://jianliew.me/blog/tags/",
 	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://jianliew.me/blog/tags/hacker-news/",
+	"title": "Hacker News",
 	"tags": [],
 	"description": "",
 	"content": ""
