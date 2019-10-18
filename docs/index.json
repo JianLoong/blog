@@ -86,9 +86,9 @@
 {
 	"uri": "https://jianliew.me/blog/blog/october-2019/ga/",
 	"title": "Genetic Algorithm",
-	"tags": ["Genetic Algorithm", "Chart", "Knapsack Problem"],
+	"tags": ["Genetic Algorithm", "Selection", "Cross Over", "Phrase Solver"],
 	"description": "",
-	"content": " This blog post is under construction. More features and explanation will be added soon.\n  Cross Over Method One Point Two Point Uniform    Selection Method Tournament Random    Target String   Run\n .hvr-sweep-to-right { display: inline-block; vertical-align: middle; -webkit-transform: perspective(1px) translateZ(0); transform: perspective(1px) translateZ(0); box-shadow: 0 0 1px rgba(0, 0, 0, 0); position: relative; -webkit-transition-property: color; transition-property: color; -webkit-transition-duration: 0.3s; transition-duration: 0.3s; } .hvr-sweep-to-right:before { content: \"\"; position: absolute; z-index: -1; top: 0; left: 0; right: 0; bottom: 0; background: #2098D1; -webkit-transform: scaleX(0); transform: scaleX(0); -webkit-transform-origin: 0 50%; transform-origin: 0 50%; -webkit-transition-property: transform; transition-property: transform; -webkit-transition-duration: 0.3s; transition-duration: 0.3s; -webkit-transition-timing-function: ease-out; transition-timing-function: ease-out; } .hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active { color: white; } .hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before { -webkit-transform: scaleX(1); transform: scaleX(1); }   const entry = document.querySelector(\"#targetString\"); const result = document.querySelector(\".result\"); const cm = document.getElementById(\"crossOverMethod\"); const sm = document.getElementById(\"selectionMethod\"); const button = document.getElementById(\"run\"); if (window.Worker) { const myWorker = new Worker(\"/blog/scripts/ga-worker.js\"); cm.onchange = function() { result.innerHTML = \"\"; if (entry.value.length = 100 || entry.value.length == 0) return; }; button.onclick = function() { result.innerHTML = \"\"; let crossOverMethod = cm.options[cm.selectedIndex].value; let selectionMethod = sm.options[sm.selectedIndex].value; myWorker.postMessage([crossOverMethod, selectionMethod, entry.value]); } entry.onchange = function() { result.innerHTML = \"\"; if (entry.value.length = 100 || entry.value.length == 0) return; }; myWorker.onmessage = function(e) { let text = result.innerHTML; //console.log(e); result.innerHTML = \"\" + \"Generation \" + e.data[0] + \" Current - \" + e.data[1] + \"\n\" + text; //console.log(\"Message received from worker\"); }; } else { console.log(\"Your browser doesn't support web workers.\"); }  "
+	"content": " This blog post is under construction. More features and explanation will be added soon.\n  Cross Over Method One Point Two Point Uniform    Selection Method Tournament Random    Target String   Run\n GenerationString    .hvr-sweep-to-right { display: inline-block; vertical-align: middle; -webkit-transform: perspective(1px) translateZ(0); transform: perspective(1px) translateZ(0); box-shadow: 0 0 1px rgba(0, 0, 0, 0); position: relative; -webkit-transition-property: color; transition-property: color; -webkit-transition-duration: 0.3s; transition-duration: 0.3s; } .hvr-sweep-to-right:before { content: \"\"; position: absolute; z-index: -1; top: 0; left: 0; right: 0; bottom: 0; background: #2098D1; -webkit-transform: scaleX(0); transform: scaleX(0); -webkit-transform-origin: 0 50%; transform-origin: 0 50%; -webkit-transition-property: transform; transition-property: transform; -webkit-transition-duration: 0.3s; transition-duration: 0.3s; -webkit-transition-timing-function: ease-out; transition-timing-function: ease-out; } .hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active { color: white; } .hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before { -webkit-transform: scaleX(1); transform: scaleX(1); }   const entry = document.querySelector(\"#targetString\"); const result = document.querySelector(\".result\"); const cm = document.getElementById(\"crossOverMethod\"); const sm = document.getElementById(\"selectionMethod\"); const button = document.getElementById(\"run\"); if (window.Worker) { const myWorker = new Worker(\"/blog/scripts/ga-worker.js\"); cm.onchange = function() { result.innerHTML = \"\"; if (entry.value.length = 100 || entry.value.length == 0) return; }; button.onclick = function() { result.innerHTML = \"\"; let crossOverMethod = cm.options[cm.selectedIndex].value; let selectionMethod = sm.options[sm.selectedIndex].value; myWorker.postMessage([crossOverMethod, selectionMethod, entry.value]); } entry.onchange = function() { result.innerHTML = \"\"; if (entry.value.length = 100 || entry.value.length == 0) return; }; myWorker.onmessage = function(e) { let text = result.innerHTML; result.innerHTML = \"\" + e.data[0] + \"\" + e.data[1] + \"\" + text; }; } else { console.log(\"Your browser doesn't support web workers.\"); }  "
 },
 {
 	"uri": "https://jianliew.me/blog/teaching/",
@@ -98,18 +98,18 @@
 	"content": " Teaching This blog post is under construction.\n "
 },
 {
-	"uri": "https://jianliew.me/blog/tags/chart/",
-	"title": "Chart",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
 	"uri": "https://jianliew.me/blog/",
 	"title": "Contents",
 	"tags": [],
 	"description": "",
 	"content": " Hello!   I am Jian.\nWelcome to my blog!\nFor the past 2.5 years, I have been working as a Teaching Associate with Monash University. I have taught both at the undergraduate level as well as postgraduate level. Overall, I have assisted over 100 students every semester to understand the course material and taught them how to apply critical thinking to every aspect of their studies.\nIt is my personal belief that, it is more important for a student to understand the underlying concepts before approaching a problem. Understanding how to solve a problem takes precedence over making the same mistakes over and over again just to see what will work.\nSubjects taught This is the list of the subjects that I have been involved in to date.\n   Unit Code Name Technology Stack     FIT1010 Introduction to Software Engineering Java7, Python 3, UML   FIT5032 Internet Applications Development ASP.NET MVC, C#, HTML5, JavaScript   FIT5042 Enterprise Application Development for the Web JEE, JSF, XHTML   FIT5120 Industry Experience Project Various Frameworks   FIT5136 Software Engineering Java7, UML   FIT5140 Advance Mobile Systems Swift, Python, RaspberryPi   FIT9131 Programming Foundations Java7   FIT9134 Computer Architecture and Operating Systems Shell Scripting, Bash, Ubuntu   FIT9135 Data Communications WireShark, Core Network Emulator    Nominations \u0026amp; Awards  Studio Mentor for FIT5120 Industry Experience Project. Worked closely with four teams of students to develop applications based on the suggestion of MYOB mentors. Teaching Excellence Nominee for multiple subjects.   let result = \"\"; let endPoint = \"https://programming-quotes-api.herokuapp.com/quotes/random\" $.getJSON(endPoint, function(data){ result = data; let text = \"\\\"\" + result[\"en\"] + \"\\\"\" + \"- \" + result[\"author\"] + \"\n\"; $(\"#quote\").html(text); });   .shadow { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); padding-right: 1em; padding-left: 1em; padding-top: 1em; padding-bottom: 0.5em; } .pull-right { text-align:right; }  "
+},
+{
+	"uri": "https://jianliew.me/blog/tags/cross-over/",
+	"title": "Cross Over",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "https://jianliew.me/blog/tags/genetic-algorithm/",
@@ -119,8 +119,15 @@
 	"content": ""
 },
 {
-	"uri": "https://jianliew.me/blog/tags/knapsack-problem/",
-	"title": "Knapsack Problem",
+	"uri": "https://jianliew.me/blog/tags/phrase-solver/",
+	"title": "Phrase Solver",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://jianliew.me/blog/tags/selection/",
+	"title": "Selection",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -128,6 +135,13 @@
 {
 	"uri": "https://jianliew.me/blog/tags/",
 	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://jianliew.me/blog/tags/chart/",
+	"title": "Chart",
 	"tags": [],
 	"description": "",
 	"content": ""

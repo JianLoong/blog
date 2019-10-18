@@ -6,7 +6,7 @@
     <description>Recent content in Chart on Jian Liew</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +1100</lastBuildDate>
+    <lastBuildDate>Mon, 14 Oct 2019 20:56:02 +1100</lastBuildDate>
     
 	<atom:link href="https://jianliew.me/blog/tags/chart/index.xml" rel="self" type="application/rss+xml" />
     
@@ -50,17 +50,6 @@ Please note that the posts here are generated based on the Reddit website by doi
       
       <guid>https://jianliew.me/blog/blog/october-2019/topstories/</guid>
       <description>The word cloud generated here is based on the website hacker news. The reason this post is made, is so that it would easier to see the word that appeared the most for the day. Even though the use of a word cloud is not exactly a good representation of occurrence, it still looks nice. Please note that the posts here are generated based on the Hacker News API by doing GET requests.</description>
-    </item>
-    
-    <item>
-      <title>Genetic Algorithm</title>
-      <link>https://jianliew.me/blog/blog/october-2019/ga/</link>
-      <pubDate>Sat, 19 Oct 2019 00:00:00 +1100</pubDate>
-      
-      <guid>https://jianliew.me/blog/blog/october-2019/ga/</guid>
-      <description>This blog post is under construction. More features and explanation will be added soon.
-  Cross Over Method One Point Two Point Uniform    Selection Method Tournament Random    Target String   Run
- .hvr-sweep-to-right { display: inline-block; vertical-align: middle; -webkit-transform: perspective(1px) translateZ(0); transform: perspective(1px) translateZ(0); box-shadow: 0 0 1px rgba(0, 0, 0, 0); position: relative; -webkit-transition-property: color; transition-property: color; -webkit-transition-duration: 0.3s; transition-duration: 0.</description>
     </item>
     
   </channel>

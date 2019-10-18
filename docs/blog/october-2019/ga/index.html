@@ -25,20 +25,20 @@ if (!doNotTrack) {
 </script>
 
     
-    <link href="/blog/css/nucleus.css?1571430780" rel="stylesheet">
-    <link href="/blog/css/fontawesome-all.min.css?1571430780" rel="stylesheet">
-    <link href="/blog/css/hybrid.css?1571430780" rel="stylesheet">
-    <link href="/blog/css/featherlight.min.css?1571430780" rel="stylesheet">
-    <link href="/blog/css/perfect-scrollbar.min.css?1571430780" rel="stylesheet">
-    <link href="/blog/css/auto-complete.css?1571430780" rel="stylesheet">
-    <link href="/blog/css/atom-one-dark-reasonable.css?1571430780" rel="stylesheet">
-    <link href="/blog/css/theme.css?1571430780" rel="stylesheet">
-    <link href="/blog/css/hugo-theme.css?1571430780" rel="stylesheet">
+    <link href="/blog/css/nucleus.css?1571433253" rel="stylesheet">
+    <link href="/blog/css/fontawesome-all.min.css?1571433253" rel="stylesheet">
+    <link href="/blog/css/hybrid.css?1571433253" rel="stylesheet">
+    <link href="/blog/css/featherlight.min.css?1571433253" rel="stylesheet">
+    <link href="/blog/css/perfect-scrollbar.min.css?1571433253" rel="stylesheet">
+    <link href="/blog/css/auto-complete.css?1571433253" rel="stylesheet">
+    <link href="/blog/css/atom-one-dark-reasonable.css?1571433253" rel="stylesheet">
+    <link href="/blog/css/theme.css?1571433253" rel="stylesheet">
+    <link href="/blog/css/hugo-theme.css?1571433253" rel="stylesheet">
     
-      <link href="/blog/css/theme-blue.css?1571430780" rel="stylesheet">
+      <link href="/blog/css/theme-blue.css?1571433253" rel="stylesheet">
     
 
-    <script src="/blog/js/jquery-3.3.1.min.js?1571430780"></script>
+    <script src="/blog/js/jquery-3.3.1.min.js?1571433253"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -67,14 +67,14 @@ if (!doNotTrack) {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/blog/js/lunr.min.js?1571430780"></script>
-<script type="text/javascript" src="/blog/js/auto-complete.js?1571430780"></script>
+<script type="text/javascript" src="/blog/js/lunr.min.js?1571433253"></script>
+<script type="text/javascript" src="/blog/js/auto-complete.js?1571433253"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/jianliew.me\/blog";
     
 </script>
-<script type="text/javascript" src="/blog/js/search.js?1571430780"></script>
+<script type="text/javascript" src="/blog/js/search.js?1571433253"></script>
 
     
   </div>
@@ -555,9 +555,11 @@ if (!doNotTrack) {
 
   <a class="tag-link" href="/blog/tags/genetic-algorithm">Genetic Algorithm</a>
 
-  <a class="tag-link" href="/blog/tags/chart">Chart</a>
+  <a class="tag-link" href="/blog/tags/selection">Selection</a>
 
-  <a class="tag-link" href="/blog/tags/knapsack-problem">Knapsack Problem</a>
+  <a class="tag-link" href="/blog/tags/cross-over">Cross Over</a>
+
+  <a class="tag-link" href="/blog/tags/phrase-solver">Phrase Solver</a>
 
 </div>
 
@@ -584,7 +586,7 @@ if (!doNotTrack) {
   <p>Posted on: <strong> Saturday, October 19, 2019</strong></p>
 
 <p>Reading time: <strong>1 minutes and
-    6 seconds.</strong></p>
+    3 seconds.</strong></p>
 <hr />
 
 
@@ -617,7 +619,10 @@ if (!doNotTrack) {
 
 <p><button type="button" id="run" class="hvr-sweep-to-right">Run</button></p>
 
-<p class="result"></p>
+<table>
+    <tr><th>Generation</th><th>String</th>
+    <tbody class="result"></tbody>
+</table>
 
 <style>
 .hvr-sweep-to-right {
@@ -679,14 +684,9 @@ if (window.Worker) {
   };
 
   button.onclick = function() {
-    
-    
     result.innerHTML = "";
-
     let crossOverMethod = cm.options[cm.selectedIndex].value;
     let selectionMethod = sm.options[sm.selectedIndex].value;
-
-
     myWorker.postMessage([crossOverMethod, selectionMethod, entry.value]);
   }
 
@@ -699,12 +699,9 @@ if (window.Worker) {
 
   myWorker.onmessage = function(e) {
       
-    
     let text = result.innerHTML;
-    //console.log(e);
+    result.innerHTML = "<tr><td>" + e.data[0] + "</td><td>" + e.data[1] + "</td</tr>" + text;
 
-    result.innerHTML = "<p>" + "Generation " + e.data[0] + " Current - " + e.data[1] + "</p>" + text;
-    //console.log("Message received from worker");
   };
 } else {
   console.log("Your browser doesn't support web workers.");
@@ -1003,19 +1000,19 @@ if (window.Worker) {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/blog/js/clipboard.min.js?1571430780"></script>
-    <script src="/blog/js/perfect-scrollbar.min.js?1571430780"></script>
-    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1571430780"></script>
-    <script src="/blog/js/jquery.sticky.js?1571430780"></script>
-    <script src="/blog/js/featherlight.min.js?1571430780"></script>
-    <script src="/blog/js/highlight.pack.js?1571430780"></script>
+    <script src="/blog/js/clipboard.min.js?1571433253"></script>
+    <script src="/blog/js/perfect-scrollbar.min.js?1571433253"></script>
+    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1571433253"></script>
+    <script src="/blog/js/jquery.sticky.js?1571433253"></script>
+    <script src="/blog/js/featherlight.min.js?1571433253"></script>
+    <script src="/blog/js/highlight.pack.js?1571433253"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/blog/js/modernizr.custom-3.6.0.js?1571430780"></script>
-    <script src="/blog/js/learn.js?1571430780"></script>
-    <script src="/blog/js/hugo-learn.js?1571430780"></script>
+    <script src="/blog/js/modernizr.custom-3.6.0.js?1571433253"></script>
+    <script src="/blog/js/learn.js?1571433253"></script>
+    <script src="/blog/js/hugo-learn.js?1571433253"></script>
 
-    <link href="/blog/mermaid/mermaid.css?1571430780" rel="stylesheet" />
-    <script src="/blog/mermaid/mermaid.js?1571430780"></script>
+    <link href="/blog/mermaid/mermaid.css?1571433253" rel="stylesheet" />
+    <script src="/blog/mermaid/mermaid.js?1571433253"></script>
     <script>
         mermaid.initialize({
           startOnLoad: true,

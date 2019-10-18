@@ -4,7 +4,7 @@ weight = 15
 date = 2019-10-19
 pre = "<b>19th. </b>"
 draft = false
-tags = ["Genetic Algorithm", "Chart", "Knapsack Problem"]
+tags = ["Genetic Algorithm", "Selection", "Cross Over", "Phrase Solver"]
 +++
 
 {{% notice info %}}
@@ -39,7 +39,10 @@ This blog post is under construction. More features and explanation will be adde
 <button type="button" id="run" class="hvr-sweep-to-right">Run</button>
 
 
-<p class="result"></p>
+<table>
+    <tr><th>Generation</th><th>String</th>
+    <tbody class="result"></tbody>
+</table>
 
 
 <style>
@@ -102,14 +105,9 @@ if (window.Worker) {
   };
 
   button.onclick = function() {
-    
-    
     result.innerHTML = "";
-
     let crossOverMethod = cm.options[cm.selectedIndex].value;
     let selectionMethod = sm.options[sm.selectedIndex].value;
-
-
     myWorker.postMessage([crossOverMethod, selectionMethod, entry.value]);
   }
 
@@ -122,12 +120,9 @@ if (window.Worker) {
 
   myWorker.onmessage = function(e) {
       
-    
     let text = result.innerHTML;
-    //console.log(e);
+    result.innerHTML = "<tr><td>" + e.data[0] + "</td><td>" + e.data[1] + "</td</tr>" + text;
 
-    result.innerHTML = "<p>" + "Generation " + e.data[0] + " Current - " + e.data[1] + "</p>" + text;
-    //console.log("Message received from worker");
   };
 } else {
   console.log("Your browser doesn't support web workers.");
