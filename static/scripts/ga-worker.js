@@ -1,4 +1,3 @@
-// https://www.researchgate.net/figure/genetic-operators-in-steady-state-genetic-algorithm_tbl1_329482634
 class Chromosome {
   constructor(genes) {
     this.genes = genes;
@@ -13,44 +12,9 @@ class Chromosome {
     let copy = JSON.parse(JSON.stringify(this));
     return new Chromosome(copy.genes);
   }
+
+  crossOver(chromosome, methodology) {}
 }
-
-const mutationOperator = {
-  ONE_MUTATION: individual => {
-    // Reverse the bit of a random index in an individual.
-    let index = getRandomInt(individual.genes.length);
-    individual.genes[index] = individual.genes[index] == 1 ? 0 : 1;
-  },
-
-  TWO_MUTATION: individual => {
-    let arr = [];
-    for (let i = 0; i < individual.genes.length; ++i) arr.push(i);
-    const shuffled = arr.sort(() => 0.5 - Math.random());
-    // Two mutations at 2 indexes.
-    individual.genes[shuffled[0]] = individual.genes[shuffled[0]] == 1 ? 0 : 1;
-    individual.genes[shuffled[1]] = individual.genes[shuffled[1]] == 1 ? 0 : 1;
-  }
-};
-
-// https://www.obitko.com/tutorials/genetic-algorithms/selection.php
-const selections = Object.freeze({
-  TOURNAMENT: population => {
-    let tournamentSize = Math.floor(population.length / 10);
-    if (tournamentSize == 0) tournamentSize = 2;
-
-    const shuffled = population.sort(() => 0.5 - Math.random());
-    let fight = shuffled.slice(0, tournamentSize);
-    fight = fight.sort((a, b) => b.fitness - a.fitness);
-    return fight[0];
-  },
-
-  RANDOM: population => {
-    let index = getRandomInt(population.length);
-    return population[index];
-  },
-
-  BOLTZMANN_TOURNAMENT: population => {}
-});
 
 const crossOverMethodology = Object.freeze({
   ONE_POINT: (parentOne, parentTwo) => {
@@ -117,16 +81,73 @@ const crossOverMethodology = Object.freeze({
     return [new Chromosome(childGenesOne), new Chromosome(childGenesTwo)];
   },
 
-  PMX: (parentOne, parentTwo) => {
-
-  }
+  PMX: (parentOne, parentTwo) => {}
 });
+
+let results = [];
+
+var arrayChangeHandler = {
+  get: function(target, property) {
+    console.log("getting " + property + " for " + target);
+    // property is index in this case
+    return target[property];
+  },
+  set: function(target, property, value, receiver) {
+    console.log(
+      "setting " + property + " for " + target + " with value " + value
+    );
+    target[property] = value;
+    // you have to return true to accept the changes
+    return true;
+  }
+};
+
+var originalArray = [];
+var proxyToArray = new Proxy(originalArray, arrayChangeHandler);
+
+// https://www.obitko.com/tutorials/genetic-algorithms/selection.php
+const selections = Object.freeze({
+  TOURNAMENT: population => {
+    let tournamentSize = Math.floor(population.length / 10);
+    if (tournamentSize == 0) tournamentSize = 2;
+
+    const shuffled = population.sort(() => 0.5 - Math.random());
+    let fight = shuffled.slice(0, tournamentSize);
+    fight = fight.sort((a, b) => b.fitness - a.fitness);
+    return fight[0];
+  },
+
+  RANDOM: population => {
+    let index = getRandomInt(population.length);
+    return population[index];
+  },
+
+  BOLTZMANN_TOURNAMENT: population => {}
+});
+
+const mutationOperator = {
+  ONE_MUTATION: individual => {
+    // Reverse the bit of a random index in an individual.
+    let index = getRandomInt(individual.genes.length);
+    let mutated = getRandomInt(data.geneSize);
+    individual.genes[index] = mutated;
+  },
+
+  TWO_MUTATION: individual => {
+    let arr = [];
+    for (let i = 0; i < individual.genes.length; ++i) arr.push(i);
+    const shuffled = arr.sort(() => 0.5 - Math.random());
+    // Two mutations at 2 indexes.
+    individual.genes[shuffled[0]] = getRandomInt(data.geneSize);
+    individual.genes[shuffled[1]] = getRandomInt(data.geneSize);
+  }
+};
 
 class GeneticAlgorithm {
   constructor(
     seedData,
-    populationSize = 50,
-    generations = 1000,
+    populationSize = 100,
+    generations = 2000,
     crossOverProbability = 0.8,
     mutationProbability = 0.2,
     elitism = true,
@@ -172,10 +193,9 @@ class GeneticAlgorithm {
 
   createIndividual(seedData) {
     let individual = [];
-    //let length = Object.keys(seedData).length;
-    let length = seedData["length"] * seedData["geneSize"];
+    let length = seedData["length"];
     for (let i = 0; i < length; i++) {
-      individual[i] = Math.floor(Math.random() * 2);
+      individual[i] = Math.floor(Math.random() * seedData["geneSize"]);
     }
     return individual;
   }
@@ -213,7 +233,7 @@ class GeneticAlgorithm {
     let mutation = this.mutationOperator;
 
     while (newPopulation.length < this.populationSize) {
-      this.calculatePopulationFitness();
+      //this.calculatePopulationFitness();
       let p1 = selection(this.currentGeneration);
       let p2 = selection(this.currentGeneration);
 
@@ -238,18 +258,21 @@ class GeneticAlgorithm {
       }
 
       newPopulation.push(childOne);
-      newPopulation.push(childTwo);
+      if (newPopulation.length < this.populationSize)
+        newPopulation.push(childTwo);
+      //newPopulation.push(childTwo);
 
-      this.currentGeneration = newPopulation;
-      this.calculatePopulationFitness();
+      //this.calculatePopulationFitness();
     }
+
+    if (this.elitism) newPopulation[0] = elite;
+    this.currentGeneration = newPopulation;
   }
 
   createFirstGeneration() {
     this.createInitialPopulation();
     this.calculatePopulationFitness();
     this.rankPopulation();
-    console.log(this.currentGeneration);
   }
 
   createNextGeneration() {
@@ -258,17 +281,29 @@ class GeneticAlgorithm {
     this.rankPopulation();
   }
 
+  displayBest() {
+    let genes = this.currentGeneration[0].genes;
+    let output = "";
+    for (let i = 0; i < genes.length; ++i) {
+      output += getKeyByValue(mapping, genes[i]);
+    }
+
+    console.log(output);
+  }
+
   run() {
     this.createFirstGeneration();
 
     for (let i = 0; i <= this.generations; i++) {
       console.log("At generation " + i);
-      let best = this.bestIndividual();
-
-      if (this.bestIndividual().fitness == calculateFitness("INSANITY", "INSANITY"))
-        return;
 
       this.createNextGeneration();
+      if (
+        wordFitness(this.bestIndividual().genes) ==
+        data["geneSize"] * data["length"]
+      ) {
+        return;
+      }
     }
   }
 
@@ -278,134 +313,96 @@ class GeneticAlgorithm {
   }
 }
 
-let getRandomInt = max => {
+const wordFitness = individual => {
+  let fitness = 0;
+  for (let i = 0; i < individual.length; ++i) {
+    fitness += Math.abs(individual[i] - target[i]);
+  }
+  return data["geneSize"] * data["length"] - fitness;
+};
+
+const getRandomInt = max => {
   return Math.floor(Math.random() * Math.floor(max));
 };
 
-// Fitness function returns the value.
-let currentFitness = (individual, data) => {
-  let fitness = 0;
-  const result = individual.filter(i => i === 1).length;
-  const zip = (arr1, arr2) => arr1.map((k, i) => [k, arr2[i]]);
+const mapping = {
+  A: 0,
+  B: 1,
+  C: 2,
+  D: 3,
+  E: 4,
+  F: 5,
+  G: 6,
+  H: 7,
+  I: 8,
+  J: 9,
+  K: 10,
+  L: 11,
+  M: 12,
+  N: 13,
+  O: 14,
+  P: 15,
+  Q: 16,
+  R: 17,
+  S: 18,
+  T: 19,
+  U: 20,
+  V: 21,
+  W: 22,
+  X: 23,
+  Y: 24,
+  Z: 25,
+  " ": 26,
+  "?": 27,
+  "0": 28,
+  "1": 29,
+  "2": 30,
+  "3": 31,
+  "4": 32,
+  "5": 33,
+  "6": 34,
+  "7": 35,
+  "8": 36,
+  "9": 37,
+  "!": 38
+};
 
-  if (result < 3) {
-    let zipped = zip(individual, data);
-    for (let i = 0; i < zipped.length; ++i) {
-      if (zipped[i][0] == 1) fitness += zipped[i][1];
-    }
-    if (fitness > 200) return 0;
+const generateTarget = target => {
+  let mapped = [];
+  for (let i = 0; i < target.length; ++i) {
+    mapped.push(mapping[target[i]]);
   }
-  return fitness;
+
+  return mapped;
 };
 
-let wordFitness = (individual, data) => {
-  let length = individual.length;
-  let decoded = decodeArray(individual);
-  return calculateFitness(decoded, "INSANITY");
+
+
+const getKeyByValue = (object, value) => {
+  return Object.keys(object).find(key => object[key] === value);
 };
+
+let target = generateTarget(
+  "Test".toLocaleUpperCase()
+);
 
 let data = {
-  geneSize: 5,
-  length: 8
+  geneSize: Object.keys(mapping).length,
+  length: target.length
 };
 
-const codes = {
-  "@": [0, 0, 0, 0, 0],
-  A: [0, 0, 0, 0, 1],
-  B: [0, 0, 0, 1, 0],
-  C: [0, 0, 0, 1, 1],
-  D: [0, 0, 1, 0, 0],
-  E: [0, 0, 1, 0, 1],
-  F: [0, 0, 1, 1, 0],
-  G: [0, 0, 1, 1, 1],
+onmessage = function(e) {
+  console.log("Worker: Message received from main script");
+ 
 
-  H: [0, 1, 0, 0, 0],
-  I: [0, 1, 0, 0, 1],
-  J: [0, 1, 0, 1, 0],
-  K: [0, 1, 0, 1, 1],
-  L: [0, 1, 1, 0, 0],
-  M: [0, 1, 1, 0, 1],
-  N: [0, 1, 1, 1, 0],
-  O: [0, 1, 1, 1, 1],
+  const ga = new GeneticAlgorithm(data);
+  ga.setSelectionFunction(selections.TOURNAMENT);
+  ga.setFitnessFunction(wordFitness);
+  ga.setCrossOverMethodology(crossOverMethodology.TWO_POINT);
+  ga.setMutationOperator(mutationOperator.ONE_MUTATION);
+  ga.run();
+  let best = ga.bestIndividual();
 
-  P: [1, 0, 0, 0, 0],
-  Q: [1, 0, 0, 0, 1],
-  R: [1, 0, 0, 1, 0],
-  S: [1, 0, 0, 1, 1],
-  T: [1, 0, 1, 0, 0],
-  U: [1, 0, 1, 0, 1],
-  V: [1, 0, 1, 1, 0],
-  W: [1, 0, 1, 1, 1],
+  this.postMessage(best.genes);
 
-  X: [1, 1, 0, 0, 0],
-  Y: [1, 1, 0, 0, 1],
-  Z: [1, 1, 0, 1, 0],
-  "[": [1, 1, 0, 1, 1],
-  "\\": [1, 1, 1, 0, 0],
-  "]": [1, 1, 1, 0, 1],
-  "^": [1, 1, 1, 1, 0],
-  _: [1, 1, 1, 1, 1]
 };
-
-// https://stackoverflow.com/questions/8495687/split-array-into-chunks
-let chunk = (arr, len) => {
-  var chunks = [],
-    i = 0,
-    n = arr.length;
-  while (i < n) {
-    chunks.push(arr.slice(i, (i += len)));
-  }
-  return chunks;
-};
-
-let convertoGrayCode = str => {
-  let resultArr = [];
-  for (let i = 0; i < str.length; ++i) {
-    let code = codes[str[i]];
-    resultArr = resultArr.concat(code);
-  }
-  return resultArr;
-};
-
-// Given an array it will return the character/String representation.
-let decode = arr => {
-  //Get values
-  let values = Object.values(codes);
-  let index = 0;
-
-  for (let i = 0; i < values.length; ++i) {
-    if (values[i].toString() == arr.toString()) return Object.keys(codes)[i];
-  }
-};
-
-// Chunks here
-let decodeArray = arr => {
-  let chunked = chunk(arr, 5);
-  let result = "";
-  for (let i = 0; i < chunked.length; ++i) {
-    let alpha = decode(chunked[i]);
-    result += alpha;
-  }
-  return result;
-};
-
-let calculateFitness = (str, target) => {
-  let fitness = 0;
-  for (let i = 0; i < str.length; ++i) {
-    if (str[i] == target[i]) fitness += 1;
-    fitness += (127 - Math.abs(str.charCodeAt(i) - target.charCodeAt(i))) / 50;
-  }
-  return fitness;
-};
-
-const ga = new GeneticAlgorithm(data);
-ga.setSelectionFunction(selections.TOURNAMENT);
-ga.setFitnessFunction(wordFitness);
-ga.setCrossOverMethodology(crossOverMethodology.TWO_POINT);
-ga.setMutationOperator(mutationOperator.ONE_MUTATION);
-ga.run();
-
-console.log(ga.currentGeneration);
-let best = ga.bestIndividual();
-console.log(best);
-console.log(decodeArray(best.genes));
