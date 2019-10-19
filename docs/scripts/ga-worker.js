@@ -135,7 +135,6 @@ let crossOverMethodology = Object.freeze({
     let c1 = parentOne.copy();
     let c2 = parentTwo.copy();
 
-    
     let c1Map = new Map();
     let c2Map = new Map();
 
@@ -198,9 +197,30 @@ let selections = Object.freeze({
     return fight[0];
   },
 
+  RANK: population => {
+    population.sort((a, b) => b.fitness - a.fitness);
+    return population[0];
+  },
+
   RANDOM: population => {
     let index = getRandomInt(population.length);
     return population[index];
+  },
+
+  ROULETTE_WHEEL: population => {
+    let sum = 0;
+    for (let i = 0; i < population.length; ++i) {
+      sum += population[i].fitness;
+    }
+
+    let random = getRandomInt(sum);
+    population.sort((a, b) => b.fitness - a.fitness);
+    let partialSum = 0;
+    for (let i = 0; i < population.length; ++i) {
+      partialSum += population[i].fitness;
+      if (partialSum > random) return population[0];
+    }
+    return population[0];
   },
 
   BOLTZMANN_TOURNAMENT: population => {}
@@ -271,6 +291,12 @@ onmessage = function(e) {
       break;
     case "random":
       ga.setSelectionFunction(selections.RANDOM);
+      break;
+    case "rank":
+      ga.setSelectionFunction(selections.RANK);
+      break;
+    case "rouletteWheel":
+      ga.setSelectionFunction(selections.ROULETTE_WHEEL);
       break;
     default:
       ga.setSelectionFunction(selections.TOURNAMENT);
@@ -450,7 +476,13 @@ class GeneticAlgorithm {
 
     for (let i = 0; i <= this.generations; i++) {
       if (currentBest != this.displayBest()) {
-        postMessage([i, this.bestIndividual().fitness, this.displayBest()]);
+        let finished = false;
+        postMessage([
+          i,
+          this.bestIndividual().fitness,
+          this.displayBest(),
+          false
+        ]);
         currentBest = this.displayBest();
       }
 
@@ -460,7 +492,13 @@ class GeneticAlgorithm {
         wordFitness(this.bestIndividual().genes) ==
         data["geneSize"] * data["length"]
       ) {
-        postMessage([++i, this.bestIndividual().fitness, this.displayBest()]);
+        let finished = true;
+        postMessage([
+          ++i,
+          this.bestIndividual().fitness,
+          this.displayBest(),
+          finished
+        ]);
         return;
       }
     }

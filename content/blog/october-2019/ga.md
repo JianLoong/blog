@@ -17,7 +17,7 @@ This blog post is under construction. More features and explanation will be adde
 
 <div>
 <label for="crossOver">Cross Over Method</label> 
-<select id="crossOverMethod">
+<select id="crossOverMethod"  class="select-css">
   <option value="onePoint">One Point</option>
   <option value="twoPoint">Two Point</option>
   <option value="uniform">Uniform</option>
@@ -27,9 +27,11 @@ This blog post is under construction. More features and explanation will be adde
 
 <div>
 <label for="selection">Selection Method</label> 
-<select id="selectionMethod">
+<select id="selectionMethod"  class="select-css">
   <option value="tournament">Tournament</option>
   <option value="random">Random</option>
+  <option value="rank">Rank</option>
+  <option value="rouletteWheel">Roulette Wheel</option>
 </select>
 </div>
 
@@ -41,14 +43,18 @@ This blog post is under construction. More features and explanation will be adde
 
 <button type="button" id="run" class="hvr-sweep-to-right">Run</button>
 
+<div class="progress-line"></div>
 
-<table style="font-family: 'Roboto Mono', monospace; font-size:10px;">
+<br />
+
+<table style="font-family: monospace;" class="result-table">
     <tr><th>Generation</th><th>Fitness</th><th>String</th>
     <tbody class="result"></tbody>
 </table>
 
 
 <style>
+
 .hvr-sweep-to-right {
   display: inline-block;
   vertical-align: middle;
@@ -88,6 +94,34 @@ This blog post is under construction. More features and explanation will be adde
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
+
+
+.progress-line, .progress-line:before {
+  height: 3px;
+  width: 100%;
+  margin: 0;
+}
+.progress-line {
+  background-color: #b3d4fc;
+  display: -webkit-flex;
+  display: flex;
+}
+.progress-line:before {
+  background-color: #3f51b5;
+  content: '';
+  -webkit-animation: running-progress 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: running-progress 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@-webkit-keyframes running-progress {
+  0% { margin-left: 0px; margin-right: 100%; }
+  50% { margin-left: 25%; margin-right: 0%; }
+  100% { margin-left: 100%; margin-right: 0; }
+}
+@keyframes running-progress {
+  0% { margin-left: 0px; margin-right: 100%; }
+  50% { margin-left: 25%; margin-right: 0%; }
+  100% { margin-left: 100%; margin-right: 0; }
+}
 </style>
 
 <script>
@@ -98,8 +132,13 @@ const cm = document.getElementById("crossOverMethod");
 const sm = document.getElementById("selectionMethod");
 const button = document.getElementById("run");
 
+$(".progress-line").hide();
+$(".result-table").hide();
+
+
 if (window.Worker) {
   const myWorker = new Worker("/blog/scripts/ga-worker.js");
+  let isResultTableShown = false;
 
   cm.onchange = function() {
     result.innerHTML = "";
@@ -108,6 +147,10 @@ if (window.Worker) {
   };
 
   button.onclick = function() {
+    if (entry.value == "")
+        return;
+
+    $(".progress-line").show();
     result.innerHTML = "";
     let crossOverMethod = cm.options[cm.selectedIndex].value;
     let selectionMethod = sm.options[sm.selectedIndex].value;
@@ -125,6 +168,15 @@ if (window.Worker) {
       
     let text = result.innerHTML;
     result.innerHTML = "<tr><td>" + e.data[0] + "</td><td>" + e.data[1] + "</td><td>" + e.data[2]+"</td</tr>" + text;
+
+    if (isResultTableShown == false){
+            isResultTableShown = true;
+             $(".result-table").show();
+    }
+
+    if(e.data[3] == true){
+        $(".progress-line").hide();
+    }
 
   };
 } else {

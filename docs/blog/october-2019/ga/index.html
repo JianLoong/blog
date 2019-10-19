@@ -25,20 +25,20 @@ if (!doNotTrack) {
 </script>
 
     
-    <link href="/blog/css/nucleus.css?1571464636" rel="stylesheet">
-    <link href="/blog/css/fontawesome-all.min.css?1571464636" rel="stylesheet">
-    <link href="/blog/css/hybrid.css?1571464636" rel="stylesheet">
-    <link href="/blog/css/featherlight.min.css?1571464636" rel="stylesheet">
-    <link href="/blog/css/perfect-scrollbar.min.css?1571464636" rel="stylesheet">
-    <link href="/blog/css/auto-complete.css?1571464636" rel="stylesheet">
-    <link href="/blog/css/atom-one-dark-reasonable.css?1571464636" rel="stylesheet">
-    <link href="/blog/css/theme.css?1571464636" rel="stylesheet">
-    <link href="/blog/css/hugo-theme.css?1571464636" rel="stylesheet">
+    <link href="/blog/css/nucleus.css?1571477540" rel="stylesheet">
+    <link href="/blog/css/fontawesome-all.min.css?1571477540" rel="stylesheet">
+    <link href="/blog/css/hybrid.css?1571477540" rel="stylesheet">
+    <link href="/blog/css/featherlight.min.css?1571477540" rel="stylesheet">
+    <link href="/blog/css/perfect-scrollbar.min.css?1571477540" rel="stylesheet">
+    <link href="/blog/css/auto-complete.css?1571477540" rel="stylesheet">
+    <link href="/blog/css/atom-one-dark-reasonable.css?1571477540" rel="stylesheet">
+    <link href="/blog/css/theme.css?1571477540" rel="stylesheet">
+    <link href="/blog/css/hugo-theme.css?1571477540" rel="stylesheet">
     
-      <link href="/blog/css/theme-blue.css?1571464636" rel="stylesheet">
+      <link href="/blog/css/theme-blue.css?1571477540" rel="stylesheet">
     
 
-    <script src="/blog/js/jquery-3.3.1.min.js?1571464636"></script>
+    <script src="/blog/js/jquery-3.3.1.min.js?1571477540"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -67,14 +67,14 @@ if (!doNotTrack) {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/blog/js/lunr.min.js?1571464636"></script>
-<script type="text/javascript" src="/blog/js/auto-complete.js?1571464636"></script>
+<script type="text/javascript" src="/blog/js/lunr.min.js?1571477540"></script>
+<script type="text/javascript" src="/blog/js/auto-complete.js?1571477540"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/jianliew.me\/blog";
     
 </script>
-<script type="text/javascript" src="/blog/js/search.js?1571464636"></script>
+<script type="text/javascript" src="/blog/js/search.js?1571477540"></script>
 
     
   </div>
@@ -586,7 +586,7 @@ if (!doNotTrack) {
   <p>Posted on: <strong> Saturday, October 19, 2019</strong></p>
 
 <p>Reading time: <strong>1 minutes and
-    3 seconds.</strong></p>
+    36 seconds.</strong></p>
 <hr />
 
 
@@ -599,7 +599,7 @@ if (!doNotTrack) {
 
 <div>
 <label for="crossOver">Cross Over Method</label> 
-<select id="crossOverMethod">
+<select id="crossOverMethod"  class="select-css">
   <option value="onePoint">One Point</option>
   <option value="twoPoint">Two Point</option>
   <option value="uniform">Uniform</option>
@@ -609,9 +609,11 @@ if (!doNotTrack) {
 
 <div>
 <label for="selection">Selection Method</label> 
-<select id="selectionMethod">
+<select id="selectionMethod"  class="select-css">
   <option value="tournament">Tournament</option>
   <option value="random">Random</option>
+  <option value="rank">Rank</option>
+  <option value="rouletteWheel">Roulette Wheel</option>
 </select>
 </div>
 
@@ -622,12 +624,17 @@ if (!doNotTrack) {
 
 <p><button type="button" id="run" class="hvr-sweep-to-right">Run</button></p>
 
-<table style="font-family: 'Roboto Mono', monospace; font-size:10px;">
+<div class="progress-line"></div>
+
+<p><br /></p>
+
+<table style="font-family: monospace;" class="result-table">
     <tr><th>Generation</th><th>Fitness</th><th>String</th>
     <tbody class="result"></tbody>
 </table>
 
 <style>
+
 .hvr-sweep-to-right {
   display: inline-block;
   vertical-align: middle;
@@ -667,6 +674,34 @@ if (!doNotTrack) {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
+
+
+.progress-line, .progress-line:before {
+  height: 3px;
+  width: 100%;
+  margin: 0;
+}
+.progress-line {
+  background-color: #b3d4fc;
+  display: -webkit-flex;
+  display: flex;
+}
+.progress-line:before {
+  background-color: #3f51b5;
+  content: '';
+  -webkit-animation: running-progress 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: running-progress 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@-webkit-keyframes running-progress {
+  0% { margin-left: 0px; margin-right: 100%; }
+  50% { margin-left: 25%; margin-right: 0%; }
+  100% { margin-left: 100%; margin-right: 0; }
+}
+@keyframes running-progress {
+  0% { margin-left: 0px; margin-right: 100%; }
+  50% { margin-left: 25%; margin-right: 0%; }
+  100% { margin-left: 100%; margin-right: 0; }
+}
 </style>
 
 <script>
@@ -677,8 +712,13 @@ const cm = document.getElementById("crossOverMethod");
 const sm = document.getElementById("selectionMethod");
 const button = document.getElementById("run");
 
+$(".progress-line").hide();
+$(".result-table").hide();
+
+
 if (window.Worker) {
   const myWorker = new Worker("/blog/scripts/ga-worker.js");
+  let isResultTableShown = false;
 
   cm.onchange = function() {
     result.innerHTML = "";
@@ -687,6 +727,10 @@ if (window.Worker) {
   };
 
   button.onclick = function() {
+    if (entry.value == "")
+        return;
+
+    $(".progress-line").show();
     result.innerHTML = "";
     let crossOverMethod = cm.options[cm.selectedIndex].value;
     let selectionMethod = sm.options[sm.selectedIndex].value;
@@ -704,6 +748,15 @@ if (window.Worker) {
       
     let text = result.innerHTML;
     result.innerHTML = "<tr><td>" + e.data[0] + "</td><td>" + e.data[1] + "</td><td>" + e.data[2]+"</td</tr>" + text;
+
+    if (isResultTableShown == false){
+            isResultTableShown = true;
+             $(".result-table").show();
+    }
+
+    if(e.data[3] == true){
+        $(".progress-line").hide();
+    }
 
   };
 } else {
@@ -1003,19 +1056,19 @@ if (window.Worker) {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/blog/js/clipboard.min.js?1571464636"></script>
-    <script src="/blog/js/perfect-scrollbar.min.js?1571464636"></script>
-    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1571464636"></script>
-    <script src="/blog/js/jquery.sticky.js?1571464636"></script>
-    <script src="/blog/js/featherlight.min.js?1571464636"></script>
-    <script src="/blog/js/highlight.pack.js?1571464636"></script>
+    <script src="/blog/js/clipboard.min.js?1571477540"></script>
+    <script src="/blog/js/perfect-scrollbar.min.js?1571477540"></script>
+    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1571477540"></script>
+    <script src="/blog/js/jquery.sticky.js?1571477540"></script>
+    <script src="/blog/js/featherlight.min.js?1571477540"></script>
+    <script src="/blog/js/highlight.pack.js?1571477540"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/blog/js/modernizr.custom-3.6.0.js?1571464636"></script>
-    <script src="/blog/js/learn.js?1571464636"></script>
-    <script src="/blog/js/hugo-learn.js?1571464636"></script>
+    <script src="/blog/js/modernizr.custom-3.6.0.js?1571477540"></script>
+    <script src="/blog/js/learn.js?1571477540"></script>
+    <script src="/blog/js/hugo-learn.js?1571477540"></script>
 
-    <link href="/blog/mermaid/mermaid.css?1571464636" rel="stylesheet" />
-    <script src="/blog/mermaid/mermaid.js?1571464636"></script>
+    <link href="/blog/mermaid/mermaid.css?1571477540" rel="stylesheet" />
+    <script src="/blog/mermaid/mermaid.js?1571477540"></script>
     <script>
         mermaid.initialize({
           startOnLoad: true,
