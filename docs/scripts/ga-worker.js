@@ -328,7 +328,7 @@ class GeneticAlgorithm {
   constructor(
     seedData,
     populationSize = 100,
-    generations = 2000,
+    generations = 4000,
     crossOverProbability = 0.8,
     mutationProbability = 0.2,
     elitism = true,

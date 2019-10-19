@@ -94,10 +94,9 @@ Please note that the posts here are generated based on the Reddit website by doi
       <pubDate>Sat, 19 Oct 2019 00:00:00 +1100</pubDate>
       
       <guid>https://jianliew.me/blog/blog/october-2019/ga/</guid>
-      <description>This blog post is under construction. More features and explanation will be added soon.
-  Cross Over Method One Point Two Point Uniform PMX    Selection Method Tournament Random Rank Roulette Wheel    Target String   Run
- 
-GenerationFitnessString    .hvr-sweep-to-right { display: inline-block; vertical-align: middle; -webkit-transform: perspective(1px) translateZ(0); transform: perspective(1px) translateZ(0); box-shadow: 0 0 1px rgba(0, 0, 0, 0); position: relative; -webkit-transition-property: color; transition-property: color; -webkit-transition-duration: 0.</description>
+      <description>This post is a simple implementation of Genetic Algorithm GA. Here, you would start with a random string and end up with the target string.
+ This post is heavily inspired based on this website. However, I created the codes with a very different methodology to also include newer JavaScript methods like using classes and etc.
+ Cross Over Method One Point Two Point Uniform PMX    Selection Method Tournament Random Rank Roulette Wheel    Target String   Run</description>
     </item>
     
     <item>

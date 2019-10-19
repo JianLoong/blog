@@ -7,13 +7,17 @@ draft = false
 tags = ["Genetic Algorithm", "Selection", "Cross Over", "Phrase Solver"]
 +++
 
-<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+<link href="/blog/css/site.css" rel="stylesheet">
 
-{{% notice info %}}
 
-This blog post is under construction. More features and explanation will be added soon.
+{{% notice note %}}
+
+This post is a simple implementation of <strong>Genetic Algorithm GA.</strong> Here, you would start with a random string and end up with the target string.
 
 {{% /notice %}}
+
+This post is heavily inspired based on this [website](https://github.com/subprotocol/genetic-js). However, I created the codes with a very different methodology to also include newer JavaScript methods like using classes and etc.
+
 
 <div>
 <label for="crossOver">Cross Over Method</label> 
@@ -38,89 +42,32 @@ This blog post is under construction. More features and explanation will be adde
 
 <div>
     <label for="targetString">Target String </label>    
-    <input type="text" id="targetString" autocomplete="off" placeholder="Enter something here">
+    <input type="text" id="targetString" autocomplete="off" placeholder="" value="Any fool can write code that a computer can understand. Good programmers write code that humans can understand">
 </div>
 
 <button type="button" id="run" class="hvr-sweep-to-right">Run</button>
+
+<p></p>
 
 <div class="progress-line"></div>
 
 <br />
 
-<table style="font-family: monospace;" class="result-table">
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+<table style="font-family: monospace;" class="result-table table table-bordered table-striped mb-0">
     <tr><th>Generation</th><th>Fitness</th><th>String</th>
     <tbody class="result"></tbody>
 </table>
-
+</div>
 
 <style>
-
-.hvr-sweep-to-right {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
+.my-custom-scrollbar {
+position: relative;
+height: 200px;
+overflow: auto;
 }
-.hvr-sweep-to-right:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #2098D1;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transform-origin: 0 50%;
-  transform-origin: 0 50%;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
-  color: white;
-}
-.hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
-}
-
-
-.progress-line, .progress-line:before {
-  height: 3px;
-  width: 100%;
-  margin: 0;
-}
-.progress-line {
-  background-color: #b3d4fc;
-  display: -webkit-flex;
-  display: flex;
-}
-.progress-line:before {
-  background-color: #3f51b5;
-  content: '';
-  -webkit-animation: running-progress 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  animation: running-progress 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-@-webkit-keyframes running-progress {
-  0% { margin-left: 0px; margin-right: 100%; }
-  50% { margin-left: 25%; margin-right: 0%; }
-  100% { margin-left: 100%; margin-right: 0; }
-}
-@keyframes running-progress {
-  0% { margin-left: 0px; margin-right: 100%; }
-  50% { margin-left: 25%; margin-right: 0%; }
-  100% { margin-left: 100%; margin-right: 0; }
+.table-wrapper-scroll-y {
+display: block;
 }
 </style>
 
@@ -151,6 +98,7 @@ if (window.Worker) {
         return;
 
     $(".progress-line").show();
+    $(".result-table").show();
     result.innerHTML = "";
     let crossOverMethod = cm.options[cm.selectedIndex].value;
     let selectionMethod = sm.options[sm.selectedIndex].value;
@@ -170,8 +118,8 @@ if (window.Worker) {
     result.innerHTML = "<tr><td>" + e.data[0] + "</td><td>" + e.data[1] + "</td><td>" + e.data[2]+"</td</tr>" + text;
 
     if (isResultTableShown == false){
-            isResultTableShown = true;
-             $(".result-table").show();
+        isResultTableShown = true;
+        $(".result-table").show();
     }
 
     if(e.data[3] == true){
