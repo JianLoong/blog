@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/content/blog/october-2019/ga-v2.js"
+            "program": "${workspaceFolder}/static/scripts/ga-worker.js"
         }
     ]
 }

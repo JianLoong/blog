@@ -7,6 +7,8 @@ draft = false
 tags = ["Genetic Algorithm", "Selection", "Cross Over", "Phrase Solver"]
 +++
 
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+
 {{% notice info %}}
 
 This blog post is under construction. More features and explanation will be added soon.
@@ -19,6 +21,7 @@ This blog post is under construction. More features and explanation will be adde
   <option value="onePoint">One Point</option>
   <option value="twoPoint">Two Point</option>
   <option value="uniform">Uniform</option>
+  <option value="pmx">PMX</option>
 </select>
 </div>
 
@@ -33,14 +36,14 @@ This blog post is under construction. More features and explanation will be adde
 
 <div>
     <label for="targetString">Target String </label>    
-    <input type="text" id="targetString" autocomplete="off">
+    <input type="text" id="targetString" autocomplete="off" placeholder="Enter something here">
 </div>
 
 <button type="button" id="run" class="hvr-sweep-to-right">Run</button>
 
 
-<table>
-    <tr><th>Generation</th><th>String</th>
+<table style="font-family: 'Roboto Mono', monospace; font-size:10px;">
+    <tr><th>Generation</th><th>Fitness</th><th>String</th>
     <tbody class="result"></tbody>
 </table>
 
@@ -121,7 +124,7 @@ if (window.Worker) {
   myWorker.onmessage = function(e) {
       
     let text = result.innerHTML;
-    result.innerHTML = "<tr><td>" + e.data[0] + "</td><td>" + e.data[1] + "</td</tr>" + text;
+    result.innerHTML = "<tr><td>" + e.data[0] + "</td><td>" + e.data[1] + "</td><td>" + e.data[2]+"</td</tr>" + text;
 
   };
 } else {

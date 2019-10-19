@@ -123,8 +123,67 @@ let crossOverMethodology = Object.freeze({
     return [new Chromosome(childGenesOne), new Chromosome(childGenesTwo)];
   },
 
-  PMX: (parentOne, parentTwo) => {}
+  PMX: (parentOne, parentTwo) => {
+    let arr = [];
+    for (let i = 0; i < parentOne.genes.length; ++i) arr.push(i);
+
+    const shuffled = arr.sort(() => 0.5 - Math.random());
+    let i0 = shuffled[0];
+    let i1 = shuffled[1];
+    let twoRandom = [i0, i1].sort();
+
+    let c1 = parentOne.copy();
+    let c2 = parentTwo.copy();
+
+    
+    let c1Map = new Map();
+    let c2Map = new Map();
+
+    for (let i = 0; i < arr.length; ++i) {
+      if (i < twoRandom[0] || i > twoRandom[1]) {
+      } else {
+        c1Map.set(c2.genes[i], c1.genes[i]);
+        c2Map.set(c1.genes[i], c2.genes[i]);
+        let temp = c1.genes[i];
+        c1.genes[i] = c2.genes[i];
+        c2.genes[i] = temp;
+      }
+    }
+
+    for (let i = 0; i < arr.length; ++i) {
+      if (i < twoRandom[0] || i > twoRandom[1]) {
+        // If there is nothing in the map put the default
+        if (c1Map.get(c1.genes[i]) == undefined) {
+          c1.genes[i] = parentOne.genes[i];
+        } else {
+          c1.genes[i] = findFinal(parentOne.genes[i], c1Map);
+        }
+
+        if (c2Map.get(c2.genes[i]) == undefined) {
+          c2.genes[i] = parentTwo.genes[i];
+        } else {
+          c2.genes[i] = findFinal(parentTwo.genes[i], c2Map);
+        }
+      }
+    }
+    return [c1, c2];
+  }
 });
+
+let findFinal = (key, map) => {
+  let value = map.get(key);
+  let arr = [];
+  for (let i = 0; i < map.size; i++) {
+    //while (value != undefined) {
+    if (value != undefined) {
+      arr.push(value);
+      value = map.get(value);
+    }
+    //}
+  }
+
+  return arr.pop();
+};
 
 // https://www.obitko.com/tutorials/genetic-algorithms/selection.php
 let selections = Object.freeze({
@@ -198,6 +257,9 @@ onmessage = function(e) {
     case "uniform":
       ga.setCrossOverMethodology(crossOverMethodology.UNIFORM);
       break;
+    case "pmx":
+      ga.setCrossOverMethodology(crossOverMethodology.PMX);
+      break;
     default:
       ga.setCrossOverMethodology(crossOverMethodology.ONE_POINT);
       break;
@@ -236,7 +298,6 @@ class Chromosome {
 
   crossOver(chromosome, methodology) {}
 }
-
 class GeneticAlgorithm {
   constructor(
     seedData,
@@ -354,8 +415,6 @@ class GeneticAlgorithm {
       newPopulation.push(childOne);
       if (newPopulation.length < this.populationSize)
         newPopulation.push(childTwo);
-
-      //this.calculatePopulationFitness();
     }
 
     if (this.elitism) newPopulation[0] = elite;
@@ -391,7 +450,7 @@ class GeneticAlgorithm {
 
     for (let i = 0; i <= this.generations; i++) {
       if (currentBest != this.displayBest()) {
-        postMessage([i, this.displayBest()]);
+        postMessage([i, this.bestIndividual().fitness, this.displayBest()]);
         currentBest = this.displayBest();
       }
 
@@ -401,7 +460,7 @@ class GeneticAlgorithm {
         wordFitness(this.bestIndividual().genes) ==
         data["geneSize"] * data["length"]
       ) {
-        postMessage([++i, this.displayBest()]);
+        postMessage([++i, this.bestIndividual().fitness, this.displayBest()]);
         return;
       }
     }
@@ -416,3 +475,28 @@ class GeneticAlgorithm {
 const getKeyByValue = (object, value) => {
   return Object.keys(object).find(key => object[key] === value);
 };
+
+// target = generateTarget("Test".toLocaleUpperCase());
+
+// data = {
+//   geneSize: Object.keys(mapping).length,
+//   length: target.length
+// };
+
+// const ga = new GeneticAlgorithm(data);
+
+// ga.setFitnessFunction(wordFitness);
+
+// ga.setCrossOverMethodology(crossOverMethodology.PMX);
+
+// ga.setSelectionFunction(selections.TOURNAMENT);
+
+// ga.setMutationOperator(mutationOperator.ONE_MUTATION);
+// ga.run();
+
+// let testC1 = new Chromosome([1, 2, 3, 4, 5, 6, 7, 8]);
+// let testC2 = new Chromosome([3, 7, 5, 1, 6, 8, 2, 4]);
+
+// let a = crossOverMethodology.PMX(testC1, testC2);
+
+// console.log(a);

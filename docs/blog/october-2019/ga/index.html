@@ -25,20 +25,20 @@ if (!doNotTrack) {
 </script>
 
     
-    <link href="/blog/css/nucleus.css?1571433253" rel="stylesheet">
-    <link href="/blog/css/fontawesome-all.min.css?1571433253" rel="stylesheet">
-    <link href="/blog/css/hybrid.css?1571433253" rel="stylesheet">
-    <link href="/blog/css/featherlight.min.css?1571433253" rel="stylesheet">
-    <link href="/blog/css/perfect-scrollbar.min.css?1571433253" rel="stylesheet">
-    <link href="/blog/css/auto-complete.css?1571433253" rel="stylesheet">
-    <link href="/blog/css/atom-one-dark-reasonable.css?1571433253" rel="stylesheet">
-    <link href="/blog/css/theme.css?1571433253" rel="stylesheet">
-    <link href="/blog/css/hugo-theme.css?1571433253" rel="stylesheet">
+    <link href="/blog/css/nucleus.css?1571464636" rel="stylesheet">
+    <link href="/blog/css/fontawesome-all.min.css?1571464636" rel="stylesheet">
+    <link href="/blog/css/hybrid.css?1571464636" rel="stylesheet">
+    <link href="/blog/css/featherlight.min.css?1571464636" rel="stylesheet">
+    <link href="/blog/css/perfect-scrollbar.min.css?1571464636" rel="stylesheet">
+    <link href="/blog/css/auto-complete.css?1571464636" rel="stylesheet">
+    <link href="/blog/css/atom-one-dark-reasonable.css?1571464636" rel="stylesheet">
+    <link href="/blog/css/theme.css?1571464636" rel="stylesheet">
+    <link href="/blog/css/hugo-theme.css?1571464636" rel="stylesheet">
     
-      <link href="/blog/css/theme-blue.css?1571433253" rel="stylesheet">
+      <link href="/blog/css/theme-blue.css?1571464636" rel="stylesheet">
     
 
-    <script src="/blog/js/jquery-3.3.1.min.js?1571433253"></script>
+    <script src="/blog/js/jquery-3.3.1.min.js?1571464636"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -67,14 +67,14 @@ if (!doNotTrack) {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/blog/js/lunr.min.js?1571433253"></script>
-<script type="text/javascript" src="/blog/js/auto-complete.js?1571433253"></script>
+<script type="text/javascript" src="/blog/js/lunr.min.js?1571464636"></script>
+<script type="text/javascript" src="/blog/js/auto-complete.js?1571464636"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/jianliew.me\/blog";
     
 </script>
-<script type="text/javascript" src="/blog/js/search.js?1571433253"></script>
+<script type="text/javascript" src="/blog/js/search.js?1571464636"></script>
 
     
   </div>
@@ -590,6 +590,8 @@ if (!doNotTrack) {
 <hr />
 
 
+<p><link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet"></p>
+
 
 <div class="notices info" ><p>This blog post is under construction. More features and explanation will be added soon.</p>
 </div>
@@ -601,6 +603,7 @@ if (!doNotTrack) {
   <option value="onePoint">One Point</option>
   <option value="twoPoint">Two Point</option>
   <option value="uniform">Uniform</option>
+  <option value="pmx">PMX</option>
 </select>
 </div>
 
@@ -614,13 +617,13 @@ if (!doNotTrack) {
 
 <div>
     <label for="targetString">Target String </label>    
-    <input type="text" id="targetString" autocomplete="off">
+    <input type="text" id="targetString" autocomplete="off" placeholder="Enter something here">
 </div>
 
 <p><button type="button" id="run" class="hvr-sweep-to-right">Run</button></p>
 
-<table>
-    <tr><th>Generation</th><th>String</th>
+<table style="font-family: 'Roboto Mono', monospace; font-size:10px;">
+    <tr><th>Generation</th><th>Fitness</th><th>String</th>
     <tbody class="result"></tbody>
 </table>
 
@@ -700,7 +703,7 @@ if (window.Worker) {
   myWorker.onmessage = function(e) {
       
     let text = result.innerHTML;
-    result.innerHTML = "<tr><td>" + e.data[0] + "</td><td>" + e.data[1] + "</td</tr>" + text;
+    result.innerHTML = "<tr><td>" + e.data[0] + "</td><td>" + e.data[1] + "</td><td>" + e.data[2]+"</td</tr>" + text;
 
   };
 } else {
@@ -1000,19 +1003,19 @@ if (window.Worker) {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/blog/js/clipboard.min.js?1571433253"></script>
-    <script src="/blog/js/perfect-scrollbar.min.js?1571433253"></script>
-    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1571433253"></script>
-    <script src="/blog/js/jquery.sticky.js?1571433253"></script>
-    <script src="/blog/js/featherlight.min.js?1571433253"></script>
-    <script src="/blog/js/highlight.pack.js?1571433253"></script>
+    <script src="/blog/js/clipboard.min.js?1571464636"></script>
+    <script src="/blog/js/perfect-scrollbar.min.js?1571464636"></script>
+    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1571464636"></script>
+    <script src="/blog/js/jquery.sticky.js?1571464636"></script>
+    <script src="/blog/js/featherlight.min.js?1571464636"></script>
+    <script src="/blog/js/highlight.pack.js?1571464636"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/blog/js/modernizr.custom-3.6.0.js?1571433253"></script>
-    <script src="/blog/js/learn.js?1571433253"></script>
-    <script src="/blog/js/hugo-learn.js?1571433253"></script>
+    <script src="/blog/js/modernizr.custom-3.6.0.js?1571464636"></script>
+    <script src="/blog/js/learn.js?1571464636"></script>
+    <script src="/blog/js/hugo-learn.js?1571464636"></script>
 
-    <link href="/blog/mermaid/mermaid.css?1571433253" rel="stylesheet" />
-    <script src="/blog/mermaid/mermaid.js?1571433253"></script>
+    <link href="/blog/mermaid/mermaid.css?1571464636" rel="stylesheet" />
+    <script src="/blog/mermaid/mermaid.js?1571464636"></script>
     <script>
         mermaid.initialize({
           startOnLoad: true,
