@@ -49,8 +49,6 @@ This post is heavily inspired based on this [website](https://github.com/subprot
 
 <p></p>
 
-<div class="progress-line"></div>
-
 <br />
 
 <div class="table-wrapper-scroll-y my-custom-scrollbar">
@@ -96,8 +94,6 @@ if (window.Worker) {
   button.onclick = function() {
     if (entry.value == "")
         return;
-
-    $(".progress-line").show();
     $(".result-table").show();
     result.innerHTML = "";
     let crossOverMethod = cm.options[cm.selectedIndex].value;
@@ -120,10 +116,6 @@ if (window.Worker) {
     if (isResultTableShown == false){
         isResultTableShown = true;
         $(".result-table").show();
-    }
-
-    if(e.data[3] == true){
-        $(".progress-line").hide();
     }
 
   };

@@ -1,26 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Phrase Solver on Jian Liew</title>
-    <link>https://jianliew.me/blog/tags/phrase-solver/</link>
-    <description>Recent content in Phrase Solver on Jian Liew</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +1100</lastBuildDate>
-    
-	<atom:link href="https://jianliew.me/blog/tags/phrase-solver/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Genetic Algorithm</title>
-      <link>https://jianliew.me/blog/blog/october-2019/ga/</link>
-      <pubDate>Sat, 19 Oct 2019 00:00:00 +1100</pubDate>
-      
-      <guid>https://jianliew.me/blog/blog/october-2019/ga/</guid>
-      <description>This post is a simple implementation of Genetic Algorithm GA. Here, you would start with a random string and end up with the target string.
- This post is heavily inspired based on this website. However, I created the codes with a very different methodology to also include newer JavaScript methods like using classes and etc.
- Cross Over Method One Point Two Point Uniform PMX    Selection Method Tournament Random Rank Roulette Wheel    Target String   Run</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Phrase Solver on Jian Liew</title><link>https://jianliew.me/blog/tags/phrase-solver/</link><description>Recent content in Phrase Solver on Jian Liew</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 19 Oct 2019 00:00:00 +1100</lastBuildDate><atom:link href="https://jianliew.me/blog/tags/phrase-solver/index.xml" rel="self" type="application/rss+xml"/><item><title>Genetic Algorithm</title><link>https://jianliew.me/blog/blog/october-2019/ga/</link><pubDate>Sat, 19 Oct 2019 00:00:00 +1100</pubDate><guid>https://jianliew.me/blog/blog/october-2019/ga/</guid><description>This post is a simple implementation of Genetic Algorithm GA. Here, you would start with a random string and end up with the target string.
+This post is heavily inspired based on this website. However, I created the codes with a very different methodology to also include newer JavaScript methods like using classes and etc.
+Cross Over Method One Point Two Point Uniform PMX Selection Method Tournament Random Rank Roulette Wheel Target String Run</description></item></channel></rss>

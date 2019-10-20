@@ -328,7 +328,7 @@ class GeneticAlgorithm {
   constructor(
     seedData,
     populationSize = 100,
-    generations = 4000,
+    generations = 2000,
     crossOverProbability = 0.8,
     mutationProbability = 0.2,
     elitism = true,
@@ -473,10 +473,10 @@ class GeneticAlgorithm {
     this.createFirstGeneration();
 
     let currentBest = "";
+    let finished = false;
 
     for (let i = 0; i <= this.generations; i++) {
       if (currentBest != this.displayBest()) {
-        let finished = false;
         postMessage([
           i,
           this.bestIndividual().fitness,
@@ -492,16 +492,21 @@ class GeneticAlgorithm {
         wordFitness(this.bestIndividual().genes) ==
         data["geneSize"] * data["length"]
       ) {
-        let finished = true;
+        //finished = true;
         postMessage([
           ++i,
           this.bestIndividual().fitness,
           this.displayBest(),
           finished
         ]);
+
+        postMessage(["Complete", "Completed", "Completed", finished]);
+
         return;
       }
     }
+
+    postMessage([this.generations, "Not Completed", "Not Completed", finished]);
   }
 
   bestIndividual() {
