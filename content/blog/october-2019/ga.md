@@ -9,7 +9,6 @@ tags = ["Genetic Algorithm", "Selection", "Cross Over", "Phrase Solver"]
 
 <link href="/blog/css/site.css" rel="stylesheet">
 
-
 {{% notice note %}}
 
 This post is a simple implementation of <strong>Genetic Algorithm GA.</strong> Here, you would start with a random string and end up with the target string.
@@ -17,7 +16,6 @@ This post is a simple implementation of <strong>Genetic Algorithm GA.</strong> H
 {{% /notice %}}
 
 This post is heavily inspired based on this [website](https://github.com/subprotocol/genetic-js). However, I created the codes with a very different methodology to also include newer JavaScript methods like using classes and etc.
-
 
 <div>
 <label for="crossOver">Cross Over Method</label> 
@@ -39,7 +37,6 @@ This post is heavily inspired based on this [website](https://github.com/subprot
 </select>
 </div>
 
-
 <div>
     <label for="targetString">Target String </label>    
     <input type="text" id="targetString" autocomplete="off" placeholder="" value="Any fool can write code that a computer can understand. Good programmers write code that humans can understand">
@@ -52,10 +49,11 @@ This post is heavily inspired based on this [website](https://github.com/subprot
 <br />
 
 <div class="table-wrapper-scroll-y my-custom-scrollbar">
-<table style="font-family: monospace;" class="result-table table table-bordered table-striped mb-0">
-    <tr><th>Generation</th><th>Fitness</th><th>String</th>
-    <tbody class="result"></tbody>
-</table>
+    <table style="font-family: monospace;" class="result-table table table-bordered table-striped mb-0">
+        <tr><th>Generation</th><th>Fitness</th><th>String</th>
+        <tbody class="result"></tbody>
+    </table>
+    </div>
 </div>
 
 <style>
@@ -77,7 +75,6 @@ const cm = document.getElementById("crossOverMethod");
 const sm = document.getElementById("selectionMethod");
 const button = document.getElementById("run");
 
-$(".progress-line").hide();
 $(".result-table").hide();
 
 

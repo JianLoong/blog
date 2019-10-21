@@ -1,1 +1,175 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>https://jianliew.me/blog/blog/october-2019/</loc><lastmod>2019-10-19T00:00:00+11:00</lastmod></url><url><loc>https://jianliew.me/blog/thepragmatic/rubberduck/</loc><lastmod>2019-10-14T00:00:00+11:00</lastmod></url><url><loc>https://jianliew.me/blog/blog/</loc></url><url><loc>https://jianliew.me/blog/teaching/ubuntu/ls/</loc></url><url><loc>https://jianliew.me/blog/blog/october-2019/percentage/</loc><lastmod>2019-10-09T20:56:02+11:00</lastmod></url><url><loc>https://jianliew.me/blog/thepragmatic/</loc><lastmod>2019-10-14T00:00:00+11:00</lastmod></url><url><loc>https://jianliew.me/blog/teaching/ubuntu/</loc></url><url><loc>https://jianliew.me/blog/teaching/uml/</loc></url><url><loc>https://jianliew.me/blog/teaching/uml/introduction/</loc></url><url><loc>https://jianliew.me/blog/blog/october-2019/programmming/</loc><lastmod>2019-10-12T20:56:02+11:00</lastmod></url><url><loc>https://jianliew.me/blog/blog/october-2019/hk/</loc><lastmod>2019-10-13T20:56:02+11:00</lastmod></url><url><loc>https://jianliew.me/blog/blog/october-2019/topstories/</loc><lastmod>2019-10-14T20:56:02+11:00</lastmod></url><url><loc>https://jianliew.me/blog/blog/october-2019/ga/</loc><lastmod>2019-10-19T00:00:00+11:00</lastmod></url><url><loc>https://jianliew.me/blog/teaching/</loc></url><url><loc>https://jianliew.me/blog/</loc><lastmod>2019-10-19T00:00:00+11:00</lastmod></url><url><loc>https://jianliew.me/blog/tags/cross-over/</loc><lastmod>2019-10-19T00:00:00+11:00</lastmod></url><url><loc>https://jianliew.me/blog/tags/genetic-algorithm/</loc><lastmod>2019-10-19T00:00:00+11:00</lastmod></url><url><loc>https://jianliew.me/blog/tags/phrase-solver/</loc><lastmod>2019-10-19T00:00:00+11:00</lastmod></url><url><loc>https://jianliew.me/blog/tags/selection/</loc><lastmod>2019-10-19T00:00:00+11:00</lastmod></url><url><loc>https://jianliew.me/blog/tags/</loc><lastmod>2019-10-19T00:00:00+11:00</lastmod></url><url><loc>https://jianliew.me/blog/tags/chart/</loc><lastmod>2019-10-14T20:56:02+11:00</lastmod></url><url><loc>https://jianliew.me/blog/tags/hacker-news/</loc><lastmod>2019-10-14T20:56:02+11:00</lastmod></url><url><loc>https://jianliew.me/blog/tags/visualisation/</loc><lastmod>2019-10-14T20:56:02+11:00</lastmod></url><url><loc>https://jianliew.me/blog/tags/debugging/</loc><lastmod>2019-10-14T00:00:00+11:00</lastmod></url><url><loc>https://jianliew.me/blog/tags/rubber-duck/</loc><lastmod>2019-10-14T00:00:00+11:00</lastmod></url><url><loc>https://jianliew.me/blog/tags/hong-kong/</loc><lastmod>2019-10-13T20:56:02+11:00</lastmod></url><url><loc>https://jianliew.me/blog/tags/percentage/</loc><lastmod>2019-10-13T20:56:02+11:00</lastmod></url><url><loc>https://jianliew.me/blog/tags/reddit/</loc><lastmod>2019-10-13T20:56:02+11:00</lastmod></url><url><loc>https://jianliew.me/blog/tags/bash/</loc></url><url><loc>https://jianliew.me/blog/tags/command-line/</loc></url><url><loc>https://jianliew.me/blog/cv/</loc></url><url><loc>https://jianliew.me/blog/disclaimer/</loc></url><url><loc>https://jianliew.me/blog/tags/shell/</loc></url><url><loc>https://jianliew.me/blog/tags/state-chart/</loc></url><url><loc>https://jianliew.me/blog/tags/state-machine/</loc></url><url><loc>https://jianliew.me/blog/timeline/</loc></url><url><loc>https://jianliew.me/blog/tags/uml/</loc></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://jianliew.me/blog/blog/october-2019/</loc>
+    <lastmod>2019-10-19T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/thepragmatic/rubberduck/</loc>
+    <lastmod>2019-10-14T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/blog/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/teaching/ubuntu/ls/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/blog/october-2019/percentage/</loc>
+    <lastmod>2019-10-09T20:56:02+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/thepragmatic/</loc>
+    <lastmod>2019-10-14T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/teaching/ubuntu/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/teaching/uml/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/teaching/uml/introduction/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/blog/october-2019/programmming/</loc>
+    <lastmod>2019-10-12T20:56:02+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/blog/october-2019/hk/</loc>
+    <lastmod>2019-10-13T20:56:02+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/blog/october-2019/topstories/</loc>
+    <lastmod>2019-10-14T20:56:02+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/blog/october-2019/ga/</loc>
+    <lastmod>2019-10-19T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/teaching/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/</loc>
+    <lastmod>2019-10-19T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/cross-over/</loc>
+    <lastmod>2019-10-19T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/genetic-algorithm/</loc>
+    <lastmod>2019-10-19T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/phrase-solver/</loc>
+    <lastmod>2019-10-19T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/selection/</loc>
+    <lastmod>2019-10-19T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/</loc>
+    <lastmod>2019-10-19T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/chart/</loc>
+    <lastmod>2019-10-14T20:56:02+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/hacker-news/</loc>
+    <lastmod>2019-10-14T20:56:02+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/visualisation/</loc>
+    <lastmod>2019-10-14T20:56:02+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/debugging/</loc>
+    <lastmod>2019-10-14T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/rubber-duck/</loc>
+    <lastmod>2019-10-14T00:00:00+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/hong-kong/</loc>
+    <lastmod>2019-10-13T20:56:02+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/percentage/</loc>
+    <lastmod>2019-10-13T20:56:02+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/reddit/</loc>
+    <lastmod>2019-10-13T20:56:02+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/bash/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/command-line/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/cv/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/disclaimer/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/shell/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/state-chart/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/state-machine/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/timeline/</loc>
+  </url>
+  
+  <url>
+    <loc>https://jianliew.me/blog/tags/uml/</loc>
+  </url>
+  
+</urlset>

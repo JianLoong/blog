@@ -26,27 +26,12 @@ This article is written based on my teaching experiencing in Monash University A
 
 Often times, one of the most **misunderstood** diagram in UML is the **state machine**. These are also called state charts at times, as we often use terms interchangeably. The semantical difference between two of these diagrams are miniscule at best.
 
-<!-- https://stackoverflow.com/questions/8193675/draw-a-hollow-circle-in-svg -->
-<style>
-    .cssClass > circle {
-        fill:black !important;
-        stroke:gray !important;
-        stroke-width:3 !important;
-     }    
-</style>
-
 {{<mermaid align="center">}}
 
-graph LR
-S(( ))
-A(Open)
-B(Close)
-E(( ))
-S-->A
-A-->B
-B-->E
-style S fill:#000000
-class E cssClass
+stateDiagram
+    [*] --> Open
+    Open --> Closed
+    Closed --> [*]
 
 {{< /mermaid >}}
 
@@ -121,17 +106,11 @@ So, lets say the possible states of a Unit are
 
 {{<mermaid align="center">}}
 
-    graph LR
-    S(( ))
-    A(Offered)
-    B(Not Offered)
-    E(( ))
-    S-->A
-    A-->B
-    B-->E
-    style S fill:#000000
-    class E cssClass
-
+stateDiagram
+    [*] --> Offered
+    Offered --> NotOffered
+    NotOffered --> [*]
+  
 {{< /mermaid >}}
 
 However, if you continue the thought process, there are probably more states which can only be derived by understanding the requirements further.
@@ -156,17 +135,11 @@ It is very important to understand that over time, the state of a class changes.
 
 {{<mermaid align="center">}}
 
-    graph LR
-    S(( ))
-    A(Offered)
-    B(Not Offered)
-    E(( ))
-    S-->A
-    A-->B
-    B-->E
-    style S fill:#000000
-    class E cssClass
-
+stateDiagram
+    [*] --> Offered
+    Offered --> NotOffered
+    NotOffered --> [*]
+  
 {{< /mermaid >}}
 
 So, if we take a look at our current state chart, what we would like to know is, how does it shift from one state into another state.
