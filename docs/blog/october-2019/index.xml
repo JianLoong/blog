@@ -6,7 +6,7 @@
     <description>Recent content in October 2019 on Jian Liew</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Oct 2019 00:00:00 +1100</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2019 00:00:00 +1100</lastBuildDate>
     
 	<atom:link href="https://jianliew.me/blog/blog/october-2019/index.xml" rel="self" type="application/rss+xml" />
     
@@ -61,6 +61,16 @@ Please note that the posts here are generated based on the Reddit website by doi
       <description>This post is a simple implementation of Genetic Algorithm GA. Here, you would start with a random string and end up with the target string.
  This post is heavily inspired based on this website. However, I created the codes with a very different methodology to also include newer JavaScript methods like using classes and etc.
  Cross Over Method One Point Two Point Uniform PMX    Selection Method Tournament Random Rank Roulette Wheel    Target String   Run</description>
+    </item>
+    
+    <item>
+      <title>TSP using GA</title>
+      <link>https://jianliew.me/blog/blog/october-2019/tsp/</link>
+      <pubDate>Wed, 23 Oct 2019 00:00:00 +1100</pubDate>
+      
+      <guid>https://jianliew.me/blog/blog/october-2019/tsp/</guid>
+      <description>This blog post is under construction.
+  Travelling Salesman Problem using Genetic Algorithm This blog post is regarding using genetic algorithm to solve the Travelling Salesman Problem. In a one liner the TSP asks the following question: Given a list of cities and the distances between each pair of the cities, what is the shortest possible route that visits each city and returns to the origin city?</description>
     </item>
     
   </channel>

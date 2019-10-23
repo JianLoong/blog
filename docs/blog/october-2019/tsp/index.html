@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/blog/images/favicon.ico" type="image/ico">
 
-    <title>Teaching :: Jian Liew</title>
+    <title>TSP using GA :: Jian Liew</title>
     
 <script type="application/javascript">
 var doNotTrack = false;
@@ -48,7 +48,7 @@ if (!doNotTrack) {
     </style>
     
   </head>
-  <body class="" data-url="/blog/teaching/">
+  <body class="" data-url="/blog/blog/october-2019/tsp/">
     <nav id="sidebar" class="">
 
 
@@ -91,7 +91,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/blog/" title="Blog" class="dd-item 
-        
+        parent
         
         
         ">
@@ -118,7 +118,7 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/blog/october-2019/" title="October 2019" class="dd-item 
-        
+        parent
         
         
         ">
@@ -237,7 +237,7 @@ if (!doNotTrack) {
  
   
     
-      <li data-nav-id="/blog/blog/october-2019/tsp/" title="TSP using GA" class="dd-item ">
+      <li data-nav-id="/blog/blog/october-2019/tsp/" title="TSP using GA" class="dd-item active">
         <a href="/blog/blog/october-2019/tsp/">
         <b>23th. </b>TSP using GA
         
@@ -324,8 +324,8 @@ if (!doNotTrack) {
   
     
     <li data-nav-id="/blog/teaching/" title="Teaching" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/blog/teaching/">
@@ -525,6 +525,8 @@ if (!doNotTrack) {
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -535,7 +537,19 @@ if (!doNotTrack) {
             
           
           
-            <a href='/blog/'>Contents</a> > Teaching
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/blog/'>Contents</a> > <a href='/blog/blog/'>Blog</a> > <a href='/blog/blog/october-2019/'>October 2019</a> > TSP using GA
+          
+        
+          
+        
           
         
           
@@ -544,16 +558,50 @@ if (!doNotTrack) {
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#travelling-salesman-problem-using-genetic-algorithm">Travelling Salesman Problem using Genetic Algorithm</a></li>
+<li><a href="#the-distance-matrix">The Distance Matrix</a></li>
+<li><a href="#the-genetic-algorithm-solution">The Genetic Algorithm Solution</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
               </div>
             </div>
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/blog/tags/genetic-algorithm">Genetic Algorithm</a>
+
+  <a class="tag-link" href="/blog/tags/selection">Selection</a>
+
+  <a class="tag-link" href="/blog/tags/cross-over">Cross Over</a>
+
+  <a class="tag-link" href="/blog/tags/tsp">TSP</a>
+
+</div>
+
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              TSP using GA
+            </h1>
           
 
         
@@ -561,25 +609,652 @@ if (!doNotTrack) {
 
 
 
-	
 
-<h3 id="teaching">Teaching</h3>
+
+
+
+
+  <p>Posted on: <strong> Wednesday, October 23, 2019</strong></p>
+
+<p>Reading time: <strong>4 minutes and
+    59 seconds.</strong></p>
+<hr />
+
+
+
+
+<p><link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartist-plugin-pointlabels@0.0.6/dist/chartist-plugin-pointlabels.min.js"></script></p>
 
 
 <div class="notices warning" ><p>This blog post is under construction.</p>
 </div>
 
 
+<div id="cities" class="ct-perfect-fourth"></div>
+
+<h3 id="travelling-salesman-problem-using-genetic-algorithm">Travelling Salesman Problem using Genetic Algorithm</h3>
+
+<p>This blog post is regarding using genetic algorithm to solve the Travelling Salesman Problem. In a one liner the TSP asks the following question: <strong><em>Given a list of cities and the distances between each pair of the cities, what is the shortest possible route that visits each city and returns to the origin city?&rdquo;</em></strong></p>
+
+<p>The conditions in this scenario are that <strong>no point can be visited twice and it must return to the starting point.</strong> The selected starting point here is New York. (The starting point does not really matter in this scenario.). There are times however, that a point maybe the revisited more than once in order to achieve a better solution. The number of cities in this scenario is 13.</p>
+
+<p>The inspiration for this post is based on the google OR-Tools found <a href="https://developers.google.com/optimization/routing/tsp">here</a>. This blog post, however uses Genetic Algorithm to obtain the answer. It is implemented with a <strong>web worker</strong> which runs in the browser based on <strong>JavaScript</strong>.</p>
+
+<p>I will also reuse the genetic algorithm implementation written for another blog post however with different fitness functions and different cross-over methodologies.</p>
+
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Coordinates</th>
+<th>Shorthand</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>New York</td>
+<td>40, -74</td>
+<td>A</td>
+</tr>
+
+<tr>
+<td>Los Angeles</td>
+<td>34, -118</td>
+<td>B</td>
+</tr>
+
+<tr>
+<td>Chicago</td>
+<td>41, -87</td>
+<td>C</td>
+</tr>
+
+<tr>
+<td>Minneapolis</td>
+<td>44, -93</td>
+<td>D</td>
+</tr>
+
+<tr>
+<td>Denver</td>
+<td>39, -104</td>
+<td>E</td>
+</tr>
+
+<tr>
+<td>Dallas</td>
+<td>32,-96</td>
+<td>F</td>
+</tr>
+
+<tr>
+<td>Seattle</td>
+<td>47,-122</td>
+<td>G</td>
+</tr>
+
+<tr>
+<td>Boston</td>
+<td>42,-71</td>
+<td>H</td>
+</tr>
+
+<tr>
+<td>San Francisco</td>
+<td>37,-122</td>
+<td>I</td>
+</tr>
+
+<tr>
+<td>St. Louis</td>
+<td>38,-90</td>
+<td>J</td>
+</tr>
+
+<tr>
+<td>Houston</td>
+<td>29,-95</td>
+<td>K</td>
+</tr>
+
+<tr>
+<td>Phoenix</td>
+<td>33,-111</td>
+<td>L</td>
+</tr>
+
+<tr>
+<td>Salt Lake City</td>
+<td>40,-111</td>
+<td>M</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Total number of cities - 13.</strong></p>
+
+<p>In order to the Genetic Algorithm to work, the a distance matrix needs to be given to it. This distance matrix is based on the &ldquo;Euclidean Distance&rdquo; and not Road Network distance. The distance matrix is obtained from <a href="https://developers.google.com/optimization/routing/tsp">here</a> which has 13 cities in the United States.</p>
+
+<h3 id="the-distance-matrix">The Distance Matrix</h3>
+
+<p>The distance matrix here is obtained by calculating the distance between each point.</p>
+
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>E</th>
+<th>F</th>
+<th>G</th>
+<th>H</th>
+<th>I</th>
+<th>J</th>
+<th>K</th>
+<th>L</th>
+<th>M</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>A</td>
+<td>0</td>
+<td>2451</td>
+<td>713</td>
+<td>1018</td>
+<td>1631</td>
+<td>1374</td>
+<td>2408</td>
+<td>213</td>
+<td>2571</td>
+<td>875</td>
+<td>1420</td>
+<td>2145</td>
+<td>1972</td>
+</tr>
+
+<tr>
+<td>B</td>
+<td>2451</td>
+<td>0</td>
+<td>1745</td>
+<td>1524</td>
+<td>831</td>
+<td>1240</td>
+<td>959</td>
+<td>2596</td>
+<td>403</td>
+<td>1589</td>
+<td>1374</td>
+<td>357</td>
+<td>579</td>
+</tr>
+
+<tr>
+<td>C</td>
+<td>713</td>
+<td>1745</td>
+<td>0</td>
+<td>355</td>
+<td>920</td>
+<td>803</td>
+<td>1737</td>
+<td>851</td>
+<td>1858</td>
+<td>262</td>
+<td>940</td>
+<td>1453</td>
+<td>1260</td>
+</tr>
+
+<tr>
+<td>D</td>
+<td>1018</td>
+<td>1524</td>
+<td>355</td>
+<td>0</td>
+<td>700</td>
+<td>862</td>
+<td>1395</td>
+<td>1123</td>
+<td>1584</td>
+<td>466</td>
+<td>1056</td>
+<td>1280</td>
+<td>987</td>
+</tr>
+
+<tr>
+<td>E</td>
+<td>1631</td>
+<td>831</td>
+<td>920</td>
+<td>700</td>
+<td>0</td>
+<td>663</td>
+<td>1021</td>
+<td>1769</td>
+<td>949</td>
+<td>796</td>
+<td>879</td>
+<td>586</td>
+<td>371</td>
+</tr>
+
+<tr>
+<td>F</td>
+<td>1374</td>
+<td>1240</td>
+<td>803</td>
+<td>862</td>
+<td>663</td>
+<td>0</td>
+<td>1681</td>
+<td>1551</td>
+<td>1765</td>
+<td>547</td>
+<td>225</td>
+<td>887</td>
+<td>999</td>
+</tr>
+
+<tr>
+<td>G</td>
+<td>2408</td>
+<td>959</td>
+<td>1737</td>
+<td>1395</td>
+<td>1021</td>
+<td>1681</td>
+<td>0</td>
+<td>2493</td>
+<td>678</td>
+<td>1724</td>
+<td>1891</td>
+<td>1114</td>
+<td>701</td>
+</tr>
+
+<tr>
+<td>H</td>
+<td>213</td>
+<td>2596</td>
+<td>851</td>
+<td>1123</td>
+<td>1769</td>
+<td>1551</td>
+<td>2493</td>
+<td>0</td>
+<td>2699</td>
+<td>1038</td>
+<td>1605</td>
+<td>2300</td>
+<td>2099</td>
+</tr>
+
+<tr>
+<td>I</td>
+<td>2571</td>
+<td>403</td>
+<td>1858</td>
+<td>1584</td>
+<td>949</td>
+<td>1765</td>
+<td>678</td>
+<td>2699</td>
+<td>0</td>
+<td>1744</td>
+<td>1645</td>
+<td>653</td>
+<td>600</td>
+</tr>
+
+<tr>
+<td>J</td>
+<td>875</td>
+<td>1589</td>
+<td>262</td>
+<td>466</td>
+<td>796</td>
+<td>547</td>
+<td>1724</td>
+<td>1038</td>
+<td>1744</td>
+<td>0</td>
+<td>679</td>
+<td>1272</td>
+<td>1162</td>
+</tr>
+
+<tr>
+<td>K</td>
+<td>1420</td>
+<td>1374</td>
+<td>940</td>
+<td>1056</td>
+<td>879</td>
+<td>225</td>
+<td>1891</td>
+<td>1605</td>
+<td>1645</td>
+<td>679</td>
+<td>0</td>
+<td>1017</td>
+<td>1200</td>
+</tr>
+
+<tr>
+<td>L</td>
+<td>2145</td>
+<td>357</td>
+<td>1453</td>
+<td>1280</td>
+<td>586</td>
+<td>887</td>
+<td>1114</td>
+<td>2300</td>
+<td>653</td>
+<td>1272</td>
+<td>1017</td>
+<td>0</td>
+<td>504</td>
+</tr>
+
+<tr>
+<td>M</td>
+<td>1972</td>
+<td>579</td>
+<td>1260</td>
+<td>987</td>
+<td>371</td>
+<td>999</td>
+<td>701</td>
+<td>2099</td>
+<td>600</td>
+<td>1162</td>
+<td>1200</td>
+<td>504</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="the-genetic-algorithm-solution">The Genetic Algorithm Solution</h3>
+
+<div class="row">
+  <div class="columnOne">
+    <div>
+      <label for="crossOver">Cross Over Method</label> 
+        <select id="crossOverMethod"  class="select-css">
+        <option value="onePoint">One Point</option>
+        <option value="ordered">Ordered</option>
+        <option value="pmx">PMX</option>
+        </select>
+    </div>
+    <div>
+      <label for="selection">Selection Method</label> 
+      <select id="selectionMethod"  class="select-css">
+        <option value="tournament">Tournament</option>
+        <option value="random">Random</option>
+        <option value="rank">Rank</option>
+        <option value="rouletteWheel">Roulette Wheel</option>
+      </select>
+    </div>
+    <button type="button" id="run" class="hvr-sweep-to-right">Run</button>
+  </div>  
+  <div>
+    <div class="columnTwo">
+    <h3 style="text-align:center" id="chart-title"></h3>
+      <div class="ct-chart ct-perfect-fourth"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+var defaultOptions = {
+  currency: undefined, //accepts '£', '$', '€', etc.
+  //e.g. 4000 => €4,000
+  tooltipFnc: undefined, //accepts function
+  //build custom tooltip
+  transformTooltipTextFnc: undefined, // accepts function
+  // transform tooltip text
+  class: undefined, // accecpts 'class1', 'class1 class2', etc.
+  //adds class(es) to tooltip wrapper
+  anchorToPoint: false, //accepts true or false
+  //tooltips do not follow mouse movement -- they are anchored to the point / bar.
+  appendToBody: false //accepts true or false
+  //appends tooltips to body instead of chart container
+};
+
+let RAD2DEG = 180 / Math.PI;
+let PI_4 = Math.PI / 4;
+
+/* The following functions take or return their results in degrees */
+
+function y2lat(y) { return (Math.atan(Math.exp(y / RAD2DEG)) / PI_4 - 1) * 90; }
+function x2lon(x) { return x; }
+
+function lat2y(lat) { return lat }
+function lon2y(lon) { return lon; }
+
+// [0,7,2,3,4,12,6,1,11,10,5,9,0] 
+
+new Chartist.Line(".ct-chart",[], {
+showLine: true,
+axisX: {
+  type: Chartist.AutoScaleAxis,
+  onlyInteger: true
+}
+});
+
+const mapLocation = (x, y) => {
+  return {
+    x: y,
+    y: x
+  };
+};
+
+const locationA = mapLocation(lat2y(40), lon2y(-74) );
+const locationB = mapLocation(lat2y(34), lon2y(-118 ));
+const locationC = mapLocation(lat2y(41), lon2y(-87) );
+const locationD = mapLocation(lat2y(44), lon2y(-93) );
+const locationE = mapLocation(lat2y(39), lon2y(-104 ));
+const locationF = mapLocation(lat2y(32), lon2y(-96) );
+const locationG = mapLocation(lat2y(47), lon2y(-122.33 ));
+const locationH = mapLocation(lat2y(42), lon2y(-71) );
+const locationI = mapLocation(lat2y(37), lon2y(-122.41 ));
+const locationJ = mapLocation(lat2y(38), lon2y(-90) );
+const locationK = mapLocation(lat2y(29), lon2y(-95) );
+const locationL = mapLocation(lat2y(33), lon2y(-111.07 ));
+const locationM = mapLocation(lat2y(40), lon2y(-111.89 ));
+
+const buildSeries = result => {
+  let arrayResult = [];
+  let array = result.split("");
+
+  //arrayResult.push([locationA, determineLocation(array[1])]);
+
+  for (let index = 1; index < array.length; index++) {
+    const element = array[index];
+    let inner = [];
+    inner.push(determineLocation(array[index]));
+    inner.push(determineLocation(array[index - 1]));
+    inner.sort((a, b) => a.x - b.x);
+    arrayResult.push(inner);
+  }
+
+  return arrayResult;
+};
+
+const determineLocation = character => {
+  let location = undefined;
+
+  switch (character) {
+    case "A":
+      return locationA;
+    case "B":
+      return locationB;
+    case "C":
+      return locationC;
+    case "D":
+      return locationD;
+    case "E":
+      return locationE;
+    case "F":
+      return locationF;
+    case "G":
+      return locationG;
+    case "H":
+      return locationH;
+    case "I":
+      return locationI;
+    case "J":
+      return locationJ;
+    case "K":
+      return locationK;
+    case "L":
+      return locationL;
+    case "M":
+      return locationM;
+  }
+};
 
 
+const button = document.getElementById("run");
+const cm = document.getElementById("crossOverMethod");
+const sm = document.getElementById("selectionMethod");
+const title = document.getElementById("chart-title");
+
+
+const answerBuilder = {
+  labels: [],
+  series: buildSeries("AHCDEMGIBLKFJA")
+};
+
+// new Chartist.Line("#cities",  
+//   answerBuilder, {
+//     showLine: true,
+//     axisX: {
+//       type: Chartist.AutoScaleAxis,
+//       onlyInteger: true
+//     }
+//   });
+
+var defaultOptions = {
+  labelClass: 'ct-label',
+  labelOffset: {
+    x: 0,
+    y: -10
+  },
+  textAnchor: 'middle',
+  labelInterpolationFnc: Chartist.noop
+};
+
+var chart = new Chartist.Line(
+  "#cities",
+  answerBuilder,
+  {
+    showLine: true,
+    axisX: {
+      type: Chartist.AutoScaleAxis,
+      onlyInteger: true
+    },
+    plugins: [
+      Chartist.plugins.ctPointLabels({
+        textAnchor: "middle",
+        
+      })
+    ]
+  }
+);
+
+if (window.Worker) {
+  const tspWorker = new Worker("/blog/scripts/tsp-worker.js");
+
+  tspWorker.onmessage = function(e) {
+    let result = "A" + e.data[0] + "A";
+    //console.log(e.data[1]);
+    console.log(result);
+
+    const seriesBuilder = {
+      labels: [],
+      series: buildSeries(result)
+    };
+
+    title.innerHTML = "Total Distance = " + e.data[1];
+
+    new Chartist.Line(
+      ".ct-chart",
+      seriesBuilder,
+      {
+        showLine: true,
+        axisX: {
+          type: Chartist.AutoScaleAxis,
+          onlyInteger: true
+        },
+        plugins: [
+          Chartist.plugins.ctPointLabels({
+            textAnchor: "middle",
+            
+          })
+        ]
+      }
+    );
+  };
+
+  button.onclick = function() {
+    let crossOverMethod = cm.options[cm.selectedIndex].value;
+    let selectionMethod = sm.options[sm.selectedIndex].value;
+    tspWorker.postMessage([crossOverMethod, selectionMethod]);
+  };
+}
+
+</script>
+
+<style>
+
+@media only screen and (min-width: 1000px)  {
+  .row {
+    display: flex !important;
+  }
+  .column {
+    flex: 50% !important;
+  }
+
+  .columnOne {
+    flex: 30% !important;
+  }
+
+  .columnTwo {
+    flex: 70% !important;
+  }
+
+  .ct-chart{
+    width: 50rem;
+  }
+
+  #cities{
+    display:block;
+    margin: auto;
+    width: 40rem;
+  }
+}
+</style>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-        
-            </div> 
+
         
         </div>
         
@@ -611,8 +1286,6 @@ if (!doNotTrack) {
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -629,6 +1302,7 @@ if (!doNotTrack) {
             
                 
                     
+                    
                 
                 
 
@@ -641,6 +1315,9 @@ if (!doNotTrack) {
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -722,40 +1399,6 @@ if (!doNotTrack) {
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -771,11 +1414,48 @@ if (!doNotTrack) {
             
         
                     
+            
+        
+                    
                         
             
             
                 
                     
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -791,9 +1471,6 @@ if (!doNotTrack) {
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -866,10 +1543,10 @@ if (!doNotTrack) {
 	 
 	 
 		
-			<a class="nav nav-prev" href="/blog/thepragmatic/rubberduck/" title="Rubber Duck"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/blog/blog/october-2019/ga/" title="Genetic Algorithm"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/blog/teaching/ubuntu/" title="Ubuntu" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/blog/thepragmatic/" title="Pragmatic Programmer" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -904,3 +1581,4 @@ if (!doNotTrack) {
 
   </body>
 </html>
+
