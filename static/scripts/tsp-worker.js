@@ -17,15 +17,12 @@ const crossOverMethodology = Object.freeze({
   },
 
   TWO_POINT: (parentOne, parentTwo) => {
-    let arr = [];
-    // for (let i = 0; i < parentOne.genes.length; ++i) arr.push(i);
+    let r1 = getRandomInt(parentOne.genes.length);
+    let r2 = getRandomInt(parentOne.genes.length);
 
-    // const shuffled = arr.sort(() => 0.5 - Math.random());
-    // let i0 = shuffled[0];
-    // let i1 = shuffled[1];
-    // let twoRandom = [i0, i1].sort();
-    let startPos = getRandomInt(parentOne.genes.length);
-    let endPos = getRandomInt(parentOne.genes.length);
+    let arr = [r1, r2].sort();
+    let startPos = arr[0];
+    let endPos = arr[1];
 
     let c1 = parentOne.copy();
     let c2 = parentTwo.copy();
@@ -234,7 +231,7 @@ class GeneticAlgorithm {
     data,
     mapping,
     populationSize = 50,
-    generations = 1000,
+    generations = 2000,
     crossOverProbability = 0.8,
     mutationProbability = 0.2,
     elitism = true,
@@ -379,7 +376,6 @@ class GeneticAlgorithm {
     while (initialPopulation.length != this.populationSize) {
       let genes = this.createIndividual(this.seedData);
       let individual = new Chromosome(genes);
-      //individual.fitness = this.fitnessFunction(individual.genes, this.seedData);
       initialPopulation.push(individual);
     }
 
@@ -431,11 +427,9 @@ class GeneticAlgorithm {
       }
 
       let fitness = tspFitness(childOne.genes);
-      //if (fitness != "INVALID")
       newPopulation.push(childOne);
       if (newPopulation.length < this.populationSize) {
         fitness = tspFitness(childOne.genes);
-        //if (fitness != "INVALID")
         newPopulation.push(childTwo);
       }
     }
@@ -472,7 +466,7 @@ class GeneticAlgorithm {
 
   run() {
     this.createFirstGeneration();
-    for (let i = 0; i <= this.generations; i++) {
+    for (let i = 0; i <= 100; i++) {
       this.createNextGeneration();
     }
   }
@@ -495,16 +489,15 @@ const mapping = {
   J: 9,
   K: 10,
   L: 11,
-  M: 12
+  M: 12,
+  N: 13
 };
 
-let start = "BCDEFGHIJKLM";
+let start = "BCDEFGIJKLMN";
 
 const target = generateTarget(start.toLocaleUpperCase(), mapping);
 
 data = data(mapping, target);
-
-const ga = new GeneticAlgorithm(data);
 
 const distanceMatrix = [
   [0, 2451, 713, 1018, 1631, 1374, 2408, 213, 2571, 875, 1420, 2145, 1972],
@@ -537,33 +530,44 @@ let tspFitness = individual => {
   const result = new Set(individual).size;
   let current = 0;
 
-  if (result == 12) {
-    for (let index = 1; index < individual.length; index++) {
-      const element = individual[index];
-      current = 1 * distanceMatrix[individual[index - 1]][individual[index]];
-      fitness += current;
-    }
-
-    fitness += distanceMatrix[0][individual[1]];
-    fitness += distanceMatrix[0][individual[11]];
-    return fitness;
+  for (let index = 1; index < individual.length; index++) {
+    const element = individual[index];
+    current = 1 * distanceMatrix[individual[index - 1]][individual[index]];
+    fitness += current;
   }
-  return "INVALID";
+
+  fitness += distanceMatrix[0][individual[1]];
+  fitness += distanceMatrix[0][individual[11]];
+  return fitness;
 };
 
-ga.setMapping(mapping);
-ga.setData(data);
-ga.setFitnessFunction(tspFitness);
-ga.setCrossOverMethodology("ordered");
-ga.setSelectionFunction("tournament");
+onmessage = function(e) {
+  const ga = new GeneticAlgorithm(data);
 
-ga.setMutationOperator(mutationOperator.TWO_SWAP_MUTATION);
-ga.run();
 
-console.log(ga.bestIndividual());
+  this.console.log(e.data[0]);
 
-let best = ga.displayBest();
+  let crossOverMethod = e.data[0];
+  let selectionMethod = e.data[1];
 
-console.log(best);
+  
+  ga.setMapping(mapping);
+  ga.setData(data);
+  ga.setFitnessFunction(tspFitness);
+  ga.setCrossOverMethodology(crossOverMethod);
+  ga.setSelectionFunction(selectionMethod);
 
-//console.log(ga.currentGeneration);
+  ga.setMutationOperator(mutationOperator.TWO_SWAP_MUTATION);
+  ga.run();
+
+  let best = ga.displayBest();
+
+  let c = ga.bestIndividual();
+
+  this.console.log(best);
+
+  this.postMessage(best);
+
+  return best;
+};
+
