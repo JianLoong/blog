@@ -10,13 +10,7 @@ tags = ["Genetic Algorithm", "Selection", "Cross Over", "TSP"]
 <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
 <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartist-plugin-pointlabels@0.0.6/dist/chartist-plugin-pointlabels.min.js"></script>
-
-
-{{% notice warning %}}
-
-This blog post is under construction.
-
-{{% /notice %}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartist-plugin-legend/0.6.2/chartist-plugin-legend.min.js"></script>
 
 <div id="cities" class="ct-perfect-fourth"></div>
 
@@ -24,7 +18,7 @@ This blog post is under construction.
 
 This blog post is regarding using genetic algorithm to solve the Travelling Salesman Problem. In a one liner the TSP asks the following question: **_Given a list of cities and the distances between each pair of the cities, what is the shortest possible route that visits each city and returns to the origin city?"_**
 
-The conditions in this scenario are that **no point can be visited twice and it must return to the starting point.** The selected starting point here is New York. (The starting point does not really matter in this scenario.). There are times however, that a point maybe the revisited more than once in order to achieve a better solution. The number of cities in this scenario is 13.
+The conditions in this scenario are that **no point can be visited twice and it must return to the starting point.** The selected starting point here is New York. (The starting point does not really matter in this scenario.). There are times however, that a point maybe the revisited more than once in order to achieve a better solution. The number of cities in this scenario is 13. In this specific implementation, it will never visit the same city twice.
 
 The inspiration for this post is based on the google OR-Tools found [here](https://developers.google.com/optimization/routing/tsp). This blog post, however uses Genetic Algorithm to obtain the answer. It is implemented with a **web worker** which runs in the browser based on **JavaScript**.
 
@@ -48,9 +42,9 @@ I will also reuse the genetic algorithm implementation written for another blog 
 
 **Total number of cities - 13.**
 
-In order to the Genetic Algorithm to work, the a distance matrix needs to be given to it. This distance matrix is based on the "Euclidean Distance" and not Road Network distance. The distance matrix is obtained from [here](https://developers.google.com/optimization/routing/tsp) which has 13 cities in the United States.
+In order to the Genetic Algorithm to work, a distance matrix needs to be given to it. This distance matrix is based on the "Euclidean Distance" and not Road Network distance. The distance matrix is obtained from [here](https://developers.google.com/optimization/routing/tsp) which has 13 cities in the United States.
 
-### The Distance Matrix
+<!-- ### The Distance Matrix
 
 The distance matrix here is obtained by calculating the distance between each point.
 
@@ -68,7 +62,7 @@ The distance matrix here is obtained by calculating the distance between each po
 | J        | 875  | 1589 | 262  | 466  | 796  | 547  | 1724 | 1038 | 1744 | 0    | 679  | 1272 | 1162 |
 | K        | 1420 | 1374 | 940  | 1056 | 879  | 225  | 1891 | 1605 | 1645 | 679  | 0    | 1017 | 1200 |
 | L        | 2145 | 357  | 1453 | 1280 | 586  | 887  | 1114 | 2300 | 653  | 1272 | 1017 | 0    | 504  |
-| M        | 1972 | 579  | 1260 | 987  | 371  | 999  | 701  | 2099 | 600  | 1162 | 1200 | 504  | 0    |
+| M        | 1972 | 579  | 1260 | 987  | 371  | 999  | 701  | 2099 | 600  | 1162 | 1200 | 504  | 0    | -->
 
 ### The Genetic Algorithm Solution
 
@@ -77,7 +71,6 @@ The distance matrix here is obtained by calculating the distance between each po
     <div>
       <label for="crossOver">Cross Over Method</label> 
         <select id="crossOverMethod"  class="select-css">
-        <option value="onePoint">One Point</option>
         <option value="ordered">Ordered</option>
         <option value="pmx">PMX</option>
         </select>
@@ -91,7 +84,11 @@ The distance matrix here is obtained by calculating the distance between each po
         <option value="rouletteWheel">Roulette Wheel</option>
       </select>
     </div>
+    <strong>Please click run to see the results based on different cross over and selection methods.</strong>
+    <p></p>
     <button type="button" id="run" class="hvr-sweep-to-right">Run</button>
+    <p>It can be observed that the selection method random tends to not give a good result as it would defeat the purpose of the GA algorithm. The current mutation rate of the GA is set to 0.2 for this purpose.<p>
+    <p>Due to the nature of GA, each run under the given settings will give a different solution as I have defaulted the number of generations to 500. This includes running with the same cross over methodology and selection methodology.</p>
   </div>  
   <div>
     <div class="columnTwo">
@@ -101,6 +98,20 @@ The distance matrix here is obtained by calculating the distance between each po
   </div>
 </div>
 
+<div class="row">
+  <div class="columnOne">
+    <div>
+      <p>The fitness in general would depend on the cross over methodology. For example, if the roulette wheel methodology is used, it can be observed that the average fitness tends to spike more.<p>
+    </div>
+  </div>
+  <div>
+  <div class="columnTwo">
+    <h5 style="text-align:center" id="summary-chart"></h5>
+    <div id="" class="summary-chart ct-perfect-fourth">
+    </div>
+  </div>
+  </div>
+</div>
 
 <script>
 
@@ -133,6 +144,14 @@ function lon2y(lon) { return lon; }
 // [0,7,2,3,4,12,6,1,11,10,5,9,0] 
 
 new Chartist.Line(".ct-chart",[], {
+showLine: true,
+axisX: {
+  type: Chartist.AutoScaleAxis,
+  onlyInteger: true
+}
+});
+
+new Chartist.Line(".summary-chart",[], {
 showLine: true,
 axisX: {
   type: Chartist.AutoScaleAxis,
@@ -217,6 +236,7 @@ const button = document.getElementById("run");
 const cm = document.getElementById("crossOverMethod");
 const sm = document.getElementById("selectionMethod");
 const title = document.getElementById("chart-title");
+const summary = document.getElementById("summary-chart");
 
 
 const answerBuilder = {
@@ -267,7 +287,7 @@ if (window.Worker) {
   tspWorker.onmessage = function(e) {
     let result = "A" + e.data[0] + "A";
     //console.log(e.data[1]);
-    console.log(result);
+    //console.log(e);
 
     const seriesBuilder = {
       labels: [],
@@ -275,6 +295,9 @@ if (window.Worker) {
     };
 
     title.innerHTML = "Total Distance = " + e.data[1];
+    summary.innerHTML = "Average fitness (Blue)/ Best fitness(Red) over Generation";
+
+    //console.log(e.data[2]);
 
     new Chartist.Line(
       ".ct-chart",
@@ -289,6 +312,32 @@ if (window.Worker) {
           Chartist.plugins.ctPointLabels({
             textAnchor: "middle",
             
+          })
+        ]
+      }
+    );
+
+    const seriesSummary = {
+      labels: e.data[2][0],
+      series: [e.data[2][1], e.data[2][2]]
+    };
+
+
+    new Chartist.Line(
+      ".summary-chart",
+      seriesSummary,
+      {
+        showLine: true,
+        fullWidth: false,
+        chartPadding: {
+          right: 40
+        },
+        axisX: {
+           
+        },
+        plugins: [
+          Chartist.plugins.ctPointLabels({
+            textAnchor: "middle",
           })
         ]
       }
@@ -322,8 +371,8 @@ if (window.Worker) {
     flex: 70% !important;
   }
 
-  .ct-chart{
-    width: 50rem;
+  .ct-chart, .summary-chart{
+    width: 30rem;
   }
 
   #cities{
@@ -331,5 +380,20 @@ if (window.Worker) {
     margin: auto;
     width: 40rem;
   }
+
+
 }
+
+.ct-series-a .ct-line, .ct-point {
+  /* Set the colour of this series line */
+  stroke: blue;
+  /* Control the thikness of your lines */
+  stroke-width: 3px;
+  /* Create a dashed line with a pattern */
+}
+
+  #run{
+    background-color: blue !important;
+  }
+
 </style>

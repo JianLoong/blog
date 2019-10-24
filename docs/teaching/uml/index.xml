@@ -1,27 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>UML on Jian Liew</title>
-    <link>https://jianliew.me/blog/teaching/uml/</link>
-    <description>Recent content in UML on Jian Liew</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://jianliew.me/blog/teaching/uml/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>What are State Machine Diagrams?</title>
-      <link>https://jianliew.me/blog/teaching/uml/introduction/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jianliew.me/blog/teaching/uml/introduction/</guid>
-      <description>Posted - Tue 8 Oct 07:49:09 AEDT 2019
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>UML on Jian Liew</title><link>https://jianliew.me/blog/teaching/uml/</link><description>Recent content in UML on Jian Liew</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://jianliew.me/blog/teaching/uml/index.xml" rel="self" type="application/rss+xml"/><item><title>What are State Machine Diagrams?</title><link>https://jianliew.me/blog/teaching/uml/introduction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jianliew.me/blog/teaching/uml/introduction/</guid><description>Posted - Tue 8 Oct 07:49:09 AEDT 2019
 This blog post is incomplete.
- This blog entry assumes that the reader has a basic understanding of UML diagrams and would wish to understand more regarding state machine diagrams.
- Introduction This article is written based on my teaching experiencing in Monash University Australia (Faculty of Information Technology) for the unit Software Engineering.
-Often times, one of the most misunderstood diagram in UML is the state machine.</description>
-    </item>
-    
-  </channel>
-</rss>
+This blog entry assumes that the reader has a basic understanding of UML diagrams and would wish to understand more regarding state machine diagrams.
+Introduction This article is written based on my teaching experiencing in Monash University Australia (Faculty of Information Technology) for the unit Software Engineering.
+Often times, one of the most misunderstood diagram in UML is the state machine.</description></item></channel></rss>

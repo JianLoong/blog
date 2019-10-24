@@ -288,7 +288,7 @@ class GeneticAlgorithm {
       },
 
       RANK: population => {
-        population.sort((a, b) => b.fitness - a.fitness);
+        population.sort((a, b) => a.fitness - b.fitness);
         return population[0];
       },
 
@@ -304,7 +304,7 @@ class GeneticAlgorithm {
         }
 
         let random = getRandomInt(sum);
-        population.sort((a, b) => b.fitness - a.fitness);
+        population.sort((a, b) => a.fitness - b.fitness);
         let partialSum = 0;
         for (let i = 0; i < population.length; ++i) {
           partialSum += population[i].fitness;
@@ -476,12 +476,41 @@ class GeneticAlgorithm {
   }
 
   run() {
+    let averages = [];
+    let fitnesses = [];
+    let indices = [];
     this.createFirstGeneration();
-    for (let i = 0; i <= this.populationSize; i++) {
+    for (let i = 0; i <= this.generations; i++) {
+      let current = {};
       this.createNextGeneration();
+
+      //let
       let mean = this.calculateMeanFitness();
+      if (i % 20 == 0) {
+        indices.push(i);
+        averages.push(mean);
+        fitnesses.push(this.currentGeneration[0].fitness);
+      }
+      //current.generation = (i);
+      //current.mean = mean;
+      //current.bestFitness =this.currentGeneration[0].fitness;
+      //current.push(mean);
+      //current.push(this.currentGeneration[0].fitness);
       //console.log(mean);
+      //meanBest.push(current);
     }
+
+    return [indices, averages, fitnesses];
+  }
+
+  buildAverageArray() {
+    let averages = [];
+    for (let index = 0; index < this.currentGeneration.length; index++) {
+      const element = this.currentGeneration[index];
+      averages.push(this.calculateMeanFitness);
+    }
+
+    return averages;
   }
 
   bestIndividual() {
@@ -567,7 +596,7 @@ onmessage = function(e) {
   ga.setSelectionFunction(selectionMethod);
 
   ga.setMutationOperator(mutationOperator.TWO_SWAP_MUTATION);
-  ga.run();
+  let summary = ga.run();
 
   let best = ga.displayBest();
 
@@ -575,8 +604,7 @@ onmessage = function(e) {
 
   //this.console.log(c.fitness);
 
-  this.postMessage([best, c.fitness]);
+  this.postMessage([best, c.fitness, summary]);
 
   return best;
 };
-
