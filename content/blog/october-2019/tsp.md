@@ -12,9 +12,16 @@ tags = ["Genetic Algorithm", "Selection", "Cross Over", "TSP"]
 <script src="https://cdn.jsdelivr.net/npm/chartist-plugin-pointlabels@0.0.6/dist/chartist-plugin-pointlabels.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist-plugin-legend/0.6.2/chartist-plugin-legend.min.js"></script>
 
+{{% notice note %}}
+
+This post uses GA to generate a high quality solution of the Travelling Salesman Problem. 
+
+{{% /notice %}}
+
 <div id="cities" class="ct-perfect-fourth"></div>
 
 ### Travelling Salesman Problem using Genetic Algorithm
+
 
 This blog post is regarding using genetic algorithm to solve the Travelling Salesman Problem. In a one liner the TSP asks the following question: **_Given a list of cities and the distances between each pair of the cities, what is the shortest possible route that visits each city and returns to the origin city?"_**
 
@@ -87,7 +94,7 @@ The distance matrix here is obtained by calculating the distance between each po
     <strong>Please click run to see the results based on different cross over and selection methods.</strong>
     <p></p>
     <button type="button" id="run" class="hvr-sweep-to-right">Run</button>
-    <p>It can be observed that the selection method random tends to not give a good result as it would defeat the purpose of the GA algorithm. The current mutation rate of the GA is set to 0.2 for this purpose.<p>
+    <p>It can be observed that the selection method random tends to not give a good result as it would defeat the purpose of the GA algorithm. The current mutation rate of the GA is set to 0.2 for this purpose. The starting population size is set to 20.<p>
     <p>Due to the nature of GA, each run under the given settings will give a different solution as I have defaulted the number of generations to 500. This includes running with the same cross over methodology and selection methodology.</p>
   </div>  
   <div>
@@ -102,6 +109,9 @@ The distance matrix here is obtained by calculating the distance between each po
   <div class="columnOne">
     <div>
       <p>The fitness in general would depend on the cross over methodology. For example, if the roulette wheel methodology is used, it can be observed that the average fitness tends to spike more.<p>
+      <p>The suggested answer based on the Google OR tools is </p>
+      <p><strong>New York -> Boston -> Chicago -> Minneapolis -> Denver -> Salt Lake City -> 
+      Seattle -> San Francisco -> Los Angeles -> Phoenix -> Houston -> Dallas -> St Louis -> New York</strong> which gives the total distance of 7293 miles which is also the minimal tour length.</p>
     </div>
   </div>
   <div>
@@ -112,6 +122,18 @@ The distance matrix here is obtained by calculating the distance between each po
   </div>
   </div>
 </div>
+
+#### Lessons from this post
+
+- The earth is not flat! Mapping putting coordinates using latitude and longitude on a chart, it would work in a different way so it displays beautifully. Latitude and longitude needs to be swapped.
+
+- Most chart API do not let you specify both the ***x-axis*** and ***y-axis*** at the same time. This is especially true if the chart is able to generate SVG diagrams. SVG diagrams are always nicer and would generally be of more responsive nature at the end of the day.
+
+- You can use a series graph to draw lines from a point to point in the chartist API. However, chartist API does not like the situation where there are two axis of the same value. (So it is not able to draw a straight line on the x-axis because of the nature of a series chart.)
+
+- There are specific data sets in which people benchmark their TSP solutions.
+
+- The GA will downgrade into a random search if the mutation rate is too high. However, the mutation rate can always be change to tailor to the specific use case.
 
 <script>
 
@@ -244,15 +266,6 @@ const answerBuilder = {
   series: buildSeries("AHCDEMGIBLKFJA")
 };
 
-// new Chartist.Line("#cities",  
-//   answerBuilder, {
-//     showLine: true,
-//     axisX: {
-//       type: Chartist.AutoScaleAxis,
-//       onlyInteger: true
-//     }
-//   });
-
 var defaultOptions = {
   labelClass: 'ct-label',
   labelOffset: {
@@ -286,9 +299,7 @@ if (window.Worker) {
 
   tspWorker.onmessage = function(e) {
     let result = "A" + e.data[0] + "A";
-    //console.log(e.data[1]);
-    //console.log(e);
-
+  
     const seriesBuilder = {
       labels: [],
       series: buildSeries(result)
@@ -296,8 +307,6 @@ if (window.Worker) {
 
     title.innerHTML = "Total Distance = " + e.data[1];
     summary.innerHTML = "Average fitness (Blue)/ Best fitness(Red) over Generation";
-
-    //console.log(e.data[2]);
 
     new Chartist.Line(
       ".ct-chart",
@@ -333,12 +342,9 @@ if (window.Worker) {
           right: 40
         },
         axisX: {
-           
+           showLabel: false
         },
         plugins: [
-          Chartist.plugins.ctPointLabels({
-            textAnchor: "middle",
-          })
         ]
       }
     );
@@ -384,13 +390,10 @@ if (window.Worker) {
 
 }
 
-.ct-series-a .ct-line, .ct-point {
-  /* Set the colour of this series line */
-  stroke: blue;
-  /* Control the thikness of your lines */
-  stroke-width: 3px;
-  /* Create a dashed line with a pattern */
-}
+  .ct-series-a .ct-line, .ct-point {
+    stroke: blue;
+    stroke-width: 1px;
+  }
 
   #run{
     background-color: blue !important;

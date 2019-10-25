@@ -230,7 +230,7 @@ class GeneticAlgorithm {
     seedData,
     data,
     mapping,
-    populationSize = 50,
+    populationSize = 20,
     generations = 500,
     crossOverProbability = 0.8,
     mutationProbability = 0.2,
@@ -486,7 +486,7 @@ class GeneticAlgorithm {
 
       //let
       let mean = this.calculateMeanFitness();
-      if (i % 20 == 0) {
+      if (i % 25 == 0) {
         indices.push(i);
         averages.push(mean);
         fitnesses.push(this.currentGeneration[0].fitness);
@@ -564,6 +564,11 @@ const validateSurvivor = elements => {
     }
   }
 };
+
+const mappingToCities = (string) => {
+  let m = new Map();
+  m.set("A","New York");
+}
 
 // Remove of A makes index 0 no longer there and the length reduced
 let tspFitness = individual => {
