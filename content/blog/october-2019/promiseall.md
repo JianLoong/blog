@@ -19,6 +19,7 @@ Before we start, there is a need to understand how certain RESTful services are 
 The code example below would demonstrate a situation where the **Promise.all** becomes useful.
 
 ```js
+
 const getTopStoriesId = () => {
   let endPoint = "https://hacker-news.firebaseio.com/v0/topstories.json";
   return fetch(endPoint, {
@@ -42,45 +43,12 @@ const topStories = () => getTopStoriesId().then((result) => {
     return Promise.all(promiseArray);
 });
 ```
+#### Lessons from this blog post.
+
+- Fetch is **significantly easier** to use in comparison to its jQuery counterparts. However, considerations needs to be taken into account when using it in static sites that does not have Babel or modernizr.
+- There are a lot of reasons a lot of users decided to create their own wrappers around the Hacker News API. Perhaps, it is deemed that their top stories and end up which does summary could be done in a different way. But HN itself is a very opinionated community.
 
 
 ### References
 
 1. https://stackoverflow.com/questions/38180080/when-to-use-promise-all
-
-
-<script>
-
-// const getTopStoriesId = () => {
-//   let endPoint = "https://hacker-news.firebaseio.com/v0/topstories.json";
-//   return fetch(endPoint, {
-//     mode: "cors"
-//   }).then((response) => response.json());
-// };
-
-// const getItem = (itemNumber) => {
-//   let endPoint = "//hacker-news.firebaseio.com/v0/item/" + itemNumber + ".json";
-//   return fetch(endPoint, {
-//     mode: "cors"
-//   }).then((response) => response.json());
-// }
-
-// const topStories = () => getTopStoriesId().then((result) => {
-//     let promiseArray = [];
-//     result.forEach((element) => {
-//       promiseArray.push(getItem(element));
-//     })
-
-//     return Promise.all(promiseArray);
-// });
-
-// const result = topStories().then((result)=> {
-//   let resultArray = result;
-//   let titleString = "";
-//   result.forEach((element)=> {
-//     titleString += element["title"];
-//   });
-//   return titleString;
-// });
-
-</script>

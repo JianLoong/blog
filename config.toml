@@ -9,7 +9,7 @@ disqusShortname = "jianloonggithubio"
 pygmentsUseClasses = false
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
-pygmentsStyle = "tango"
+pygmentsStyle = "monokai"
 
 [taxonomies]
     tags = "tags"
