@@ -112,6 +112,7 @@ The distance matrix here is obtained by calculating the distance between each po
       <p>The suggested answer based on the Google OR tools is </p>
       <p><strong>New York -> Boston -> Chicago -> Minneapolis -> Denver -> Salt Lake City -> 
       Seattle -> San Francisco -> Los Angeles -> Phoenix -> Houston -> Dallas -> St Louis -> New York</strong> which gives the total distance of 7293 miles which is also the minimal tour length.</p>
+      <p>The GA however does not obtain this solution. It does however, generate a high quality solution really quick.</p>
     </div>
   </div>
   <div>
@@ -129,7 +130,7 @@ The distance matrix here is obtained by calculating the distance between each po
 
 - Most chart API do not let you specify both the ***x-axis*** and ***y-axis*** at the same time. This is especially true if the chart is able to generate SVG diagrams. SVG diagrams are always nicer and would generally be of more responsive nature at the end of the day.
 
-- You can use a series graph to draw lines from a point to point in the chartist API. However, chartist API does not like the situation where there are two axis of the same value. (So it is not able to draw a straight line on the x-axis because of the nature of a series chart.)
+- You can use a series graph to draw lines from a point to point in the chartist API. However, chartist API does not like the situation where there are two values on the same axis. (So it is not able to draw a straight line on the x-axis because of the nature of a series chart. An example of this is where there is a point on 30,55 and 30,65.
 
 - There are specific data sets in which people benchmark their TSP solutions.
 
