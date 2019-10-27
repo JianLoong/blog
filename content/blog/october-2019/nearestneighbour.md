@@ -27,34 +27,33 @@ The naive solution would be to do something as follows. (Written in JavaScript)
 ```js
 const sortPointsBasedOnDistance = (queryPoint, points) => {
     points.sort((pointA, pointB) => {
-        calculateDistance(queryPoint, pointA) - calculateDistance(queryPoint, pointB); 
+        return calculateDistance(queryPoint, pointA) - calculateDistance(queryPoint, pointB); 
     })
 }
 
 const calculateDistance = (startingPoint, endingPoint) => {
     let x = endingPoint.x - startingPoint.x;
     let y = endingPoint.y - startingPoint.y;
-
     return Math.hypot(x, y);
 }
 
-let pointA = {
-    x: 5,
-    y: 5
-};
-
-let pointB = {
-    x: 4,
-    y: 4
-};
+const createPoint = (name, x,y) =>   ({
+    name: name,
+    x: x,
+    y: y
+});
 
 let points = [];
-points.push(pointA, pointB);
+points.push(
+    createPoint("New York",40,-74), 
+    createPoint("Chicago",41,-87),
+    createPoint("Minneapolis", 44,-93),
+    createPoint("Boston", 42,-71),
+    createPoint("Denver", 39, 104),
+    createPoint("Dallas", 32, -96)
+    );
 
-let queryPoint = {
-    x: 1,
-    y: 1
-}
+let queryPoint = createPoint("Query Point",40, -74);
 
 sortPointsBasedOnDistance(queryPoint, points);
 
@@ -68,46 +67,38 @@ console.log(points);
 
 
 <script>
+
 const sortPointsBasedOnDistance = (queryPoint, points) => {
-    points.sort((pointA, pointB) => ( 
-        calculateDistance(queryPoint, pointA) - calculateDistance(queryPoint, pointB)
-    ));
-};
+    points.sort((pointA, pointB) => {
+        return calculateDistance(queryPoint, pointA) - calculateDistance(queryPoint, pointB); 
+    })
+}
 
 const calculateDistance = (startingPoint, endingPoint) => {
     let x = endingPoint.x - startingPoint.x;
     let y = endingPoint.y - startingPoint.y;
     return Math.hypot(x, y);
-};
-
-let pointA = {
-    x: 10,
-    y: 10
-};
-
-let pointB = {
-    x: 4,
-    y: 4
-};
-
-let pointC = {
-    x:2,
-    y:3
 }
+
+const createPoint = (name, x,y) =>   ({
+    name: name,
+    x: x,
+    y: y
+});
 
 let points = [];
-points.push(pointA);
-points.push(pointB);
-points.push(pointC);
+points.push(
+    createPoint("New York",40,-74), 
+    createPoint("Chicago",41,-87),
+    createPoint("Minneapolis", 44,-93),
+    createPoint("Boston", 42,-71),
+    createPoint("Denver", 39, 104),
+    createPoint("Dallas", 32, -96)
+    );
 
-console.log(points);
+let queryPoint = createPoint("Query Point",40, -74);
 
-let queryPoint = {
-    x: 1,
-    y: 1
-}
-
-//sortPointsBasedOnDistance(queryPoint, points);
+sortPointsBasedOnDistance(queryPoint, points);
 
 console.log(points);
 
