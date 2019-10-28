@@ -29,38 +29,38 @@ Below is an example of a Voronoi diagram generated using d3.js.
 ```javascript
 
 const width = 500, height = 500;
-
-const vertices = d3.range(30).map(function(d) {
+const vertices = d3.range(10).map(function(d) {
     return [Math.random() * width, Math.random() * height];
 });
 
-
 const delaunay = d3.Delaunay.from(vertices);
 const voronoi = delaunay.voronoi([0, 0, 500, 500]);
-var svg = d3.select("#canvas").append("svg").attr("width", width).attr("height", height);
+let svg = d3.select("#canvas").append("svg").attr("width", width).attr("height", height);
 
 const mesh = svg.append("path")
-    .attr("fill","none")
+    .attr("fill", "none")
     .attr("stroke", "#ccc")
     .attr("stroke-width", 1)
     .attr("d", voronoi.render());
 
-    
-svg.selectAll("circle").data(vertices).enter().append("circle").attr("r", 3)
-    .attr("cx", function(d) { return d[0]; } )
-    .attr("cy", function(d) { return d[1]; } );
+const bounds = svg.append("path")
+    .attr("fill", "none")
+    .attr("stroke","#ccc")
+    .attr("stroke-width", 1)
+    .attr("d", voronoi.renderBounds());
+
+const points = svg.append("path")
+    .attr("fill", "black")
+    .attr("stroke","#ccc")
+    .attr("stroke-width", 1)
+    .attr("d", delaunay.renderPoints());
 
 ```
-
-In a voronoi diagram, each cell represents that any query point within it has the nearest neighbour of the so called generator point. 
-
-This methodology allows you to quickly obtain the nearest neighbour of a query point and not only that, it will also allow you to obtain the second nearest neighbour as well.
-
-
 
 #### Lessons from this blog post.
 
 - The learning curve for d3.js is **pretty insane.** 
+- Voronois are pretty easy using d3.
 
 
 <!-- https://bl.ocks.org/aaizemberg/raw/8063f8c2d1adb7c7ee68/ -->
@@ -68,25 +68,38 @@ This methodology allows you to quickly obtain the nearest neighbour of a query p
 <script>
 
     const width = 500, height = 500;
-
-    //const vertices = [[40, 74], [34, 118], [41, 87], [44, 93]];
-    
     const vertices = d3.range(30).map(function(d) {
         return [Math.random() * width, Math.random() * height];
     });
 
-    
     const delaunay = d3.Delaunay.from(vertices);
     const voronoi = delaunay.voronoi([0, 0, 500, 500]);
-    var svg = d3.select("#canvas").append("svg").attr("width", width).attr("height", height);
+    let svg = d3.select("#canvas").append("svg").attr("width", width).attr("height", height);
+    
     const mesh = svg.append("path")
         .attr("fill", "none")
         .attr("stroke", "#ccc")
         .attr("stroke-width", 1)
         .attr("d", voronoi.render());
 
-        
-    svg.selectAll("circle").data(vertices).enter().append("circle").attr("r", 3)
-        .attr("cx", function(d) { return d[0]; } )
-        .attr("cy", function(d) { return d[1]; } );
+    const bounds = svg.append("path")
+        .attr("fill", "none")
+        .attr("stroke","#ccc")
+        .attr("stroke-width", 1)
+        .attr("d", voronoi.renderBounds());
+
+    // for (let index = 0; index < 10; index++) {
+    //     svg.append("path")
+    //     .attr("fill", d3.schemeTableau10[index % 10])
+    //     .attr("stroke","#ccc")
+    //     .attr("stroke-width", 1)
+    //     .attr("d", voronoi.renderCell(index));
+    // }; 
+
+    const points = svg.append("path")
+        .attr("fill", "black")
+        .attr("stroke","#ccc")
+        .attr("stroke-width", 1)
+        .attr("d", delaunay.renderPoints());
+
 </script>

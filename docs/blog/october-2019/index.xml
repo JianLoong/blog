@@ -12,4 +12,4 @@ We will first start with a data set or coordinates.
 The Nearest Neighbour Query on the map aims to return the nearest neighbour of a point. So, in the example, it can be seen that the 1st Nearest Neighbour of New York would be Boston and the 2nd Nearest Neighbour of New York Would be Chicago.</description></item><item><title>Voronoi Diagram</title><link>https://jianliew.me/blog/blog/october-2019/voronoi/</link><pubDate>Sun, 13 Oct 2019 21:27:45 +1100</pubDate><guid>https://jianliew.me/blog/blog/october-2019/voronoi/</guid><description>One of the most common query when working with maps is the nearest neighbour query. This blog post will use Voronoi Diagrams to explain more regarding the nearest neighbour query.
 Below is an example of a Voronoi diagram generated using d3.js.
 Voronoi Diagram generated with 30 random points
--- const width = 500, height = 500; const vertices = d3.range(30).map(function(d) { return [Math.random() * width, Math.</description></item></channel></rss>
+-- const width = 500, height = 500; const vertices = d3.range(10).map(function(d) { return [Math.random() * width, Math.</description></item></channel></rss>
