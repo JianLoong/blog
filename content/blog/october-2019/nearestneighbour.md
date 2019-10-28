@@ -26,52 +26,57 @@ The naive solution would be to do something as follows. (Written in JavaScript)
 
 ```js
 const sortPointsBasedOnDistance = (queryPoint, points) => {
-    points.sort((pointA, pointB) => {
-        return calculateDistance(queryPoint, pointA) - calculateDistance(queryPoint, pointB); 
-    })
-}
+  points.sort((pointA, pointB) => {
+    return (
+      calculateDistance(queryPoint, pointA) -
+      calculateDistance(queryPoint, pointB)
+    );
+  });
+};
 
 const calculateDistance = (startingPoint, endingPoint) => {
-    let x = endingPoint.x - startingPoint.x;
-    let y = endingPoint.y - startingPoint.y;
-    return Math.hypot(x, y);
-}
+  let x = endingPoint.x - startingPoint.x;
+  let y = endingPoint.y - startingPoint.y;
+  return Math.hypot(x, y);
+};
 
-const createPoint = (name, x,y) =>   ({
-    name: name,
-    x: x,
-    y: y
+const createPoint = (name, x, y) => ({
+  name: name,
+  x: x,
+  y: y
 });
 
 let points = [];
 points.push(
-    createPoint("New York",40,-74), 
-    createPoint("Chicago",41,-87),
-    createPoint("Minneapolis", 44,-93),
-    createPoint("Boston", 42,-71),
-    createPoint("Denver", 39, 104),
-    createPoint("Dallas", 32, -96)
-    );
+  createPoint("New York", 40, -74),
+  createPoint("Chicago", 41, -87),
+  createPoint("Minneapolis", 44, -93),
+  createPoint("Boston", 42, -71),
+  createPoint("Denver", 39, 104),
+  createPoint("Dallas", 32, -96)
+);
 
-let queryPoint = createPoint("Query Point",40, -74);
+let queryPoint = createPoint("Query Point", 40, -74);
 
 sortPointsBasedOnDistance(queryPoint, points);
 
 console.log(points);
-
 ```
+
 #### Lessons from this blog post.
+
 - It is hard to explain a year longs' research in a single blog post.
 - Console.log in JavaScript is passed a reference to the object, thus the value will actually change when the object changes. It is **not** the value of he object at the moment in time where you call console.log.
 - There are not many existing libraries written in JavaScript that deals with these specialised queries. (Perhaps more investigation is needed)
-
+- The sort function in JavaScript is an ES6 feature, careful consideration needs to be taken into account when using it and also be careful with the curly bracers and no curly bracers.
+- Creating an object requires brackets "(" wrapped around "{" parenthesis.
 
 <script>
 
 const sortPointsBasedOnDistance = (queryPoint, points) => {
-    points.sort((pointA, pointB) => {
-        return calculateDistance(queryPoint, pointA) - calculateDistance(queryPoint, pointB); 
-    })
+    points.sort((pointA, pointB) => 
+         calculateDistance(queryPoint, pointA) - calculateDistance(queryPoint, pointB)
+    )
 }
 
 const calculateDistance = (startingPoint, endingPoint) => {
