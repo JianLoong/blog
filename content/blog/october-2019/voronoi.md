@@ -3,7 +3,7 @@ title= "Voronoi Diagram"
 date= 2019-10-13T21:27:45+11:00
 draft= false
 pre= "<b>29th. </b>"
-weigh= 29
+weight= 29
 tags= ["Nearest Neighbour", "Maps", "Voronoi"]
 +++
 
@@ -23,6 +23,9 @@ Below is an example of a Voronoi diagram generated using d3.js.
 <p align="center"><strong>Fig 1. Voronoi Diagram generated with 30 random points</strong></p>
 
 <!-- <embed src="https://www.desmos.com/calculator/q0nyt99bcr?embed" width="100%" height="500px" style="border: 1px solid #ccc" frameborder=0></embed> -->
+
+The codes to create this diagram are as follows :-
+
 
 ```javascript
 const width = 500;
@@ -58,11 +61,16 @@ const points = svg
   .attr("stroke", "#ccc")
   .attr("stroke-width", 1)
   .attr("d", delaunay.renderPoints());
+
 ```
 
 #### Example of a query
 
-I will now re-use my data set of point from an earlier blog entry and I will generate the voronoi diagram. Basically I would use a query point as well to identify the nearest neighbour and the surrounding neighbours. The figure below shows that by using d3-delaunay provides a simple function that allows you to find the point in which is the closest to the query point. This is done by using `delaunay.find()`. Its surrounding neighbours could then be easily obtained once you have this point by using `delaunay.neighbor()` and passing the result of the first find function.
+I will now re-use my data set of point from an earlier blog entry and I will generate the voronoi diagram. Basicallym I would use a query point as well to find out the nearest neighbour and the surrounding neighbours. The figure below shows that the d3-delaunay provides a simple functions that allows you to find the point in which is the closest to the query point. This is done by using `delaunay.find()`. So if you are **inside the blue region**, your closest point would be the point inside the blue region.
+
+Its surrounding neighbours could then be easily obtained once you have this point by using `delaunay.neighbor()` and passing the result of the first find function. So, the regions which are in teal would be the **neighbours of the region in blue**.
+
+One of the good use case of a voronoi diagram in real life applications would be where would be **finding best place to build emergency services.** In the example, it is obvious that the region in the middle would be the best place as it has 5 neighbouring regions but often times, it is not as clear as this.
 
 <div id="exampleQuery" style="text-align:center;max-width:30em;margin:auto;"></div>
 <p align="center"><strong>Fig 2. Voronoi Diagram for a NN query.</strong></p>
@@ -210,6 +218,12 @@ const drawVoronoi = (id, vertices, color) => {
         .attr("d", voronoi.renderBounds());
 
     const ans = delaunay.find(40,73);
+
+    for (let index = 0; index < vertices.length; index++) {
+        const element = vertices[index];
+        renderCell(svg, voronoi, index, d3.schemeTableau10[4]);
+    }
+
     const neighbours = delaunay.neighbors(ans);
     for (const iterator of neighbours) {
         renderCell(svg, voronoi, iterator, d3.schemeTableau10[3]);
@@ -232,7 +246,7 @@ const drawExampleVoronoi = () => {
     // });
 
     const radius = 10;
-    const circles = d3.range(20).map(i => ({
+    const circles = d3.range(30).map(i => ({
         x: Math.random() * (width - radius * 2) + radius,
         y: Math.random() * (height - radius * 2) + radius,
     }));
