@@ -16,7 +16,7 @@ One of the most common query when working with maps is the nearest neighbour que
 
 {{% /notice %}}
 
-Below is an example of a Voronoi diagram generated using d3.js. One of the good use case of a voronoi diagram in real life applications would be where would be **finding a place to build emergency services.** This place should have the most number of neighbouring regions. For example, if you `click` on the region in the voronoi diagram below, you can see how many regions in which it would consider this region to be its neighbour.
+Below is an example of a Voronoi diagram generated using d3.js. One of the good use case of a voronoi diagram in real life applications would be where would be **finding a place to build emergency services.** This place should have the most number of neighbouring regions. For example, if you `click` on the region in the voronoi diagram below, you can see how many regions in which it would consider this region to be its neighbour. The diagram is randomly generated based on a number of points and thus every refresh of this page will show a different voronoi diagram.
 
 <div id="canvas" style="text-align:center;max-width:30em;margin:auto;"></div>
 
@@ -28,9 +28,9 @@ The codes to create this diagram are as follows :-
 
 ```javascript
 const createVoronoi = () => {
-  const width = 500;
-  const height = 500;
-  const vertices = d3.range(10).map(function(d) {
+  const width = 600;
+  const height = 600;
+  const vertices = d3.range(30).map(function(d) {
     return [Math.random() * width, Math.random() * height];
   });
 
@@ -66,9 +66,9 @@ const createVoronoi = () => {
 
 #### Example of a query
 
-I will now re-use my data set of point from an earlier blog entry and I will generate the voronoi diagram. Basically I would use a query point as well to find out the nearest neighbour and the surrounding neighbours. The figure below shows that the d3-delaunay provides a simple functions that allows you to find the point in which is the closest to the query point. This is done by using `delaunay.find()`. So if you are **inside the blue region**, your closest point would be the point inside the blue region.
+I will now re-use my data set of point from an earlier blog entry and I will generate the voronoi diagram. Basically, I would use a query point as well to find out the nearest neighbour and the surrounding neighbours. The figure below shows that the d3-delaunay provides a simple functions that allows you to find the point in which is the closest to the query point. This is done by using `delaunay.find()`. So if you are **inside the blue region**, your closest point would be the point inside the blue region.
 
-Its surrounding neighbours could then be easily obtained once you have this point by using `delaunay.neighbor()` and passing the result of the first find function. So, the regions which are in teal would be the **neighbours of the region in blue**. All the other regions would be coloured in green.
+It's surrounding neighbours could then be easily obtained once you have this point by using `delaunay.neighbor()` and passing the result of the first find function. So, the regions which are in teal would be the **neighbours of the region in blue**. All the other regions would be coloured in green. This simple data structure would allow you to easily obtain the nearest neighbour. However, of course, there is also the importance of the build time, insertion time and removal time as well.
 
 <div id="exampleQuery" style="text-align:center;max-width:30em;margin:auto;"></div>
 <p align="center"><strong>Fig 2. Voronoi Diagram for a NN query.</strong></p>
@@ -302,22 +302,20 @@ const drawVoronoiWithPoints = (id, noOfPoints) => {
 
     let selected = undefined;
     
-    const width = 600, height = 600;  
-    const radius = 10;
-    const circles = d3.range(noOfPoints).map(i => ({
-        x: Math.random() * (width - radius * 2) + radius,
-        y: Math.random() * (height - radius * 2) + radius,
-    }));
+    const width = 1000, height = 1000;  
+    const circles = d3.range(30).map(function(d) {
+        return [Math.random() * width, Math.random() * height];
+    });
 
-    const query = [Math.random() * (width - radius * 2) + radius,
-        Math.random() * (height - radius * 2) + radius];
+    const query = [Math.random() * width,
+        Math.random() * height ];
 
-    const delaunay = d3.Delaunay.from(circles, d => d.x, d => d.y);
+    const delaunay = d3.Delaunay.from(circles);
     const voronoi = delaunay.voronoi([0, 0, width, height]);
 
     let svg = d3.select(id)
         .append("svg")
-        .attr("viewBox", `0 0 600 600`);
+        .attr("viewBox", `0 0 1000 1000`);
      
     const mesh = svg.append("path")
         .attr("fill", "none")
