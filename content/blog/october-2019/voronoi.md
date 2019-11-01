@@ -320,19 +320,19 @@ const drawVoronoiWithPoints = (id, noOfPoints) => {
     const mesh = svg.append("path")
         .attr("fill", "none")
         .attr("stroke", "#ccc")
-        .attr("stroke-width", 1)
+        .attr("stroke-width", 5)
         .attr("d", voronoi.render());
 
     const bounds = svg.append("path")
         .attr("fill", "none")
         .attr("stroke","#ccc")
-        .attr("stroke-width", 1)
+        .attr("stroke-width", 5)
         .attr("d", voronoi.renderBounds());
 
     const points = () =>  svg.append("path")
         .attr("fill", "black")
         .attr("stroke","#ccc")
-        .attr("stroke-width", 1)
+        .attr("stroke-width", 2)
         .attr("d", delaunay.renderPoints());
 
     points();

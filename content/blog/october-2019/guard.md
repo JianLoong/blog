@@ -1,7 +1,7 @@
 +++
 title = "Explicit Else (Guard)"
 weight = 1
-draft = true
+draft = false
 date = 2019-10-01T20:56:02+11:00
 pre = "<b>1st. </b>"
 tags = ["Swift", "Coding Style"]
@@ -15,10 +15,13 @@ Before we start, lets take a look at the grammar of a guard statement for the **
 
 > <strong>guard-statement</strong> --> guard condition-list else code-block
 
-This was a conversation I had with a co-worker a couple of days back. I asked him, what is this **guard** in Swift? I have not been programming in Swift since iOS development made a shift from Objective C to Swift and I have not seen a guard statement used in any other languages I programmed in. It seems that **guard**s are everywhere in Swift, but my coworker said that **guard**s are something he never used. (In fact, **guards** were only added in Swift 2.0)
+This was a conversation I had with a co-worker a couple of days back. I asked him, what is this **guard** in Swift? I have not been programming in Swift since iOS development made a shift from Objective C to Swift and I have not seen a guard statement used in any other languages I programmed in. It seems that **guard**s are everywhere in Swift, but my coworker said that **guard**s are something he never used. This is a very interesting notion. At the end of the day, each programmer has his or her own style. It is not wrong to not use guards at all but if so, why are guards everywhere?
 
-Let's try to understand why guards are everywhere in Swift. Semantically, guards are just a methodology to practice defensive programming and the notion where you need to return early.
+(In fact, **guards** were only added in Swift 2.0)
 
+Let's try to understand why guards are everywhere in Swift. Semantically, guards are just a methodology to **practice defensive programming** and the notion where you need to **return early.**
+
+The main reason guards are so dominant in Swift is due to the fact there are **Optionals**. 
 
 #### References
 
