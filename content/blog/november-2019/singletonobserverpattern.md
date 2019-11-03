@@ -1,10 +1,11 @@
 ---
-title: "Singleton & Observer Pattern"
+title: "Singleton & Observer Pattern (Java)"
 date: 2019-11-T03:30:45+11:00
 draft: false
 pre: "<b>3th. </b>"
 weight: 3
 commentoEnable: true
+tags: ["Java", "Design Pattern", "Singleton", "Observer"]
 ---
 
 {{% notice note %}}
@@ -19,6 +20,23 @@ Let's imagine if you are in the arcade and there is a Lucky Dip Machine. The rea
  - There is **only one** Lucky Dip Machine in the arcade. This lucky dip machine has a limited number of items in its inventory. A **singleton** design pattern will be used to instantiate this class. The reason for a Singleton pattern is so that, there can only ever be one LuckyDipMachine. Multiple uses of the LuckyDipMachine will only deduct items from this instance.
 
 - Everyone in the arcade can **observe** when the LuckyDipMachine is used. Whenever, a price is won, the observers would know what Prize has been won.
+
+
+{{<mermaid align="center">}}
+
+graph TD
+    A(LuckyDipMachine<br />Singleton)
+    B(ObserverOne)
+    C(ObserverTWo)
+    D(User)
+    B -- observes--> A
+    C -- observes--> A
+    D -- uses --> A
+    A --fire changes --> B
+    A --fire changes --> C
+{{</mermaid>}}
+
+<p align="center">Fig 1. Flowchart Representation of the intended design </p>
 
 
 
@@ -256,7 +274,5 @@ Observer{observedPrizes=[Prize{name='Tomato'}, Prize{name='Potato'}, Prize{name=
 #### References
 
 1. quantities, I. and L., E. (2019). Inventory of objects with item types and quantities. [online] Code Review Stack Exchange. Available at: https://codereview.stackexchange.com/questions/148821/inventory-of-objects-with-item-types-and-quantities [Accessed 3 Nov. 2019].
-
 2. Baeldung. (2019). Singletons in Java | Baeldung. [online] Available at: https://www.baeldung.com/java-singleton [Accessed 3 Nov. 2019].
-
 3. Baeldung. (2019). The Observer Pattern in Java | Baeldung. [online] Available at: https://www.baeldung.com/java-observer-pattern [Accessed 3 Nov. 2019].
