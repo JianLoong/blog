@@ -6,6 +6,7 @@ publishDir = "docs"
 googleAnalytics = "UA-55422968-1"
 disqusShortname = "jianloonggithubio"
 
+pygmentsUseClassic = true
 pygmentsUseClasses = false
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
