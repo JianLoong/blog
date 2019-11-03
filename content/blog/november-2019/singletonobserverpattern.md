@@ -245,8 +245,18 @@ Observer{observedPrizes=[Prize{name='Tomato'}, Prize{name='Potato'}, Prize{name=
 #### Lessons from this blog post.
 
 - It is very important to override both the **equals** and  the **hashCode** when using maps. 
+- The **Singleton** design pattern have many different approaches. The approach which I have used here is the most simplistic approach and does have certain design concerns.
 - Design is still very subjective matter as it is debatable to put the **quantity** field in the Prize class itself.
 - The runtime to get a random item from a HashMap would depend on the **implementation** of it.
 - **Pygments** and **Chroma** of the Hugo static website generator are both good but Chroma seems to look nice out of the box for my use case.
 - **PropertyChangeSupport** is so much easier to use compare to the **Observable** interface class.
 - **computeIfPresent** method is pretty cool as it uses a lambda like feature.
+
+
+#### References
+
+1. quantities, I. and L., E. (2019). Inventory of objects with item types and quantities. [online] Code Review Stack Exchange. Available at: https://codereview.stackexchange.com/questions/148821/inventory-of-objects-with-item-types-and-quantities [Accessed 3 Nov. 2019].
+
+2. Baeldung. (2019). Singletons in Java | Baeldung. [online] Available at: https://www.baeldung.com/java-singleton [Accessed 3 Nov. 2019].
+
+3. Baeldung. (2019). The Observer Pattern in Java | Baeldung. [online] Available at: https://www.baeldung.com/java-observer-pattern [Accessed 3 Nov. 2019].
