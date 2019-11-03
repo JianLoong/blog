@@ -1,12 +1,12 @@
----
-title: "Singleton & Observer Pattern (Java)"
-date: 2019-11-T03:30:45+11:00
-draft: false
-pre: "<b>3th. </b>"
-weight: 3
-commentoEnable: true
-tags: ["Java", "Design Pattern", "Singleton", "Observer"]
----
++++
+title = "Singleton & Observer Pattern (Java)"
+date = 2019-11-03
+draft = false
+pre = "<b>3th. </b>"
+weight = 3
+commentoEnable = true
+tags= ["Java", "Design Pattern", "Singleton", "Observer"]
++++
 
 {{% notice note %}}
 
@@ -15,7 +15,7 @@ This blog post will demonstrate a simple use case  where the **singleton** and *
 {{% /notice %}}
 
 
-Let's imagine if you are in the arcade and there is a Lucky Dip Machine. The reason I call it the LuckyDipMachine is because it is one of the feature assignments in the Programming Foundation Units in Monash University and it is often times made fun at. However, the assignment itself **can be engineered to be better.**
+Let's imagine if you are in the arcade and there is a Lucky Dip Machine. The reason I like call it the LuckyDipMachine is because it is one of the feature assignments in the Programming Foundation Units in Monash University and it is often times made fun at. However, the solution for assignment itself **can be engineered to be better.**
 
  - There is **only one** Lucky Dip Machine in the arcade. This lucky dip machine has a limited number of items in its inventory. A **singleton** design pattern will be used to instantiate this class. The reason for a Singleton pattern is so that, there can only ever be one LuckyDipMachine. Multiple uses of the LuckyDipMachine will only deduct items from this instance.
 

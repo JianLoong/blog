@@ -12,6 +12,9 @@ pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsStyle = "monokai"
 
+[markdown]
+    extra = true
+
 [taxonomies]
     tags = "tags"
     
