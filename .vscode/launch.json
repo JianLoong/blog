@@ -5,23 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "java",
-            "name": "CodeLens (Launch) - LuckyDipMachine",
-            "request": "launch",
-            "mainClass": "LuckyDipMachine",
-            "projectName": "blog_6c864e49"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - SwitchTest",
-            "request": "launch",
-            "mainClass": "SwitchTest"
-        },
-        {
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/static/scripts/voronoi-ga.js"
+            "program": "${workspaceFolder}/static/scripts/kdtree.js"
         }
     ]
 }

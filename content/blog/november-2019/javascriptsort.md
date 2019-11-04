@@ -14,7 +14,7 @@ Sorting is important. Sorting in JavaScript can be **quirky**. This blog post wi
 
 {{% /notice %}}
 
-This blog post will demonstrate an example where the stability of a sort becomes important. The situation is normally known as the **two-pass sorting which is commonly used sort by two columns.** In other words, I would like to use one method to sort one column first and then another method to sort another column. This is **different** in comparison to having a single method that sorts two columns in a **single pass.** Hence, with a two-pass, two different functions will be used for sorting instead of a call to a single function. (This would apply for two or more passes as well, otherwise known as a chain.)
+This blog post will demonstrate an example where the stability of a sort becomes important. The situation is normally known as the **two-pass sorting which is commonly used sort by two columns.** In other words, I would like to use one function to sort one column first and then another function to sort another column. This is **different** in comparison to having a single function that sorts two columns in a **single pass.** Hence, with a two-pass, two different functions will be used for sorting instead of a call to a single function. (This would apply for two or more passes as well, otherwise known as a chain.)
 
 {{% notice warning %}}
 
@@ -69,7 +69,7 @@ __proto__: Array(0)
 
 Notice that in this output, the array is sorted by their names.
 
-We will now sort the entries by the score by using the same method on the array using the sortByScore method.
+We will now sort the entries by the score by using the same function on the array using the sortByScore function.
 
 ```shell
 0: {name: "Alex Doe", score: 60}
@@ -97,7 +97,7 @@ length: 7
 __proto__: Array(0)
 ```
 
-Here the entries **Charlie Doe** and **Black Doe** has been swapped. This is not the intended result from the sorting algorithm as the sort itself is not stable.
+Here the entries **Charlie Doe** and **Blake Doe** has been swapped. This is not the intended result from the sorting algorithm as the sort itself is not stable.
 
 Of course, I could rewrite the sort to be a single pass by using. However, this single pass sort function is still **not stable** because of the implementation of the sorting algorithm in which JavaScript uses. However, it does fit for my specific use case.
 
@@ -115,7 +115,6 @@ But the main objective of this blog post is to describe a situation where the st
 {{% notice note %}}
 
 The take away message from this blog post is <br />
-
 - JavaScript sort is **not stable.** <br />
 - The stability of a sort matters when there is a need to **chain** sorts.
 
