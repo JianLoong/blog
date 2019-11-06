@@ -15,7 +15,7 @@ One of the most common relationship when teaching UML is the **inheritance relat
 
 The interesting thing about design is that there is almost **no such thing of a bad design** but every design would have its merits and demerits.
 
-The most interesting in UML is the inheritance relationship during the modelling of a class diagram. In academia, inheritance seems to be almost always encouraged, however academia suffers from quite a number of issues these days. The most glaring problem is that most of the materials are never updated by the people who are responsible to update them.
+The inheritance relationship is often used during the modelling of a class diagram. In academia, inheritance seems to be almost always encouraged, however academia suffers from **quite a number of issues** these days. The most glaring problem is that most of the materials are never updated by the people who are responsible to update them.
 
 Here is a simple example of where the inheritance relationship is commonly taught to students.
 
@@ -30,3 +30,5 @@ classDiagram
     User: +String password
 
 {{</mermaid>}}
+
+<p align="center">Fig 1. Flow Chart of the <strong>Two pass sorting.</strong> </p>

@@ -18,9 +18,39 @@ This blog post will demonstrate an example where the stability of a sort becomes
 
 {{% notice warning %}}
 
-JavaScript implementation of sort is **not stable**.
+JavaScript implementation of sort is **not stable**. 
 
 {{% /notice %}}
+
+{{<mermaid align="center">}}
+
+graph LR
+  S(Start)
+  SBN[sortByName]
+  SRS[sortByScore]
+  E(End)
+  
+  S --> SBN
+  SBN --> SRS 
+  SRS --> E
+{{</mermaid>}}
+
+<p align="center">Fig 1. Flow Chart of the <strong>Two pass sorting.</strong> </p>
+
+{{<mermaid align="center">}}
+
+graph LR
+  S(Start)
+  SBB[sortByName and sortByScore]
+  E(End)
+  
+  S --> SBB
+  SBB --> E
+{{</mermaid>}}
+
+<p align="center">Fig 2. Flow Chart of the sorting with a <strong>single pass.</strong> </p>
+
+
 
 Let's have a look at a JavaScript example below.
 
