@@ -1,11 +1,11 @@
 +++
 title = "Singleton & Observer Pattern (Java)"
 date = 2019-11-03
-draft = false
+draft = true
 pre = "<b>3th. </b>"
 weight = 3
 commentoEnable = true
-tags= ["Java", "Design Pattern", "Singleton", "Observer"]
+tags = ["Java", "Design Pattern", "Singleton", "Observer"]
 +++
 
 {{% notice note %}}
