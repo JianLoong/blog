@@ -14,7 +14,7 @@ Sorting is important. Sorting in JavaScript can be **quirky**. This blog post wi
 
 {{% /notice %}}
 
-This blog post will demonstrate an example where the stability of a sort becomes important. This situation is normally known as the **two-pass sorting, which is aa technique commonly used sort two columns.** In other words, I would like to use one function to sort one column first and then another function to sort another column. This is **different** in comparison to having a single function that sorts two columns in a **single pass.** Hence, with a two-pass, two different functions will be used for sorting instead of a call to a single function. (This would apply for two or more passes as well, otherwise known as a chain.)
+This blog post will demonstrate an example where the stability of a sort becomes important. This situation is normally known as the **two-pass sorting, which is a technique commonly used sort two columns.** In other words, I would like to use one function to sort one column first and then another function to sort another column. This is **different** in comparison to having a single function that sorts two columns in a **single pass.** Hence, with a two-pass, two different functions will be used for sorting instead of a call to a single function. (This would apply for two or more passes as well, otherwise known as a chain.)
 
 {{% notice warning %}}
 
