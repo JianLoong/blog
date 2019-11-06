@@ -1,7 +1,7 @@
 +++
 title = "Singleton & Observer Pattern (Java)"
 date = 2019-11-03
-draft = true
+draft = false
 pre = "<b>3th. </b>"
 weight = 3
 commentoEnable = true
