@@ -60,8 +60,9 @@ You can also use a stream as well. However, it is only available in later versio
 ```java
 
 public void usingIntStream(int[] numbers){
+    if (numbers.length == 0)
+        throw new IllegalArgumentException("Invalid array");    
     IntStream intStream = Arrays.stream(numbers);
-
     System.out.println("Min is " + intStream.min());
     System.out.println("Max is " + intStream.max());
 }
@@ -74,8 +75,9 @@ You can also do it using the summaryStatistics of the int stream class. This is 
 
 ```java
 public void usingSummaryStats(int[] numbers){
+    if (numbers.length == 0)
+        throw new IllegalArgumentException("Invalid array");    
     IntSummaryStatistics stats = Arrays.stream(numbers).summaryStatistics();
-
     System.out.println("Min is " + stats.getMin());
     System.out.println("Max is " + stats.getMax());
 }
@@ -87,6 +89,8 @@ Finally, you can also use a Collections class to do it. However, in order to do 
 
 ```java
 public void usingCollections(int[] numbers){
+    if (numbers.length == 0)
+        throw new IllegalArgumentException("Invalid array");
     List<Integer> integerList = new ArrayList<>();
     Arrays.stream(numbers).forEach(value -> integerList.add(value));
     System.out.println(Collections.min(integerList));
