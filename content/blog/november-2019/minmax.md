@@ -14,7 +14,7 @@ There are many ways to obtain the min and maximum value of items inside of an Ar
 
 {{% /notice %}}
 
-The most basic way to do this is to loop through the entire array manually. The benefit of doing it this way, is that it just relies on the standard library and can be easily rewritten to an even simpler form. This way uses the **Math.max** and **Math.min** method. It will also, store the min value as the **Integer.MAX_VALUE** as the initial value and vice versa. One other way to do it would be to keep the first index as the minimum and maximum value.
+The most basic way to do this is to loop through the entire array manually. The benefit of doing it this way, is that it just relies on the standard library and can be easily rewritten to an even simpler form. This way uses the **Math.max** and **Math.min** method. It will also, store the min value as the **Integer.MAX_VALUE** as the initial value and vice versa. One other way to do it would be to keep the first index as the minimum and maximum value. So, instead of using Integer.MAX_VALUE and Integer.MIN_VALUE, the values for **min and max** would be numbers[0] instead.
 
 
 ```java
@@ -39,7 +39,13 @@ public void usingManual(int[] numbers){
 <p align="center">Method 1. Using the <strong>manual method.</strong> </p>
 
 
-Another way would be to sort the array. The first index would be the least and the last index would be the maximum. This is easily done using the **Array.sort** method. The issue with this way is that it would sort the array in place and it also rely on the inbuilt sort method. It is **generally** a bad idea to use a sort in a method you want to obtain the minimum and maximum because users of this method would not expect this method to be sorting the array itself. Thus, it is better to create a **clone** of it or a **copy** of the numbers array itself so that you do not sort the elements in place but sort the **cloned** array instead.
+Another way would be to **sort** the array. The first index would be the least and the last index would be the maximum. This is easily done using the **Array.sort** method. The issue with this way is that it would sort the array in place and it also rely on the inbuilt sort method. It is **generally** a bad idea to use a sort in a method you want to obtain the minimum and maximum because users of this method would not expect this method to be sorting the array itself. Thus, it is better to create a **clone** of it or a **copy** of the numbers array itself so that you do not sort the elements in place but sort the **cloned** array instead. It is also interesting to take note that the default implementation of the sorting algorithm uses a **Dual-Pivot Quicksort**.
+
+{{% notice warning %}}
+
+It is a good idea to do a **clone** on the array and save it into another variable. The reason for this is because, users of the method does not expect it for you to sort their array when the method is used. A method at the end of the day should only do a single thing.
+
+{{% /notice %}}
 
 ```java
 public void usingSort(int[] numbers){
@@ -71,7 +77,7 @@ public void usingIntStream(int[] numbers){
 <p align="center">Method 3. Using <strong>streams</strong> </p>
 
 
-You can also do it using the summaryStatistics of the int stream class. This is basically a **state object** for collecting statistics such as count, min max, sum and average. This would potentially be one of the better ways. This reason it is probably one of the better ways is because the **IntSummaryStatistics** is able to store other information as well besides the min and max, thus increasing its re-usability. So, there is no need for the iteration of the array itself again.
+Another way to do it is using the summaryStatistics of the int stream class. This is basically a **state object** for collecting statistics such as count, min max, sum and average. This would potentially be one of the better ways. This reason it is probably one of the better ways is because the **IntSummaryStatistics** is able to store other information as well besides the min and max, thus increasing its re-usability. So, there is no need for the iteration of the array itself again.
 
 ```java
 public void usingSummaryStats(int[] numbers){
@@ -85,7 +91,14 @@ public void usingSummaryStats(int[] numbers){
 
 <p align="center">Method 4. Using the <strong>IntSummaryStatistics</strong> </p>
 
-Finally, you can also use a Collections class to do it. However, in order to do so, you must **box** the primitive values into their class equivalent.
+{{% notice tip %}}
+
+Using the **IntSummaryStatistics** way is probably the preferred way if you are running Java 8 and above.
+
+{{% /notice %}}
+
+
+Finally, you can also use a Collections class to do it. However, in order to do so, you must **box** the primitive values into their class equivalent. It is important to know that this method **iterates over the entire collection**, hence it requires time proportional to the size of the collection.
 
 ```java
 public void usingCollections(int[] numbers){
@@ -99,6 +112,8 @@ public void usingCollections(int[] numbers){
 
 ```
 <p align="center">Method 5. Using the <strong>Collections</strong> class.</p>
+
+Finally, you can also use the **Guava** library to do it.
 
 
 #### Summary

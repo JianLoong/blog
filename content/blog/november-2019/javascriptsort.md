@@ -93,8 +93,6 @@ The output for the **sortByName**.
 4: {name: "Drew Doe", score: 50}
 5: {name: "Jordan Doe", score: 55}
 6: {name: "Taylor Doe", score: 50}
-length: 7
-__proto__: Array(0)
 ```
 
 Notice that in this output, the array is sorted by their names.
@@ -109,8 +107,6 @@ We will now sort the entries by the score by using the same function on the arra
 4: {name: "Charlie Doe", score: 50}😄
 5: {name: "Drew Doe", score: 50}   😄
 6: {name: "Taylor Doe", score: 50} 😄
-length: 7
-__proto__: Array(0)
 ```
 
 A **stable** sort will return the entries in the order they would appear in the original array. If the sorting algorithm used is not stable, an outcome that could happen from the **sortByScore** can be something like the following.
@@ -123,8 +119,6 @@ A **stable** sort will return the entries in the order they would appear in the 
 4: {name: "Blake Doe", score: 50}   😓
 5: {name: "Drew Doe", score: 50}    😄
 6: {name: "Taylor Doe", score: 50}  😄
-length: 7
-__proto__: Array(0)
 ```
 
 Here the entries **Charlie Doe** and **Blake Doe** has been swapped. This is not the intended result from the sorting algorithm as the sort itself is not stable.
