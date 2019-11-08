@@ -46,13 +46,92 @@ usingArrayList.ensureCapacity();
 ```
 <p align="center">Snippet 1. An example when methods like trimToSize and ensureCapacity <strong> could not resolved.</strong>.</p>
 
-To be brief, declaration 1 using List will allow the user to only use methods defined in the List interface, declaration 2 will allow users to use methods specific to the ArrayList class which includes trimToSize and ensureCapacity. It might not be very obvious when dealing with a class like the ArrayList but it is more evident if the class is a **LinkedList** instead. There is a big difference in the underlying implementation of the ArrayList and the LinkedList. An ArrayList is essentially an array where else a LinkedList is implemented as a double linked list.
+To be brief, declaration 1 using List will allow the user to only use methods defined in the List interface, declaration 2 will allow users to use methods specific to the ArrayList class which includes trimToSize and ensureCapacity. It might not be very obvious when dealing with a class like the ArrayList but it is more evident if the class is a **LinkedList** instead. There is a big difference in the underlying implementation of the ArrayList and the LinkedList. An ArrayList is essentially an array where else a LinkedList is implemented as a double linked list. 
 
-The main idea here is that by using Declaration 1, it will allow developers to easily change the specific data structure used without causing massive changes in the code base if at a later stage you decided to change the ArrayList to a LinkedList instead. In fact, perhaps using a TreeList.
+The main idea here is that by using Declaration 1, **it will allow developers to easily change the specific data structure used without causing massive changes in the code base** if at a later stage you decided to change the ArrayList to a LinkedList instead. In fact, perhaps using a TreeList.
 
+```java
+// Using a List on the LHS
+List<String> usingList = new ArrayList<>();
+
+// The process of using a LinkedList instead of an ArrayList can easily be done.
+List<String> usingList = new LinkedList<>();
+
+// In fact, you can just use the TreeList library from the ApacheCommons
+List<String> usingList = new TreeList<>();
+
+```
+<p align="center">Snippet 2. The RHS can be changed to use a<strong> LinkedList or TreeList</strong>.</p>
 
 {{% notice tip %}}
 
 When using **List** it is important to decide which implementation of List to use. Each implementation like ArrayList or LinkedList are suited for different use cases.
 
 {{% /notice %}}
+
+
+It is also important to understand the difference in the implementation of the ArrayList, LinkedList and TreeList as mentioned earlier. If you are interested in the internal workings, they can be found by referring to the OpenJDK implementation of the ArrayList located [here](http://hg.openjdk.java.net/jdk/jdk12/file/06222165c35f/src/java.base/share/classes/java/util/ArrayList.java) and the LinkedList which can be found [here](http://hg.openjdk.java.net/jdk/jdk12/file/06222165c35f/src/java.base/share/classes/java/util/LinkedList.java).
+
+```java
+public class ArrayList<E> 
+    extends AbstractList<E> 
+    implements List<E>, RandomAccess, Cloneable, java.io.Serializable
+
+{
+    private static final long serialVersionUID = 8683452581122892189L;
+    private static final int DEFAULT_CAPACITY = 10;
+
+    // Notice that the underlying implementation of the ArrayList uses an Object[] //which is essentially a fixed sized array.
+    private static final Object[] EMPTY_ELEMENTDATA = {};
+
+    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+
+    //....omitted
+}
+
+```
+<p align="center">Snippet 3. Open JDK12 implementation of the <strong> ArrayList</strong>.</p>
+
+
+```java
+public class LinkedList<E>
+    extends AbstractSequentialList<E>
+    implements List<E>, Deque<E>, Cloneable, java.io.Serializable
+
+{
+    transient int size = 0;
+
+    // Notice that it is using a Node here 
+    transient Node<E> first;
+    transient Node<E> last;
+
+    //...omitted
+
+    private static class Node<E> {
+        E item;
+        Node<E> next;
+        Node<E> prev;
+        Node(Node<E> prev, E element, Node<E> next) {
+            this.item = element;
+            this.next = next;
+            this.prev = prev;
+        }
+    }
+    //...omitted
+}
+```
+
+<p align="center">Snippet 4. Open JDK12 implementation of the <strong> LinkedList</strong>.</p>
+
+Based on the two snippets, it can be seen that the **underlying implementation of both of the ArrayList and LinkedList are different**, however they still have implementations of all methods that exist within the List interface itself. The ArrayList uses a fixed sized array as its implementation while the LinkedList uses a node that has a next and previous.
+
+{{% notice tip %}}
+
+When following the notion of **programming to an interface** there is still a need to determine the correct implementation to use as ArrayList and LinkedList have different run time complexity when adding and removing elements.
+
+{{% /notice %}}
+
+#### Summary
+
+- It is good idea to always have the LHS (Left hand side) to use List.
+- ArrayList and LinkedList are very different in terms of their internal implementation.
