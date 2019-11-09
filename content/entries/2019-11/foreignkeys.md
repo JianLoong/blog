@@ -106,3 +106,5 @@ Most companies **do not** operate at the scale where there is a need to drop FK 
 2. https://www.vertica.com/docs/9.2.x/HTML/Content/Authoring/AdministratorsGuide/Constraints/ConstraintTypes/ForeignKeyConstraints.htm?TocPath=Administrator%27s%20Guide%7CConstraints%7CSupported%20Constraints%7C_____2
 
 3. https://dba.stackexchange.com/questions/31260/consistency-in-acid-and-cap-theorem-are-they-the-same
+
+4. https://news.ycombinator.com/item?id=21486494
