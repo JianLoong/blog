@@ -16,11 +16,11 @@ The motivation for this blog entry is the following post on Hacker News titled *
 
 {{% /notice %}}
 
-Please do note that the post is actually dated **Dec 10, 2016**, this is about 3 years ago. In the post, it is mentioned that **"At GitHub we do not use foreign keys, ever, anywhere."**. This post is actually made by Shlomi Noach, who a principal Software Engineer at Github.
+In the post, it is mentioned that **"At GitHub we do not use foreign keys, ever, anywhere."**. This post is actually made by Shlomi Noach, who a principal Software Engineer at Github. Please do note that the post is actually dated **Dec 10, 2016**, this is about 3 years ago. And of course Github runs a **RDMS** instead of a **NoSQL** in that context.
 
-Based on the post it can be seen that the main reasons for not using FKs are as follows
+Based on the post it can be seen that the main reasons for not using FKs are as follows (as mentioned by Shlomi)
 
-- FKs are in your way to shard your database. Your app is accustomed to rely on FK to maintain integrity, instead of doing it on its own. It may even rely on FK to cascade deletes (shudder). When eventually you want to shard or extract data out, you need to change & test the app to an unknown extent.
+- FKs are **in your way to shard your database.** Your app is accustomed to rely on FK to maintain integrity, instead of doing it on its own. It may even rely on FK to cascade deletes (shudder). When eventually you want to shard or extract data out, you need to change & test the app to an unknown extent.
 
 - FKs are a performance impact. The fact they require indexes is likely fine, since those indexes are needed anyhow. But the lookup made for each insert/delete is an overhead.
 
@@ -47,6 +47,8 @@ Before we go **bonkers**, it is important to understand the context of the post 
 - **(Defintion 2)** - A foreign key constraint specifies that the key can only contain values that are in the referenced primary key, and thus ensures the referential integrity of data that is joined on the two keys.
 
 In this context, Shlomi is actually referring to the **foreign key constraint.**. Judging by the looks, it seems that the application code itself would be responsible for enforcing these constraints. Perhaps, using the **CQRS** pattern? More information regarding the CQRS pattern can be found [here](https://martinfowler.com/bliki/CQRS.html). The main issue with handling the FK constraint in application code is numerous as there is a need to think of situations where you would like a **DELETE CASCADE** and situations win which you do not.
+
+It can be said that it is **very hard** to manage foreign key constraints via application code itself. 
 
 {{% notice tip %}}
 
@@ -86,15 +88,15 @@ The ACID theorem applies on an individual node, the CAP is for cluster-wide data
 
 {{% /notice %}}
 
-In short, the post is also talking about scaling as well. So, when scaling relational data, sharding would come into the picture as well. With the presence of FKs, the process of sharding, becomes more complicated. From my personal experience, I notice that it is quite common for developers to always drop FK constraints when attempting to do schema migrations but the main key point here is that the migrations are done **online**. Thus, migrations are done without down time.
+In short, the post is also talking about scaling as well. So, when scaling relational data, sharding would come into the picture as well. With the presence of FKs, the process of sharding, becomes more complicated. From my personal experience, I notice that it is quite common for developers to always drop FK constraints when attempting to do schema migrations but the main key point here is that the migrations mentioned above are done **online**. Thus, migrations are done without down time.
 
 But.....
 
-At the end of the day, FKs are very important if your company does not operate at the scale in which GitHub operates. It is their design decision to not use FK constraints but every company and their use cases are different.
+At the end of the day, FK constraints are very important if your company does not operate at the scale in which GitHub operates. It is their design decision to not use FK constraints but every company and their use cases are different.
 
 {{% notice warning %}}
 
-Most companies **do not** operate at the scale where there is a need to drop FK constraints. Dropping FK constraints are meant for very specific use cases and architectural designs. It is also important to decide **which database** is more suited for your use case as well.
+Most companies **do not** operate at the scale where there is a need to drop FK constraints. Dropping FK constraints are meant for very specific use cases and architectural designs. Even if these constraints are dropped, there is still a need to enforce them at the application level. It is also important to decide **which database** is more suited for your use case as well.
 
 {{% /notice %}}
 
@@ -108,3 +110,5 @@ Most companies **do not** operate at the scale where there is a need to drop FK 
 3. https://dba.stackexchange.com/questions/31260/consistency-in-acid-and-cap-theorem-are-they-the-same
 
 4. https://news.ycombinator.com/item?id=21486494
+
+5. https://stackoverflow.com/questions/7713049/read-locks-and-write-locks

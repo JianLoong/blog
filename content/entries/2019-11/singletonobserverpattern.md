@@ -84,6 +84,7 @@ public class Prize {
 }
 
 ```
+<p align="center">Snippet 1. The <strong> Prize</strong> class.</p>
 
 Our Prize class is just a plain old Java object. 
 
@@ -109,6 +110,7 @@ public class LuckyDipMachine {
 
     private static LuckyDipMachine ourInstance = new LuckyDipMachine();
 
+    // PropertyChangeSupport is introduced here
     private PropertyChangeSupport support;
 
     public static LuckyDipMachine getInstance() {
@@ -182,6 +184,7 @@ import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
+// It is needed to implement the interface PropertyChangeListener
 public class Observer implements PropertyChangeListener {
 
     private List<Prize> observedPrizes;

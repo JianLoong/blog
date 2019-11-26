@@ -7,6 +7,8 @@ weight: 1
 tags: ["Swift", "DateTime", "Design", "Document Database"]
 ---
 
+#### Introduction
+
 {{% notice note %}}
 
 When using **Google Firestore**, there is a need to put some thought into the way the data is structure. Each option would have an advantage or limitations **depending on the use case.**
@@ -33,7 +35,7 @@ The most important thing to remember that there is **no perfect** solution for s
 |    Sub-collections     | Full query capability on sub-collections.                            | Cannot easily delete sub-collections            |
 | Root-level collections | Most flexible and most scalable long with powerful query capability. | Getting data becomes more complex as data grows |
 
-### Avoid using Time as Document ID
+#### Avoid using Time as Document ID
 
 One of the common things I have seen is that some developers often use a **date** or **datetime** as their document id as their collection name. There are actually several reasons this should not be done. (This is especially true for FireStore)
 

@@ -8,12 +8,20 @@ commentoEnable = true
 tags = ["Java", "Design Pattern", "Interface"]
 +++
 
+#### Introduction
 
 {{% notice note %}}
 
 A question that often arises is, what is the benefit of **programming to an interface**? This blog post will attempt to explain why. It is quite common for people to have heard of the term but do not really understand the significance of it.
 
 {{% /notice %}}
+
+#### The Fallacy
+
+It is important to understand that the **interface** word used here is actually the broader concept of what an interface is, it does not mean the **Java Interface**. This post however aims to use Java as an example. The main objective of programming to an interface would be to **loosen coupling**.
+
+
+#### The Declaration
 
 The most commonly used example is as follows. Notice that in this example, the **LHS (Left hand side)**, is using **List** while the **RHS (Right hand side)** is specifying it to be **ArrayList.** Here, I am trying to create a List of Strings.
 
