@@ -1,0 +1,26 @@
+{{ partial "header.html" . }}
+
+{{ $readTime := mul (div (countwords .Content) 220.0) 60 }}
+
+{{ $minutes := math.Floor (div $readTime 60) }}
+{{ $seconds := mod $readTime 60 }}
+
+{{ if .Params.Date }}
+  <p>Posted on: <strong> {{ dateFormat "Monday, January 2, 2006" .Params.PublishDate }}</strong></p>
+
+<p>Reading time: <strong>{{ $minutes }} {{ cond (eq $minutes 1) "minute" "minutes" }} and
+    {{ $seconds }} {{ cond (eq $seconds 1) "second" "seconds" }}.</strong></p>
+<hr />
+{{end}}
+
+{{ .Content }}
+
+<footer class=" footline" >
+	{{with .Params.LastModifierDisplayName}}
+	    <i class='fas fa-user'></i> <a href="mailto:{{ $.Params.LastModifierEmail }}">{{ . }}</a> {{with $.Date}} <i class='fas fa-calendar'></i> {{ .Format "02/01/2006" }}{{end}}
+	    </div>
+	{{end}}
+</footer>
+
+
+{{ partial "footer.html" . }}

@@ -1,0 +1,8 @@
+<!-- import your comments system
+{{ template "_internal/disqus.html" . }}
+-->
+{{ if .Params.commentoEnable }}
+
+{{ template "_internal/disqus.html" . }}
+
+{{ end }}
