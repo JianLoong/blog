@@ -2,7 +2,7 @@
 title = "Programming to an Interface (Java)"
 date = 2019-11-07
 draft = false
-pre = "<b>7th. </b>"
+pre = "<b>&nbsp;7th. </b>"
 weight = 7
 commentoEnable = true
 tags = ["Java", "Design Pattern", "Interface"]

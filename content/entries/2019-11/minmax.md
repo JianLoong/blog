@@ -2,7 +2,7 @@
 title = "Min and Max value of an Array (Java)"
 date = 2019-11-06
 draft = false
-pre = "<b>6th. </b>"
+pre = "<b>&nbsp;6th. </b>"
 weight = 6
 commentoEnable = true
 tags = ["Sort", "Java", "Streams"]

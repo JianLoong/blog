@@ -2,7 +2,7 @@
 title = "Reddit Chart"
 weight = 9
 date = 2019-10-09T20:56:02+11:00
-pre = "<b>9th. </b>"
+pre = "<b>&nbsp;9th. </b>"
 tags = ["Reddit", "Chart", "Visualisation"]
 +++
 

@@ -2,7 +2,7 @@
 title = "Foreign Key Constraint"
 date = 2019-11-09
 draft = false
-pre = "<b>9th. </b>"
+pre = "<b>&nbsp;9th. </b>"
 weight = 9
 commentoEnable = true
 tags = ["Foreign Key", "SQL", "Database", "CQRS"]

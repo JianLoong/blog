@@ -2,7 +2,7 @@
 title = "Inheritance"
 date = 2019-11-04
 draft = true
-pre = "<b>5th. </b>"
+pre = "<b>&nbsp;5th. </b>"
 weight = 5
 tags = ["Java", "Design Pattern", "Inheritance", "Composition"]
 +++

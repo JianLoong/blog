@@ -3,7 +3,7 @@ title = "Explicit Else (Guard)"
 weight = 1
 draft = false
 date = 2019-10-01T20:56:02+11:00
-pre = "<b>1st. </b>"
+pre = "<b>&nbsp;1st. </b>"
 tags = ["Swift", "Coding Style"]
 commentoEnable = true
 +++

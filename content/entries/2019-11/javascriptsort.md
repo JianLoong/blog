@@ -2,7 +2,7 @@
 title= "JavaScript Sort Stability"
 date= 2019-11-04
 draft= false
-pre= "<b>4th. </b>"
+pre= "<b>&nbsp;4th. </b>"
 weight= 4
 commentoEnable= true
 tags= ["Sort", "JavaScript", "ES6"]
