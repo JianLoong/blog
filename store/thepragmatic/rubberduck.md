@@ -18,7 +18,7 @@ This post is under construction.
 ----
 
 
-![Monash University](/blog/images/rubberduck.jpg?width=30pc&featherlight=true&classes=border,shadow)
+![Monash University](/images/rubberduck.jpg?width=30pc&featherlight=true&classes=border,shadow)
 
 
 One of the most frustrating thing about teaching programming these days, is that we do not often teach the process of debugging. 

@@ -6,7 +6,7 @@ date = "{{ .Date }}"
 pre = "<b></b>"
 +++
 
-![Monash University](/blog/images/monash-university.jpg?width=30pc&featherlight=false&classes=border,shadow)
+![Monash University](/images/monash-university.jpg?width=30pc&featherlight=false&classes=border,shadow)
 
 ### Teaching
 
