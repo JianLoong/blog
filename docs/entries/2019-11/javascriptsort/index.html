@@ -1,70 +1,1315 @@
-<!doctype html><html lang=en class="js csstransforms3d"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.62.0"><meta name=description content><link rel=icon href=/blog/images/favicon.ico type=image/ico><title>JavaScript Sort Stability :: Jian Liew</title><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-55422968-1','auto');ga('send','pageview');}</script><link href=/blog/css/nucleus.css?1577416943 rel=stylesheet><link href=/blog/css/fontawesome-all.min.css?1577416943 rel=stylesheet><link href=/blog/css/hybrid.css?1577416943 rel=stylesheet><link href=/blog/css/featherlight.min.css?1577416943 rel=stylesheet><link href=/blog/css/perfect-scrollbar.min.css?1577416943 rel=stylesheet><link href=/blog/css/auto-complete.css?1577416943 rel=stylesheet><link href=/blog/css/atom-one-dark-reasonable.css?1577416943 rel=stylesheet><link href=/blog/css/theme.css?1577416943 rel=stylesheet><link href=/blog/css/hugo-theme.css?1577416943 rel=stylesheet><link href=/blog/css/theme-blue.css?1577416943 rel=stylesheet><script src=/blog/js/jquery-3.3.1.min.js?1577416943></script><style>:root #header+#content>#left>#rlblock_left{display:none!important}</style></head><body data-url=/blog/entries/2019-11/javascriptsort/><nav id=sidebar><div id=header-wrapper><div id=header><a id=logo href=https://jianliew.me/blog>Jian</a></div><div class=searchbox><label for=search-by><i class="fas fa-search"></i></label><input data-search-input id=search-by type=search placeholder=Search...>
-<span data-search-clear><i class="fas fa-times"></i></span></div><script type=text/javascript src=/blog/js/lunr.min.js?1577416943></script><script type=text/javascript src=/blog/js/auto-complete.js?1577416943></script><script type=text/javascript>var baseurl="https:\/\/jianliew.me\/blog";</script><script type=text/javascript src=/blog/js/search.js?1577416943></script></div><div class=highlightable><ul class=topics><li data-nav-id=/blog/entries/ title=Blog class="dd-item
-parent"><a href=/blog/entries/><b></b>Blog</a><ul><li data-nav-id=/blog/entries/2019-11/ title="November 2019" class="dd-item
-parent"><a href=/blog/entries/2019-11/><b></b>November 2019</a><ul><li data-nav-id=/blog/entries/2019-11/firestore/ title="Nested Data in Documents (FireStore)" class=dd-item><a href=/blog/entries/2019-11/firestore/><b>&nbsp;1st. </b>Nested Data in Documents (FireStore)</a></li><li data-nav-id=/blog/entries/2019-11/singletonobserverpattern/ title="Singleton & Observer Pattern (Java)" class=dd-item><a href=/blog/entries/2019-11/singletonobserverpattern/><b>&nbsp;3th. </b>Singleton & Observer Pattern (Java)</a></li><li data-nav-id=/blog/entries/2019-11/javascriptsort/ title="JavaScript Sort Stability" class="dd-item active"><a href=/blog/entries/2019-11/javascriptsort/><b>&nbsp;4th. </b>JavaScript Sort Stability</a></li><li data-nav-id=/blog/entries/2019-11/minmax/ title="Min and Max value of an Array (Java)" class=dd-item><a href=/blog/entries/2019-11/minmax/><b>&nbsp;6th. </b>Min and Max value of an Array (Java)</a></li><li data-nav-id=/blog/entries/2019-11/programmingtoaninterface/ title="Programming to an Interface (Java)" class=dd-item><a href=/blog/entries/2019-11/programmingtoaninterface/><b>&nbsp;7th. </b>Programming to an Interface (Java)</a></li><li data-nav-id=/blog/entries/2019-11/foreignkeys/ title="Foreign Key Constraint" class=dd-item><a href=/blog/entries/2019-11/foreignkeys/><b>&nbsp;9th. </b>Foreign Key Constraint</a></li></ul></li></ul></li><li data-nav-id=/blog/archive/ title=Archive class=dd-item><a href=/blog/archive/><b></b>Archive</a><ul><li data-nav-id=/blog/archive/2019-10/ title="October 2019" class=dd-item><a href=/blog/archive/2019-10/><b></b>October 2019</a><ul><li data-nav-id=/blog/archive/2019-10/guard/ title="Explicit Else (Guard)" class=dd-item><a href=/blog/archive/2019-10/guard/><b>&nbsp;1st. </b>Explicit Else (Guard)</a></li><li data-nav-id=/blog/archive/2019-10/percentage/ title="Reddit Chart" class=dd-item><a href=/blog/archive/2019-10/percentage/><b>&nbsp;9th. </b>Reddit Chart</a></li><li data-nav-id=/blog/archive/2019-10/programmming/ title="Reddit Word Cloud" class=dd-item><a href=/blog/archive/2019-10/programmming/><b>12th. </b>Reddit Word Cloud</a></li><li data-nav-id=/blog/archive/2019-10/hk/ title="Sentiment Analysis" class=dd-item><a href=/blog/archive/2019-10/hk/><b>13th. </b>Sentiment Analysis</a></li><li data-nav-id=/blog/archive/2019-10/topstories/ title="Hacker News Word Cloud" class=dd-item><a href=/blog/archive/2019-10/topstories/><b>14th. </b>Hacker News Word Cloud</a></li><li data-nav-id=/blog/archive/2019-10/ga/ title="Genetic Algorithm" class=dd-item><a href=/blog/archive/2019-10/ga/><b>19th. </b>Genetic Algorithm</a></li><li data-nav-id=/blog/archive/2019-10/tsp/ title="TSP using GA" class=dd-item><a href=/blog/archive/2019-10/tsp/><b>23th. </b>TSP using GA</a></li><li data-nav-id=/blog/archive/2019-10/promiseall/ title="Promise All" class=dd-item><a href=/blog/archive/2019-10/promiseall/><b>25th. </b>Promise All</a></li><li data-nav-id=/blog/archive/2019-10/nearestneighbour/ title="k-Nearest Neighbour on Maps" class=dd-item><a href=/blog/archive/2019-10/nearestneighbour/><b>27th. </b>k-Nearest Neighbour on Maps</a></li><li data-nav-id=/blog/archive/2019-10/java13/ title="Java 13 on Ubuntu" class=dd-item><a href=/blog/archive/2019-10/java13/><b>28th. </b>Java 13 on Ubuntu</a></li><li data-nav-id=/blog/archive/2019-10/voronoi/ title="Voronoi Diagram" class=dd-item><a href=/blog/archive/2019-10/voronoi/><b>29th. </b>Voronoi Diagram</a></li></ul></li></ul></li></ul><section id=shortcuts><h3>More</h3><ul><li><a class=padding href=https://jianliew.me/blog/cv><i class="far fa-file fa-fw"></i>&nbsp;Curriculum Vitae</a></li><li><a class=padding href=https://jianliew.me/blog/timeline><i class="fas fa-history fa-fw"></i>&nbsp;Time Line</a></li><li><a class=padding href=https://jianliew.me/blog/tags><i class="fas fa-tags fa-fw"></i>&nbsp;Tags</a></li><li><a class=padding href=https://jianliew.me/blog/disclaimer><i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;Disclaimer</a></li><li><a class=padding href=https://github.com/JianLoong><i class="fab fa-github fa-fw"></i>&nbsp;GitHub Repo</a></li><li><a class=padding href=https://au.linkedin.com/in/jian-loong-liew-0433ab39><i class="fab fa-linkedin-in fa-fw"></i>&nbsp;Linkedin</a></li><li><a class=padding href=mailto:jianloongliew@gmail.com><i class="fas fa-envelope-square fa-fw"></i>&nbsp;Email</a></li></ul></section><section id=footer><p>Built with <a href=https://gohugo.io/>Hugo</a></p></section></div></nav><section id=body><div id=overlay></div><div class="padding highlightable"><div><div id=top-bar><div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb><span id=sidebar-toggle-span><a href=# id=sidebar-toggle data-sidebar-toggle><i class="fas fa-bars"></i></a></span><span id=toc-menu><i class="fas fa-list-alt"></i></span><span class=links><a href=/blog/>Contents</a> > <a href=/blog/entries/>Blog</a> > <a href=/blog/entries/2019-11/>November 2019</a> > JavaScript Sort Stability</span></div><div class=progress><div class=wrapper><nav id=TableOfContents><ul><li><ul><li></li><li><a href=#references>References</a></li></ul></li></ul></nav></div></div></div></div><div id=head-tags><div class=tags><a class=tag-link href=/blog/tags/sort>Sort</a>
-<a class=tag-link href=/blog/tags/javascript>JavaScript</a>
-<a class=tag-link href=/blog/tags/es6>ES6</a></div></div><div id=body-inner><h1>JavaScript Sort Stability</h1><p>Posted on: <strong>Monday, November 4, 2019</strong></p><p>Reading time: <strong>4 minutes and
-23 seconds.</strong></p><hr><div class="notices note"><p>Sorting is important. Sorting in JavaScript can be <strong>quirky</strong>. This blog post will be regarding a recent post made by the v8 team regarding the Array.prototype.sort.</p></div><p>This blog post will demonstrate an example where the stability of a sort becomes important. This situation is normally known as the <strong>two-pass sorting, which is a technique commonly used sort two columns.</strong> In other words, I would like to use one function to sort one column first and then another function to sort another column. This is <strong>different</strong> in comparison to having a single function that sorts two columns in a <strong>single pass.</strong> Hence, with a two-pass, two different functions will be used for sorting instead of a call to a single function. (This would apply for two or more passes as well, otherwise known as a chain.)</p><div class="notices warning"><p>JavaScript implementation of sort is <strong>not stable</strong>.</p></div><div class=mermaid align=center>graph LR
-S(Start)
-SBN[sortByName]
-SRS[sortByScore]
-E(End)
-S --> SBN
-SBN --> SRS
-SRS --> E</div><p align=center>Fig 1. Flow Chart of the <strong>Two pass sorting.</strong></p><div class=mermaid align=center>graph LR
-S(Start)
-SBB[sortByName and sortByScore]
-E(End)
-S --> SBB
-SBB --> E</div><p align=center>Fig 2. Flow Chart of the sorting with a <strong>single pass.</strong></p><p>Let's have a look at a JavaScript example below.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>sortExample</span> <span style=color:#f92672>=</span> () =&gt; {
-  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>students</span> <span style=color:#f92672>=</span> [
-    { <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Charlie Doe&#34;</span>, <span style=color:#a6e22e>score</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>50</span> },
-    { <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Alex Smith&#34;</span>, <span style=color:#a6e22e>score</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>60</span> },
-    { <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Alex Doe&#34;</span>, <span style=color:#a6e22e>score</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>60</span> },
-    { <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Drew Doe&#34;</span>, <span style=color:#a6e22e>score</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>50</span> },
-    { <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Taylor Doe&#34;</span>, <span style=color:#a6e22e>score</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>50</span> },
-    { <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Jordan Doe&#34;</span>, <span style=color:#a6e22e>score</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>55</span> },
-    { <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;Blake Doe&#34;</span>, <span style=color:#a6e22e>score</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>50</span> }
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.75.1" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/blog/images/favicon.ico" type="image/ico">
+
+    <title>JavaScript Sort Stability :: Jian Liew</title>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-55422968-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    <link href="/blog/css/nucleus.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/fontawesome-all.min.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/hybrid.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/featherlight.min.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/perfect-scrollbar.min.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/auto-complete.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/atom-one-dark-reasonable.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/theme.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/hugo-theme.css?1602314912" rel="stylesheet">
+    
+      <link href="/blog/css/theme-blue.css?1602314912" rel="stylesheet">
+    
+
+    <script src="/blog/js/jquery-3.3.1.min.js?1602314912"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/blog/entries/2019-11/javascriptsort/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="https://jianliew.me/blog">
+  Jian
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/blog/js/lunr.min.js?1602314912"></script>
+<script type="text/javascript" src="/blog/js/auto-complete.js?1602314912"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/jianliew.me\/blog";
+    
+</script>
+<script type="text/javascript" src="/blog/js/search.js?1602314912"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/blog/entries/" title="Blog" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/blog/entries/">
+          <b></b>Blog
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/blog/entries/2019-11/" title="November 2019" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/blog/entries/2019-11/">
+          <b></b>November 2019
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/entries/2019-11/firestore/" title="Nested Data in Documents (FireStore)" class="dd-item ">
+        <a href="/blog/entries/2019-11/firestore/">
+        <b>&nbsp;1st. </b>Nested Data in Documents (FireStore)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/entries/2019-11/singletonobserverpattern/" title="Singleton &amp; Observer Pattern (Java)" class="dd-item ">
+        <a href="/blog/entries/2019-11/singletonobserverpattern/">
+        <b>&nbsp;3th. </b>Singleton &amp; Observer Pattern (Java)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/entries/2019-11/javascriptsort/" title="JavaScript Sort Stability" class="dd-item active">
+        <a href="/blog/entries/2019-11/javascriptsort/">
+        <b>&nbsp;4th. </b>JavaScript Sort Stability
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/entries/2019-11/minmax/" title="Min and Max value of an Array (Java)" class="dd-item ">
+        <a href="/blog/entries/2019-11/minmax/">
+        <b>&nbsp;6th. </b>Min and Max value of an Array (Java)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/entries/2019-11/programmingtoaninterface/" title="Programming to an Interface (Java)" class="dd-item ">
+        <a href="/blog/entries/2019-11/programmingtoaninterface/">
+        <b>&nbsp;7th. </b>Programming to an Interface (Java)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/entries/2019-11/foreignkeys/" title="Foreign Key Constraint" class="dd-item ">
+        <a href="/blog/entries/2019-11/foreignkeys/">
+        <b>&nbsp;9th. </b>Foreign Key Constraint
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/blog/archive/" title="Archive" class="dd-item
+        
+        
+        
+        ">
+      <a href="/blog/archive/">
+          <b></b>Archive
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/blog/archive/2019-10/" title="October 2019" class="dd-item
+        
+        
+        
+        ">
+      <a href="/blog/archive/2019-10/">
+          <b></b>October 2019
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/guard/" title="Explicit Else (Guard)" class="dd-item ">
+        <a href="/blog/archive/2019-10/guard/">
+        <b>&nbsp;1st. </b>Explicit Else (Guard)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/percentage/" title="Reddit Chart" class="dd-item ">
+        <a href="/blog/archive/2019-10/percentage/">
+        <b>&nbsp;9th. </b>Reddit Chart
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/programmming/" title="Reddit Word Cloud " class="dd-item ">
+        <a href="/blog/archive/2019-10/programmming/">
+        <b>12th. </b>Reddit Word Cloud 
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/hk/" title="Sentiment Analysis" class="dd-item ">
+        <a href="/blog/archive/2019-10/hk/">
+        <b>13th. </b>Sentiment Analysis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/topstories/" title="Hacker News Word Cloud " class="dd-item ">
+        <a href="/blog/archive/2019-10/topstories/">
+        <b>14th. </b>Hacker News Word Cloud 
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/ga/" title="Genetic Algorithm" class="dd-item ">
+        <a href="/blog/archive/2019-10/ga/">
+        <b>19th. </b>Genetic Algorithm
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/tsp/" title="TSP using GA" class="dd-item ">
+        <a href="/blog/archive/2019-10/tsp/">
+        <b>23th. </b>TSP using GA
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/promiseall/" title="Promise All" class="dd-item ">
+        <a href="/blog/archive/2019-10/promiseall/">
+        <b>25th. </b>Promise All
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/nearestneighbour/" title="k-Nearest Neighbour on Maps" class="dd-item ">
+        <a href="/blog/archive/2019-10/nearestneighbour/">
+        <b>27th. </b>k-Nearest Neighbour on Maps
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/java13/" title="Java 13 on Ubuntu" class="dd-item ">
+        <a href="/blog/archive/2019-10/java13/">
+        <b>28th. </b>Java 13 on Ubuntu
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/voronoi/" title="Voronoi Diagram" class="dd-item ">
+        <a href="/blog/archive/2019-10/voronoi/">
+        <b>29th. </b>Voronoi Diagram
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://jianliew.me/blog/cv"><i class='far fa-file fa-fw'></i>&nbsp;Curriculum Vitae</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://jianliew.me/blog/timeline"><i class='fas fa-history fa-fw'></i>&nbsp;Time Line</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://jianliew.me/blog/tags"><i class='fas fa-tags fa-fw'></i>&nbsp;Tags</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://jianliew.me/blog/disclaimer"><i class='fas fa-exclamation-triangle fa-fw'></i>&nbsp;Disclaimer</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/JianLoong"><i class='fab fa-github fa-fw'></i>&nbsp;GitHub Repo</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://au.linkedin.com/in/jian-loong-liew-0433ab39"><i class='fab fa-linkedin-in fa-fw'></i>&nbsp;Linkedin</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="mailto:jianloongliew@gmail.com"><i class='fas fa-envelope-square fa-fw'></i>&nbsp;Email</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/blog/'>Contents</a> > <a href='/blog/entries/'>Blog</a> > <a href='/blog/entries/2019-11/'>November 2019</a> > JavaScript Sort Stability
+          
+        
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/blog/tags/sort">Sort</a>
+
+  <a class="tag-link" href="/blog/tags/javascript">JavaScript</a>
+
+  <a class="tag-link" href="/blog/tags/es6">ES6</a>
+
+</div>
+
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              JavaScript Sort Stability
+            </h1>
+          
+
+        
+
+
+
+
+
+
+
+
+
+  <p>Posted on: <strong> Monday, November 4, 2019</strong></p>
+
+<p>Reading time: <strong>4 minutes and
+    23 seconds.</strong></p>
+<hr />
+
+
+
+<div class="notices note" ><p>Sorting is important. Sorting in JavaScript can be <strong>quirky</strong>. This blog post will be regarding a recent post made by the v8 team regarding the Array.prototype.sort.</p>
+</div>
+
+<p>This blog post will demonstrate an example where the stability of a sort becomes important. This situation is normally known as the <strong>two-pass sorting, which is a technique commonly used sort two columns.</strong> In other words, I would like to use one function to sort one column first and then another function to sort another column. This is <strong>different</strong> in comparison to having a single function that sorts two columns in a <strong>single pass.</strong> Hence, with a two-pass, two different functions will be used for sorting instead of a call to a single function. (This would apply for two or more passes as well, otherwise known as a chain.)</p>
+
+<div class="notices warning" ><p>JavaScript implementation of sort is <strong>not stable</strong>.</p>
+</div>
+
+
+<div class="mermaid" align="center">
+
+graph LR
+  S(Start)
+  SBN[sortByName]
+  SRS[sortByScore]
+  E(End)
+  
+  S --> SBN
+  SBN --> SRS 
+  SRS --> E
+</div>
+
+<p align="center">Fig 1. Flow Chart of the <strong>Two pass sorting.</strong> </p>
+
+<div class="mermaid" align="center">
+
+graph LR
+  S(Start)
+  SBB[sortByName and sortByScore]
+  E(End)
+  
+  S --> SBB
+  SBB --> E
+</div>
+
+<p align="center">Fig 2. Flow Chart of the sorting with a <strong>single pass.</strong> </p>
+<p>Let&rsquo;s have a look at a JavaScript example below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sortExample</span> <span style="color:#f92672">=</span> () =&gt; {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">students</span> <span style="color:#f92672">=</span> [
+    { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Charlie Doe&#34;</span>, <span style="color:#a6e22e">score</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">50</span> },
+    { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Alex Smith&#34;</span>, <span style="color:#a6e22e">score</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">60</span> },
+    { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Alex Doe&#34;</span>, <span style="color:#a6e22e">score</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">60</span> },
+    { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Drew Doe&#34;</span>, <span style="color:#a6e22e">score</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">50</span> },
+    { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Taylor Doe&#34;</span>, <span style="color:#a6e22e">score</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">50</span> },
+    { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Jordan Doe&#34;</span>, <span style="color:#a6e22e">score</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">55</span> },
+    { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Blake Doe&#34;</span>, <span style="color:#a6e22e">score</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">50</span> }
   ];
 
-  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>sortByScore</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>students</span> =&gt; <span style=color:#a6e22e>students</span>.<span style=color:#a6e22e>sort</span>((<span style=color:#a6e22e>a</span>, <span style=color:#a6e22e>b</span>) =&gt; <span style=color:#a6e22e>b</span>.<span style=color:#a6e22e>score</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>score</span>);
-  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>sortByName</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>students</span> =&gt;
-    <span style=color:#a6e22e>students</span>.<span style=color:#a6e22e>sort</span>((<span style=color:#a6e22e>a</span>, <span style=color:#a6e22e>b</span>) =&gt; (<span style=color:#e6db74>&#34;&#34;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>name</span>).<span style=color:#a6e22e>localeCompare</span>(<span style=color:#a6e22e>b</span>.<span style=color:#a6e22e>name</span>));
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sortByScore</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">students</span> =&gt; <span style="color:#a6e22e">students</span>.<span style="color:#a6e22e">sort</span>((<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) =&gt; <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">score</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">score</span>);
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sortByName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">students</span> =&gt;
+    <span style="color:#a6e22e">students</span>.<span style="color:#a6e22e">sort</span>((<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) =&gt; (<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">name</span>).<span style="color:#a6e22e">localeCompare</span>(<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">name</span>));
 
-  <span style=color:#a6e22e>sortByName</span>(<span style=color:#a6e22e>students</span>);
-  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>parse</span>(<span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>stringify</span>(<span style=color:#a6e22e>students</span>)));
-  <span style=color:#a6e22e>sortByScore</span>(<span style=color:#a6e22e>students</span>);
-  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>parse</span>(<span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>stringify</span>(<span style=color:#a6e22e>students</span>)));
+  <span style="color:#a6e22e">sortByName</span>(<span style="color:#a6e22e">students</span>);
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">students</span>)));
+  <span style="color:#a6e22e">sortByScore</span>(<span style="color:#a6e22e">students</span>);
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">students</span>)));
 };
 
-<span style=color:#a6e22e>sortExample</span>();
-</code></pre></div><p>In this example, I have two functions one of them sortByScore and another sortByName. Each of them would work individually and let's assume that test cases have been written for them. So what I would do is, I would use sortByName first. After, it is completed, I would then use sortByScore. <strong>I would expect my results to be sorted by the score but ordered based on the alphabetical order as I have already sorted by their names.</strong></p><p>However, this will only be the case if, the sort is <strong>stable.</strong> If the sort is <strong>not stable</strong>, the final results might not be in alphabetical order for the same scores.</p><p>The output for the <strong>sortByName</strong>.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>0: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Alex Doe&#34;</span>, score: 60<span style=color:#f92672>}</span>
-1: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Alex Smith&#34;</span>, score: 60<span style=color:#f92672>}</span>
-2: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Blake Doe&#34;</span>, score: 50<span style=color:#f92672>}</span>
-3: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Charlie Doe&#34;</span>, score: 50<span style=color:#f92672>}</span>
-4: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Drew Doe&#34;</span>, score: 50<span style=color:#f92672>}</span>
-5: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Jordan Doe&#34;</span>, score: 55<span style=color:#f92672>}</span>
-6: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Taylor Doe&#34;</span>, score: 50<span style=color:#f92672>}</span>
-</code></pre></div><p>Notice that in this output, the array is sorted by their names.</p><p>We will now sort the entries by the score by using the same function on the array using the sortByScore function.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>0: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Alex Doe&#34;</span>, score: 60<span style=color:#f92672>}</span>
-1: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Alex Smith&#34;</span>, score: 60<span style=color:#f92672>}</span>
-2: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Jordan Doe&#34;</span>, score: 55<span style=color:#f92672>}</span>
-3: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Blake Doe&#34;</span>, score: 50<span style=color:#f92672>}</span>  😄
-4: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Charlie Doe&#34;</span>, score: 50<span style=color:#f92672>}</span>😄
-5: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Drew Doe&#34;</span>, score: 50<span style=color:#f92672>}</span>   😄
-6: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Taylor Doe&#34;</span>, score: 50<span style=color:#f92672>}</span> 😄
-</code></pre></div><p>A <strong>stable</strong> sort will return the entries in the order they would appear in the original array. If the sorting algorithm used is not stable, an outcome that could happen from the <strong>sortByScore</strong> can be something like the following.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>0: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Alex Doe&#34;</span>, score: 60<span style=color:#f92672>}</span>
-1: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Alex Smith&#34;</span>, score: 60<span style=color:#f92672>}</span>
-2: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Jordan Doe&#34;</span>, score: 55<span style=color:#f92672>}</span>
-3: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Charlie Doe&#34;</span>, score: 50<span style=color:#f92672>}</span> 😓
-4: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Blake Doe&#34;</span>, score: 50<span style=color:#f92672>}</span>   😓
-5: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Drew Doe&#34;</span>, score: 50<span style=color:#f92672>}</span>    😄
-6: <span style=color:#f92672>{</span>name: <span style=color:#e6db74>&#34;Taylor Doe&#34;</span>, score: 50<span style=color:#f92672>}</span>  😄
-</code></pre></div><p>Here the entries <strong>Charlie Doe</strong> and <strong>Blake Doe</strong> has been swapped. This is not the intended result from the sorting algorithm as the sort itself is not stable.</p><p>Of course, I could rewrite the sort to be a single pass by using. However, this single pass sort function is still <strong>not stable</strong> because of the implementation of the sorting algorithm in which JavaScript uses. However, it does fit for my specific use case.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>sortByScoreThenName</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>students</span> =&gt;
-  <span style=color:#a6e22e>students</span>.<span style=color:#a6e22e>sort</span>((<span style=color:#a6e22e>a</span>, <span style=color:#a6e22e>b</span>) =&gt; {
-    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>b</span>.<span style=color:#a6e22e>score</span> <span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>score</span>) <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>;
-    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>b</span>.<span style=color:#a6e22e>score</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>score</span>) <span style=color:#66d9ef>return</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;
-    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>b</span>.<span style=color:#a6e22e>score</span> <span style=color:#f92672>==</span> <span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>score</span>) <span style=color:#66d9ef>return</span> (<span style=color:#e6db74>&#34;&#34;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>name</span>).<span style=color:#a6e22e>localeCompare</span>(<span style=color:#a6e22e>b</span>.<span style=color:#a6e22e>name</span>);
+<span style="color:#a6e22e">sortExample</span>();
+</code></pre></div><p>In this example, I have two functions one of them sortByScore and another sortByName. Each of them would work individually and let&rsquo;s assume that test cases have been written for them. So what I would do is, I would use sortByName first. After, it is completed, I would then use sortByScore. <strong>I would expect my results to be sorted by the score but ordered based on the alphabetical order as I have already sorted by their names.</strong></p>
+<p>However, this will only be the case if, the sort is <strong>stable.</strong> If the sort is <strong>not stable</strong>, the final results might not be in alphabetical order for the same scores.</p>
+<p>The output for the <strong>sortByName</strong>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">0: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Alex Doe&#34;</span>, score: 60<span style="color:#f92672">}</span>
+1: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Alex Smith&#34;</span>, score: 60<span style="color:#f92672">}</span>
+2: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Blake Doe&#34;</span>, score: 50<span style="color:#f92672">}</span>
+3: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Charlie Doe&#34;</span>, score: 50<span style="color:#f92672">}</span>
+4: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Drew Doe&#34;</span>, score: 50<span style="color:#f92672">}</span>
+5: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Jordan Doe&#34;</span>, score: 55<span style="color:#f92672">}</span>
+6: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Taylor Doe&#34;</span>, score: 50<span style="color:#f92672">}</span>
+</code></pre></div><p>Notice that in this output, the array is sorted by their names.</p>
+<p>We will now sort the entries by the score by using the same function on the array using the sortByScore function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">0: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Alex Doe&#34;</span>, score: 60<span style="color:#f92672">}</span>
+1: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Alex Smith&#34;</span>, score: 60<span style="color:#f92672">}</span>
+2: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Jordan Doe&#34;</span>, score: 55<span style="color:#f92672">}</span>
+3: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Blake Doe&#34;</span>, score: 50<span style="color:#f92672">}</span>  😄
+4: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Charlie Doe&#34;</span>, score: 50<span style="color:#f92672">}</span>😄
+5: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Drew Doe&#34;</span>, score: 50<span style="color:#f92672">}</span>   😄
+6: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Taylor Doe&#34;</span>, score: 50<span style="color:#f92672">}</span> 😄
+</code></pre></div><p>A <strong>stable</strong> sort will return the entries in the order they would appear in the original array. If the sorting algorithm used is not stable, an outcome that could happen from the <strong>sortByScore</strong> can be something like the following.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">0: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Alex Doe&#34;</span>, score: 60<span style="color:#f92672">}</span>
+1: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Alex Smith&#34;</span>, score: 60<span style="color:#f92672">}</span>
+2: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Jordan Doe&#34;</span>, score: 55<span style="color:#f92672">}</span>
+3: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Charlie Doe&#34;</span>, score: 50<span style="color:#f92672">}</span> 😓
+4: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Blake Doe&#34;</span>, score: 50<span style="color:#f92672">}</span>   😓
+5: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Drew Doe&#34;</span>, score: 50<span style="color:#f92672">}</span>    😄
+6: <span style="color:#f92672">{</span>name: <span style="color:#e6db74">&#34;Taylor Doe&#34;</span>, score: 50<span style="color:#f92672">}</span>  😄
+</code></pre></div><p>Here the entries <strong>Charlie Doe</strong> and <strong>Blake Doe</strong> has been swapped. This is not the intended result from the sorting algorithm as the sort itself is not stable.</p>
+<p>Of course, I could rewrite the sort to be a single pass by using. However, this single pass sort function is still <strong>not stable</strong> because of the implementation of the sorting algorithm in which JavaScript uses. However, it does fit for my specific use case.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sortByScoreThenName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">students</span> =&gt;
+  <span style="color:#a6e22e">students</span>.<span style="color:#a6e22e">sort</span>((<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) =&gt; {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">score</span> <span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">score</span>) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">score</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">score</span>) <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">score</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">score</span>) <span style="color:#66d9ef">return</span> (<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">name</span>).<span style="color:#a6e22e">localeCompare</span>(<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">name</span>);
   });
-</code></pre></div><p>But the main objective of this blog post is to describe a situation where the stability of the sort becomes important. In short, the stability of a sort matters when there is a need for the list or array to be <strong>chained</strong> through multiple conditions.</p><div class="notices note"><p>The take away message from this blog post is<br></p><ul><li>JavaScript sort is <strong>not stable.</strong><br></li><li>The stability of a sort matters when there is a need to <strong>chain</strong> sorts.</li></ul></div><script>const sortExample=()=>{const students=[{name:"Charlie Doe",score:50},{name:"Alex Smith",score:60},{name:"Alex Doe",score:60},{name:"Drew Doe",score:50},{name:"Taylor Doe",score:50},{name:"Jordan Doe",score:55},{name:"Blake Doe",score:50}];const sortByScore=(students)=>students.sort((a,b)=>b.score-a.score);const sortByName=(students)=>students.sort((a,b)=>(''+a.name).localeCompare(b.name));sortByName(students);console.log(JSON.parse(JSON.stringify(students)));sortByScore(students);console.log(JSON.parse(JSON.stringify(students)));}
-sortExample();</script><h4 id=lessons-from-this-blog-post>Lessons from this blog post.</h4><ol><li>JavaScript String sort can be easily done using <strong>localeCompare.</strong></li><li>Console.log uses reference. (Once again, so it is much better to Stringify it)</li><li>Safari no longer support Windows. (I wonder how long ago it ended support for Windows)</li><li>V8 is an amazing engine.</li></ol><h3 id=references>References</h3><ul><li>V8.dev. (2019). Stable Array.prototype.sort · V8. [online] Available at: <a href=https://v8.dev/features/stable-sort>https://v8.dev/features/stable-sort</a> [Accessed 3 Nov. 2019].</li><li>stable?, W., Brunell, M., Robinson, A., Koberg, J. and Carter, J. (2019). What is the benefit for a sort algorithm to be stable?. [online] Stack Overflow. Available at: <a href=https://stackoverflow.com/questions/808617/what-is-the-benefit-for-a-sort-algorithm-to-be-stable>https://stackoverflow.com/questions/808617/what-is-the-benefit-for-a-sort-algorithm-to-be-stable</a> [Accessed 3 Nov. 2019].</li></ul><footer class=footline></footer></div><div id=disqus_thread></div><script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return;}
-var d=document,s=d.createElement('script');s.async=true;s.src='//'+"jianloonggithubio"+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div id=navigation><a class="nav nav-prev" href=/blog/entries/2019-11/singletonobserverpattern/ title="Singleton & Observer Pattern (Java)"><i class="fa fa-chevron-left"></i></a><a class="nav nav-next" href=/blog/entries/2019-11/minmax/ title="Min and Max value of an Array (Java)" style=margin-right:0><i class="fa fa-chevron-right"></i></a></div></section><div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px><div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=/blog/js/clipboard.min.js?1577416944></script><script src=/blog/js/perfect-scrollbar.min.js?1577416944></script><script src=/blog/js/perfect-scrollbar.jquery.min.js?1577416944></script><script src=/blog/js/jquery.sticky.js?1577416944></script><script src=/blog/js/featherlight.min.js?1577416944></script><script src=/blog/js/highlight.pack.js?1577416944></script><script>hljs.initHighlightingOnLoad();</script><script src=/blog/js/modernizr.custom-3.6.0.js?1577416944></script><script src=/blog/js/learn.js?1577416944></script><script src=/blog/js/hugo-learn.js?1577416944></script><link href=/blog/mermaid/mermaid.css?1577416944 rel=stylesheet><script src=/blog/mermaid/mermaid.js?1577416944></script><script>mermaid.initialize({startOnLoad:true,flowchart:{curve:'basis'},classDiagram:{htmlLabels:true}});</script></body></html>
+</code></pre></div><p>But the main objective of this blog post is to describe a situation where the stability of the sort becomes important. In short, the stability of a sort matters when there is a need for the list or array to be <strong>chained</strong> through multiple conditions.</p>
+
+<div class="notices note" ><p>The take away message from this blog post is <br /></p>
+<ul>
+<li>JavaScript sort is <strong>not stable.</strong> <br /></li>
+<li>The stability of a sort matters when there is a need to <strong>chain</strong> sorts.</li>
+</ul>
+</div>
+
+<script>
+
+const sortExample = () => {
+
+    const students = [
+        {name: "Charlie Doe", score: 50},
+        {name: "Alex Smith", score: 60},
+        {name: "Alex Doe", score: 60},
+        {name: "Drew Doe", score: 50},
+        {name: "Taylor Doe", score: 50},
+        {name: "Jordan Doe", score: 55},
+        {name: "Blake Doe", score: 50}
+    ];
+ 
+
+    const sortByScore = (students) => students.sort((a,b) => b.score - a.score);
+    const sortByName = (students) => students.sort((a,b) => ('' + a.name).localeCompare(b.name));
+   
+    sortByName(students);
+    console.log(JSON.parse(JSON.stringify(students)));
+    sortByScore(students);
+    console.log(JSON.parse(JSON.stringify(students)));
+
+
+    // const sortByScoreThenName = (students) => students.sort((a,b) => {
+    //     if(b.score > a.score) return 1;
+    //     if(b.score < a.score) return -1;
+    //     if(b.score == a.score) return ('' + a.name).localeCompare(b.name);
+    // });
+
+    // sortByScoreThenName(students);
+
+    // console.log(students);
+}
+
+sortExample();
+
+</script>
+<h4 id="lessons-from-this-blog-post">Lessons from this blog post.</h4>
+<ol>
+<li>JavaScript String sort can be easily done using <strong>localeCompare.</strong></li>
+<li>Console.log uses reference. (Once again, so it is much better to Stringify it)</li>
+<li>Safari no longer support Windows. (I wonder how long ago it ended support for Windows)</li>
+<li>V8 is an amazing engine.</li>
+</ol>
+<h3 id="references">References</h3>
+<ul>
+<li>V8.dev. (2019). Stable Array.prototype.sort · V8. [online] Available at: <a href="https://v8.dev/features/stable-sort">https://v8.dev/features/stable-sort</a> [Accessed 3 Nov. 2019].</li>
+<li>stable?, W., Brunell, M., Robinson, A., Koberg, J. and Carter, J. (2019). What is the benefit for a sort algorithm to be stable?. [online] Stack Overflow. Available at: <a href="https://stackoverflow.com/questions/808617/what-is-the-benefit-for-a-sort-algorithm-to-be-stable">https://stackoverflow.com/questions/808617/what-is-the-benefit-for-a-sort-algorithm-to-be-stable</a> [Accessed 3 Nov. 2019].</li>
+</ul>
+<!-- More information can be obtained at this [link](https://v8.dev/blog/array-sort) and also [here](https://v8.dev/features/stable-sort) -->
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div>
+        
+
+
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jianloonggithubio" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/blog/entries/2019-11/singletonobserverpattern/" title="Singleton &amp; Observer Pattern (Java)"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/blog/entries/2019-11/minmax/" title="Min and Max value of an Array (Java)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/blog/js/clipboard.min.js?1602314912"></script>
+    <script src="/blog/js/perfect-scrollbar.min.js?1602314912"></script>
+    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1602314912"></script>
+    <script src="/blog/js/jquery.sticky.js?1602314912"></script>
+    <script src="/blog/js/featherlight.min.js?1602314912"></script>
+    <script src="/blog/js/highlight.pack.js?1602314912"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/blog/js/modernizr.custom-3.6.0.js?1602314912"></script>
+    <script src="/blog/js/learn.js?1602314912"></script>
+    <script src="/blog/js/hugo-learn.js?1602314912"></script>
+
+    <link href="/blog/mermaid/mermaid.css?1602314912" rel="stylesheet" />
+    <script src="/blog/mermaid/mermaid.js?1602314912"></script>
+    <script>
+        mermaid.initialize({
+          startOnLoad: true,
+          flowchart : {
+            curve: 'basis'
+          },
+          classDiagram: {
+            htmlLabels: true
+          }
+        });
+    </script>
+    
+
+  </body>
+</html>
+

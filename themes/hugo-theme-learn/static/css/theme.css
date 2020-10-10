@@ -56,7 +56,7 @@ body #chapter h1 {
     }
 }
 a {
-    color: #00bdf3;
+    color: #005AF3;
 }
 a:hover {
     color: #0082a7;
@@ -269,7 +269,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     font-size: 1.1rem;
 }
 #sidebar ul.topics > li > a b {
-    opacity: 0.5;
+    opacity: 1.0;
     font-weight: normal;
 }
 #sidebar ul.topics > li > a .fa {
@@ -508,32 +508,34 @@ div.notices p:first-child:after {
     left: 2rem;
 }
 div.notices.info p {
-    border-top: 30px solid #F0B37E;
+    border-top: 30px solid #B46118;
     background: #FFF2DB;
 }
 div.notices.info p:first-child:after {
     content: 'Info';
 }
 div.notices.warning p {
-    border-top: 30px solid rgba(217, 83, 79, 0.8);
+    border-top: 30px solid #A22925;
     background: #FAE2E2;
 }
 div.notices.warning p:first-child:after {
     content: 'Warning';
 }
 div.notices.note p {
-    border-top: 30px solid #6AB0DE;
+    border-top: 30px solid #1B567E;
     background: #E7F2FA;
 }
 div.notices.note p:first-child:after {
     content: 'Note';
+    color: #ffffff
 }
 div.notices.tip p {
-    border-top: 30px solid rgba(92, 184, 92, 0.8);
+    border-top: 30px solid #2E612E;
     background: #E6F9E6;
 }
 div.notices.tip p:first-child:after {
     content: 'Tip';
+    color: #ffffff
 }
 
 /* attachments shortcode */
@@ -1078,12 +1080,12 @@ pre .copy-to-clipboard {
     position: absolute;
     right: 4px;
     top: 4px;
-    background-color: #949bab;
+    background-color: #C1C4C6;
     color: #ccc;
     border-radius: 2px;
 }
 pre .copy-to-clipboard:hover {
-    background-color: #656c72;
+    background-color: #00bdf3;
     color: #fff;
 }
 .parent-element {
@@ -1129,4 +1131,21 @@ pre .copy-to-clipboard:hover {
 
 #searchResults {
     text-align: left;
+}
+
+option {
+    color: initial;
+}
+
+#prefooter > ul > li > a {
+  color: #ffffff
+}
+
+#footer > center > p {
+  color: #ffffff
+}
+
+#footer > center > p > a{
+  color: #ffffff;
+  font-weight: bolder;
 }

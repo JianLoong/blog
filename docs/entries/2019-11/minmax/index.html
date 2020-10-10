@@ -1,56 +1,1232 @@
-<!doctype html><html lang=en class="js csstransforms3d"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.62.0"><meta name=description content><link rel=icon href=/blog/images/favicon.ico type=image/ico><title>Min and Max value of an Array (Java) :: Jian Liew</title><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-55422968-1','auto');ga('send','pageview');}</script><link href=/blog/css/nucleus.css?1577416943 rel=stylesheet><link href=/blog/css/fontawesome-all.min.css?1577416943 rel=stylesheet><link href=/blog/css/hybrid.css?1577416943 rel=stylesheet><link href=/blog/css/featherlight.min.css?1577416943 rel=stylesheet><link href=/blog/css/perfect-scrollbar.min.css?1577416943 rel=stylesheet><link href=/blog/css/auto-complete.css?1577416943 rel=stylesheet><link href=/blog/css/atom-one-dark-reasonable.css?1577416943 rel=stylesheet><link href=/blog/css/theme.css?1577416943 rel=stylesheet><link href=/blog/css/hugo-theme.css?1577416943 rel=stylesheet><link href=/blog/css/theme-blue.css?1577416943 rel=stylesheet><script src=/blog/js/jquery-3.3.1.min.js?1577416943></script><style>:root #header+#content>#left>#rlblock_left{display:none!important}</style></head><body data-url=/blog/entries/2019-11/minmax/><nav id=sidebar><div id=header-wrapper><div id=header><a id=logo href=https://jianliew.me/blog>Jian</a></div><div class=searchbox><label for=search-by><i class="fas fa-search"></i></label><input data-search-input id=search-by type=search placeholder=Search...>
-<span data-search-clear><i class="fas fa-times"></i></span></div><script type=text/javascript src=/blog/js/lunr.min.js?1577416943></script><script type=text/javascript src=/blog/js/auto-complete.js?1577416943></script><script type=text/javascript>var baseurl="https:\/\/jianliew.me\/blog";</script><script type=text/javascript src=/blog/js/search.js?1577416943></script></div><div class=highlightable><ul class=topics><li data-nav-id=/blog/entries/ title=Blog class="dd-item
-parent"><a href=/blog/entries/><b></b>Blog</a><ul><li data-nav-id=/blog/entries/2019-11/ title="November 2019" class="dd-item
-parent"><a href=/blog/entries/2019-11/><b></b>November 2019</a><ul><li data-nav-id=/blog/entries/2019-11/firestore/ title="Nested Data in Documents (FireStore)" class=dd-item><a href=/blog/entries/2019-11/firestore/><b>&nbsp;1st. </b>Nested Data in Documents (FireStore)</a></li><li data-nav-id=/blog/entries/2019-11/singletonobserverpattern/ title="Singleton & Observer Pattern (Java)" class=dd-item><a href=/blog/entries/2019-11/singletonobserverpattern/><b>&nbsp;3th. </b>Singleton & Observer Pattern (Java)</a></li><li data-nav-id=/blog/entries/2019-11/javascriptsort/ title="JavaScript Sort Stability" class=dd-item><a href=/blog/entries/2019-11/javascriptsort/><b>&nbsp;4th. </b>JavaScript Sort Stability</a></li><li data-nav-id=/blog/entries/2019-11/minmax/ title="Min and Max value of an Array (Java)" class="dd-item active"><a href=/blog/entries/2019-11/minmax/><b>&nbsp;6th. </b>Min and Max value of an Array (Java)</a></li><li data-nav-id=/blog/entries/2019-11/programmingtoaninterface/ title="Programming to an Interface (Java)" class=dd-item><a href=/blog/entries/2019-11/programmingtoaninterface/><b>&nbsp;7th. </b>Programming to an Interface (Java)</a></li><li data-nav-id=/blog/entries/2019-11/foreignkeys/ title="Foreign Key Constraint" class=dd-item><a href=/blog/entries/2019-11/foreignkeys/><b>&nbsp;9th. </b>Foreign Key Constraint</a></li></ul></li></ul></li><li data-nav-id=/blog/archive/ title=Archive class=dd-item><a href=/blog/archive/><b></b>Archive</a><ul><li data-nav-id=/blog/archive/2019-10/ title="October 2019" class=dd-item><a href=/blog/archive/2019-10/><b></b>October 2019</a><ul><li data-nav-id=/blog/archive/2019-10/guard/ title="Explicit Else (Guard)" class=dd-item><a href=/blog/archive/2019-10/guard/><b>&nbsp;1st. </b>Explicit Else (Guard)</a></li><li data-nav-id=/blog/archive/2019-10/percentage/ title="Reddit Chart" class=dd-item><a href=/blog/archive/2019-10/percentage/><b>&nbsp;9th. </b>Reddit Chart</a></li><li data-nav-id=/blog/archive/2019-10/programmming/ title="Reddit Word Cloud" class=dd-item><a href=/blog/archive/2019-10/programmming/><b>12th. </b>Reddit Word Cloud</a></li><li data-nav-id=/blog/archive/2019-10/hk/ title="Sentiment Analysis" class=dd-item><a href=/blog/archive/2019-10/hk/><b>13th. </b>Sentiment Analysis</a></li><li data-nav-id=/blog/archive/2019-10/topstories/ title="Hacker News Word Cloud" class=dd-item><a href=/blog/archive/2019-10/topstories/><b>14th. </b>Hacker News Word Cloud</a></li><li data-nav-id=/blog/archive/2019-10/ga/ title="Genetic Algorithm" class=dd-item><a href=/blog/archive/2019-10/ga/><b>19th. </b>Genetic Algorithm</a></li><li data-nav-id=/blog/archive/2019-10/tsp/ title="TSP using GA" class=dd-item><a href=/blog/archive/2019-10/tsp/><b>23th. </b>TSP using GA</a></li><li data-nav-id=/blog/archive/2019-10/promiseall/ title="Promise All" class=dd-item><a href=/blog/archive/2019-10/promiseall/><b>25th. </b>Promise All</a></li><li data-nav-id=/blog/archive/2019-10/nearestneighbour/ title="k-Nearest Neighbour on Maps" class=dd-item><a href=/blog/archive/2019-10/nearestneighbour/><b>27th. </b>k-Nearest Neighbour on Maps</a></li><li data-nav-id=/blog/archive/2019-10/java13/ title="Java 13 on Ubuntu" class=dd-item><a href=/blog/archive/2019-10/java13/><b>28th. </b>Java 13 on Ubuntu</a></li><li data-nav-id=/blog/archive/2019-10/voronoi/ title="Voronoi Diagram" class=dd-item><a href=/blog/archive/2019-10/voronoi/><b>29th. </b>Voronoi Diagram</a></li></ul></li></ul></li></ul><section id=shortcuts><h3>More</h3><ul><li><a class=padding href=https://jianliew.me/blog/cv><i class="far fa-file fa-fw"></i>&nbsp;Curriculum Vitae</a></li><li><a class=padding href=https://jianliew.me/blog/timeline><i class="fas fa-history fa-fw"></i>&nbsp;Time Line</a></li><li><a class=padding href=https://jianliew.me/blog/tags><i class="fas fa-tags fa-fw"></i>&nbsp;Tags</a></li><li><a class=padding href=https://jianliew.me/blog/disclaimer><i class="fas fa-exclamation-triangle fa-fw"></i>&nbsp;Disclaimer</a></li><li><a class=padding href=https://github.com/JianLoong><i class="fab fa-github fa-fw"></i>&nbsp;GitHub Repo</a></li><li><a class=padding href=https://au.linkedin.com/in/jian-loong-liew-0433ab39><i class="fab fa-linkedin-in fa-fw"></i>&nbsp;Linkedin</a></li><li><a class=padding href=mailto:jianloongliew@gmail.com><i class="fas fa-envelope-square fa-fw"></i>&nbsp;Email</a></li></ul></section><section id=footer><p>Built with <a href=https://gohugo.io/>Hugo</a></p></section></div></nav><section id=body><div id=overlay></div><div class="padding highlightable"><div><div id=top-bar><div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb><span id=sidebar-toggle-span><a href=# id=sidebar-toggle data-sidebar-toggle><i class="fas fa-bars"></i></a></span><span id=toc-menu><i class="fas fa-list-alt"></i></span><span class=links><a href=/blog/>Contents</a> > <a href=/blog/entries/>Blog</a> > <a href=/blog/entries/2019-11/>November 2019</a> > Min and Max value of an Array (Java)</span></div><div class=progress><div class=wrapper><nav id=TableOfContents><ul><li><ul><li></li></ul></li></ul></nav></div></div></div></div><div id=head-tags><div class=tags><a class=tag-link href=/blog/tags/sort>Sort</a>
-<a class=tag-link href=/blog/tags/java>Java</a>
-<a class=tag-link href=/blog/tags/streams>Streams</a></div></div><div id=body-inner><h1>Min and Max value of an Array (Java)</h1><p>Posted on: <strong>Wednesday, November 6, 2019</strong></p><p>Reading time: <strong>3 minutes and
-44 seconds.</strong></p><hr><div class="notices note"><p>There are many ways to obtain the min and maximum value of items inside of an Array. This blog post will show case its many ways.</p></div><p>The most basic way to do this is to loop through the entire array manually. The benefit of doing it this way, is that it just relies on the standard library and can be easily rewritten to an even simpler form. This way uses the <strong>Math.max</strong> and <strong>Math.min</strong> method. It will also, store the min value as the <strong>Integer.MAX_VALUE</strong> as the initial value and vice versa. One other way to do it would be to keep the first index as the minimum and maximum value. So, instead of using Integer.MAX_VALUE and Integer.MIN_VALUE, the values for <strong>min and max</strong> would be numbers[0] instead.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>usingManual</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span><span style=color:#f92672>[</span><span style=color:#f92672>]</span> numbers<span style=color:#f92672>)</span><span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>numbers<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span> <span style=color:#f92672>=</span><span style=color:#f92672>=</span> 0<span style=color:#f92672>)</span>
-        <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> IllegalArgumentException<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Invalid array&#34;</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-    <span style=color:#66d9ef>int</span> min <span style=color:#f92672>=</span> Integer<span style=color:#f92672>.</span><span style=color:#a6e22e>MAX_VALUE</span><span style=color:#f92672>;</span>
-    <span style=color:#66d9ef>int</span> max <span style=color:#f92672>=</span> Integer<span style=color:#f92672>.</span><span style=color:#a6e22e>MIN_VALUE</span><span style=color:#f92672>;</span>
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.75.1" />
+    <meta name="description" content="">
 
-    <span style=color:#66d9ef>for</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span> value <span style=color:#f92672>:</span> numbers<span style=color:#f92672>)</span><span style=color:#f92672>{</span>
-        <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>value <span style=color:#f92672>&gt;</span> max<span style=color:#f92672>)</span>
-            max <span style=color:#f92672>=</span> Math<span style=color:#f92672>.</span><span style=color:#a6e22e>max</span><span style=color:#f92672>(</span>max<span style=color:#f92672>,</span> value<span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-        <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>value <span style=color:#f92672>&lt;</span> min<span style=color:#f92672>)</span>
-            min <span style=color:#f92672>=</span> Math<span style=color:#f92672>.</span><span style=color:#a6e22e>min</span><span style=color:#f92672>(</span>min<span style=color:#f92672>,</span> value<span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-    <span style=color:#f92672>}</span>
 
-    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Min is &#34;</span> <span style=color:#f92672>+</span> min<span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Max is &#34;</span> <span style=color:#f92672>+</span> max<span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-<span style=color:#f92672>}</span>
-</code></pre></div><p align=center>Method 1. Using the <strong>manual method.</strong></p><p>Another way would be to <strong>sort</strong> the array. The first index would be the least and the last index would be the maximum. This is easily done using the <strong>Array.sort</strong> method. The issue with this way is that it would sort the array in place and it also rely on the inbuilt sort method. It is <strong>generally</strong> a bad idea to use a sort in a method you want to obtain the minimum and maximum because users of this method would not expect this method to be sorting the array itself. Thus, it is better to create a <strong>clone</strong> of it or a <strong>copy</strong> of the numbers array itself so that you do not sort the elements in place but sort the <strong>cloned</strong> array instead. It is also interesting to take note that the default implementation of the sorting algorithm uses a <strong>Dual-Pivot Quicksort</strong>.</p><div class="notices warning"><p>It is a good idea to do a <strong>clone</strong> on the array and save it into another variable. The reason for this is because, users of the method does not expect it for you to sort their array when the method is used. A method at the end of the day should only do a single thing.</p></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>usingSort</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span><span style=color:#f92672>[</span><span style=color:#f92672>]</span> numbers<span style=color:#f92672>)</span><span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>numbers<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span> <span style=color:#f92672>=</span><span style=color:#f92672>=</span> 0<span style=color:#f92672>)</span>
-        <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> IllegalArgumentException<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Invalid array&#34;</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-    <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span><span style=color:#f92672>]</span> clonedArray <span style=color:#f92672>=</span> numbers<span style=color:#f92672>.</span><span style=color:#a6e22e>clone</span><span style=color:#f92672>(</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-    Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>sort</span><span style=color:#f92672>(</span>clonedArray<span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Min is &#34;</span> <span style=color:#f92672>+</span> clonedArray<span style=color:#f92672>[</span>0<span style=color:#f92672>]</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Max is &#34;</span> <span style=color:#f92672>+</span> clonedArray<span style=color:#f92672>[</span>clonedArray<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span> <span style=color:#f92672>-</span> 1<span style=color:#f92672>]</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-<span style=color:#f92672>}</span>
-</code></pre></div><p align=center>Method 2. Using the in-built <strong>Arrays.sort</strong>.</p><p>You can also use a stream as well. However, it is only available in later versions of Java. The <strong>IntStream</strong> is only available since Java 1.8 and considerations need to be taken into account when using it. Here, there are is a need to decide if a <strong>parallel</strong> stream should be used as well.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>
-<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>usingIntStream</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span><span style=color:#f92672>[</span><span style=color:#f92672>]</span> numbers<span style=color:#f92672>)</span><span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>numbers<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span> <span style=color:#f92672>=</span><span style=color:#f92672>=</span> 0<span style=color:#f92672>)</span>
-        <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> IllegalArgumentException<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Invalid array&#34;</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>    
-    IntStream intStream <span style=color:#f92672>=</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>stream</span><span style=color:#f92672>(</span>numbers<span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Min is &#34;</span> <span style=color:#f92672>+</span> intStream<span style=color:#f92672>.</span><span style=color:#a6e22e>min</span><span style=color:#f92672>(</span><span style=color:#f92672>)</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Max is &#34;</span> <span style=color:#f92672>+</span> intStream<span style=color:#f92672>.</span><span style=color:#a6e22e>max</span><span style=color:#f92672>(</span><span style=color:#f92672>)</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-<span style=color:#f92672>}</span>
-</code></pre></div><p align=center>Method 3. Using <strong>streams</strong></p><p>Another way to do it is using the summaryStatistics of the int stream class. This is basically a <strong>state object</strong> for collecting statistics such as count, min max, sum and average. This would potentially be one of the better ways. This reason it is probably one of the better ways is because the <strong>IntSummaryStatistics</strong> is able to store other information as well besides the min and max, thus increasing its re-usability. So, there is no need for the iteration of the array itself again.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>usingSummaryStats</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span><span style=color:#f92672>[</span><span style=color:#f92672>]</span> numbers<span style=color:#f92672>)</span><span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>numbers<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span> <span style=color:#f92672>=</span><span style=color:#f92672>=</span> 0<span style=color:#f92672>)</span>
-        <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> IllegalArgumentException<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Invalid array&#34;</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>    
-    IntSummaryStatistics stats <span style=color:#f92672>=</span> Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>stream</span><span style=color:#f92672>(</span>numbers<span style=color:#f92672>)</span><span style=color:#f92672>.</span><span style=color:#a6e22e>summaryStatistics</span><span style=color:#f92672>(</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Min is &#34;</span> <span style=color:#f92672>+</span> stats<span style=color:#f92672>.</span><span style=color:#a6e22e>getMin</span><span style=color:#f92672>(</span><span style=color:#f92672>)</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Max is &#34;</span> <span style=color:#f92672>+</span> stats<span style=color:#f92672>.</span><span style=color:#a6e22e>getMax</span><span style=color:#f92672>(</span><span style=color:#f92672>)</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-<span style=color:#f92672>}</span>
-</code></pre></div><p align=center>Method 4. Using the <strong>IntSummaryStatistics</strong></p><div class="notices tip"><p>Using the <strong>IntSummaryStatistics</strong> way is probably the preferred way if you are running Java 8 and above.</p></div><p>Finally, you can also use a Collections class to do it. However, in order to do so, you must <strong>box</strong> the primitive values into their class equivalent. It is important to know that this method <strong>iterates over the entire collection</strong>, hence it requires time proportional to the size of the collection.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>usingCollections</span><span style=color:#f92672>(</span><span style=color:#66d9ef>int</span><span style=color:#f92672>[</span><span style=color:#f92672>]</span> numbers<span style=color:#f92672>)</span><span style=color:#f92672>{</span>
-    <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>numbers<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span> <span style=color:#f92672>=</span><span style=color:#f92672>=</span> 0<span style=color:#f92672>)</span>
-        <span style=color:#66d9ef>throw</span> <span style=color:#66d9ef>new</span> IllegalArgumentException<span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Invalid array&#34;</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-    List<span style=color:#f92672>&lt;</span>Integer<span style=color:#f92672>&gt;</span> integerList <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;</span><span style=color:#f92672>&gt;</span><span style=color:#f92672>(</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-    Arrays<span style=color:#f92672>.</span><span style=color:#a6e22e>stream</span><span style=color:#f92672>(</span>numbers<span style=color:#f92672>)</span><span style=color:#f92672>.</span><span style=color:#a6e22e>forEach</span><span style=color:#f92672>(</span>value <span style=color:#f92672>-</span><span style=color:#f92672>&gt;</span> integerList<span style=color:#f92672>.</span><span style=color:#a6e22e>add</span><span style=color:#f92672>(</span>value<span style=color:#f92672>)</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>Collections<span style=color:#f92672>.</span><span style=color:#a6e22e>min</span><span style=color:#f92672>(</span>integerList<span style=color:#f92672>)</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>Collections<span style=color:#f92672>.</span><span style=color:#a6e22e>max</span><span style=color:#f92672>(</span>integerList<span style=color:#f92672>)</span><span style=color:#f92672>)</span><span style=color:#f92672>;</span>
-<span style=color:#f92672>}</span>
+    <link rel="icon" href="/blog/images/favicon.ico" type="image/ico">
 
-</code></pre></div><p align=center>Method 5. Using the <strong>Collections</strong> class.</p><p>Finally, you can also use the <strong>Guava</strong> library to do it.</p><h4 id=summary>Summary</h4><p>There are many ways to obtain the <em>min</em> and <em>max</em> of an array in Java. My personal preference is that, if you are using Java 8 or higher, it would better to use the <strong>IntSummaryStatistics</strong> method, otherwise the classical way where a loop is written would be preferred. Besides that, it is also not a very good idea for your method to do two things, thus it would be better to introduce two methods instead, but if you are using the IntSummaryStatistics method, you can avoid these needless complexities.</p><footer class=footline></footer></div><div id=disqus_thread></div><script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return;}
-var d=document,s=d.createElement('script');s.async=true;s.src='//'+"jianloonggithubio"+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><div id=navigation><a class="nav nav-prev" href=/blog/entries/2019-11/javascriptsort/ title="JavaScript Sort Stability"><i class="fa fa-chevron-left"></i></a><a class="nav nav-next" href=/blog/entries/2019-11/programmingtoaninterface/ title="Programming to an Interface (Java)" style=margin-right:0><i class="fa fa-chevron-right"></i></a></div></section><div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px><div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=/blog/js/clipboard.min.js?1577416943></script><script src=/blog/js/perfect-scrollbar.min.js?1577416943></script><script src=/blog/js/perfect-scrollbar.jquery.min.js?1577416943></script><script src=/blog/js/jquery.sticky.js?1577416943></script><script src=/blog/js/featherlight.min.js?1577416943></script><script src=/blog/js/highlight.pack.js?1577416943></script><script>hljs.initHighlightingOnLoad();</script><script src=/blog/js/modernizr.custom-3.6.0.js?1577416943></script><script src=/blog/js/learn.js?1577416943></script><script src=/blog/js/hugo-learn.js?1577416943></script><link href=/blog/mermaid/mermaid.css?1577416943 rel=stylesheet><script src=/blog/mermaid/mermaid.js?1577416943></script><script>mermaid.initialize({startOnLoad:true,flowchart:{curve:'basis'},classDiagram:{htmlLabels:true}});</script></body></html>
+    <title>Min and Max value of an Array (Java) :: Jian Liew</title>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-55422968-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    <link href="/blog/css/nucleus.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/fontawesome-all.min.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/hybrid.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/featherlight.min.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/perfect-scrollbar.min.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/auto-complete.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/atom-one-dark-reasonable.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/theme.css?1602314912" rel="stylesheet">
+    <link href="/blog/css/hugo-theme.css?1602314912" rel="stylesheet">
+    
+      <link href="/blog/css/theme-blue.css?1602314912" rel="stylesheet">
+    
+
+    <script src="/blog/js/jquery-3.3.1.min.js?1602314912"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/blog/entries/2019-11/minmax/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="https://jianliew.me/blog">
+  Jian
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/blog/js/lunr.min.js?1602314912"></script>
+<script type="text/javascript" src="/blog/js/auto-complete.js?1602314912"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/jianliew.me\/blog";
+    
+</script>
+<script type="text/javascript" src="/blog/js/search.js?1602314912"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/blog/entries/" title="Blog" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/blog/entries/">
+          <b></b>Blog
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/blog/entries/2019-11/" title="November 2019" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/blog/entries/2019-11/">
+          <b></b>November 2019
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/entries/2019-11/firestore/" title="Nested Data in Documents (FireStore)" class="dd-item ">
+        <a href="/blog/entries/2019-11/firestore/">
+        <b>&nbsp;1st. </b>Nested Data in Documents (FireStore)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/entries/2019-11/singletonobserverpattern/" title="Singleton &amp; Observer Pattern (Java)" class="dd-item ">
+        <a href="/blog/entries/2019-11/singletonobserverpattern/">
+        <b>&nbsp;3th. </b>Singleton &amp; Observer Pattern (Java)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/entries/2019-11/javascriptsort/" title="JavaScript Sort Stability" class="dd-item ">
+        <a href="/blog/entries/2019-11/javascriptsort/">
+        <b>&nbsp;4th. </b>JavaScript Sort Stability
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/entries/2019-11/minmax/" title="Min and Max value of an Array (Java)" class="dd-item active">
+        <a href="/blog/entries/2019-11/minmax/">
+        <b>&nbsp;6th. </b>Min and Max value of an Array (Java)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/entries/2019-11/programmingtoaninterface/" title="Programming to an Interface (Java)" class="dd-item ">
+        <a href="/blog/entries/2019-11/programmingtoaninterface/">
+        <b>&nbsp;7th. </b>Programming to an Interface (Java)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/entries/2019-11/foreignkeys/" title="Foreign Key Constraint" class="dd-item ">
+        <a href="/blog/entries/2019-11/foreignkeys/">
+        <b>&nbsp;9th. </b>Foreign Key Constraint
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/blog/archive/" title="Archive" class="dd-item
+        
+        
+        
+        ">
+      <a href="/blog/archive/">
+          <b></b>Archive
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/blog/archive/2019-10/" title="October 2019" class="dd-item
+        
+        
+        
+        ">
+      <a href="/blog/archive/2019-10/">
+          <b></b>October 2019
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/guard/" title="Explicit Else (Guard)" class="dd-item ">
+        <a href="/blog/archive/2019-10/guard/">
+        <b>&nbsp;1st. </b>Explicit Else (Guard)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/percentage/" title="Reddit Chart" class="dd-item ">
+        <a href="/blog/archive/2019-10/percentage/">
+        <b>&nbsp;9th. </b>Reddit Chart
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/programmming/" title="Reddit Word Cloud " class="dd-item ">
+        <a href="/blog/archive/2019-10/programmming/">
+        <b>12th. </b>Reddit Word Cloud 
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/hk/" title="Sentiment Analysis" class="dd-item ">
+        <a href="/blog/archive/2019-10/hk/">
+        <b>13th. </b>Sentiment Analysis
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/topstories/" title="Hacker News Word Cloud " class="dd-item ">
+        <a href="/blog/archive/2019-10/topstories/">
+        <b>14th. </b>Hacker News Word Cloud 
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/ga/" title="Genetic Algorithm" class="dd-item ">
+        <a href="/blog/archive/2019-10/ga/">
+        <b>19th. </b>Genetic Algorithm
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/tsp/" title="TSP using GA" class="dd-item ">
+        <a href="/blog/archive/2019-10/tsp/">
+        <b>23th. </b>TSP using GA
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/promiseall/" title="Promise All" class="dd-item ">
+        <a href="/blog/archive/2019-10/promiseall/">
+        <b>25th. </b>Promise All
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/nearestneighbour/" title="k-Nearest Neighbour on Maps" class="dd-item ">
+        <a href="/blog/archive/2019-10/nearestneighbour/">
+        <b>27th. </b>k-Nearest Neighbour on Maps
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/java13/" title="Java 13 on Ubuntu" class="dd-item ">
+        <a href="/blog/archive/2019-10/java13/">
+        <b>28th. </b>Java 13 on Ubuntu
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/blog/archive/2019-10/voronoi/" title="Voronoi Diagram" class="dd-item ">
+        <a href="/blog/archive/2019-10/voronoi/">
+        <b>29th. </b>Voronoi Diagram
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://jianliew.me/blog/cv"><i class='far fa-file fa-fw'></i>&nbsp;Curriculum Vitae</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://jianliew.me/blog/timeline"><i class='fas fa-history fa-fw'></i>&nbsp;Time Line</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://jianliew.me/blog/tags"><i class='fas fa-tags fa-fw'></i>&nbsp;Tags</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://jianliew.me/blog/disclaimer"><i class='fas fa-exclamation-triangle fa-fw'></i>&nbsp;Disclaimer</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://github.com/JianLoong"><i class='fab fa-github fa-fw'></i>&nbsp;GitHub Repo</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://au.linkedin.com/in/jian-loong-liew-0433ab39"><i class='fab fa-linkedin-in fa-fw'></i>&nbsp;Linkedin</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="mailto:jianloongliew@gmail.com"><i class='fas fa-envelope-square fa-fw'></i>&nbsp;Email</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/blog/'>Contents</a> > <a href='/blog/entries/'>Blog</a> > <a href='/blog/entries/2019-11/'>November 2019</a> > Min and Max value of an Array (Java)
+          
+        
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/blog/tags/sort">Sort</a>
+
+  <a class="tag-link" href="/blog/tags/java">Java</a>
+
+  <a class="tag-link" href="/blog/tags/streams">Streams</a>
+
+</div>
+
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Min and Max value of an Array (Java)
+            </h1>
+          
+
+        
+
+
+
+
+
+
+
+
+
+  <p>Posted on: <strong> Wednesday, November 6, 2019</strong></p>
+
+<p>Reading time: <strong>3 minutes and
+    44 seconds.</strong></p>
+<hr />
+
+
+
+<div class="notices note" ><p>There are many ways to obtain the min and maximum value of items inside of an Array. This blog post will show case its many ways.</p>
+</div>
+
+<p>The most basic way to do this is to loop through the entire array manually. The benefit of doing it this way, is that it just relies on the standard library and can be easily rewritten to an even simpler form. This way uses the <strong>Math.max</strong> and <strong>Math.min</strong> method. It will also, store the min value as the <strong>Integer.MAX_VALUE</strong> as the initial value and vice versa. One other way to do it would be to keep the first index as the minimum and maximum value. So, instead of using Integer.MAX_VALUE and Integer.MIN_VALUE, the values for <strong>min and max</strong> would be numbers[0] instead.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">usingManual</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> numbers<span style="color:#f92672">){</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>numbers<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span>
+        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Invalid array&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">int</span> min <span style="color:#f92672">=</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">MAX_VALUE</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">int</span> max <span style="color:#f92672">=</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">MIN_VALUE</span><span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> value <span style="color:#f92672">:</span> numbers<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>value <span style="color:#f92672">&gt;</span> max<span style="color:#f92672">)</span>
+            max <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>max<span style="color:#f92672">,</span> value<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>value <span style="color:#f92672">&lt;</span> min<span style="color:#f92672">)</span>
+            min <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">min</span><span style="color:#f92672">(</span>min<span style="color:#f92672">,</span> value<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Min is &#34;</span> <span style="color:#f92672">+</span> min<span style="color:#f92672">);</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Max is &#34;</span> <span style="color:#f92672">+</span> max<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p align="center">Method 1. Using the <strong>manual method.</strong> </p>
+<p>Another way would be to <strong>sort</strong> the array. The first index would be the least and the last index would be the maximum. This is easily done using the <strong>Array.sort</strong> method. The issue with this way is that it would sort the array in place and it also rely on the inbuilt sort method. It is <strong>generally</strong> a bad idea to use a sort in a method you want to obtain the minimum and maximum because users of this method would not expect this method to be sorting the array itself. Thus, it is better to create a <strong>clone</strong> of it or a <strong>copy</strong> of the numbers array itself so that you do not sort the elements in place but sort the <strong>cloned</strong> array instead. It is also interesting to take note that the default implementation of the sorting algorithm uses a <strong>Dual-Pivot Quicksort</strong>.</p>
+
+<div class="notices warning" ><p>It is a good idea to do a <strong>clone</strong> on the array and save it into another variable. The reason for this is because, users of the method does not expect it for you to sort their array when the method is used. A method at the end of the day should only do a single thing.</p>
+</div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">usingSort</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> numbers<span style="color:#f92672">){</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>numbers<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span>
+        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Invalid array&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> clonedArray <span style="color:#f92672">=</span> numbers<span style="color:#f92672">.</span><span style="color:#a6e22e">clone</span><span style="color:#f92672">();</span>
+    Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span>clonedArray<span style="color:#f92672">);</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Min is &#34;</span> <span style="color:#f92672">+</span> clonedArray<span style="color:#f92672">[</span>0<span style="color:#f92672">]);</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Max is &#34;</span> <span style="color:#f92672">+</span> clonedArray<span style="color:#f92672">[</span>clonedArray<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">]);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p align="center">Method 2. Using the in-built <strong>Arrays.sort</strong>. </p>
+<p>You can also use a stream as well. However, it is only available in later versions of Java. The <strong>IntStream</strong> is only available since Java 1.8 and considerations need to be taken into account when using it. Here, there are is a need to decide if a <strong>parallel</strong> stream should be used as well.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">usingIntStream</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> numbers<span style="color:#f92672">){</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>numbers<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span>
+        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Invalid array&#34;</span><span style="color:#f92672">);</span>    
+    IntStream intStream <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">(</span>numbers<span style="color:#f92672">);</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Min is &#34;</span> <span style="color:#f92672">+</span> intStream<span style="color:#f92672">.</span><span style="color:#a6e22e">min</span><span style="color:#f92672">());</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Max is &#34;</span> <span style="color:#f92672">+</span> intStream<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">());</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p align="center">Method 3. Using <strong>streams</strong> </p>
+<p>Another way to do it is using the summaryStatistics of the int stream class. This is basically a <strong>state object</strong> for collecting statistics such as count, min max, sum and average. This would potentially be one of the better ways. This reason it is probably one of the better ways is because the <strong>IntSummaryStatistics</strong> is able to store other information as well besides the min and max, thus increasing its re-usability. So, there is no need for the iteration of the array itself again.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">usingSummaryStats</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> numbers<span style="color:#f92672">){</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>numbers<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span>
+        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Invalid array&#34;</span><span style="color:#f92672">);</span>    
+    IntSummaryStatistics stats <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">(</span>numbers<span style="color:#f92672">).</span><span style="color:#a6e22e">summaryStatistics</span><span style="color:#f92672">();</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Min is &#34;</span> <span style="color:#f92672">+</span> stats<span style="color:#f92672">.</span><span style="color:#a6e22e">getMin</span><span style="color:#f92672">());</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Max is &#34;</span> <span style="color:#f92672">+</span> stats<span style="color:#f92672">.</span><span style="color:#a6e22e">getMax</span><span style="color:#f92672">());</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p align="center">Method 4. Using the <strong>IntSummaryStatistics</strong> </p>
+
+<div class="notices tip" ><p>Using the <strong>IntSummaryStatistics</strong> way is probably the preferred way if you are running Java 8 and above.</p>
+</div>
+
+<p>Finally, you can also use a Collections class to do it. However, in order to do so, you must <strong>box</strong> the primitive values into their class equivalent. It is important to know that this method <strong>iterates over the entire collection</strong>, hence it requires time proportional to the size of the collection.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">usingCollections</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> numbers<span style="color:#f92672">){</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>numbers<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span>
+        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Invalid array&#34;</span><span style="color:#f92672">);</span>
+    List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> integerList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+    Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">(</span>numbers<span style="color:#f92672">).</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>value <span style="color:#f92672">-&gt;</span> integerList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>value<span style="color:#f92672">));</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">min</span><span style="color:#f92672">(</span>integerList<span style="color:#f92672">));</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>integerList<span style="color:#f92672">));</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><p align="center">Method 5. Using the <strong>Collections</strong> class.</p>
+<p>Finally, you can also use the <strong>Guava</strong> library to do it.</p>
+<h4 id="summary">Summary</h4>
+<p>There are many ways to obtain the <em>min</em> and <em>max</em> of an array in Java. My personal preference is that, if you are using Java 8 or higher, it would better to use the <strong>IntSummaryStatistics</strong> method, otherwise the classical way where a loop is written would be preferred. Besides that, it is also not a very good idea for your method to do two things, thus it would be better to introduce two methods instead, but if you are using the IntSummaryStatistics method, you can avoid these needless complexities.</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div>
+        
+
+
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "jianloonggithubio" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/blog/entries/2019-11/javascriptsort/" title="JavaScript Sort Stability"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/blog/entries/2019-11/programmingtoaninterface/" title="Programming to an Interface (Java)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/blog/js/clipboard.min.js?1602314912"></script>
+    <script src="/blog/js/perfect-scrollbar.min.js?1602314912"></script>
+    <script src="/blog/js/perfect-scrollbar.jquery.min.js?1602314912"></script>
+    <script src="/blog/js/jquery.sticky.js?1602314912"></script>
+    <script src="/blog/js/featherlight.min.js?1602314912"></script>
+    <script src="/blog/js/highlight.pack.js?1602314912"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/blog/js/modernizr.custom-3.6.0.js?1602314912"></script>
+    <script src="/blog/js/learn.js?1602314912"></script>
+    <script src="/blog/js/hugo-learn.js?1602314912"></script>
+
+    <link href="/blog/mermaid/mermaid.css?1602314912" rel="stylesheet" />
+    <script src="/blog/mermaid/mermaid.js?1602314912"></script>
+    <script>
+        mermaid.initialize({
+          startOnLoad: true,
+          flowchart : {
+            curve: 'basis'
+          },
+          classDiagram: {
+            htmlLabels: true
+          }
+        });
+    </script>
+    
+
+  </body>
+</html>
+
