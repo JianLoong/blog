@@ -296,7 +296,7 @@ var chart = new Chartist.Line(
 );
 
 if (window.Worker) {
-  const tspWorker = new Worker("/blog/scripts/tsp-worker.js");
+  const tspWorker = new Worker("/scripts/tsp-worker.js");
 
   tspWorker.onmessage = function(e) {
     let result = "A" + e.data[0] + "A";

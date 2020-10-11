@@ -508,28 +508,28 @@ div.notices p:first-child:after {
     left: 2rem;
 }
 div.notices.info p {
-    border-top: 30px solid #F0B37E;
+    border-top: 30px solid #B46118;
     background: #FFF2DB;
 }
 div.notices.info p:first-child:after {
     content: 'Info';
 }
 div.notices.warning p {
-    border-top: 30px solid rgba(217, 83, 79, 0.8);
+    border-top: 30px solid #A22925;
     background: #FAE2E2;
 }
 div.notices.warning p:first-child:after {
     content: 'Warning';
 }
 div.notices.note p {
-    border-top: 30px solid #6AB0DE;
+    border-top: 30px solid #1B567E;
     background: #E7F2FA;
 }
 div.notices.note p:first-child:after {
     content: 'Note';
 }
 div.notices.tip p {
-    border-top: 30px solid rgba(92, 184, 92, 0.8);
+    border-top: 30px solid #2E612E;
     background: #E6F9E6;
 }
 div.notices.tip p:first-child:after {
