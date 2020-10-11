@@ -7,7 +7,7 @@ draft = false
 tags = ["Genetic Algorithm", "Selection", "Cross Over", "Phrase Solver"]
 +++
 
-<link href="/blog/css/site.css" rel="stylesheet">
+<link href="/css/site.css" rel="stylesheet">
 
 {{% notice note %}}
 
@@ -97,7 +97,7 @@ $(".result-table").hide();
 
 
 if (window.Worker) {
-  const myWorker = new Worker("/blog/scripts/ga-worker.js");
+  const myWorker = new Worker("/scripts/ga-worker.js");
   let isResultTableShown = false;
 
   cm.onchange = function() {

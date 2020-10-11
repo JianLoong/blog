@@ -29,7 +29,7 @@ Please note that the posts here are generated based on the Reddit website by doi
 
 <div class="result"></div>
 
-<script src="/blog/scripts/afinn-111.js"></script>
+<script src="/scripts/afinn-111.js"></script>
 
 <script>
 

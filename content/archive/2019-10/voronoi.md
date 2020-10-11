@@ -8,7 +8,7 @@ tags= ["Nearest Neighbour", "Maps", "Voronoi"]
 +++
 
 <script src="https://unpkg.com/d3@5.12.0/dist/d3.min.js"></script>
-<script src="/blog/scripts/d3-delaunay.min.js"></script>
+<script src="/scripts/d3-delaunay.min.js"></script>
 
 {{% notice note %}}
 
