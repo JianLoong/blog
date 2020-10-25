@@ -16,7 +16,7 @@ pygmentsStyle = "monokai"
     extra = true
 
 [taxonomies]
-    tags = "tags"
+    tag = "tags"
     
 [params]
     themeVariant = "blue"
